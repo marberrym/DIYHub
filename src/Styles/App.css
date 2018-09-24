@@ -1,3 +1,7 @@
+:root {
+    --header-font: 'Bungee', cursive;
+}
+
 .navBar {
     height: 3em;
     background-color: whitesmoke;
@@ -6,6 +10,16 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+}
+
+.headFont {
+    font-family: 'Bungee', cursive;
+    font-size: 5em;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
 }
 
 .flexC {
