@@ -4,8 +4,22 @@ import './Styles/index.css';
 import App from './Screens/App';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './Router';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './Reducer';
+import initialState from './InitState';
 
-let app = <Router><App/></Router>
+
+
+let store = createStore(
+    reducer,
+    initialState,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+let app = <Provider store={store}>
+    <Router />
+</Provider>
 
 ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();

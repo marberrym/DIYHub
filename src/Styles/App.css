@@ -23,15 +23,30 @@
 }
 .navGear {
     height: 40px;
-    margin-right: 1em;
+    margin-left: 1em;
+    transition: .1s ease-in-out;
+}
+
+.navGear:hover {
+    animation: rotate .5s infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .navLink {
     font-family: var(--header-font);
     font-size: 1em;
-    color: whitesmoke;
-    text-shadow: var(--black-outline);
+    color: black;
     margin-left: 1em;
+    transition: .3s ease-in-out;
+}
+
+.navLink:hover {
+    transform: scale(1.2) translateY(5%);
 }
 
 .submitForm {
@@ -42,6 +57,12 @@
     border-radius: 1em;
     margin-top: 2em;
     justify-content: space-evenly;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.alignC {
+    text-align: center;
 }
 .margRight {
     margin-right: 1em;
