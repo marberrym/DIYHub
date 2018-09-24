@@ -1,6 +1,7 @@
 :root {
     --header-font: 'Bungee', cursive;
     --sub-font: 'Saira Semi Condensed', sans-serif;
+    --button-gradient: linear-gradient(90deg, rgba(73,73,143,1) 0%, rgba(237,237,241,1) 50%, rgba(73,73,143,1) 100%);
     --black-outline: -2px -2px 0 black,
     2px -2px 0 black,
     -2px 2px 0 black,
@@ -17,6 +18,9 @@
     justify-content: space-between;
 }
 
+.logo {
+    height: 10em;
+}
 .navGear {
     height: 40px;
     margin-right: 1em;
@@ -30,18 +34,21 @@
     margin-left: 1em;
 }
 
-.loginForm {
-    background-color: darkgray;
+.submitForm {
+    background-color: whitesmoke;
     border: 2px solid black;
     box-shadow: 2px 2px 20px black;
     padding: 1em;
     border-radius: 1em;
     margin-top: 2em;
-    height: 8em;
     justify-content: space-evenly;
 }
 .margRight {
     margin-right: 1em;
+}
+
+.marginB {
+    margin-bottom: 1em;
 }
 
 .button {
@@ -50,7 +57,16 @@
     padding-right: 2em;
     border-radius: .5em;
     font-family: var(--sub-font);
+    background: var(--button-gradient);
     border: 1px solid black;
+    transition: .3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    border: 1px solid whitesmoke;
+    background: black;
+    color: whitesmoke;
 }
 
 .subText {
@@ -63,7 +79,7 @@
 
 .headFont {
     font-family: var(--header-font);
-    font-size: 5em;
+    font-size: 3em;
     color: whitesmoke;
     text-shadow: var(--black-outline);
 }
@@ -77,4 +93,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .logo {
+        height: 15em;
+    }
+    .headFont {
+        font-size: 4em;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .logo {
+        height: 20em;
+    }
+    .headFont {
+        font-size: 5em;
+    }
+    
 }
