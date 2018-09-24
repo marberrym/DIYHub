@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './Styles/index.css';
 import App from './Screens/App';
 import registerServiceWorker from './registerServiceWorker';
+import Router from './Router';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let app = <Router><App/></Router>
+
+ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();

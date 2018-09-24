@@ -1,5 +1,10 @@
 :root {
     --header-font: 'Bungee', cursive;
+    --sub-font: 'Saira Semi Condensed', sans-serif;
+    --black-outline: -2px -2px 0 black,
+    2px -2px 0 black,
+    -2px 2px 0 black,
+    2px 2px 0 black;
 }
 
 .navBar {
@@ -12,9 +17,55 @@
     justify-content: space-between;
 }
 
+.navGear {
+    height: 40px;
+    margin-right: 1em;
+}
+
+.navLink {
+    font-family: var(--header-font);
+    font-size: 1em;
+    color: whitesmoke;
+    text-shadow: var(--black-outline);
+    margin-left: 1em;
+}
+
+.loginForm {
+    background-color: darkgray;
+    border: 2px solid black;
+    box-shadow: 2px 2px 20px black;
+    padding: 1em;
+    border-radius: 1em;
+    margin-top: 2em;
+    height: 8em;
+    justify-content: space-evenly;
+}
+.margRight {
+    margin-right: 1em;
+}
+
+.button {
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: .5em;
+    font-family: var(--sub-font);
+    border: 1px solid black;
+}
+
+.subText {
+    font-family: var(--sub-font);
+}
+
+.noDec {
+    text-decoration: none;
+}
+
 .headFont {
-    font-family: 'Bungee', cursive;
+    font-family: var(--header-font);
     font-size: 5em;
+    color: whitesmoke;
+    text-shadow: var(--black-outline);
 }
 
 .flex {
