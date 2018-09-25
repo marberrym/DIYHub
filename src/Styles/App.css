@@ -23,15 +23,30 @@
 }
 .navGear {
     height: 40px;
-    margin-right: 1em;
+    margin-left: 1em;
+    transition: .1s ease-in-out;
+}
+
+.navGear:hover {
+    animation: rotate .5s infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .navLink {
     font-family: var(--header-font);
     font-size: 1em;
-    color: whitesmoke;
-    text-shadow: var(--black-outline);
+    color: black;
     margin-left: 1em;
+    transition: .3s ease-in-out;
+}
+
+.navLink:hover {
+    transform: scale(1.2) translateY(5%);
 }
 
 .submitForm {
@@ -42,6 +57,12 @@
     border-radius: 1em;
     margin-top: 2em;
     justify-content: space-evenly;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.alignC {
+    text-align: center;
 }
 .margRight {
     margin-right: 1em;
@@ -88,11 +109,57 @@
     display: flex;
     align-items: center;
 }
+.fwrap {
+    flex-wrap: wrap;
+}
+
+.fbasis35 {
+    flex-basis: 30%;
+}
+
+.justC {
+    justify-content: center;
+}
 
 .flexC {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.projectSub {
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
+.projectBG {
+    background-color: rgba(245, 245, 245, 0.664);
+    margin: 2em;
+    padding: 3em;
+    border-radius: 1em;
+    box-shadow: 1px 1px 20px black;
+    transition: .3s ease-in-out;
+}
+
+.projectBG:hover {
+    background-color: rgba(0, 0, 0, 0.603);
+}
+
+.projectImg {
+    height: 20em;
+    width: 20em;
+    border-radius: .5em;
+    border: 2px solid black;
+    box-shadow: 2px 2px 20px black;
+}
+
+.mainImg {
+    height: 30em;
+    width: 30em;
+    border-radius: .5em;
+    border: 2px solid black;
+    box-shadow: 2px 2px 20px black;
+    margin-top: 3em;
 }
 
 @media only screen and (min-width: 600px) {
