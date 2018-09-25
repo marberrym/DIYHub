@@ -1,17 +1,18 @@
 :root {
     --header-font: 'Bungee', cursive;
     --sub-font: 'Saira Semi Condensed', sans-serif;
-    --button-gradient: linear-gradient(90deg, rgb(64, 64, 88) 0%, rgba(210,210,214,1) 50%, rgba(64,64,88) 100%);
-    --black-outline: -2px -2px 0 black,
-    2px -2px 0 black,
-    -2px 2px 0 black,
-    2px 2px 0 black;
+    --button-gradient: linear-gradient(90deg, rgb(218, 218, 219) 0%, rgba(210,210,214,1) 50%, rgba(218,218,219) 100%);
+    --black-outline: -2px -2px 0 #126973,
+    2px -2px 0 #126973,
+    -2px 2px 0 #126973,
+    2px 2px 0 #126973;
+    --main-black: #414A52;
 }
 
 .navBar {
     height: 3em;
     background-color: whitesmoke;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--main-black);
     display: flex;
     align-items: center;
     width: 100%;
@@ -38,23 +39,17 @@
 }
 
 .navLink {
-    font-family: var(--header-font);
+    font-family: var(--sub-font);
     font-size: 1em;
-    color: black;
+    color: var(--main-black);
     margin-left: 1em;
     transition: .3s ease-in-out;
 }
 
-.navLink:hover {
-    transform: scale(1.2) translateY(5%);
-}
-
 .submitForm {
     background-color: whitesmoke;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+    border: 1px solid var(--main-black);
     padding: 1em;
-    border-radius: 1em;
     margin-top: 2em;
     justify-content: space-evenly;
     margin-left: 1em;
@@ -73,43 +68,26 @@
 }
 
 .browseForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2em;
     margin-bottom: 2em;
-    background-color: rgba(169, 169, 169, 0.705);
+    background-color: whitesmoke;
     padding: 1em;
-    border-radius: 1em;
-    border: 2px solid black;
-    box-shadow: 3px 3px 20px black;
+    border: 1px solid var(--main-black);
 }
 
-.browseBg {
-    background-color: rgba(245, 245, 245, 0.664);
-    width: 100%;
-    padding: 1em;
-    margin:.5em;
-    border-radius: 1em;
-    box-shadow: 1px 1px 20px black;
-    transition: .3s ease-in-out;
-}
-
-.browseBg:hover {
-    background-color: rgba(0, 0, 0, 0.603);
-}
 
 .browseImg {
-    height: 5em;
-    width: 5em;
-    margin-right: .5em;
-    border-radius: .5em;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+    width: 15em;
+    height: 15em;
 }
 
 .featureText {
-    font-family: var(--header-font);
+    font-family: var(--sub-font);
     font-size: 2em;
-    color: whitesmoke;
-    text-shadow: var(--black-outline);
+    color: var(--main-black);
     margin-top: 1em;
 }
 
@@ -117,22 +95,14 @@
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
-    border-radius: .5em;
     font-family: var(--sub-font);
     background: var(--button-gradient);
-    border: 1px solid black;
+    border: 1px solid var(--main-black);
     transition: .3s ease-in-out;
 }
 
-.button:hover {
-    transform: scale(1.1);
-    border: 1px solid whitesmoke;
-    background: black;
-    color: whitesmoke;
-}
-
 .browseBtn {
-    font-size: 1.5em;
+    font-size: 1em;
     padding: .2em;
     margin-top: 2em;
 }
@@ -143,6 +113,7 @@
 
 .noDec {
     text-decoration: none;
+    color: var(--main-black);
 }
 
 .spaceB {
@@ -189,38 +160,30 @@
     align-items: center;
 }
 
-.projectSub {
-    margin-top: 1em;
-    font-size: 1.5em;
-}
-
 .projectBG {
     background-color: rgba(245, 245, 245, 0.664);
     margin: 2em;
-    padding: 3em;
-    border-radius: 1em;
-    box-shadow: 1px 1px 20px black;
-    transition: .3s ease-in-out;
+    padding-bottom: 1em;
+    border: 1px solid var(--main-black);
+    transition: .1s ease-in-out;
 }
 
 .projectBG:hover {
-    background-color: rgba(0, 0, 0, 0.603);
+    box-shadow: 1px 1px 4px var(--main-black);
 }
 
 .projectImg {
-    height: 20em;
-    width: 20em;
-    border-radius: .5em;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+    height: 15em;
+    width: 15em;
+    margin-bottom: 1em;
 }
 
 .mainImg {
     height: 30em;
     width: 30em;
     border-radius: .5em;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+    border: 2px solid var(--main-black);
+    box-shadow: 2px 2px 20px var(--main-black);
     margin-top: 3em;
 }
 
@@ -228,8 +191,15 @@
     .logo {
         height: 15em;
     }
+    .projectImg {
+        width: 20em;
+        height: 20em;
+    }
     .headFont {
         font-size: 4em;
+    }
+    .browseForm {
+        flex-direction: row;
     }
     
 }
@@ -237,6 +207,10 @@
 @media only screen and (min-width: 768px) {
     .logo {
         height: 20em;
+    }
+    .projectImg {
+        width: 25em;
+        height: 25em;
     }
     .headFont {
         font-size: 5em;
