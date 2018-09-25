@@ -7,7 +7,7 @@ let BrowseList = (props) =>
     <div className="flexC fwrap justC">
         <NavBar/>
         <BrowseParams {...props}/>
-            <div className="flex fwrap justC">
+            <div className="flex fwrap justC alignC">
                 {props.projects.map(project => <BrowsePost project={project} key={project.id}/>)}
             </div>
     </div>

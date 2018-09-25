@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <div className="flexC">
         <NavBar/>
+        <HomeScreen /> 
         <HeadLogo />
-        <BrowseButton />
-        <HomeScreen />  
+        <BrowseButton /> 
       </div>
     );
   }
