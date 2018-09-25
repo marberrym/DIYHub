@@ -1,4 +1,6 @@
-DROP TABLE diy_users, diy_projects, diy_categories, diy_materials, diy_steps, diy_materialbridge, diy_userfaves, diy_badges;
+DROP TABLE diy_users, diy_projects, 
+    diy_categories, diy_materials, diy_steps, 
+    diy_materials_bridge, diy_userfaves, diy_badges;
 
 CREATE TABLE diy_users (
     id SERIAL PRIMARY KEY,
@@ -6,6 +8,11 @@ CREATE TABLE diy_users (
     last_name  varchar(200) NOT NULL,
     email varchar(200) UNIQUE NOT NULL,
     password varchar(200) NOT NULL
+);
+
+CREATE TABLE diy_categories (
+    id SERIAL PRIMARY KEY,
+    category_title varchar(200)
 );
 
 CREATE TABLE diy_projects (
@@ -18,11 +25,6 @@ CREATE TABLE diy_projects (
     cost_range INTEGER NOT NULL,
     category_id INTEGER REFERENCES diy_categories(id),
     project_description TEXT NOT NULL
-);
-
-CREATE TABLE diy_categories (
-    id SERIAL PRIMARY KEY,
-    category_title varchar(200)
 );
 
 CREATE TABLE diy_materials (
@@ -46,7 +48,7 @@ CREATE TABLE diy_materials_bridge (
     quantity INTEGER
 );
 
-CREATE TABLE diy_userfaves (
+CREATE TABLE diy_user_faves (
     user_id INTEGER REFERENCES diy_users(id),
     project_id INTEGER REFERENCES diy_projects(id)
 );
