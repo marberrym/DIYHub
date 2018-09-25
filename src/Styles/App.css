@@ -213,6 +213,14 @@
     font-size: 3em;
 }
 
+.stepHead {
+    font-size: 2em;
+}
+
+.marginTop {
+    margin-top: 1em;
+}
+
 .mainImg {
     margin-top: 2em;
     margin-bottom: 2em;
