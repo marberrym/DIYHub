@@ -1,7 +1,17 @@
+const db = require('../database');
+
 let signup = (req, res) => {
-  // Check to be sure user does not exist.
-  // If new user, add user / password to database.
-  // frontend displays message to user, success, auto login, fetch authenticate route.
-  res.send('success');
+  db.one(
+    `INSERT INTO diy_users (first_name, last_name, email, password) 
+    VALUES ($1, $2, $3, $4);`,
+    [req.body.first_name, req.body.last_name, req.body.email, req.body.password]
+  )
+  .then(() => {
+    res.send({status: 'success'})
+  })
+  .catch(error => {
+    console.log(error);
+    res.send({status: 'error'})
+  })
 }
 module.exports = signup;
