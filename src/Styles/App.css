@@ -1,7 +1,7 @@
 :root {
     --header-font: 'Bungee', cursive;
     --sub-font: 'Saira Semi Condensed', sans-serif;
-    --button-gradient: linear-gradient(90deg, rgba(73,73,143,1) 0%, rgba(237,237,241,1) 50%, rgba(73,73,143,1) 100%);
+    --button-gradient: linear-gradient(90deg, rgb(64, 64, 88) 0%, rgba(210,210,214,1) 50%, rgba(64,64,88) 100%);
     --black-outline: -2px -2px 0 black,
     2px -2px 0 black,
     -2px 2px 0 black,
@@ -72,6 +72,14 @@
     margin-bottom: 1em;
 }
 
+.featureText {
+    font-family: var(--header-font);
+    font-size: 2em;
+    color: whitesmoke;
+    text-shadow: var(--black-outline);
+    margin-top: 1em;
+}
+
 .button {
     padding: .5em;
     padding-left: 2em;
@@ -88,6 +96,12 @@
     border: 1px solid whitesmoke;
     background: black;
     color: whitesmoke;
+}
+
+.browseBtn {
+    font-size: 1.5em;
+    padding: .2em;
+    margin-top: 2em;
 }
 
 .subText {

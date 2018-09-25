@@ -6,6 +6,7 @@ import LoginContainer from './Screens/LoginContainer';
 import SignupContainer from './Screens/SignupContainer';
 import SingleScreen from './Screens/SingleScreen';
 import NotFound from './Screens/NotFound';
+import BrowseScreen from './Screens/BrowseScreen';
 
 
 let Router = () =>
@@ -15,6 +16,7 @@ let Router = () =>
             <Route exact path='/about' component={About} />
             <Route exact path='/login' component={LoginContainer} />
             <Route exact path='/signup' component={SignupContainer} />
+            <Route exact path='/browse' component={BrowseScreen} />
             <Route exact path='/project/:projectid' component={SingleScreen} />
             <Route path="/*" component={NotFound} />
         </Switch>
