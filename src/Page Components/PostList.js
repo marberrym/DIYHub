@@ -1,9 +1,9 @@
 import React from 'react';
-import MainPost from './MainPost';
+import HomePost from './HomePost';
 
 let PostList = (props) =>
     <div className="flex fwrap justC">
-        {props.projects.map(project => <MainPost project={project}/>)}
+        {props.projects.map(project => <HomePost project={project} key={project.id}/>)}
     </div>
 
 export default PostList;

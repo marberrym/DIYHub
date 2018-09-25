@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './Styles/index.css';
-import App from './Screens/App';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './Router';
 import { createStore } from 'redux';

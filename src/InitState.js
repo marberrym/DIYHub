@@ -1,5 +1,6 @@
 let initialState = {
-    projects: [{name: "DIY Chess Board",
+    projects: [{id: "1",
+                name: "DIY Chess Board",
                 img: "./images/diychess.jpg",
                 cost: "$50",
                 time: "2 hours",
@@ -20,7 +21,8 @@ let initialState = {
                             "4. Play the chess."],
 
                 },
-                {name: "DIY Chess Board",
+                {id: "2",
+                name: "DIY Chess Board",
                 img: "./images/diychess.jpg",
                 cost: "$50",
                 time: "2 hours",
@@ -41,7 +43,8 @@ let initialState = {
                             "4. Play the chess."],
 
                 },
-                {name: "DIY Chess Board",
+                {id: "3",
+                name: "DIY Chess Board",
                 img: "./images/diychess.jpg",
                 cost: "$50",
                 time: "2 hours",
@@ -62,7 +65,8 @@ let initialState = {
                             "4. Play the chess."],
 
                 },
-                {name: "DIY Chess Board",
+                {id: "4",
+                name: "DIY Chess Board",
                 img: "./images/diychess.jpg",
                 cost: "$50",
                 time: "2 hours",

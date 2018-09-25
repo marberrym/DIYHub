@@ -113,8 +113,8 @@
     flex-wrap: wrap;
 }
 
-.fbasis45 {
-    flex-basis: 45%;
+.fbasis35 {
+    flex-basis: 30%;
 }
 
 .justC {
@@ -128,7 +128,21 @@
 }
 
 .projectSub {
+    margin-top: 1em;
     font-size: 1.5em;
+}
+
+.projectBG {
+    background-color: rgba(245, 245, 245, 0.664);
+    margin: 2em;
+    padding: 3em;
+    border-radius: 1em;
+    box-shadow: 1px 1px 20px black;
+    transition: .3s ease-in-out;
+}
+
+.projectBG:hover {
+    background-color: rgba(0, 0, 0, 0.603);
 }
 
 .projectImg {
@@ -137,7 +151,15 @@
     border-radius: .5em;
     border: 2px solid black;
     box-shadow: 2px 2px 20px black;
-    margin: 2em;
+}
+
+.mainImg {
+    height: 30em;
+    width: 30em;
+    border-radius: .5em;
+    border: 2px solid black;
+    box-shadow: 2px 2px 20px black;
+    margin-top: 3em;
 }
 
 @media only screen and (min-width: 600px) {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 let NavBar = () =>
     <div className="navBar">
         <div className="flex">
-            <Link to="/"><img src="./images/Gear.png" className="navGear"/></Link>
+            <Link to="/"><img src="./images/Gear.png" className="navGear" alt="DIY Cog"/></Link>
             <Link to="/" className="noDec navLink">Home</Link>
             <Link to="/about" className="noDec navLink">About</Link>
         </div>
