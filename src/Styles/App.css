@@ -1,17 +1,22 @@
 :root {
     --header-font: 'Bungee', cursive;
     --sub-font: 'Saira Semi Condensed', sans-serif;
-    --button-gradient: linear-gradient(90deg, rgba(73,73,143,1) 0%, rgba(237,237,241,1) 50%, rgba(73,73,143,1) 100%);
-    --black-outline: -2px -2px 0 black,
-    2px -2px 0 black,
-    -2px 2px 0 black,
-    2px 2px 0 black;
+    --main-white: #F1E2DC;
+    --black-outline: -2px -2px 0 #090D01,
+    2px -2px 0 #090D01,
+    -2px 2px 0 #090D01,
+    2px 2px 0 #090D01;
+    --main-black: #090D01;
+    --border-black: rgba(9, 13, 1, 0.21);
+    --main-darkgrey: #414A52;
+    --main-blue: #126973;
+    --main-grey: #79797A;
 }
 
 .navBar {
     height: 3em;
     background-color: whitesmoke;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--main-black);
     display: flex;
     align-items: center;
     width: 100%;
@@ -38,23 +43,21 @@
 }
 
 .navLink {
-    font-family: var(--header-font);
+    font-family: var(--sub-font);
     font-size: 1em;
-    color: black;
+    color: var(--main-black);
     margin-left: 1em;
     transition: .3s ease-in-out;
 }
 
 .navLink:hover {
-    transform: scale(1.2) translateY(5%);
+    color: var(--main-blue);
 }
 
 .submitForm {
     background-color: whitesmoke;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+    border: 1px solid var(--main-black);
     padding: 1em;
-    border-radius: 1em;
     margin-top: 2em;
     justify-content: space-evenly;
     margin-left: 1em;
@@ -72,22 +75,65 @@
     margin-bottom: 1em;
 }
 
+.browseForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: whitesmoke;
+    padding: 1em;
+    padding-bottom: 0;
+    border: 1px solid var(--main-black);
+}
+
+.basis30 {
+    flex-basis: 100%;
+}
+
+.submitFlex {
+    flex-wrap: wrap;
+}
+
+
+.browseImg {
+    width: 15em;
+    height: 15em;
+}
+
+.featureText {
+    font-family: var(--sub-font);
+    color: whitesmoke;
+    border-radius: 5em;
+    padding: .1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background-color: var(--border-black);
+    font-size: 1em;
+}
+
+.projectTitle {
+    color: whitesmoke;
+    font-size: 3em;
+}
+
 .button {
+    background-color: var(--main-grey);
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
-    border-radius: .5em;
     font-family: var(--sub-font);
-    background: var(--button-gradient);
-    border: 1px solid black;
-    transition: .3s ease-in-out;
+    border: 1px solid var(--main-darkgrey);
+    color: whitesmoke;
 }
 
 .button:hover {
-    transform: scale(1.1);
-    border: 1px solid whitesmoke;
-    background: black;
-    color: whitesmoke;
+    box-shadow: 2px 2px 4px var(--border-black);
+}
+
+.browseBtn {
+    font-size: 1em;
+    margin-top: 2em;
 }
 
 .subText {
@@ -96,6 +142,26 @@
 
 .noDec {
     text-decoration: none;
+    color: var(--main-black);
+}
+
+.spaceB {
+    justify-content: space-between;
+}
+
+.submitTextArea {
+    width: 100%;
+    height: 10em;
+}
+
+.width80 {
+    width: 80%;
+    flex-basis: 80%;
+}
+
+.width100 {
+    width: 100%;
+    flex-basis: 100%;
 }
 
 .headFont {
@@ -127,39 +193,56 @@
     align-items: center;
 }
 
-.projectSub {
-    margin-top: 1em;
-    font-size: 1.5em;
-}
-
 .projectBG {
-    background-color: rgba(245, 245, 245, 0.664);
-    margin: 2em;
-    padding: 3em;
-    border-radius: 1em;
-    box-shadow: 1px 1px 20px black;
-    transition: .3s ease-in-out;
+    background-color: whitesmoke;
+    margin: 1em;
+    border: 1px solid var(--border-black);
+    transition: .1s ease-in-out;
 }
 
 .projectBG:hover {
-    background-color: rgba(0, 0, 0, 0.603);
+    box-shadow: 1px 1px 4px var(--border-black);
 }
 
 .projectImg {
+    width: 100vw;
+    margin-bottom: 1em;
+}
+
+.feature {
+    background-image: url("/images/diychess.jpg");
+    background-size: cover;
+    background-position-y: -2em;
+    background-repeat: no-repeat;
+    width: 100%;
     height: 20em;
-    width: 20em;
-    border-radius: .5em;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
+}
+.alignStart {
+    align-items: flex-start;
+}
+
+.mainPost {
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+.mainHead {
+    font-size: 3em;
+}
+
+.stepHead {
+    font-size: 2em;
+}
+
+.marginTop {
+    margin-top: 1em;
 }
 
 .mainImg {
-    height: 30em;
-    width: 30em;
-    border-radius: .5em;
-    border: 2px solid black;
-    box-shadow: 2px 2px 20px black;
-    margin-top: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: 20em;
+    width: 20em;
 }
 
 @media only screen and (min-width: 600px) {
@@ -169,15 +252,22 @@
     .headFont {
         font-size: 4em;
     }
-    
+    .browseForm {
+        flex-direction: row;
+    }
+    .mainImg {
+        height: 30em;
+        width: 30em;
+    }
 }
 
 @media only screen and (min-width: 768px) {
-    .logo {
-        height: 20em;
-    }
-    .headFont {
-        font-size: 5em;
-    }
+   .basis30 {
+       flex-basis: 30%;
+   }
+
+   .submitFlex {
+       flex-wrap: nowrap;
+   }
     
 }
