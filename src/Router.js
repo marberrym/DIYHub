@@ -1,13 +1,13 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import App from './screens/App';
-import About from './screens/About';
-import LoginContainer from './screens/LoginContainer';
-import SignupContainer from './screens/SignupContainer';
-import SingleScreen from './screens/SingleScreen';
-import NotFound from './screens/NotFound';
-import BrowseScreen from './screens/BrowseScreen';
-import PostContainer from './screens/PostContainer';
+import App from './pagescreens/App';
+import About from './pagescreens/About';
+import LoginContainer from './pagescreens/LoginContainer';
+import SignupContainer from './pagescreens/SignupContainer';
+import SingleScreen from './pagescreens/SingleScreen';
+import NotFound from './pagescreens/NotFound';
+import BrowseScreen from './pagescreens/BrowseScreen';
+import PostContainer from './pagescreens/PostContainer';
 
 
 let Router = () =>
