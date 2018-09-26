@@ -7,7 +7,14 @@ let postReq = (url, data) => {
         },
         body: JSON.stringify(data)
     })
-    .then(response => console.log(response)); 
+    .then(response => {console.log(response)
+        return response.json()})
+    .then(response => {
+        let myStorage = window.localStorage;
+        if (response.token) {
+            myStorage.setItem('webtoken', response.token)
+        }
+    }) 
 }
 
 export default postReq;

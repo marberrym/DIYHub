@@ -9,12 +9,13 @@ let LoginForm = (props) =>
         <HeadLogo />
         <form className="flexC submitForm" onSubmit={(event) => {
             event.preventDefault();
-            props.update('username', '');
+            props.login();
+            props.update('email', '');
             props.update('password', '');
         }}>
             <label className="marginB subText">
-                Username: <input type="text" value={props.username} onChange={(event) =>
-                    props.update('username', event.target.value)} required/>
+                Email: <input type="text" value={props.email} onChange={(event) =>
+                    props.update('email', event.target.value)} required/>
             </label>
             <label className="marginB subText">
                 Password: <input type="password" value={props.password} onChange={(event) =>

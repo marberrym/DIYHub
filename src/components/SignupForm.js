@@ -25,10 +25,6 @@ let SignupForm = (props) =>
                     props.update('last', event.target.value)} required/>
             </label>
             <label className="marginB subText">
-                Username: <input type="text" value={props.username} onChange={(event) => 
-                    props.update('username', event.target.value)} required/>
-            </label>
-            <label className="marginB subText">
                 Email: <input type="email" value={props.email} onChange={(event) => 
                     props.update('email', event.target.value)} required/>
             </label>
