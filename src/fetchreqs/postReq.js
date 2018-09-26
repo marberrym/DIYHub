@@ -1,4 +1,4 @@
-let postReq = (url, data) => {
+let postReq = (url, data, callback) => {
     console.log(data);
     return fetch(url, {
         method: "POST",
@@ -11,8 +11,10 @@ let postReq = (url, data) => {
         return response.json()})
     .then(response => {
         let myStorage = window.localStorage;
+        console.log(response)
         if (response.token) {
-            myStorage.setItem('webtoken', response.token)
+            myStorage.setItem('token', response.token);
+            callback('/');
         }
     }) 
 }

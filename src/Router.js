@@ -11,7 +11,7 @@ import PostContainer from './screens/PostContainer';
 
 
 let Router = () =>
-    <HashRouter>
+     <HashRouter>
         <Switch>
             <Route exact path='/' component={App} />
             <Route exact path='/about' component={About} />
@@ -23,5 +23,7 @@ let Router = () =>
             <Route path="/*" component={NotFound} />
         </Switch>
     </HashRouter>
+    
+    
 
 export default Router;

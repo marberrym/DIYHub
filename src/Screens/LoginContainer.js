@@ -12,18 +12,19 @@ class LoginContainer extends Component {
     }
 
     render() {
-        let login = () => {
+        let login = (callback) => {
             let userData = {
                 email: this.state.email,
                 password: this.state.password
             }
-            postReq('http://localhost:5000/authenticate', userData)
+            postReq('http://localhost:5000/authenticate', userData, callback)
+            
         }
             
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string});
 
-        return <LoginForm {...this.state} update={updateState} login={login}/>
+        return <LoginForm {...this.state} update={updateState} login={login} push={this.props.history.push}/>
     }
 }
 
