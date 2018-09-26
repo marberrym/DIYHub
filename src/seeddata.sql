@@ -36,3 +36,28 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 insert into diy_user_faves (user_id, project_id) VALUES
 (1,1);
+
+-- Insert a second project.
+
+insert into diy_projects (creation_date, user_id, project_title, 
+feature_image_url, time_range, cost_range, category_id,
+project_description) VALUES
+('2010-01-04 01:01:04',2,'Dream Scanner','https://5.imimg.com/data5/OU/NQ/MY-16281911/rainbow-dream-catchers-500x500.jpg',
+6,1,4,'Make a dream catcher, so that your nightmares get all tangled up in this string spider web thing. Then once a week you just take it out to the yard and hose it off.');
+
+insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
+VALUES
+(2,1,'https://www.makeandtakes.com/wp-content/uploads/popsicle-stick-baby-chick-1-945x630.jpg',
+'Make a Circle','First bend the tree branch in to a circle. Dont snap it or goblins will eat your soul.'),
+(2,2,'https://www.barnowltrust.org.uk/wp/wp-content/uploads/Barn-Owl-Trust-recycled-string-no-box-1.jpg',
+'Weave String','This is the hardest part, so just do it with your eyes closed. Weave some things all over the circle. Try to make it pretty'),
+(2,3,'https://images-na.ssl-images-amazon.com/images/I/71MB3Hk4aYL._SX425_.jpg',
+'Use Some Feathers','This is the hardest part, so just do it with your eyes closed. Weave some things all over the circle. Try to make it pretty');
+
+insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
+(2,2,10),
+(2,4,1);
+
+insert into diy_user_faves (user_id, project_id) VALUES
+(1,2),
+(2,2);
