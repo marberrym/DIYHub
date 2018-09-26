@@ -127,6 +127,10 @@
     color: whitesmoke;
 }
 
+.button:hover {
+    box-shadow: 2px 2px 4px var(--border-black);
+}
+
 .browseBtn {
     font-size: 1em;
     margin-top: 2em;
