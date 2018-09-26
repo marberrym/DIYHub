@@ -15,6 +15,8 @@ insert into diy_materials (title, amazon_asin) VALUES
 ('Elmers Glue','B010DS107K'),
 ('Index Cards','B010DS00Y4'),
 ('Popsicle Sticks','B071L59Q7J'),
+('Feathers','B06VWKVZH1'),
+('String','B005GYJZMY'),
 ('Murder Weapon,','B014LSF9YI');
 
 insert into diy_projects (creation_date, user_id, project_title, 
@@ -57,6 +59,31 @@ VALUES
 insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (2,2,10),
 (2,4,1);
+
+insert into diy_user_faves (user_id, project_id) VALUES
+(1,2),
+(2,2);
+
+-- Insert a third project
+
+insert into diy_projects (creation_date, user_id, project_title, 
+feature_image_url, time_range, cost_range, category_id,
+project_description) VALUES
+(current_timestamp,3,'Delicious Red Rum','https://cdn.diffordsguide.com/contrib/stock-images/2017/1/17/2017ba7d1b31dbf035beb25c291ca93e6030.jpg',
+2,2,2,'Right before you go crazy in the snow all by yourself and chase your family through a hotel with a fire-axe you might find yourself simply parched. That dry winter air does cause a powerful thirst. Here is a delightful beverage to slake that internal fire, and quench your desire for something red and bloody.');
+
+insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
+VALUES
+(3,1,'https://www.makeandtakes.com/wp-content/uploads/popsicle-stick-baby-chick-1-945x630.jpg',
+'Get a glass','First get a fancy long stemmed cocktail glass. I like a traditional martini glass.'),
+(3,2,'https://www.barnowltrust.org.uk/wp/wp-content/uploads/Barn-Owl-Trust-recycled-string-no-box-1.jpg',
+'Get a shaker','Get a shaker and fill it with custom filtered boiled and clarified ice from the North Pole'),
+(3,3,'https://images-na.ssl-images-amazon.com/images/I/71MB3Hk4aYL._SX425_.jpg',
+'Screw it, drink out of the bottle','Noisily knock everything off the counter and spill it all over, grab the bottle, and take a big ole tug right from it. You dont need a glass. You are the caretaker.');
+
+insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
+(3,5,237),
+(3,6,237);
 
 insert into diy_user_faves (user_id, project_id) VALUES
 (1,2),
