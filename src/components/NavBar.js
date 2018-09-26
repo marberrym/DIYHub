@@ -9,10 +9,18 @@ let NavBar = () =>
             <Link to="/about" className="noDec navLink">About</Link>
         </div>
         <div className="flex">
-            <Link to="/post" className="noDec navLink"> Post Project</Link>
-            <Link to="/login" className="noDec navLink"> Log In</Link>
-            <Link to="/signup" className="noDec navLink margRight">Sign Up</Link>
-        </div>
+            {window.localStorage.token ?
+                <div>
+                    <Link to="/post" className="noDec navLink"> Post Project</Link>
+                    <Link to="/" className="noDec navLink margRight"
+                        onClick={window.localStorage.clear()}> Log Out</Link>
+                </div>
+            : 
+                <div>
+                    <Link to="/login" className="noDec navLink"> Log In</Link>
+                    <Link to="/signup" className="noDec navLink margRight">Sign Up</Link>
+                </div>
+            }</div>
     </div>
 
 export default NavBar;

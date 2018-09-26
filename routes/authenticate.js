@@ -15,7 +15,7 @@ let authenticate = (req, res) => {
   )
   .then(data => {
     console.log(data);
-    let token = jwt.sign({ id: data.id }, secret, { expiresIn: "7d" });
+    let token = jwt.sign({ id: data.id, first: data.first_name }, secret, { expiresIn: "7d" });
     res.send({token, status: 'success'});
   })
   .catch(error => {

@@ -16,7 +16,7 @@ const postProject = require('./routes/postProject');
 
 const app = express();
 const protect = expressJwt({ secret,
-  getToken: (req) => req.headers.authorization
+  getToken: (req) => req.body.token
 });
 
 app.use(bodyParser.json());

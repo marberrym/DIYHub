@@ -25,7 +25,7 @@ class PostContainer extends Component {
                                 description: this.state.stepdescription,
                                 stepcount: this.state.stepcount,}
             let newStep = [...this.state.steps].concat(currentStep)
-            let newCount = this.state.stepcount += 1;
+            let newCount = this.state.stepcount + 1;
             this.setState({stepcount: newCount});
             this.setState({steps: newStep});
         }

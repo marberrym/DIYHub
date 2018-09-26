@@ -9,8 +9,9 @@ let SignupForm = (props) =>
         <HeadLogo />
         <form className="flexC submitForm" onSubmit={(event) => {
             event.preventDefault();
+            props.signUp();
             Object.keys(props).forEach(prop => {
-                if(prop !== 'update') {
+                if(prop !== 'update' && prop !=='signUp') {
                     props.update(prop, '');
                 }
             })
@@ -22,10 +23,6 @@ let SignupForm = (props) =>
             <label className="marginB subText">
                 Last Name: <input type="text" value={props.last} onChange={(event) => 
                     props.update('last', event.target.value)} required/>
-            </label>
-            <label className="marginB subText">
-                Username: <input type="text" value={props.username} onChange={(event) => 
-                    props.update('username', event.target.value)} required/>
             </label>
             <label className="marginB subText">
                 Email: <input type="email" value={props.email} onChange={(event) => 
