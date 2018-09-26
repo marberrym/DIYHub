@@ -17,8 +17,7 @@ class LoginContainer extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
-            postReq('http://localhost:5000/authenticate', userData, callback)
-            
+            postReq('http://localhost:5000/authenticate', userData, callback)       
         }
             
         let updateState = (keyvalue, string) =>
