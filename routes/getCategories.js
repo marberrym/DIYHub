@@ -1,11 +1,17 @@
+const db = require('../database');
+
 let getCategories = (req, res) => {
-  // Query database for project list based on query parameters:
-  // Favorites
-  // Category
-  // OrderBy
-  // Price
-  // Time
-  // Offset
-  res.send(categories);
+  let responseData = {}
+  db.query(
+    `SELECT category_title FROM diy_categories`
+  )
+  .then(data => {
+    responseData.status = 'success'
+    responseData.categories = data.map(datum => datum.category_title);
+    res.send(responseData);
+    }
+  ).catch(error => {
+    res.send({status: 'error'})
+  })
 }
 module.exports = getCategories;

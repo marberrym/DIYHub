@@ -39,7 +39,7 @@ let getFeatured = (req, res) => {
     `SELECT step_order, step_image_url, step_title, step_text FROM diy_steps WHERE project_id=${featured} ORDER BY step_order`
   )
   let materials = db.query(
-    `SELECT title, amazon_asin, quantity from diy_materials INNER JOIN diy_materials_bridge ON diy_materials.id = diy_materials_bridge.material_id WHERE project_id=1`
+    `SELECT title, amazon_asin, quantity from diy_materials INNER JOIN diy_materials_bridge ON diy_materials.id = diy_materials_bridge.material_id WHERE project_id=${featured}`
   )
   Promise.all([project, steps, materials])
   .then(data => {
