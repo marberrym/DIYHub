@@ -24,7 +24,12 @@
 }
 
 .logo {
-    height: 10em;
+    height: 7em;
+    margin-right: 1em;
+}
+
+.head {
+    margin-top: 3em;
 }
 .navGear {
     height: 40px;
@@ -247,7 +252,7 @@
 
 @media only screen and (min-width: 600px) {
     .logo {
-        height: 15em;
+        height: 8em;
     }
     .headFont {
         font-size: 4em;

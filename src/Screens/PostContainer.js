@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostForm from '../Page Components/PostForm';
+import PostForm from '../components/PostForm';
 
 class PostContainer extends Component {
     constructor(props) {

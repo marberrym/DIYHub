@@ -1,8 +1,8 @@
 import React from 'react';
-import KeyWord from './FilterComponents/KeyWord';
-import Category from './FilterComponents/Category';
-import Cost from './FilterComponents/Cost';
-import Time from './FilterComponents/Time';
+import KeyWord from './filtercomponents/KeyWord';
+import Category from './filtercomponents/Category';
+import Cost from './filtercomponents/Cost';
+import Time from './filtercomponents/Time';
 
 let BrowseParams = (props) =>
     <form className="subText browseForm">

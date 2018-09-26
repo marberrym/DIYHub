@@ -1,15 +1,15 @@
 import React from 'react';
 import HeadLogo from './HeadLogo';
 import NavBar from './NavBar';
-import Cost from './FilterComponents/Cost';
-import Category from './FilterComponents/Category';
-import Time from './FilterComponents/Time';
-import Title from './Post Components/Title';
-import Description from './Post Components/Description';
-import StepTitle from './Post Components/StepTitle';
-import PostStep from './Post Components/PostStep';
+import Cost from './filtercomponents/Cost';
+import Category from './filtercomponents/Category';
+import Time from './filtercomponents/Time';
+import Title from './postcomponents/Title';
+import Description from './postcomponents/Description';
+import StepTitle from './postcomponents/StepTitle';
+import PostStep from './postcomponents/PostStep';
 import Button from './Button';
-import StepDescription from './Post Components/StepDescription';
+import StepDescription from './postcomponents/StepDescription';
 
 let PostForm = (props) =>
     <div className="flexC">

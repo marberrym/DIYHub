@@ -1,10 +1,10 @@
 import React from 'react';
 import NavBar from './NavBar';
-import NotFound from '../Screens/NotFound';
-import Path from './SingleProject/Path';
-import Supplies from './SingleProject/Supplies';
-import Steps from './SingleProject/Steps';
-import Header from './SingleProject/Header';
+import NotFound from '../screens/NotFound';
+import Path from './singleproject/Path';
+import Supplies from './singleproject/Supplies';
+import Steps from './singleproject/Steps';
+import Header from './singleproject/Header';
 
 let MainProject = (props) => (
         props.project ?

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HomePost from '../Page Components/HomePost';
+import HomePost from '../components/HomePost';
 
 let HomeScreen = (props) => <HomePost project={props.projects[0]}/>;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MainProject from '../Page Components/MainProject';
+import MainProject from '../components/MainProject';
 
 let SingleScreen = (props) => 
     <MainProject project={props.projects.find(project => project.id === props.match.params.projectid)}/>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '../Styles/App.css';
-import NavBar from '../Page Components/NavBar';
-import HeadLogo from '../Page Components/HeadLogo';
+import '../styles/App.css';
+import NavBar from '../components/NavBar';
+import HeadLogo from '../components/HeadLogo';
 import HomeScreen from './HomeScreen';
-import BrowseButton from '../Page Components/BrowseButton';
+import BrowseButton from '../components/BrowseButton';
 
 class App extends Component {
   render() {
