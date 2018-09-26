@@ -12,8 +12,7 @@ let NavBar = () =>
             {window.localStorage.token ?
                 <div>
                     <Link to="/post" className="noDec navLink"> Post Project</Link>
-                    <Link to="/" className="noDec navLink margRight"
-                        onClick={window.localStorage.clear()}> Log Out</Link>
+                    <Link to="/" className="noDec navLink margRight"> Log Out</Link>
                 </div>
             : 
                 <div>

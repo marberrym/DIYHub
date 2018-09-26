@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
-import NotFound from '../screens/NotFound';
+import NotFound from '../pagescreens/NotFound';
 import Path from './singleproject/Path';
 import Supplies from './singleproject/Supplies';
 import Steps from './singleproject/Steps';

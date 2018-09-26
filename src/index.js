@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import './cssstyles/index.css';
 import registerServiceWorker from './registerServiceWorker';
 import Router from './Router';
 import { createStore } from 'redux';

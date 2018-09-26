@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import '../cssstyles/App.css';
 import NavBar from '../components/NavBar';
 import HeadLogo from '../components/HeadLogo';
 import HomeScreen from './HomeScreen';
