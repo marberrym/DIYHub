@@ -9,8 +9,9 @@ let SignupForm = (props) =>
         <HeadLogo />
         <form className="flexC submitForm" onSubmit={(event) => {
             event.preventDefault();
+            props.signUp();
             Object.keys(props).forEach(prop => {
-                if(prop !== 'update') {
+                if(prop !== 'update' && prop !=='signUp') {
                     props.update(prop, '');
                 }
             })
