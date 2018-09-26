@@ -7,6 +7,7 @@ CREATE TABLE diy_users (
     first_name  varchar(200) NOT NULL,
     last_name  varchar(200) NOT NULL,
     email varchar(200) UNIQUE NOT NULL,
+    avatar_url varchar(255),
     password varchar(200) NOT NULL
 );
 
