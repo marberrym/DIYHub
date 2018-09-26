@@ -2,7 +2,7 @@ import React from 'react';
 
 let PostStep = (props) =>
     <div>
-        {props.title}
+        Step {props.step.stepcount}: {props.step.title}.
     </div>
 
 export default PostStep;

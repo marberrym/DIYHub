@@ -15,26 +15,29 @@ let PostForm = (props) =>
     <div className="flexC">
         <NavBar/>
         <HeadLogo/>
-        <form className="flexC submitForm subText">
-            <Title title={props.title} update={props.update}/>
-            <Cost cost={props.cost} update={props.update}/>
-            <Time time={props.time} update={props.update}/>
-            <Category category={props.category} update={props.update}/>
-            <Description description={props.description} update={props.update}/>
-            {props.steps ?
-                props.steps.map(step => <PostStep step={step}/>)    
-            :
-                null
-            }
-            <form className="flexC">
-                <StepTitle title={props.currentstep.title} updateStep={props.updateStep}/>
-                <StepDescription description={props.currentstep.description} 
-                updateStep={props.updateStep}/>
+        <div className="flex">
+            <form className="flexC submitForm subText">
+                <Title title={props.title} update={props.update}/>
+                <Cost cost={props.cost} update={props.update}/>
+                <Time time={props.time} update={props.update}/>
+                <Category category={props.category} update={props.update}/>
+                <Description description={props.description} update={props.update}/>
+            </form>
+            <div className="flexC submitForm subText">
+                <div>Current steps:</div>
+                {props.steps ?
+                    props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
+                :
+                    null
+                }
+            </div>
+            <form className="flexC submitForm subText" onSubmit={props.submitStep}>
+                <StepTitle title={props.steptitle} update={props.update}/>
+                <StepDescription description={props.stepdescription} 
+                update={props.update}/>
                 <Button text="Add Step"/>
             </form>
-            
-        </form>
-    
+        </div>
     </div>
 
 export default PostForm;
