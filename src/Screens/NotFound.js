@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../Page Components/NavBar';
+import NavBar from '../components/NavBar';
 
 let NotFound = () =>
     <div>

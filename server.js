@@ -50,4 +50,4 @@ app.post('/project', protect, postProject);
 app.get('/category', getCategories);
 
 // Favorite route
-app.listen(3000);
+app.listen(5000);

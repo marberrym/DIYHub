@@ -1,6 +1,6 @@
 DROP TABLE diy_users, diy_projects, 
     diy_categories, diy_materials, diy_steps, 
-    diy_materials_bridge, diy_userfaves, diy_badges;
+    diy_materials_bridge, diy_user_faves, diy_badges;
 
 CREATE TABLE diy_users (
     id SERIAL PRIMARY KEY,

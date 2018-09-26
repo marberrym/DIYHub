@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from '../Page Components/NavBar';
-import HeadLogo from '../Page Components/HeadLogo';
-import AboutPost from '../Page Components/AboutPost';
+import NavBar from '../components/NavBar';
+import HeadLogo from '../components/HeadLogo';
+import AboutPost from '../components/AboutPost';
 
 let About = () =>
     <div className="flexC">

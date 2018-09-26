@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BrowseList from '../components/BrowseList';
 
-import BrowseList from '../Page Components/BrowseList';
 class BrowseContainer extends Component {
     constructor(props) {
         super(props)
