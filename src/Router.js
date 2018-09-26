@@ -7,6 +7,7 @@ import SignupContainer from './Screens/SignupContainer';
 import SingleScreen from './Screens/SingleScreen';
 import NotFound from './Screens/NotFound';
 import BrowseScreen from './Screens/BrowseScreen';
+import PostContainer from './Screens/PostContainer';
 
 
 let Router = () =>
@@ -18,6 +19,7 @@ let Router = () =>
             <Route exact path='/signup' component={SignupContainer} />
             <Route exact path='/browse' component={BrowseScreen} />
             <Route exact path='/project/:projectid' component={SingleScreen} />
+            <Route exact path='/post' component={PostContainer}/>
             <Route path="/*" component={NotFound} />
         </Switch>
     </HashRouter>

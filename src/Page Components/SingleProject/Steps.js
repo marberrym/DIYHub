@@ -6,4 +6,4 @@ let Steps = (props) =>
         {props.steps.map(task => <div>{task}</div>)}
     </div>
 
-export default Steps
+export default Steps;

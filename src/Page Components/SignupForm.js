@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import HeadLogo from './HeadLogo';
+import Button from './Button';
 
 let SignupForm = (props) => 
     <div className="flexC">
@@ -38,7 +39,7 @@ let SignupForm = (props) =>
                 Verify Password: <input type="password" value={props.pwverify} onChange={(event) => 
                     props.update('pwverify', event.target.value)} required/>
             </label>
-            <button className="button">Sign Up</button> 
+            <Button text="Sign Up"/>
         </form>
     </div>
 
