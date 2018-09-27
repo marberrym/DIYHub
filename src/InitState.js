@@ -1,6 +1,7 @@
 let initialState = {
-    user: {name: "Matt",
-            id: 9},
+    user: {name: "",
+            id: "",
+            token: "",},
     projects: [{id: "1",
                 name: "DIY Chess Board",
                 img: "./images/diychess.jpg",
