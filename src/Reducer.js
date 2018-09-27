@@ -11,7 +11,10 @@ let reducer = (oldState, action) => {
         let newState = {...oldState,
             user: newUser}
         return newState;
-    } else {
+    } else if (action.type === "LOAD_PROJECTS") {
+        return {...oldState, projects: action.projects}
+    }
+    else {
         return oldState;
     }
     

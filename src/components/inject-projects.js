@@ -7,11 +7,10 @@ let getPosts = (dispatch) => {
     response.json())
   .then(data => {
     console.log(data)
-    // dispatch({
-    //   type: "ASSIGN_USER",
-    //   package: {name: data.name,
-    //   id: data.id}
-    // });
+    dispatch({
+      type: "LOAD_PROJECTS",
+      projects: data.projectList
+    });
   })
 }
 
