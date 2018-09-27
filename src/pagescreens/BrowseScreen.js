@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import injectProjects from '../components/inject-projects'
 import BrowseList from '../components/BrowseList';
 
 class BrowseContainer extends Component {
@@ -23,5 +24,5 @@ class BrowseContainer extends Component {
 }
 
 
-let BrowseContainerSmart = connect(state => ({projects: state.projects}))(BrowseContainer)
+let BrowseContainerSmart = connect(state => ({projects: state.projects}))(injectProjects(BrowseContainer));
 export default BrowseContainerSmart;
