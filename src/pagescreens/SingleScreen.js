@@ -4,9 +4,9 @@ import injectProject from '../components/inject-project';
 import MainProject from '../components/MainProject';
 
 let SingleScreen = (props) => 
-    <MainProject project={props.projects.find(project => project.id === props.match.params.projectid)}/>
+    <MainProject {...props} />
 
 let SingleScreenSmart = connect(state => 
-    ({projects: state.projects}))(injectProject(SingleScreen));
+    ({project: state.project}))(injectProject(SingleScreen));
 
 export default SingleScreenSmart;

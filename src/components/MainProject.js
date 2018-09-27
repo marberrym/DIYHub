@@ -11,10 +11,10 @@ let MainProject = (props) => (
             <div className="flexC alignStart subText">
                 <NavBar />
                 <div className="mainPost flexC alignStart">
-                    <Path id={props.project.id}/>
-                    <Header name={props.project.name} img={props.project.img} />
-                    <Supplies supplies={props.project.supplies}/>
-                    <Steps steps={props.project.instructions}/>
+                    <Path />
+                    <Header {...props.project.project}/>
+                    <Supplies supplies={props.project.materials}/>
+                    <Steps steps={props.project.steps}/>
                 </div>
             </div>
         :
