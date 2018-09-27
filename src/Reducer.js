@@ -15,7 +15,10 @@ let reducer = (oldState, action) => {
         return {...oldState, projects: action.projects}
     } else if (action.type === "LOAD_FEATURED") {
         return { ...oldState, featured: action.featured }
-    } else {
+    } else if (action.type === "LOAD_PROJECT") {
+        return {...oldState, project: action.project}
+    }
+    else {
         return oldState;
     }
 }
