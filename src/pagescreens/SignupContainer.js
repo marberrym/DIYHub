@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SignUpForm from '../components/SignupForm';
-import postReq from '../fetchreqs/postReq';
+import postSignup from '../fetchreqs/postSignup';
 
 class SignupContainer extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class SignupContainer extends Component {
                 last_name: this.state.last,
                 email: this.state.email,
                 password: this.state.password}
-            postReq("http://localhost:5000/signup", data)
+            postSignup(data, this.props.history.push)
         }
 
         let updateState = (keyvalue, string) =>

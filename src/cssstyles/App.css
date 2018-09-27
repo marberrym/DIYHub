@@ -168,6 +168,10 @@
     width: 100%;
     flex-basis: 100%;
 }
+.width45 {
+    width: 45%;
+    flex-basis: 45%;
+}
 
 .headFont {
     font-family: var(--header-font);
