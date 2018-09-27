@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import fetchProducts from 'fetchfeatured';
 
 let HomePost = (props) =>
     <Link to={"/project/" + props.featured.id} className="noDec flexC feature alignC justC">
