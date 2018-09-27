@@ -11,9 +11,12 @@ import PostContainer from './pagescreens/PostContainer';
 
 
 let Router = () =>
-     <HashRouter>
+    <HashRouter>
+        <NavBar/>
         <Switch>
-            <Route exact path='/' component={App} />
+            <Route exact path="/" render={(routeProps) => 
+                <App {...routeProps} {...props} /> }
+            />
             <Route exact path='/about' component={About} />
             <Route exact path='/login' component={LoginContainer} />
             <Route exact path='/signup' component={SignupContainer} />
@@ -23,7 +26,5 @@ let Router = () =>
             <Route path="/*" component={NotFound} />
         </Switch>
     </HashRouter>
-    
-    
 
 export default Router;
