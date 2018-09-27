@@ -14,8 +14,9 @@ class PostContainer extends Component {
             materials: [],
             steptitle: '',
             stepdescription: '',
-            meterialtitle: '',
-            materialdescription: '',
+            materialtitle: '',
+            materialquantity: '',
+            materialasin: '',
             stepcount: 1,
         }
     }
@@ -27,7 +28,7 @@ class PostContainer extends Component {
             let currentStep = {title: this.state.steptitle,
                                 description: this.state.stepdescription,
                                 stepcount: this.state.stepcount,}
-            let newStep = [...this.state.steps].concat(currentStep)
+            let newStep = [...this.state.steps].concat(currentStep);
             let newCount = this.state.stepcount + 1;
             this.setState({stepcount: newCount});
             this.setState({steps: newStep});
@@ -35,10 +36,10 @@ class PostContainer extends Component {
         
         let submitMaterial = () => {
             let currentMaterial = {title: this.state.materialtitle,
-                                description: this.state.materialdescription,
-                                }
-            let newMaterial = [...this.state.materials].concat(currentMaterial)
-            this.setState({steps: newMaterial});
+                                    quantity: this.state.materialquantity,
+                                    amazon_asin: this.state.materialasin}
+            let newMaterial = [...this.state.materials].concat(currentMaterial);
+            this.setState({materials: newMaterial})
         }
 
         return <PostForm {...this.state} update={updateState} submitStep={submitStep}

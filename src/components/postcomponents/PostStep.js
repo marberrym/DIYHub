@@ -1,8 +1,8 @@
 import React from 'react';
 
 let PostStep = (props) =>
-    <div>
+    <li>
         Step {props.step.stepcount}: {props.step.title}.
-    </div>
+    </li>
 
 export default PostStep;

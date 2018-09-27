@@ -1,10 +1,10 @@
 import React from 'react';
 
-let StepTitle = (props) =>
+let MaterialQuantity = (props) =>
     <label className="marginB">{props.text}<input type="text" value={props.title} 
         placeholder="Step" onChange={event => {
-            props.update('steptitle', event.target.value)
+            props.update('materialquantity', event.target.value)
         }}/>
     </label>
 
-export default StepTitle;
+export default MaterialQuantity;
