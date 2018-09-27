@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PostForm from '../components/PostForm';
+import { connect } from 'react-redux';
+import postProject from '../fetchreqs/postProject';
 
 class PostContainer extends Component {
     constructor(props) {
@@ -28,6 +30,7 @@ class PostContainer extends Component {
 
         let submitProject = () => {
             let project = {
+                token: localStorage.token,
                 title: this.state.title,
                 feature_image_url: this.state.projectimage,
                 time: this.state.time,
@@ -37,6 +40,8 @@ class PostContainer extends Component {
                 steps: this.state.steps,
                 materials: this.state.materials,
             }
+
+            postProject(project, this.props.history.push)
             
             this.setState({title: '',
                             projectimage: '',
@@ -82,7 +87,9 @@ class PostContainer extends Component {
     }
 }
 
-export default PostContainer;
+let PostContainerSmart = connect()(PostContainer)
+
+export default PostContainerSmart;
 
 
 
