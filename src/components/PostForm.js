@@ -30,9 +30,10 @@ let PostForm = (props) =>
             </form>
             <form className="flex submitForm subText width80 justC" onSubmit={props.submitStep}>
                 <div className="width45 flexC">
-                    <StepTitle title={props.steptitle} update={props.update}/>
+                    <StepTitle title={props.steptitle} update={props.update} text="Step Title: " 
+                        type="mat"/>
                     <StepDescription description={props.stepdescription} 
-                    update={props.update}/>
+                        update={props.update} text="Step Description: " type="step"/>
                     <Button text="Add Step"/>
                 </div>
                 <div className="flexC submitForm subText width45">
@@ -44,17 +45,17 @@ let PostForm = (props) =>
                     }
                 </div>
             </form>
-            <form className="flex submitForm subText width80 justC" onSubmit={props.submitStep}>
+            <form className="flex submitForm subText width80 justC" onSubmit={props.submitMaterial}>
                 <div className="width45 flexC">
-                    <StepTitle title={props.steptitle} update={props.update}/>
-                    <StepDescription description={props.stepdescription} 
-                    update={props.update}/>
+                    <StepTitle title={props.materialtitle} update={props.update} text="Material Title: " type="mat"/>
+                    <StepDescription description={props.materialdescription} 
+                    update={props.update} text="Material Description: " type="mat"/>
                     <Button text="Add Step"/>
                 </div>
                 <div className="flexC submitForm subText width45">
                     <div>Current steps:</div>
-                    {props.steps ?
-                        props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
+                    {props.materials ?
+                        props.materials.map(material => <PostStep material={material}/>)    
                     :
                         null
                     }
