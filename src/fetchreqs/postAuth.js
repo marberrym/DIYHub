@@ -4,9 +4,8 @@ let postAuth = (data, callback) => {
     let myStorage = window.localStorage;
     console.log(data);
     console.log(callback);
-    return fetch("http://localhost:5000" + '/authenticate', {
+    return fetch(url + '/authenticate', {
         method: "POST",
-        // mode: "no-cors",
         headers: {
             "Content-Type": "application/json; charset=utf-8",     
         },
