@@ -13,6 +13,8 @@ let reducer = (oldState, action) => {
         return newState;
     } else if (action.type === "LOAD_PROJECTS") {
         return {...oldState, projects: action.projects}
+    } else if (action.type === "LOAD_PROJECT") {
+        return {...oldState, project: action.project}
     }
     else {
         return oldState;
