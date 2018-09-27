@@ -23,11 +23,11 @@ export default (Component) =>
       super(props);
     }
     componentDidMount() {
-      getPosts(this.props.dispatch);
+      getPost(this.props.dispatch, this.props.match.params.projectid);
     }
     componentDidUpdate(prevProps) {
-      if (this.props.match.params.projectid != prevProps.match.params.projectid) {
-        getPosts(this.props.dispatch);
+      if (this.props.match.params.projectid !== prevProps.match.params.projectid) {
+        getPost(this.props.dispatch, this.props.match.params.projectid);
       }
     }
     render() {
