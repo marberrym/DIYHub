@@ -28,7 +28,7 @@ let postProject = async (req, res) => {
       let materialId = await db.one(`SELECT id from diy_materials WHERE amazon_asin='${material.amazon_asin}'`);
       let materialBridgeQuery = await db.query(`INSERT INTO diy_materials_bridge (project_id, material_id, quantity) VALUES (${projectId.id}, ${materialId.id}, ${material.quantity})`);
     } catch(error) {
-      let materialId = await db.one(`INSERT INTO diy_materials (title, amazon_asin) VALUES ('${material.title}', ${material.amazon_asin}) RETURNING id`);
+      let materialId = await db.one(`INSERT INTO diy_materials (title, amazon_asin) VALUES ('${material.title}', '${material.amazon_asin}') RETURNING id`);
       let materialBridgeQuery = await db.query(`INSERT INTO diy_materials_bridge (project_id, material_id, quantity) VALUES (${projectId.id}, ${materialId.id}, ${material.quantity})`);
     }
   }
