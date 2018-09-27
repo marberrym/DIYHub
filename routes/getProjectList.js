@@ -17,7 +17,7 @@ let getProjectList = (req, res) => {
   // Duration
   let responseData = {}
   db.query(
-    `SELECT project_title, feature_image_url, time_range, cost_range FROM diy_projects ORDER BY creation_date`
+    `SELECT id, project_title, feature_image_url, time_range, cost_range FROM diy_projects ORDER BY creation_date`
   )
   .then(data => {
     responseData.status = 'success'
