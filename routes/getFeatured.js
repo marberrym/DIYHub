@@ -33,7 +33,7 @@ let getFeatured = (req, res) => {
   let featured = 1;
   let projectData = {};
   let project = db.one(
-    `SELECT first_name, last_name, category_title, creation_date, project_title, feature_image_url, time_range, cost_range FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id INNER JOIN diy_categories ON diy_projects.category_id = diy_categories.id WHERE diy_projects.id=${featured}`
+    `SELECT id, first_name, last_name, category_title, creation_date, project_title, feature_image_url, time_range, cost_range FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id INNER JOIN diy_categories ON diy_projects.category_id = diy_categories.id WHERE diy_projects.id=${featured}`
   )
   let steps = db.query(
     `SELECT step_order, step_image_url, step_title, step_text FROM diy_steps WHERE project_id=${featured} ORDER BY step_order`
