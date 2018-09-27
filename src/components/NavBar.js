@@ -14,10 +14,10 @@ let NavBar = (props) =>
             {props.user.id !== "" ?
                 <div>
                     <Link to="/post" className="noDec navLink"> Post Project</Link>
-                    <button className="noDec navLink margRight" onClick={event =>{
+                    <a href="#" className="noDec navLink margRight" onClick={event =>{
                         localStorage.removeItem('token');
                         props.dispatch({type: "LOGOUT",  empty: ""})
-                    }}> Log Out</button>
+                    }}> Log Out</a>
                 </div>
             : 
                 <div>

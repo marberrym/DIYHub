@@ -6,6 +6,11 @@ let reducer = (oldState, action) => {
         let newState = {...oldState,
             user: emptyuser}
         return newState
+    } else if (action.type === "ASSIGN_USER"){
+        let newUser = action.package
+        let newState = {...oldState,
+            user: newUser}
+        return newState;
     } else {
         return oldState;
     }
