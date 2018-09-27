@@ -258,6 +258,22 @@
     width: 20em;
 }
 
+.shop-link-container {
+    margin: 1em;
+    text-align: center;
+}
+
+.shop-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 1.5em;
+}
+
+.amazon-logo {
+    width: 5em;
+}
+
 @media only screen and (min-width: 600px) {
     .logo {
         height: 8em;
