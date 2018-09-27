@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 import App from './pagescreens/App';
 import About from './pagescreens/About';
 import LoginContainer from './pagescreens/LoginContainer';
@@ -8,6 +9,7 @@ import SingleScreen from './pagescreens/SingleScreen';
 import NotFound from './pagescreens/NotFound';
 import BrowseScreen from './pagescreens/BrowseScreen';
 import PostContainer from './pagescreens/PostContainer';
+import injectUser from './components/inject-user';
 
 
 let Router = () =>
@@ -26,4 +28,4 @@ let Router = () =>
     
     
 
-export default Router;
+export default connect()(injectUser(Router));
