@@ -37,7 +37,17 @@ class PostContainer extends Component {
                 steps: this.state.steps,
                 materials: this.state.materials,
             }
-            console.log(project)
+            
+            this.setState({title: '',
+                            projectimage: '',
+                            time: '',
+                            cost: '',
+                            category: '',
+                            description: '',
+                            steps: [],
+                            materials: [],
+                        })
+            
         }
 
         let submitStep = () => {
@@ -73,4 +83,6 @@ class PostContainer extends Component {
 }
 
 export default PostContainer;
+
+
 
