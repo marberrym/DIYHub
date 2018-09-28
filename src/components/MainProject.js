@@ -15,7 +15,7 @@ let MainProject = (props) => (
                 <div className="mainPost flexC alignStart">
                     <Path />
                     <div className="flexC alignStart width100">
-                        <div className="flex alignCenter spaceB">
+                        <div className="flex alignCenter spaceB headSupplies">
                             <Header {...props.project.project}/>
                             <Supplies supplies={props.project.materials}/>
                         </div>
