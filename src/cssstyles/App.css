@@ -69,6 +69,14 @@
     margin-right: 1em;
 }
 
+.banner {
+    margin: 0;
+}
+
+.justStart {
+    justify-content: flex-start;
+}
+
 .alignC {
     text-align: center;
 }
@@ -231,8 +239,26 @@
 }
 
 .mainPost {
-    margin-left: 3em;
-    margin-top: 3em;
+    margin: 1em;
+}
+
+.path {
+    margin: 2em;
+}
+
+.step {
+    background: rgba(245, 245, 245, 0.76);
+    padding: 1em;
+    border: 1px solid var(--border-black);
+}
+
+.step:hover {
+    box-shadow: 2px 2px 4px var(--border-black);
+}
+
+.headerMainPost {
+    flex-basis: 65%;
+    margin-left: 2em;
 }
 
 .mainHead {
@@ -271,7 +297,7 @@
 }
 
 .amazon-logo {
-    width: 5em;
+    height: 1em;
 }
 
 @media only screen and (min-width: 600px) {

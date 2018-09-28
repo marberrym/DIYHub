@@ -8,11 +8,11 @@ let Supplies = (props) => {
     }
     queryString = queryString.slice(0, -1);
     return (
-    <div className="marginTop">
+    <div className="marginTop basis30 alignC step path">
         <div className="stepHead">What You Will Need:</div>
             <div className="shop-link-container"><a className="shop-link" href={`https://www.amazon.com/gp/aws/cart/add.html?${queryString}`}><img className="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg" /><br />Add to Cart!</a></div>
             {props.supplies.map(supply => 
-            <div>
+            <div key={supply.amazon_asin}>
                 <h3>{supply.title}</h3>
                 <div>{supply.amazon_asin}</div>
                 <div>Quantity: {supply.quantity}</div>
