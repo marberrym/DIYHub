@@ -4,7 +4,7 @@ let Steps = (props) =>
     <div className="marginTop">
         {props.steps.map(task => 
             <div key={task.step_order}>
-                <div className="flex path step">
+                <div className="flex path step headSteps">
                     <div>
                         <h3>Step {task.step_order}: {task.step_title}</h3>
                         <img className="task-image" src={task.step_image_url} alt={task.title} />
