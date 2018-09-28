@@ -137,5 +137,30 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (5,9,1),
 (5,10,20);
 
+-- Project Number 6
+
+insert into diy_projects (creation_date, user_id, project_title, 
+feature_image_url, time_range, cost_range, category_id,
+project_description) VALUES
+(current_timestamp,6,'Form the Legion of Doom','https://i.ytimg.com/vi/oDtMS6dWllg/hqdefault.jpg',
+3,2, 3, 'Do you hate Superman?  Do you loathe Batman?  Do you think the Flash is dumb?  Do you just want a life without the superfriends?  Here is a step by step guide to create the LEGION OF DOOOOOOOOOOM.');
+
+insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
+VALUES
+(6,1,'https://theblogimages.adobe.com/wp-content/uploads/2016/10/Learntocode-1.jpg',
+'Use your laptop, and learn to code','If you can become a coder, you can become a super villian.  You could steal info from Lifelock, train times from Marta and expose poorly secured front end SQL databases!'),
+(6,2,'http://www.blogcdn.com/www.aoltv.com/media/2008/06/legion_of_doom.png',
+'Find some friends interested in world domination!','Plot the demise of the superfriends.  Use your code for evil.  Focus on world domination.  Kick dogs.  Whatever you do, do not help old ladies carrying groceries across the street.'),
+(6,3,'https://vignette.wikia.nocookie.net/superfriends/images/b/b2/LLuthor.png/revision/latest?cb=20090504234624',
+'Matthew Marberry','Bald super genius status.'),
+(6,4,'https://vignette.wikia.nocookie.net/superfriends/images/9/96/Brainiac.png/revision/latest?cb=20100417151331',
+'Nathan Reese','A balder superer genius status.'),
+(6,5,'https://vignette.wikia.nocookie.net/marvel_dc/images/5/53/Sinestro_Super_Friends.jpg/revision/latest?cb=20090704231021',
+'Ian Gornall','A superer genius with a full head of hair to boot.');
+
+insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
+(6,9,1),
+(6,10,20);
+
 
 
