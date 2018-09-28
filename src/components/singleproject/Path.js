@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 let Path = (props) =>
     <div>
-        <Link className="noDec" to="/">DIY Hub &raquo; </Link>    
+        <Link className="noDec path" to="/">DIY Hub &raquo; </Link>    
         {/* <Link className="noDec" to="/category/crafts">Crafts &raquo; </Link> */}
     </div>
 

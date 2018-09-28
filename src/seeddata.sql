@@ -50,7 +50,7 @@ insert into diy_user_faves (user_id, project_id) VALUES
 insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-('2010-01-04 01:01:04',2,'Dream Scanner','https://5.imimg.com/data5/OU/NQ/MY-16281911/rainbow-dream-catchers-500x500.jpg',
+('2010-01-04 01:01:04',2,'Dream Scanner','https://myfengshuistore.com/wp-content/uploads/2016/09/Antique-Imitation-Dreamcatcher-Gift-checking-Dream-Catcher-Net-With-natural-stone-Feathers-Wall-Hanging-Decoration-Ornament-5.jpg',
 6,1,4,'Make a dream catcher, so that your nightmares get all tangled up in this string spider web thing. Then once a week you just take it out to the yard and hose it off.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -75,7 +75,7 @@ insert into diy_user_faves (user_id, project_id) VALUES
 insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-(current_timestamp,3,'Delicious Red Rum','https://cdn.diffordsguide.com/contrib/stock-images/2017/1/17/2017ba7d1b31dbf035beb25c291ca93e6030.jpg',
+(current_timestamp,3,'Delicious Red Rum','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91oyqvplOQ-UZ4OqDpgTUZm0BCRrEGTGO9RO_MbnAAXz0aSjj5Q',
 2,2,2,'Right before you go crazy in the snow all by yourself and chase your family through a hotel with a fire-axe you might find yourself simply parched. That dry winter air does cause a powerful thirst. Here is a delightful beverage to slake that internal fire, and quench your desire for something red and bloody.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -122,7 +122,7 @@ insert into diy_projects (creation_date, user_id, project_title,
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
 (current_timestamp,6,'Create your own massacre!','https://frightfind.com/wp-content/uploads/2015/09/stanley-hotel-shining.jpg',
-3,2, 3, 'Is your life a little boring?  Why not spice it up with some delusions and murder!?');
+3,2, 3, 'Is your life a little boring?  Why not spice it up with some delusions and murder!?  COME ONE, COME ALL, kiddies, it is time to get down with the sickness!');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
 VALUES
