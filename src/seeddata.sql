@@ -2,7 +2,9 @@ insert into diy_users (first_name, last_name, email, password) VALUES
 ('Jason', 'Voorhees','mistermachete@campcrystallake.com','boopboop123'),
 ('Freddie', 'Kruger','nightmare@elmstreet.com','slashy123'),
 ('Jack', 'Torrance','caretaker@overlook.com','advocat123'),
-('Randal', 'Flagg','captain@trips.com','boopboop123');
+('Randal', 'Flagg','captain@trips.com','boopboop123'),
+('King Matt', 'Demagogue', 'matty@mattypie.com', 'matt'),
+('Stanley', 'Kubrick', 'theshining@shining.com', 'shining');
 
 insert into diy_categories (category_title) VALUES
 ('Food'),
@@ -17,7 +19,11 @@ insert into diy_materials (title, amazon_asin) VALUES
 ('Popsicle Sticks','B071L59Q7J'),
 ('Feathers','B06VWKVZH1'),
 ('String','B005GYJZMY'),
-('Murder Weapon,','B014LSF9YI');
+('Murder Weapon,','B014LSF9YI'),
+('Planks on planks', 'B00I0FJCGA'),
+('White Paint for White People', 'B010I5D54E'),
+('AN AXE FOR PEOPLES', 'B004WJGXAQ' ),
+('Edgar Allen Poe Booze', 'B01J2K0AXK');
 
 insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
@@ -88,3 +94,48 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 insert into diy_user_faves (user_id, project_id) VALUES
 (1,2),
 (2,2);
+
+--Insert Fourth Project:
+
+insert into diy_projects (creation_date, user_id, project_title, 
+feature_image_url, time_range, cost_range, category_id,
+project_description) VALUES
+(current_timestamp,5,'Pretty Plank Wall','https://thediydreamer.com/wp-content/uploads/2015/08/Awesome-Plank-Wall-Project-Live-Laugh-Rowe.jpg',
+3,2, 3, 'Is the inside of your 1 bedroom apartment a little barren and boring?  Do you want to leave something pretty for the next sad sap who lives there?  Why not install your own plank wall!?');
+
+insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
+VALUES
+(4,1,'https://livelaughrowe.com/wp-content/uploads/2015/08/Project-Plank-Wall.gif',
+'Get some 1x4 planks','Cut em up all nice and pretty and think about your positioning.'),
+(4,2,'https://livelaughrowe.com/wp-content/uploads/2015/08/Plank-Wall-Project.-Sanding-and-Prepping-the-planks-for-painting.jpg',
+'Get them aligned and screwed in','Please be careful with all of those powertools that are required.  If you sever a finger I will not be held liable.'),
+(4,3,'https://livelaughrowe.com/wp-content/uploads/2015/08/Plank-Wall-Project.-Fabulous-White-Plank-Wall.jpg',
+'Paint it WHITE!','You made a fabulous plank wall - good job.  You will be able to easily seduce members of the opposite (or same) sex with your crafty ingenuity.');
+
+insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
+(4,8,1),
+(4,7,20);
+
+-- Project number 5:
+
+insert into diy_projects (creation_date, user_id, project_title, 
+feature_image_url, time_range, cost_range, category_id,
+project_description) VALUES
+(current_timestamp,6,'Create your own massacre!','https://frightfind.com/wp-content/uploads/2015/09/stanley-hotel-shining.jpg',
+3,2, 3, 'Is your life a little boring?  Why not spice it up with some delusions and murder!?');
+
+insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
+VALUES
+(5,1,'https://awculture.files.wordpress.com/2015/10/the-shining-family.png',
+'Draw some inspiration from a cult classic','Watch this 1000 times and it will never be enough.'),
+(5,2,'https://media1.popsugar-assets.com/files/thumbor/sOjoi2zPsqMYCvUl0H7icRfDrPg/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2016/09/28/904/n/1922283/2cc2d9e3475cf3be_twins/i/Grady-Twins-From-Shining.gif',
+'Find some creepy twins to set the mood','Make sure they are as terrifying as possible.  Throw in some skinless old ladies.'),
+(5,3,'https://thumbs.gfycat.com/HeavenlyFrighteningEyas-size_restricted.gif',
+'HERES JOHNNY','Whatever you do, before murdering your family make sure you yell this classic line, HERES JOHNNY.');
+
+insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
+(5,9,1),
+(5,10,20);
+
+
+
