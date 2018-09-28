@@ -21,7 +21,7 @@ CREATE TABLE diy_projects (
     creation_date TIMESTAMP,
     user_id INTEGER REFERENCES diy_users(id),
     project_title varchar(200) NOT NULL,
-    feature_image_url varchar(200) NOT NULL,
+    feature_image_url varchar(500) NOT NULL,
     time_range INTEGER NOT NULL,
     cost_range INTEGER NOT NULL,
     category_id INTEGER REFERENCES diy_categories(id),
@@ -38,7 +38,7 @@ CREATE TABLE diy_steps (
     id SERIAL PRIMARY KEY,
     project_id INTEGER REFERENCES diy_projects(id),
     step_order INTEGER,
-    step_image_URL varchar(200),
+    step_image_URL varchar(500),
     step_title varchar(200),
     step_text TEXT
 );
