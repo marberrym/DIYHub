@@ -1,10 +1,10 @@
 import React from 'react';
 
 let Time = (props) =>
-    <label className="margRight marginB" onChange={(event) =>
-        props.update('time', event.target.value)
-    } value={props.time}>Time: <select>
-            <option value="0"></option>
+    <label className="margRight marginB" onChange={(event) => {
+        props.update('category', event.target.value);
+    }} value={props.time}>Time: <select>
+            <option value=""></option>
             <option value="1">0-2 hours</option>
             <option value="2">2-4 hours</option>
             <option value="3">4-8 hours</option>

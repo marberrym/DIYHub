@@ -1,10 +1,10 @@
 import React from 'react';
 
 let Category = (props) =>
-    <label className="margRight marginB" onChange={(event) =>
-        props.update('category', event.target.value)
-    } value={props.category}>Category: <select>
-                <option value="0"></option>
+    <label className="margRight marginB" onChange={(event) => {
+        props.update('category', event.target.value);
+    }} value={props.category}>Category: <select>
+                <option value=""></option>
                 <option value="1">Food</option>
                 <option value="2">Drinks</option>
                 <option value="3">Crafts</option>

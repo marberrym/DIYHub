@@ -1,10 +1,10 @@
 import React from 'react';
 
 let Cost = (props) =>
-    <label className="margRight marginB" onChange={(event) =>
-        props.update('cost', event.target.value)
-    } value={props.cost}>Cost: <select>
-            <option value="0"></option>
+    <label className="margRight marginB" onChange={(event) => {
+        props.update('category', event.target.value);
+    }} value={props.cost}>Cost: <select>
+            <option value=""></option>
             <option value="1">$0-$25</option>
             <option value="2">$25-$50</option>
             <option value="3">$50-$100</option>
