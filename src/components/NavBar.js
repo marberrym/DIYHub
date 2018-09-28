@@ -10,19 +10,19 @@ let NavBar = (props) =>
             <Link to="/about" className="noDec navLink">About</Link>
         </div>
         <div className="flex">
-            {console.log(props)}
             {props.user.id !== "" ?
                 <div>
+                    {console.log(props.user.name)}
                     <Link to="/post" className="noDec navLink"> Post Project</Link>
                     <span className="noDec navLink margRight" onClick={event =>{
                         localStorage.removeItem('token');
                         props.dispatch({type: "LOGOUT",  empty: ""})
                     }}> Log Out</span>
                 </div>
-            : 
+            :
                 <div>
-                    <Link to="/login" className="noDec navLink"> Log In</Link>
                     <Link to="/signup" className="noDec navLink margRight">Sign Up</Link>
+                    <Link to="/login" className="noDec navLink"> Log In</Link>
                 </div>
             }</div>
     </div>
