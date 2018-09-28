@@ -15,9 +15,20 @@ let getProjectList = (req, res) => {
   // Image
   // Cost
   // Duration
-  let responseData = {}
+  let responseData = {};
+  let sqlConditional = '';
+  if (req.query.cat) {
+    sqlConditional += `AND category_id=${req.query.cat} `
+  }
+  if (req.query.cost) {
+    sqlConditional += `AND cost_range=${req.query.cost} `
+  }
+  if (req.query.time) {
+    sqlConditional += `AND time_range=${req.query.time} `
+  }
+
   db.query(
-    `SELECT id, project_title, feature_image_url, time_range, cost_range FROM diy_projects ORDER BY creation_date`
+    `SELECT id, project_title, feature_image_url, time_range, cost_range FROM diy_projects WHERE (project_title ILIKE '%${req.query.q || ''}%' OR project_description ILIKE '%${req.query.q || ''}%') ${sqlConditional}ORDER BY creation_date`
   )
   .then(data => {
     responseData.status = 'success'
