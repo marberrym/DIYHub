@@ -1,6 +1,6 @@
 import url from '../globalVars';
 
-let postAuth = (data, callback) => {
+let postAuth = (data, callback, dispatch) => {
     let myStorage = window.localStorage;
     console.log(data);
     console.log(callback);
@@ -30,6 +30,12 @@ let postAuth = (data, callback) => {
         })
     }).then(response => response.json())
     .then(response => {
+        console.log(response)
+        dispatch({type: "ASSIGN_USER", package: {
+                name: response.name,
+                id: response.id,
+                token: myStorage.token,
+            }})
         myStorage.setItem('name', response.name);
         myStorage.setItem('id', response.id);
     })

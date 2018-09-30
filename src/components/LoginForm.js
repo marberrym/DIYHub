@@ -12,14 +12,9 @@ let LoginForm = (props) =>
             event.preventDefault();
             props.update('email', '');
             props.update('password', '');
-            props.login();
-            if (localStorage.name && localStorage.id) {
-                props.dispatch({type: "ASSIGN_USER", package: {
-                    name: localStorage.name,
-                    id: localStorage.id,
-                }})
+            props.login(props.dispatch);
             }
-        }}>
+        }>
             <label className="formInputField">
                 Email: <input type="text" value={props.email} onChange={(event) =>
                     props.update('email', event.target.value)} required/>
