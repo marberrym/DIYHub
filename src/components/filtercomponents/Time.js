@@ -1,7 +1,7 @@
 import React from 'react';
 
 let Time = (props) =>
-    <label className="margRight marginB" onChange={(event) => {
+    <label className="formInputField" onChange={(event) => {
         props.update('time', event.target.value);
     }} value={props.time}>Time: <select>
             <option value=""></option>

@@ -8,7 +8,7 @@ import BrowseButton from '../components/BrowseButton';
 class App extends Component {
   render() {
     return (
-      <div className="flexC">
+      <div className="pageLayout">
         <NavBar/>
         <HomeScreen /> 
         <HeadLogo />

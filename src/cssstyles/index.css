@@ -1,6 +1,8 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: rgb(219, 203, 196);
-}
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(137,214,220,1) 100%);
+  }

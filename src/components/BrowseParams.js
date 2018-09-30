@@ -5,7 +5,7 @@ import Cost from './filtercomponents/Cost';
 import Time from './filtercomponents/Time';
 
 let BrowseParams = (props) =>
-    <form className="subText browseForm">
+    <form className="filterForm">
         <KeyWord keyword={props.keyword} update={props.update}/>
         <Category category={props.category} update={props.update}/>
         <Cost cost={props.cost} update={props.update}/>
