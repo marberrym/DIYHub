@@ -162,5 +162,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (6,9,1),
 (6,10,20);
 
-
-
+insert into diy_my_projects (user_id, project_id, project_status) VALUES
+(1,1,1),
+(1,2,1),
+(1,3,2),
+(1,4,2),
+(1,5,3),
+(1,6,3);

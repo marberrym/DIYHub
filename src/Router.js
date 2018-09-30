@@ -9,6 +9,7 @@ import SingleScreen from './pagescreens/SingleScreen';
 import NotFound from './pagescreens/NotFound';
 import BrowseScreen from './pagescreens/BrowseScreen';
 import PostContainer from './pagescreens/PostContainer';
+import MyProjectsScreen from './pagescreens/MyProjectsScreen';
 import injectUser from './components/inject-user';
 
 
@@ -22,6 +23,7 @@ let Router = () =>
             <Route exact path='/browse' component={BrowseScreen} />
             <Route exact path='/project/:projectid' component={SingleScreen} />
             <Route exact path='/post' component={PostContainer}/>
+            <Route exact path='/my-projects' component={MyProjectsScreen} />
             <Route path="/*" component={NotFound} />
         </Switch>
     </HashRouter>

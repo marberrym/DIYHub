@@ -10,13 +10,14 @@ const validate = require('./routes/validate');
 const getFeatured = require('./routes/getFeatured');
 const getProject = require('./routes/getProject');
 const getProjectList = require('./routes/getProjectList');
+const getMyProjects = require('./routes/getMyProjects');
 const getCategories = require('./routes/getCategories');
 const updateProject = require('./routes/updateProject');
 const postProject = require('./routes/postProject');
 
 const app = express();
 const protect = expressJwt({ secret,
-  getToken: (req) => req.body.token
+  getToken: (req) => req.body.token ? req.body.token : req.headers.token
 });
 
 app.use(bodyParser.json());
@@ -25,7 +26,7 @@ app.use(express.static('public'));
 
 // Sample protected route using middleware: /protected
 app.get('/protected', protect, (req, res) => {
-  res.end('Hi ' + req.user.user + '! You found the hidden treasure!');
+  res.send(req.user);
 })
 
 // sample unprotected route using default: app
@@ -42,6 +43,7 @@ app.post('/validate', validate);
 
 // Project routes
 app.get('/project/featured', getFeatured);
+app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
 app.put('/project/:id', protect, updateProject);
