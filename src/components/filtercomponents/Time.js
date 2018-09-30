@@ -2,7 +2,7 @@ import React from 'react';
 
 let Time = (props) =>
     <label className="formInputField" onChange={(event) => {
-        props.update('category', event.target.value);
+        props.update('time', event.target.value);
     }} value={props.time}>Time: <select>
             <option value=""></option>
             <option value="1">0-2 hours</option>
