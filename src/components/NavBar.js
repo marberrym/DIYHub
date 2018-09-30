@@ -13,6 +13,7 @@ let NavBar = (props) =>
             {console.log(props.user.name)}
             {localStorage.token ?
                 <div>
+                    <Link to="/my-projects" className="navLink"> My Projects</Link>
                     <Link to="/post" className="navLink"> Post Project</Link>
                     <span className="navLink" onClick={event =>{
                         localStorage.removeItem('token');

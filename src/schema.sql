@@ -1,6 +1,6 @@
 DROP TABLE diy_users, diy_projects, 
     diy_categories, diy_materials, diy_steps, 
-    diy_materials_bridge, diy_user_faves, diy_badges;
+    diy_materials_bridge, diy_badges, diy_my_projects;
 
 CREATE TABLE diy_users (
     id SERIAL PRIMARY KEY,
@@ -49,12 +49,13 @@ CREATE TABLE diy_materials_bridge (
     quantity INTEGER
 );
 
-CREATE TABLE diy_user_faves (
-    user_id INTEGER REFERENCES diy_users(id),
-    project_id INTEGER REFERENCES diy_projects(id)
-);
-
 CREATE TABLE diy_badges (
     user_id INTEGER REFERENCES diy_users(id),
     badge INTEGER
+);
+
+CREATE TABLE diy_my_projects (
+    user_id INTEGER REFERENCES diy_users(id),
+    project_id INTEGER REFERENCES diy_projects(id),
+    project_status INTEGER
 );
