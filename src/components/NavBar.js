@@ -15,7 +15,6 @@ let NavBar = (props) =>
                 <div>
                     <Link to="/my-projects" className="navLink"> My Projects</Link>
                     <Link to="/post" className="navLink"> Post Project</Link>
-                    <Link to="/post" className="navLink"> Post Project</Link>
                     <span className="navLink" onClick={event =>{
                         localStorage.removeItem('token');
                         localStorage.removeItem('name');
