@@ -5,7 +5,7 @@ import priceRange from './priceRange';
 
 let BrowsePost = (props) =>
     <div className="flex">
-        <Link to={"/project/" + props.project.id} className="flexC projectBG spaceB noDec">
+        <Link to={"/project/" + props.project.id} className="pageLayout projectBG spaceB noDec">
             <img src={props.project.feature_image_url} className="browseImg" alt={props.project.name}/>
             <div className="subText"> 
                 <div>{props.project.project_title}</div>

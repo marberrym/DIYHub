@@ -1,7 +1,7 @@
 import React from 'react';
 
 let AboutPost = () =>
-    <div className="submitForm">
+    <div className="aboutSection">
         <div className="alignC subText">
             <h1>DIYHUB</h1>
             <h2>A place for creators and inspirators</h2>

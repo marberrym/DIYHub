@@ -5,10 +5,10 @@ import Button from './Button';
 import { connect } from 'react-redux';
 
 let LoginForm = (props) =>
-    <div className="flexC">
+    <div className="pageLayout">
         <NavBar />
         <HeadLogo />
-        <form className="flexC submitForm" onSubmit={(event) => {
+        <form className="pageLayout loginForm" onSubmit={(event) => {
             event.preventDefault();
             props.update('email', '');
             props.update('password', '');
@@ -20,11 +20,11 @@ let LoginForm = (props) =>
                 }})
             }
         }}>
-            <label className="marginB subText">
+            <label className="formInputField">
                 Email: <input type="text" value={props.email} onChange={(event) =>
                     props.update('email', event.target.value)} required/>
             </label>
-            <label className="marginB subText">
+            <label className="formInputField">
                 Password: <input type="password" value={props.password} onChange={(event) =>
                     props.update('password', event.target.value)} required/>
             </label>

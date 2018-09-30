@@ -4,7 +4,7 @@ import HeadLogo from '../components/HeadLogo';
 import AboutPost from '../components/AboutPost';
 
 let About = () =>
-    <div className="flexC">
+    <div className="pageLayout">
         <NavBar/>
         <HeadLogo/>
         <AboutPost />

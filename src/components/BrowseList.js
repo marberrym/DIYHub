@@ -4,7 +4,7 @@ import BrowseParams from './BrowseParams';
 import BrowsePost from './BrowsePost';
 
 let BrowseList = (props) =>
-    <div className="flexC fwrap justC">
+    <div className="pageLayout fwrap justC">
         <NavBar/>
         <BrowseParams {...props}/>
             <div className="flex fwrap justC alignC">

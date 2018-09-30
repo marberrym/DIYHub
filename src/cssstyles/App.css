@@ -1,21 +1,23 @@
 :root {
     --header-font: 'Bungee', cursive;
     --sub-font: 'Saira Semi Condensed', sans-serif;
-    --main-white: #F1E2DC;
-    --black-outline: -2px -2px 0 #090D01,
-    2px -2px 0 #090D01,
-    -2px 2px 0 #090D01,
-    2px 2px 0 #090D01;
-    --main-black: #090D01;
+    --main-white: #FFFFFF;
+    --black-outline: -2px -2px 0 #090E17,
+    2px -2px 0 #090E17,
+    -2px 2px 0 #090E17,
+    2px 2px 0 #090E17;
+    --main-black: #090E17;
     --border-black: rgba(9, 13, 1, 0.21);
-    --main-darkgrey: #414A52;
-    --main-blue: #126973;
-    --main-grey: #79797A;
+    --main-darkgrey: #A1A19F;
+    --main-blue: #1F3196;
+    --main-teal: #89D6DC;
+    --blue-gradient: linear-gradient(180deg, rgba(31,49,150,1) 0%, rgba(60,60,212,1) 49%, rgba(31,49,150,1) 100%);
+    --teal-gradient: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(137,214,220,1) 100%);
 }
 
 .navBar {
     height: 3em;
-    background-color: whitesmoke;
+    background-color: white;
     border-bottom: 2px solid var(--main-black);
     display: flex;
     align-items: center;
@@ -23,14 +25,63 @@
     justify-content: space-between;
 }
 
+.banner {
+    background-position-y: 90%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+}
+
+.bannerFeatureHead {
+    font-family: var(--sub-font);
+    color: white;
+    border-radius: 5em;
+    padding: .1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    background-color: var(--border-black);
+    text-align: center;
+}
+
+.bannerTitle {
+    font-family: var(--sub-font);
+    color: white;
+    font-size: 3em;
+}
+
+.headLogoDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.pageLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoFont {
+    font-size: 3em;
+    font-family: var(--header-font);
+    color: white;
+    text-shadow: var(--black-outline);
+}
+
 .logo {
     height: 7em;
     margin-right: 1em;
 }
 
-.head {
-    margin-top: 3em;
-}
 .navGear {
     height: 40px;
     margin-left: 1em;
@@ -48,6 +99,8 @@
 }
 
 .navLink {
+    text-decoration: none;
+    margin-right: 1em;
     font-family: var(--sub-font);
     font-size: 1em;
     color: var(--main-black);
@@ -56,10 +109,10 @@
 }
 
 .navLink:hover {
-    color: var(--main-blue);
+    color: var(--main-teal);
 }
 
-.submitForm {
+.aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--main-black);
     padding: 1em;
@@ -67,10 +120,16 @@
     justify-content: space-evenly;
     margin-left: 1em;
     margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.banner {
-    margin: 0;
+
+
+.formInputField {
+    font-family: var(--sub-font);
+    margin-bottom: 1em;
 }
 
 .justStart {
@@ -115,26 +174,10 @@
 .browseImg {
     width: 15em;
     height: 15em;
-}
+} 
 
-.featureText {
-    font-family: var(--sub-font);
-    color: whitesmoke;
-    border-radius: 5em;
-    padding: .1em;
-    padding-right: 1em;
-    padding-left: 1em;
-    background-color: var(--border-black);
-    font-size: 1em;
-}
-
-.projectTitle {
-    color: whitesmoke;
-    font-size: 3em;
-}
-
-.button {
-    background-color: var(--main-grey);
+.browseBtn, .button {
+    background: var(--blue-gradient);
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
@@ -143,7 +186,7 @@
     color: whitesmoke;
 }
 
-.button:hover {
+.browseBtn:hover, .button:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -156,10 +199,6 @@
     font-family: var(--sub-font);
 }
 
-.noDec {
-    text-decoration: none;
-    color: var(--main-black);
-}
 
 .spaceB {
     justify-content: space-between;
@@ -207,7 +246,7 @@
     justify-content: center;
 }
 
-.flexC {
+.pageLayout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -313,7 +352,7 @@
     .logo {
         height: 8em;
     }
-    .headFont {
+    .logoFont {
         font-size: 4em;
     }
     .browseForm {

@@ -1,6 +1,9 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: rgb(219, 203, 196);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: var(--teal-gradient);
+  }
+html {
+    height: 100%;
 }
