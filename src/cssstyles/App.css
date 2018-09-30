@@ -77,11 +77,12 @@
 
 .headLogoDiv {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-top: 3em;
 }
 
-.formVert, .browsePost, .pageLayout {
+.logoText, .formVert, .browsePost, .pageLayout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,9 +105,16 @@
 .logoFont {
     font-size: 3em;
     font-family: var(--header-font);
+    display: flex;
+    flex-direction: column;
     letter-spacing: 4px;
     color: white;
     text-shadow: var(--black-outline);
+}
+
+.subLogo {
+    font-size: 1.3em;
+    transform: translateY(-45%)
 }
 
 .logo {
@@ -120,7 +128,7 @@
     transition: .1s ease-in-out;
 }
 
-.navGear:hover {
+.logo:hover, .navGear:hover {
     animation: rotate .5s infinite;
 }
 
@@ -316,7 +324,7 @@
 
 @media only screen and (min-width: 600px) {
     .logo {
-        height: 8em;
+        height: 10em;
     }
     .stepContent {
         flex-basis: 50%;
