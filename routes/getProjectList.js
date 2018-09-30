@@ -1,20 +1,9 @@
 const db = require('../database');
 
 let getProjectList = (req, res) => {
-  // Query database for project list based on query parameters:
-  // Favorites
-  // Category
-  // OrderBy
-  // Price
-  // Time
-  // Offset
-  // User
+  // Query database for project list based on query parameters
+  // To be added: offset
 
-  // Return:
-  // Title
-  // Image
-  // Cost
-  // Duration
   let responseData = {};
   let sqlConditional = '';
   if (req.query.cat) {
