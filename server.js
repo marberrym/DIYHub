@@ -33,9 +33,11 @@ app.get('/unprotected', (req, res) => {
   res.send('Hello, I am unprotected.');
 })
 
-// Route to recieve token, currently not linked to database.
-app.post('/authenticate', authenticate);
+// Route to register user into database.
 app.post('/signup', signup);
+// Route to recieve token.
+app.post('/authenticate', authenticate);
+// Route to validate token.
 app.post('/validate', validate);
 
 // Project routes
@@ -46,8 +48,7 @@ app.put('/project/:id', protect, updateProject);
 app.post('/project', protect, postProject);
 
 
-// Category routes
+// Category route
 app.get('/category', getCategories);
 
-// Favorite route
 app.listen(5000);

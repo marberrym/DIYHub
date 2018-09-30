@@ -14,12 +14,11 @@ let authenticate = (req, res) => {
     [req.body.email, req.body.password]
   )
   .then(data => {
-    console.log(data);
     let token = jwt.sign({ id: data.id, first: data.first_name }, secret, { expiresIn: "7d" });
     res.send({token, status: 'success'});
   })
   .catch(error => {
-    console.log(error);
+    console.log('authenticate failed: ' + error);
     res.send({status: 'error'});
   })
 }

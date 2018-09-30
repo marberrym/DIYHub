@@ -1,19 +1,6 @@
 const db = require('../database');
 
 let updateProject = async (req, res) => {
-  // Query database for featured project.
-  // title
-  // cost
-  // category
-  // time
-  // description
-  // steps: []
-  // steptitle
-  // stepdescription
-  // req.user.id
-  // insert into diy_projects: project_title, feature_image_url, time_range, cost_range, category_id, user_id
-  // insert into steps: step_order, step_image_url, step_title, step_text
-  // insert into materials: title, amazon_asin, quantity
 
   let projectId = await db.query(`UPDATE diy_projects SET project_title='${req.body.title}', feature_image_url='${req.body.feature_image_url}', time_range=${req.body.time}, cost_range=${req.body.cost}, category_id=${req.body.category}, project_description='${req.body.description}' WHERE id=${req.params.id}`);
 

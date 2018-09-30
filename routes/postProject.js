@@ -1,19 +1,6 @@
 const db = require('../database');
 
 let postProject = async (req, res) => {
-  // Query database for featured project.
-  // title
-  // cost
-  // category
-  // time
-  // description
-  // steps: []
-  // steptitle
-  // stepdescription
-  // req.user.id
-  // insert into diy_projects: project_title, feature_image_url, time_range, cost_range, category_id, user_id
-  // insert into steps: step_order, step_image_url, step_title, step_text
-  // insert into materials: title, amazon_asin, quantity
   let projectId = await db.one(`INSERT INTO diy_projects (creation_date, user_id, project_title, feature_image_url, time_range, cost_range, category_id,project_description) VALUES (CURRENT_TIMESTAMP, ${req.user.id}, '${req.body.title}', '${req.body.feature_image_url}', ${req.body.time}, ${req.body.cost}, ${req.body.category}, '${req.body.description}') RETURNING id;`);
   let stepDataInsert = '';
   for (let i = 0; i < req.body.steps.length; i++){
