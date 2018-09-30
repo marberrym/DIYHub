@@ -73,9 +73,15 @@ class MyProjectsScreen extends Component {
                     }}>Completed</div>
               </div>
           </div>
-          <div className="flex fwrap justC alignC">
-            {this.props.projects.map(project => <BrowsePost project={project} key={project.id}/>)}
-          </div>
+            {this.props.porjects ?
+              <div className="flex fwrap justC alignC">
+                {this.props.projects.map(project => <BrowsePost project={project} key={project.id}/>)}
+              </div>
+            :
+              <div>
+                Oops, you don't have any projects saved!
+              </div>
+            }
         </div>
       );
     }
