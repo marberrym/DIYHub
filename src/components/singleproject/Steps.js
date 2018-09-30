@@ -1,16 +1,14 @@
 import React from 'react';
 
 let Steps = (props) =>
-    <div className="marginTop">
+    <div>
         {props.steps.map(task => 
-            <div key={task.step_order}>
-                <div className="flex path step headSteps">
-                    <div>
-                        <h3>Step {task.step_order}: {task.step_title}</h3>
-                        <img className="task-image" src={task.step_image_url} alt={task.title} />
-                    </div>
-                    <div className="alignC path">{task.step_text}</div>
+            <div key={task.step_order} className="stepHeader">
+                <div>
+                    <h3>Step {task.step_order}: {task.step_title}</h3>
+                    <img className="task-image" src={task.step_image_url} alt={task.title} />
                 </div>
+                <div className="stepContent">{task.step_text}</div>     
             </div>)}
     </div>
 

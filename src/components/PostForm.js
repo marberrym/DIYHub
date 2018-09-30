@@ -18,32 +18,32 @@ import ProjectImage from './postcomponents/ProjectImage';
 import StepImage from './postcomponents/StepImage';
 
 let PostForm = (props) =>
-    <div className="flexC">
+    <div className="pageLayout">
         <NavBar/>
         <HeadLogo/>
-        <div className="flexC width100 alignC submitFlex">
-            <form className="flexC submitForm subText" onSubmit={event => props.submitProject()}>
-                <div className="flex">
-                    <div className="flexC width80">
+        
+            <form className="postProjectForm" onSubmit={event => props.submitProject()}>
+                <div className="topPostSection">
+                    <div className="formVert">
                         <Title title={props.title} update={props.update}/>
                         <ProjectImage title={props.projectimage} update={props.update} text="Image URL: "/>
                         <Cost cost={props.cost} update={props.update}/>
                         <Time time={props.time} update={props.update}/>
                         <Category category={props.category} update={props.update}/>
                     </div>
-                    <Description className="width80" description={props.description} update={props.update}/>
+                    <Description description={props.description} update={props.update}/>
                 </div>
                 <Button text="Submit Project"/>
             </form>
-            <form className="flex submitForm subText width80 justC" onSubmit={props.submitStep}>
-                <div className="width45 flexC">
+            <form className="postProjectFormH" onSubmit={props.submitStep}>
+                <div className="formVert">
                     <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
                     <StepImage title={props.stepimage} update={props.update} text="Image URL: "/>
                     <StepDescription description={props.stepdescription} 
                         update={props.update} text="Step Description: " type="step"/>
                     <Button text="Add Step"/>
                 </div>
-                <div className="flexC submitForm subText width45">
+                <div className="postProjectForm">
                     <div>Current steps:</div>
                     {props.steps ?
                         props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
@@ -52,14 +52,14 @@ let PostForm = (props) =>
                     }
                 </div>
             </form>
-            <form className="flex submitForm subText width80 justC" onSubmit={props.submitMaterial}>
-                <div className="width45 flexC">
+            <form className="postProjectFormH" onSubmit={props.submitMaterial}>
+                <div className="formVert">
                     <MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
                     <MaterialQuantity title={props.materialquantity} update={props.update} text="Material Quantity: "/>
                     <MaterialASIN title={props.materialasin} update={props.update} text="Material Amazon ASIN: "/>
                     <Button text="Add Material"/>
                 </div>
-                <div className="flexC submitForm subText width45">
+                <div className="postProjectForm">
                     <div>Current Materials:</div>
                     {props.materials ?
                         props.materials.map(mat => <PostMat mat={mat}/>)    
@@ -69,7 +69,7 @@ let PostForm = (props) =>
                 </div>
             </form>
             
-        </div>
+        
     </div>
 
 export default PostForm;
