@@ -63,7 +63,7 @@
     margin-top: 3em;
 }
 
-.browsePost, .pageLayout {
+.formVert, .browsePost, .pageLayout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +80,7 @@
     text-align: center;
 }
 
-.stepHeader:hover, .materials:hover, .browsePost:hover {
+.postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -126,7 +126,7 @@
     color: var(--main-teal);
 }
 
-.stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -137,6 +137,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.postProjectForm {
+    margin: 2em;
 }
 
 .aboutSection{
@@ -157,6 +161,17 @@
 .stepHeader, .supplyTitle, .materialHead {
     font-weight: bolder;
     font-size: 1.3em;
+}
+
+.postProjectFormH, .topPostSection {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+}
+
+.postProjectFormH {
+    width: 80%;
+    height: 20%;
 }
 
 .stepHeader {
