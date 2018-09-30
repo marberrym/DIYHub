@@ -125,11 +125,13 @@
 .navGear {
     height: 30px;
     margin-left: 1em;
-    transform: translateY(15%);
     transition: .1s ease-in-out;
+    margin-top: .5em;  
 }
 
-.logo:hover, .navGear:hover {
+
+
+.navGear:hover, .logo:hover {
     animation: rotate .5s infinite;
 }
 
@@ -142,10 +144,10 @@
 .navLink {
     cursor: pointer;
     text-decoration: none;
-    margin-right: 1em;
+    margin-right: .5em;
     font-size: 1em;
     color: var(--main-black);
-    margin-left: 1em;
+    margin-left: .5em;
     transition: .3s ease-in-out;
 }
 
