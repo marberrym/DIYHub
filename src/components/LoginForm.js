@@ -8,7 +8,7 @@ let LoginForm = (props) =>
     <div className="pageLayout">
         <NavBar />
         <HeadLogo />
-        <form className="pageLayout loginForm" onSubmit={(event) => {
+        <form className="loginForm" onSubmit={(event) => {
             event.preventDefault();
             props.update('email', '');
             props.update('password', '');

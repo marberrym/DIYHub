@@ -1,7 +1,7 @@
 import React from 'react';
 
 let Category = (props) =>
-    <label className="margRight marginB" onChange={(event) => {
+    <label className="formInputField" onChange={(event) => {
         props.update('category', event.target.value);
     }} value={props.category}>Category: <select>
                 <option value=""></option>

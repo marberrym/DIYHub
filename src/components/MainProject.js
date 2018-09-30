@@ -9,18 +9,16 @@ import Banner from './singleproject/Banner';
 
 let MainProject = (props) => (
         props.project ?
-            <div className="pageLayout alignStart subText">
+            <div className="pageLayout">
                 <NavBar />
                 <Banner {...props.project.project}/>
-                <div className="mainPost pageLayout alignStart">
+                <div className="mainPost">
                     <Path />
-                    <div className="pageLayout alignStart width100">
-                        <div className="flex alignCenter spaceB headSupplies">
-                            <Header {...props.project.project}/>
-                            <Supplies supplies={props.project.materials}/>
-                        </div>
-                        <Steps steps={props.project.steps}/>
+                    <div className="mainPostHead">
+                        <Header {...props.project.project}/>
+                        <Supplies supplies={props.project.materials}/>
                     </div>
+                    <Steps steps={props.project.steps}/>
                 </div>
             </div>
         :

@@ -63,11 +63,25 @@
     margin-top: 3em;
 }
 
-.pageLayout {
+.browsePost, .pageLayout {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.browsePost {
+    background-color: white;
+    margin: 1em;
+    border: 1px solid var(--border-black);
+    font-family: var(--sub-font);
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.stepHeader:hover, .materials:hover, .browsePost:hover {
+    box-shadow: 2px 2px 4px var(--border-black);
 }
 
 .logoFont {
@@ -112,9 +126,9 @@
     color: var(--main-teal);
 }
 
-.aboutSection, .loginForm, .signUpForm {
+.stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
-    border: 1px solid var(--main-black);
+    border: 1px solid var(--border-black);
     padding: 1em;
     margin-top: 2em;
     justify-content: space-evenly;
@@ -125,51 +139,64 @@
     align-items: center;
 }
 
+.aboutSection{
+    padding: 2em;
+}
 
+.materials {
+    border: 1px solid var(--border-black);
+    flex-basis: 80%;
+}
+
+.supplyList {
+    text-align: left;
+    width: 100%;
+    margin: .5em;
+}
+
+.stepHeader, .supplyTitle, .materialHead {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+.stepHeader {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2em;
+}
+
+.stepContent {
+    text-align: center;
+    font-size: .75em;
+    font-weight: normal;
+    flex-basis: 100%;
+}
+
+.filterForm {
+    padding-bottom: 0;
+    flex-direction: row;
+}
+.pathLink {
+    margin: 5em;
+}
 
 .formInputField {
     font-family: var(--sub-font);
     margin-bottom: 1em;
-}
-
-.justStart {
-    justify-content: flex-start;
-}
-
-.alignC {
-    text-align: center;
-}
-.margRight {
     margin-right: 1em;
 }
 
-.marginB {
-    margin-bottom: 1em;
-}
-
-.browseForm {
-    display: flex;
-    flex-direction: column;
+.postList {
+    display: flex; 
     align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    background-color: whitesmoke;
-    padding: 1em;
-    padding-bottom: 0;
-    border: 1px solid var(--main-black);
-}
-
-.basis30 {
-    flex-basis: 100%;
-}
-
-.submitFlex {
+    justify-content: center;
     flex-wrap: wrap;
 }
+
 .headSteps {
     flex-wrap: wrap;
 }
-
 
 .browseImg {
     width: 15em;
@@ -195,114 +222,37 @@
     margin-top: 2em;
 }
 
-.subText {
-    font-family: var(--sub-font);
-}
-
-
-.spaceB {
-    justify-content: space-between;
-}
 
 .submitTextArea {
     width: 100%;
     height: 10em;
 }
 
-.width80 {
-    width: 80%;
-    flex-basis: 80%;
-}
-
-.width100 {
-    width: 100%;
-    flex-basis: 100%;
-}
-.width45 {
-    width: 45%;
-    flex-basis: 45%;
-}
-
-.headFont {
-    font-family: var(--header-font);
-    font-size: 3em;
-    color: whitesmoke;
-    text-shadow: var(--black-outline);
-}
 
 .flex {
     display: flex;
     align-items: center;
 }
-.fwrap {
-    flex-wrap: wrap;
-}
-
-.fbasis35 {
-    flex-basis: 30%;
-}
-
-.justC {
-    justify-content: center;
-}
 
 .pageLayout {
+    font-family: var(--sub-font);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.projectBG {
-    background-color: whitesmoke;
-    margin: 1em;
-    border: 1px solid var(--border-black);
-    transition: .1s ease-in-out;
-}
-
-.projectBG:hover {
-    box-shadow: 1px 1px 4px var(--border-black);
-}
-
-.projectImg {
-    width: 100vw;
-    margin-bottom: 1em;
-}
-
-.feature {
-    background-image: url("/images/diychess.jpg");
-    background-size: cover;
-    background-position-y: -2em;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 20em;
-}
-.alignStart {
-    align-items: flex-start;
-}
-
-.mainPost {
-    margin: 1em;
-}
-
-.path {
-    margin: 0em;
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
-.step {
-    background: rgba(245, 245, 245, 0.76);
-    padding: 1em;
-    border: 1px solid var(--border-black);
+.mainPostHead {
+    margin: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .headSupplies {
     flex-wrap: wrap;
 }
 
-.step:hover {
-    box-shadow: 2px 2px 4px var(--border-black);
-}
 
 .headerMainPost {
     flex-basis: 65%;
@@ -313,23 +263,9 @@
     font-size: 3em;
 }
 
-.stepHead {
-    font-size: 2em;
-}
-
-.marginTop {
-    margin-top: 1em;
-}
-
-.mainImg {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    height: 20em;
-    width: 20em;
-}
-
 .task-image {
-    width: 20em;
+    width: 10em;
+    height: 10em;
 }
 
 .shop-link-container {
@@ -341,16 +277,19 @@
     text-decoration: none;
     font-weight: bold;
     color: black;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .amazon-logo {
-    height: 1em;
+    height: 1.5em;
 }
 
 @media only screen and (min-width: 600px) {
     .logo {
         height: 8em;
+    }
+    .stepContent {
+        flex-basis: 50%;
     }
     .logoFont {
         font-size: 4em;
@@ -358,28 +297,22 @@
     .browseForm {
         flex-direction: row;
     }
-    .mainImg {
-        height: 30em;
-        width: 30em;
+    .materials {
+        flex-basis: 40%;
     }
-    .headSupplies {
+    .mainPostHead{
         flex-wrap: nowrap;
-    }
-    .path {
-        margin: 3em;
     }
 }
 
 @media only screen and (min-width: 768px) {
-   .basis30 {
-       flex-basis: 30%;
-   }
+   .stepContent {
+    flex-basis: 60%;
+    }
    .headSteps {
        flex-wrap: nowrap;
    }
-
-   .submitFlex {
-       flex-wrap: nowrap;
-   }
-    
+   .materials {
+    flex-basis: 30%;
+    }
 }

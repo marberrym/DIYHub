@@ -1,7 +1,7 @@
 import React from 'react';
 
 let Cost = (props) =>
-    <label className="margRight marginB" onChange={(event) => {
+    <label className="formInputField" onChange={(event) => {
         props.update('category', event.target.value);
     }} value={props.cost}>Cost: <select>
             <option value=""></option>
