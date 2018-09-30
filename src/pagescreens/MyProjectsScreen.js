@@ -44,28 +44,28 @@ class MyProjectsScreen extends Component {
           <div className="navBar">
               <div className="flex">
                   <div
-                    className="noDec navLink myprojects-filter-all"
+                    className="navLink myprojects-filter-all"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'all'
                       }))
                     }}>All</div>
                   <div
-                    className="noDec navLink myprojects-filter-todo"
+                    className="navLink myprojects-filter-todo"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'todo'
                       }))
                     }}>To Do</div>
                   <div
-                    className="noDec navLink myprojects-filter-inprogress selected"
+                    className="navLink myprojects-filter-inprogress selected"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'inprogress'
                       }))
                     }}>In Progress</div>
                   <div
-                    className="noDec navLink myprojects-filter-completed"
+                    className="navLink myprojects-filter-completed"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'completed'

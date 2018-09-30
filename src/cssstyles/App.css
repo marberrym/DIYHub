@@ -1,11 +1,31 @@
 :root {
-    --header-font: 'Bungee', cursive;
+    --header-font: 'Russo One', sans-serif;
     --sub-font: 'Saira Semi Condensed', sans-serif;
     --main-white: #FFFFFF;
-    --black-outline: -2px -2px 0 #090E17,
-    2px -2px 0 #090E17,
-    -2px 2px 0 #090E17,
-    2px 2px 0 #090E17;
+    --black-outline: 1px 1px 0 #1F3196,
+    -1px 1px 0 #1F3196,
+    1px -1px 0 #1F3196,
+    -1px -1px 0 #1F3196,
+    0px 1px 0 #1F3196,
+    0px -1px 0 #1F3196,
+    -1px 0px 0 #1F3196,
+    1px 0px 0 #1F3196,
+    2px 2px 0 #1F3196,
+    -2px 2px 0 #1F3196,
+    2px -2px 0 #1F3196,
+    -2px -2px 0 #1F3196,
+    0px 2px 0 #1F3196,
+    0px -2px 0 #1F3196,
+    -2px 0px 0 #1F3196,
+    2px 0px 0 #1F3196,
+    1px 2px 0 #1F3196,
+    -1px 2px 0 #1F3196,
+    1px -2px 0 #1F3196,
+    -1px -2px 0 #1F3196,
+    2px 1px 0 #1F3196,
+    -2px 1px 0 #1F3196,
+    2px -1px 0 #1F3196,
+    -2px -1px 0 #1F3196;
     --main-black: #090E17;
     --border-black: rgba(9, 13, 1, 0.21);
     --main-darkgrey: #A1A19F;
@@ -41,7 +61,6 @@
 }
 
 .bannerFeatureHead {
-    font-family: var(--sub-font);
     color: white;
     border-radius: 5em;
     padding: .1em;
@@ -52,7 +71,6 @@
 }
 
 .bannerTitle {
-    font-family: var(--sub-font);
     color: white;
     font-size: 3em;
 }
@@ -74,7 +92,6 @@
     background-color: white;
     margin: 1em;
     border: 1px solid var(--border-black);
-    font-family: var(--sub-font);
     text-decoration: none;
     color: black;
     text-align: center;
@@ -87,6 +104,7 @@
 .logoFont {
     font-size: 3em;
     font-family: var(--header-font);
+    letter-spacing: 4px;
     color: white;
     text-shadow: var(--black-outline);
 }
@@ -113,9 +131,9 @@
 }
 
 .navLink {
+    cursor: pointer;
     text-decoration: none;
     margin-right: 1em;
-    font-family: var(--sub-font);
     font-size: 1em;
     color: var(--main-black);
     margin-left: 1em;
@@ -197,7 +215,6 @@
 }
 
 .formInputField {
-    font-family: var(--sub-font);
     margin-bottom: 1em;
     margin-right: 1em;
 }
@@ -223,7 +240,6 @@
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
-    font-family: var(--sub-font);
     border: 1px solid var(--main-darkgrey);
     color: whitesmoke;
 }
@@ -250,7 +266,6 @@
 }
 
 .pageLayout {
-    font-family: var(--sub-font);
     display: flex;
     flex-direction: column;
     align-items: center;
