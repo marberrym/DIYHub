@@ -6,6 +6,8 @@ import Supplies from './singleproject/Supplies';
 import Steps from './singleproject/Steps';
 import Header from './singleproject/Header';
 import Banner from './singleproject/Banner';
+import CommentForm from './singleproject/CommentForm';
+import { connect } from 'react-redux';
 
 let MainProject = (props) => (
         props.project ?
@@ -19,15 +21,22 @@ let MainProject = (props) => (
                         <Supplies supplies={props.project.materials}/>
                     </div>
                     <Steps steps={props.project.steps}/>
+                    {props.user.id != null ?
+                        <CommentForm user={props.user.id}/>
+                    :
+                        <div>You must be logged in to comment!</div>
+                    }
                 </div>
             </div>
         :
             <NotFound/>
         
     )
-        
+
+
+let MainProjectSmart = connect(state => ({user: state.user}))(MainProject)
 
     
     
 
-export default MainProject;
+export default MainProjectSmart;
