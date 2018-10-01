@@ -1,12 +1,11 @@
 import React from 'react';
 import url from '../globalVars';
 
-let getPost = (dispatch, postId) => {
+export let getPost = (dispatch, postId) => {
   fetch(url + '/project/' + postId)
   .then(response => 
     response.json())
   .then(data => {
-    console.log(data)
     dispatch({
       type: "LOAD_PROJECT",
       project: {project: data.project,
@@ -37,3 +36,4 @@ export default (Component) =>
       )
     }
   }
+

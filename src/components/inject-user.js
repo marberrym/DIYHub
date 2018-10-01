@@ -11,8 +11,6 @@ let getUser = (dispatch, token) => {
   })
   .then(response => response.json())
   .then(data => {
-    console.log({name: data.name,
-      id: data.id})
     dispatch({
       type: "ASSIGN_USER",
       package: {name: data.name,

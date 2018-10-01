@@ -98,7 +98,7 @@
     text-align: center;
 }
 
-.commentBox:hover, .postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
+.commentSubmit:hover, .commentBox:hover, .postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -113,7 +113,7 @@
 }
 
 .subLogo {
-    font-size: 1.3em;
+    font-size: 1.65em;
     transform: translateY(-45%);
     color: var(--main-blue);
 }
@@ -146,7 +146,7 @@
     cursor: pointer;
     text-decoration: none;
     margin-right: .5em;
-    font-size: 1em;
+    font-size: .8em;
     color: var(--main-black);
     margin-left: .5em;
     transition: .3s ease-in-out;
@@ -156,7 +156,7 @@
     color: var(--main-teal);
 }
 
-.commentBox, .postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.commentSubmit, .commentBox, .postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -169,12 +169,17 @@
     align-items: center;
 }
 
-.commentBox {
-    margin: .5em;
-    margin-left: 2.5em;
-    margin-right: 2.5em;
-    width: 80%;
-    align-items: flex-start;
+.commentBox, .commentSubmit {
+    width: 70%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.commentSection {
+    margin-bottom: 3em;
 }
 
 .postProjectForm {
@@ -371,6 +376,9 @@
 @media only screen and (min-width: 600px) {
     .logo {
         height: 10em;
+    }
+    .navLink {
+        font-size: 1em;
     }
     .stepContent {
         flex-basis: 50%;

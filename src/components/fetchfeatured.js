@@ -7,7 +7,6 @@ let fetchFeatured = (Component) =>
             fetch(url + '/project/featured')
                 .then(res => res.json())
                 .then (project => {
-                    console.log(project);
                     this.props.dispatch({
                         type: 'LOAD_FEATURED',
                         featured: project
