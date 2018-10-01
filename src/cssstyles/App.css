@@ -309,6 +309,40 @@
     height: 1em;
 }
 
+.save {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    padding: 1rem;
+}
+.save-icon {
+    font-size: 2rem;
+    text-align: right;
+    cursor:pointer;
+}
+.save-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+}
+.save-title, .save-option {
+    display: none;
+    text-align: center;
+}
+.save-option {
+    cursor: pointer;
+}
+.save:hover {
+    background: rgba(9, 13, 1, 0.8);
+    color: white;
+}
+.save:hover .save-title {
+    display: block;
+}
+.save:hover .save-option {
+    display: block;
+}
+
 @media only screen and (min-width: 600px) {
     .logo {
         height: 8em;
