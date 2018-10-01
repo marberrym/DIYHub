@@ -1,11 +1,31 @@
 :root {
-    --header-font: 'Bungee', cursive;
+    --header-font: 'Russo One', sans-serif;
     --sub-font: 'Saira Semi Condensed', sans-serif;
     --main-white: #FFFFFF;
-    --black-outline: -2px -2px 0 #090E17,
-    2px -2px 0 #090E17,
-    -2px 2px 0 #090E17,
-    2px 2px 0 #090E17;
+    --black-outline: 1px 1px 0 #1F3196,
+    -1px 1px 0 #1F3196,
+    1px -1px 0 #1F3196,
+    -1px -1px 0 #1F3196,
+    0px 1px 0 #1F3196,
+    0px -1px 0 #1F3196,
+    -1px 0px 0 #1F3196,
+    1px 0px 0 #1F3196,
+    2px 2px 0 #1F3196,
+    -2px 2px 0 #1F3196,
+    2px -2px 0 #1F3196,
+    -2px -2px 0 #1F3196,
+    0px 2px 0 #1F3196,
+    0px -2px 0 #1F3196,
+    -2px 0px 0 #1F3196,
+    2px 0px 0 #1F3196,
+    1px 2px 0 #1F3196,
+    -1px 2px 0 #1F3196,
+    1px -2px 0 #1F3196,
+    -1px -2px 0 #1F3196,
+    2px 1px 0 #1F3196,
+    -2px 1px 0 #1F3196,
+    2px -1px 0 #1F3196,
+    -2px -1px 0 #1F3196;
     --main-black: #090E17;
     --border-black: rgba(9, 13, 1, 0.21);
     --main-darkgrey: #A1A19F;
@@ -41,7 +61,6 @@
 }
 
 .bannerFeatureHead {
-    font-family: var(--sub-font);
     color: white;
     border-radius: 5em;
     padding: .1em;
@@ -52,18 +71,18 @@
 }
 
 .bannerTitle {
-    font-family: var(--sub-font);
     color: white;
     font-size: 3em;
 }
 
 .headLogoDiv {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-top: 3em;
 }
 
-.formVert, .browsePost, .pageLayout {
+.logoText, .formVert, .browsePost, .pageLayout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,21 +93,29 @@
     background-color: white;
     margin: 1em;
     border: 1px solid var(--border-black);
-    font-family: var(--sub-font);
     text-decoration: none;
     color: black;
     text-align: center;
 }
 
-.postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
+.commentBox:hover, .postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
 .logoFont {
     font-size: 3em;
     font-family: var(--header-font);
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 4px;
     color: white;
     text-shadow: var(--black-outline);
+}
+
+.subLogo {
+    font-size: 1.3em;
+    transform: translateY(-45%);
+    color: var(--main-blue);
 }
 
 .logo {
@@ -97,12 +124,15 @@
 }
 
 .navGear {
-    height: 40px;
+    height: 30px;
     margin-left: 1em;
     transition: .1s ease-in-out;
+    margin-top: .5em;  
 }
 
-.navGear:hover {
+
+
+.navGear:hover, .logo:hover {
     animation: rotate .5s infinite;
 }
 
@@ -113,12 +143,12 @@
 }
 
 .navLink {
+    cursor: pointer;
     text-decoration: none;
-    margin-right: 1em;
-    font-family: var(--sub-font);
+    margin-right: .5em;
     font-size: 1em;
     color: var(--main-black);
-    margin-left: 1em;
+    margin-left: .5em;
     transition: .3s ease-in-out;
 }
 
@@ -126,7 +156,7 @@
     color: var(--main-teal);
 }
 
-.postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.commentBox, .postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -137,6 +167,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.commentBox {
+    margin: .5em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    width: 80%;
+    align-items: flex-start;
 }
 
 .postProjectForm {
@@ -197,7 +235,6 @@
 }
 
 .formInputField {
-    font-family: var(--sub-font);
     margin-bottom: 1em;
     margin-right: 1em;
 }
@@ -223,7 +260,6 @@
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
-    font-family: var(--sub-font);
     border: 1px solid var(--main-darkgrey);
     color: whitesmoke;
 }
@@ -250,7 +286,6 @@
 }
 
 .pageLayout {
-    font-family: var(--sub-font);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -335,7 +370,7 @@
 
 @media only screen and (min-width: 600px) {
     .logo {
-        height: 8em;
+        height: 10em;
     }
     .stepContent {
         flex-basis: 50%;

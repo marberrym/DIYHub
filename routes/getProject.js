@@ -12,11 +12,16 @@ let getProject = (req, res) => {
   let materials = db.query(
     `SELECT title, amazon_asin, quantity from diy_materials INNER JOIN diy_materials_bridge ON diy_materials.id = diy_materials_bridge.material_id WHERE project_id=${projectId}`
   )
-  Promise.all([project, steps, materials])
+  let comments = db.query(
+    `SELECT comment, diy_comments.id AS comment_id, user_id, creation_date, diy_users.first_name AS name, diy_users.email AS email FROM diy_comments INNER JOIN diy_users ON diy_comments.user_id = diy_users.id WHERE diy_comments.project_id =${projectId} ORDER BY diy_comments.id DESC`
+  )
+  Promise.all([project, steps, materials, comments])
   .then(data => {
+    console.log(data);
     projectData.project = data[0];
     projectData.steps = data[1];
     projectData.materials = data[2];
+    projectData.comments = data[3];
     projectData.status = 'success';
     res.send(projectData);
   })

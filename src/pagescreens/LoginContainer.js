@@ -12,13 +12,13 @@ class LoginContainer extends Component {
     }
 
     render() {
-        let login = () => {
+        let login = (dispatch) => {
             let userData = {
                 email: this.state.email,
                 password: this.state.password
             }
             console.log(userData);
-            postAuth(userData, this.props.history.push);      
+            postAuth(userData, this.props.history.push, dispatch);      
         }
             
         let updateState = (keyvalue, string) =>
