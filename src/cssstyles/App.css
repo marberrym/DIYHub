@@ -98,7 +98,7 @@
     text-align: center;
 }
 
-.postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
+.commentBox:hover, .postProjectFormH:hover, .postProjectForm:hover, .stepHeader:hover, .materials:hover, .browsePost:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -156,7 +156,7 @@
     color: var(--main-teal);
 }
 
-.postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.commentBox, .postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -167,6 +167,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.commentBox {
+    margin: .5em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    width: 80%;
+    align-items: flex-start;
 }
 
 .postProjectForm {
