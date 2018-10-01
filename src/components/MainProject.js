@@ -11,6 +11,7 @@ import Banner from './singleproject/Banner';
 import PostedComment from './singleproject/PostedComment';
 import CommentFormContainer from './singleproject/CommentFormContainer';
 
+
 let saveProject = (status, projectId) => {
     fetch(`${url}/project/save`, {
         method: 'POST',
