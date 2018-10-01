@@ -14,6 +14,7 @@ const getMyProjects = require('./routes/getMyProjects');
 const getCategories = require('./routes/getCategories');
 const updateProject = require('./routes/updateProject');
 const postProject = require('./routes/postProject');
+const saveProject = require('./routes/saveProject');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -48,6 +49,7 @@ app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
 app.put('/project/:id', protect, updateProject);
 app.post('/project', protect, postProject);
+app.post('/project/save', protect, saveProject);
 
 
 // Category route
