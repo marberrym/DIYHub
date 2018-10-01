@@ -10,7 +10,6 @@ let NavBar = (props) =>
             <Link to="/about" className="navLink">About</Link>
         </div>
         <div className="flex">
-            {console.log(props.user.name)}
             {localStorage.token ?
                 <div>
                     <Link to="/my-projects" className="navLink"> My Projects</Link>

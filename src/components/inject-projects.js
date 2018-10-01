@@ -6,7 +6,6 @@ let getPosts = (dispatch) => {
   .then(response => 
     response.json())
   .then(data => {
-    console.log(data)
     dispatch({
       type: "LOAD_PROJECTS",
       projects: data.projectList

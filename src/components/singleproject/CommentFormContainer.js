@@ -34,7 +34,7 @@ class CommentFormContainer extends Component {
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string});
 
-        return <CommentForm {...this.state} postComment={postComment} update={updateState}/>
+        return <CommentForm {...this.state} {...this.props} postComment={postComment} update={updateState}/>
     }
 }
 

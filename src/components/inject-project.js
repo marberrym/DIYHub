@@ -6,7 +6,6 @@ export let getPost = (dispatch, postId) => {
   .then(response => 
     response.json())
   .then(data => {
-    console.log(data)
     dispatch({
       type: "LOAD_PROJECT",
       project: {project: data.project,
