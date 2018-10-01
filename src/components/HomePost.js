@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 let HomePost = (props) => {
-    return <Carousel autoPlay={true} showThumbs={false} infiniteLoop={true}>
+    return <Carousel autoPlay={true} showThumbs={false} infiniteLoop={true} showStatus={false}>
         <div>
             <img className="banner" src="images/DIYchess.jpg" />
             <div className="bannerFeatureHead">FEATURED PROJECT</div>
