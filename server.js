@@ -53,7 +53,7 @@ app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
 
 //Comment Posting
-app.post('/project/comment', protect, postComment);
+app.post('/comment', protect, postComment);
 
 
 // Category route

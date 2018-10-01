@@ -1,7 +1,7 @@
 import React from 'react';
 import url from '../globalVars';
 
-let getPost = (dispatch, postId) => {
+export let getPost = (dispatch, postId) => {
   fetch(url + '/project/' + postId)
   .then(response => 
     response.json())
@@ -37,3 +37,4 @@ export default (Component) =>
       )
     }
   }
+

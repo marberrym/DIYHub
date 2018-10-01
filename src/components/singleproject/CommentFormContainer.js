@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CommentForm from './CommentForm';
 import { connect } from 'react-redux';
 import url from '../../globalVars';
+import { getPost } from '../inject-project';
 
 class CommentFormContainer extends Component {
     constructor(props){
@@ -26,8 +27,9 @@ class CommentFormContainer extends Component {
                 },
                 body: JSON.stringify(newComment)
             })
-            .then(response => console.log(response))
-            console.log(newComment);
+            .then(response => {console.log(response)
+                getPost(this.props.dispatch, this.props.projectID)
+            })
         }
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string});

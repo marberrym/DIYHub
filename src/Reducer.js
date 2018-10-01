@@ -17,10 +17,7 @@ let reducer = (oldState, action) => {
         return { ...oldState, featured: action.featured }
     } else if (action.type === "LOAD_PROJECT") {
         return {...oldState, project: action.project}
-    } else if (action.tape === "POST_COMMENT") {
-        null;
-    }
-    else {
+    } else {
         return oldState;
     }
 }
