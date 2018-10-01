@@ -23,7 +23,7 @@ const protect = expressJwt({ secret,
 
 app.use(bodyParser.json());
 app.use(allowCORS);
-app.use(express.static('public'));
+app.use(express.static('build'));
 
 // Sample protected route using middleware: /protected
 app.get('/protected', protect, (req, res) => {
