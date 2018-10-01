@@ -6,6 +6,7 @@ import Supplies from './singleproject/Supplies';
 import Steps from './singleproject/Steps';
 import Header from './singleproject/Header';
 import Banner from './singleproject/Banner';
+import PostedComment from './singleproject/PostedComment';
 import CommentForm from './singleproject/CommentForm';
 import { connect } from 'react-redux';
 
@@ -22,11 +23,12 @@ let MainProject = (props) => (
                     </div>
                     <Steps steps={props.project.steps}/>
                     {console.log(props)}
-                    {props.user.id ?
+                    {(props.user.id ?
                         <CommentForm user={props.user.id}/>
                     :
                         <div>You must be logged in to comment!</div>
-                    }
+                    )}
+                    {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
                 </div>
             </div>
         :
