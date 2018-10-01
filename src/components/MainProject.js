@@ -21,7 +21,8 @@ let MainProject = (props) => (
                         <Supplies supplies={props.project.materials}/>
                     </div>
                     <Steps steps={props.project.steps}/>
-                    {props.user.id != undefined ?
+                    {console.log(props)}
+                    {props.user.id ?
                         <CommentForm user={props.user.id}/>
                     :
                         <div>You must be logged in to comment!</div>

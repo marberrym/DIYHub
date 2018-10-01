@@ -11,7 +11,8 @@ let getPost = (dispatch, postId) => {
       type: "LOAD_PROJECT",
       project: {project: data.project,
         steps: data.steps,
-        materials: data.materials
+        materials: data.materials,
+        comments: data.comments
       }
     });
   })

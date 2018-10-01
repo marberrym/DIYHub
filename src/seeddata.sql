@@ -169,3 +169,11 @@ insert into diy_my_projects (user_id, project_id, project_status) VALUES
 (1,4,2),
 (1,5,3),
 (1,6,3);
+
+--- Insert some comments
+
+insert into diy_comments (creation_date, user_id, project_id, comment) VALUES
+(current_timestamp, 1, 1, 'Hey nice project.'),
+(current_timestamp, 1, 1, 'Hey nice project.'),
+(current_timestamp, 1, 1, 'Hey nice project.'),
+(current_timestamp, 1, 1, 'Hey nice project.');
