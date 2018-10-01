@@ -9,8 +9,7 @@ import Steps from './singleproject/Steps';
 import Header from './singleproject/Header';
 import Banner from './singleproject/Banner';
 import PostedComment from './singleproject/PostedComment';
-import CommentForm from './singleproject/CommentForm';
-import { connect } from 'react-redux';
+import CommentFormContainer from './singleproject/CommentFormContainer';
 
 let saveProject = (status, projectId) => {
     fetch(`${url}/project/save`, {
@@ -38,12 +37,7 @@ let MainProject = (props) => (
                         <Supplies supplies={props.project.materials}/>
                     </div>
                     <Steps steps={props.project.steps}/>
-                    {console.log(props)}
-                    {(props.user.id ?
-                        <CommentForm user={props.user.id}/>
-                    :
-                        <div>You must be logged in to comment!</div>
-                    )}
+                    <CommentFormContainer projectID={props.project.project.id}/>
                     {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
                 </div>
                 <div className="save">

@@ -1,9 +1,14 @@
 import React from 'react';
+import Button from '../Button';
 
 let CommentForm = (props) =>
-    <div>
+    <form onSubmit={event => {
+        event.preventDefault()
+        props.postComment()}}>
         Leave a comment:
-        <textarea></textarea>
-    </div>
+        <textarea value={props.comment}
+        onChange={event => props.update('comment', event.target.value)}></textarea>
+        <Button text="Post Comment"/>
+    </form>
     
 export default CommentForm;

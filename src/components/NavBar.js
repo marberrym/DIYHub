@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 let NavBar = (props) =>
     <div className="navBar">
         <div className="flex">
-            <Link to="/"><img src="./images/DIYhublogo.png" className="navGear navLogoRepo" alt="DIY Cog"/></Link>
+            <Link to="/"><img src="./images/DIYHubLogo.png" className="navGear navLogoRepo" alt="DIY Cog"/></Link>
             <Link to="/" className="navLink">Home</Link>
             <Link to="/about" className="navLink">About</Link>
         </div>
