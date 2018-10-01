@@ -73,7 +73,7 @@ class MyProjectsScreen extends Component {
                     }}>Completed</div>
               </div>
           </div>
-            {this.props.porjects ?
+            {this.props.projects ?
               <div className="flex fwrap justC alignC">
                 {this.props.projects.map(project => <BrowsePost project={project} key={project.id}/>)}
               </div>
