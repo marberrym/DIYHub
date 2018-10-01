@@ -10,7 +10,6 @@ import Header from './singleproject/Header';
 import Banner from './singleproject/Banner';
 import PostedComment from './singleproject/PostedComment';
 import CommentForm from './singleproject/CommentForm';
-import { connect } from 'react-redux';
 
 let saveProject = (status, projectId) => {
     fetch(`${url}/project/save`, {

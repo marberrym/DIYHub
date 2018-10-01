@@ -42,9 +42,6 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (1,1,1),
 (1,3,912);
 
-insert into diy_user_faves (user_id, project_id) VALUES
-(1,1);
-
 -- Insert a second project.
 
 insert into diy_projects (creation_date, user_id, project_title, 
@@ -66,10 +63,6 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (2,2,10),
 (2,4,1);
 
-insert into diy_user_faves (user_id, project_id) VALUES
-(1,2),
-(2,2);
-
 -- Insert a third project
 
 insert into diy_projects (creation_date, user_id, project_title, 
@@ -90,10 +83,6 @@ VALUES
 insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 (3,5,237),
 (3,6,237);
-
-insert into diy_user_faves (user_id, project_id) VALUES
-(1,2),
-(2,2);
 
 --Insert Fourth Project:
 
