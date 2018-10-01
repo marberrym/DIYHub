@@ -4,8 +4,8 @@ import Button from '../Button';
 let CommentForm = (props) =>
     props.user.id ?
         <form className="commentSubmit" onSubmit={event => {
-            event.preventDefault()
-            props.postComment()
+            event.preventDefault();
+            props.postComment();
             props.update('comment', "")}}>
             Leave a comment:
             <textarea className="formInputField" value={props.comment}

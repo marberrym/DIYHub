@@ -1,8 +1,8 @@
 import React from 'react';
 
 let capitalize = (string) => {
-    let name = string[0].toUpperCase() + string.slice(1)
-    return name
+    let name = string[0].toUpperCase() + string.slice(1);
+    return name;
 }
 
 let PostedComment = (props) =>
