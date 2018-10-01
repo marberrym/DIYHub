@@ -37,8 +37,10 @@ let MainProject = (props) => (
                         <Supplies supplies={props.project.materials}/>
                     </div>
                     <Steps steps={props.project.steps}/>
-                    <CommentFormContainer projectID={props.project.project.id}/>
-                    {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
+                    <div className="commentSection">
+                        <CommentFormContainer projectID={props.project.project.id}/>
+                        {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
+                    </div>
                 </div>
                 <div className="save">
                     <div className="save-title">Save to My Projects</div>
