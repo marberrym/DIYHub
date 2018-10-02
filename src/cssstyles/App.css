@@ -71,6 +71,7 @@
     text-align: center;
 }
 
+
 .bannerMain, .bannerTitle {
     width: 100%;
     border-radius: 0;
@@ -420,6 +421,9 @@
    .stepContent {
     flex-basis: 60%;
     }
+    .banner {
+        height: 25em;
+    }
     .bannerTitle {
         font-size: 2.5em;
     }
@@ -431,5 +435,10 @@
    }
    .materials {
     flex-basis: 30%;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .banner {
+        height: 30em;
     }
 }
