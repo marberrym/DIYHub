@@ -45,6 +45,10 @@
     justify-content: space-between;
 }
 
+.navRightSide {
+    margin-right: 1em;
+}
+
 .banner {
     width: 100vw;
     height: 20em;
@@ -134,7 +138,7 @@
 }
 
 .downVotes {
-    color: red;
+    color: rgb(156, 10, 10);
 }
 
 .voteArrow {
