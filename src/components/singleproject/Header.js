@@ -15,7 +15,8 @@ let Header = (props) =>
                         let vote = {
                             project_id: props.id,
                             userid: localStorage.id,
-                            token: localStorage.token
+                            token: localStorage.token,
+                            method: "add"
                         }
                         fetch(`${url}/updatevote`, {
                             method: "POST",
@@ -32,7 +33,28 @@ let Header = (props) =>
                     {`${props.votecount} upvotes`}
                 </div>
             :
-                null
+                <div className="downVotes">
+                    <i className="fas fa-arrow-alt-circle-down voteArrow" onClick={event => {
+                        let vote = {
+                            project_id: props.id,
+                            userid: localStorage.id,
+                            token: localStorage.token,
+                            method: "remove"
+                        }
+                        fetch(`${url}/updatevote`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8",     
+                            },
+                            body: JSON.stringify(vote)
+                        })
+                        .then(response => response.json())
+                        .then(response => {console.log(response)
+                            getPost(props.dispatch, props.id)
+                        })
+                    }}></i>
+                    {`${props.votecount} upvotes`}
+                </div>
             }
         </div>
         <div>By {props.first_name} {props.last_name}</div>

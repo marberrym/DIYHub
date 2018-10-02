@@ -123,14 +123,18 @@
     text-shadow: var(--black-outline);
 }
 
-.upVotes, .subLogo {
+.downVotes, .upVotes, .subLogo {
     font-size: 1.3em;
     transform: translateY(-45%);
     color: var(--main-blue);
 }
 
-.upVotes {
+.downVotes, .upVotes {
     font-size: .45em;
+}
+
+.downVotes {
+    color: red;
 }
 
 .voteArrow {
