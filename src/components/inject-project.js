@@ -2,7 +2,9 @@ import React from 'react';
 import url from '../globalVars';
 
 export let getPost = (dispatch, postId) => {
-  fetch(url + '/project/' + postId)
+  fetch(url + `/project/${postId}`, {
+    headers: {token: localStorage.token}
+  })
   .then(response => 
     response.json())
   .then(data => {
@@ -12,7 +14,8 @@ export let getPost = (dispatch, postId) => {
         steps: data.steps,
         materials: data.materials,
         comments: data.comments,
-        votes: data.votes
+        votes: data.votes,
+        votestatus: data.votestatus
       }
     });
     console.log(data);

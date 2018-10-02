@@ -9,27 +9,31 @@ let Header = (props) =>
     <div className="headerMainPost">
         <div className="mainHead">
             {props.project_title}
-            <div className="upVotes">
-                <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
-                    let vote = {
-                        project_id: props.id,
-                        userid: localStorage.id,
-                        token: localStorage.token
-                    }
-                    fetch(`${url}/updatevote`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json; charset=utf-8",     
-                        },
-                        body: JSON.stringify(vote)
-                    })
-                    .then(response => response.json())
-                    .then(response => {console.log(response)
-                        getPost(props.dispatch, props.id)
-                    })
-                }}></i>
-                {`${props.votecount} upvotes`}
-            </div>
+            {!props.votestatus ?
+                <div className="upVotes">
+                    <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
+                        let vote = {
+                            project_id: props.id,
+                            userid: localStorage.id,
+                            token: localStorage.token
+                        }
+                        fetch(`${url}/updatevote`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8",     
+                            },
+                            body: JSON.stringify(vote)
+                        })
+                        .then(response => response.json())
+                        .then(response => {console.log(response)
+                            getPost(props.dispatch, props.id)
+                        })
+                    }}></i>
+                    {`${props.votecount} upvotes`}
+                </div>
+            :
+                null
+            }
         </div>
         <div>By {props.first_name} {props.last_name}</div>
         <div>{props.project_description}</div>
@@ -37,5 +41,5 @@ let Header = (props) =>
         <div>Cost: {priceRange[props.cost_range]}</div>
     </div>
 
-let HeaderSmart = connect(state => ({votecount: state.project.votes}))(Header)
+let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus}))(Header)
 export default HeaderSmart;
