@@ -7,15 +7,20 @@ let SignupForm = (props) =>
     <div className="pageLayout">
         <NavBar />
         <HeadLogo />
-        <form className="signUpForm" onSubmit={(event) => {
+        <form className="signUpForm" enctype="multipart/form-data" onSubmit={(event) => {
             event.preventDefault();
-            props.signUp();
+            let formData = new FormData();
+            formData.append('avatar', props.avatar)
+            props.signUp(formData);
             Object.keys(props).forEach(prop => {
                 if(prop !== 'update' && prop !=='signUp') {
                     props.update(prop, '');
                 }
             })
         }}>
+            <label className="formInputField">
+                Avatar: <input type="file" name="avatar" onChange={(event) =>
+                props.update('avatar', event.target.files[0])} /></label>
             <label className="formInputField">
                 First Name: <input type="text" value={props.first} onChange={(event) => 
                     props.update('first', event.target.value)} required/>

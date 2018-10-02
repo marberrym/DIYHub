@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const multer = require("multer");
 const expressJwt = require("express-jwt");
 const secret = process.env.JWTSECRET;
 const allowCORS = require('./middleware/allow-cors');
@@ -21,6 +22,9 @@ const app = express();
 const protect = expressJwt({ secret,
   getToken: (req) => req.body.token ? req.body.token : req.headers.token
 });
+const uploadAvatar = multer({
+  dest: 'uploads/avatar/'
+})
 
 app.use(bodyParser.json());
 app.use(allowCORS);
@@ -37,7 +41,7 @@ app.get('/unprotected', (req, res) => {
 })
 
 // Route to register user into database.
-app.post('/signup', signup);
+app.post('/signup', uploadAvatar.single('avatar'), signup);
 // Route to recieve token.
 app.post('/authenticate', authenticate);
 // Route to validate token.

@@ -1,10 +1,10 @@
-insert into diy_users (first_name, last_name, email, password) VALUES
-('Jason', 'Voorhees','mistermachete@campcrystallake.com','boopboop123'),
-('Freddie', 'Kruger','nightmare@elmstreet.com','slashy123'),
-('Jack', 'Torrance','caretaker@overlook.com','advocat123'),
-('Randal', 'Flagg','captain@trips.com','boopboop123'),
-('King Matt', 'Demagogue', 'matty@mattypie.com', 'matt'),
-('Stanley', 'Kubrick', 'theshining@shining.com', 'shining');
+insert into diy_users (first_name, last_name, email, password, avatar_file) VALUES
+('Jason', 'Voorhees','mistermachete@campcrystallake.com','boopboop123','bulb.png'),
+('Freddie', 'Kruger','nightmare@elmstreet.com','slashy123','bulb.png'),
+('Jack', 'Torrance','caretaker@overlook.com','advocat123','bulb.png'),
+('Randal', 'Flagg','captain@trips.com','boopboop123','bulb.png'),
+('King Matt', 'Demagogue', 'matty@mattypie.com', 'matt','bulb.png'),
+('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png');
 
 insert into diy_categories (category_title) VALUES
 ('Food'),

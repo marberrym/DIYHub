@@ -7,6 +7,7 @@ class SignupContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            avatar: null,
             first: '',
             last: '',
             username: '',
@@ -16,12 +17,13 @@ class SignupContainer extends Component {
         }
     }
     render() {
-        let signUp = () => {
-            let data = {first_name: this.state.first,
-                last_name: this.state.last,
-                email: this.state.email,
-                password: this.state.password}
-            postSignup(this.props.dispatch, data, this.props.history.push)
+        let signUp = (formData) => {
+            formData.append('first_name', this.state.first);
+            formData.append('last_name', this.state.last);
+            formData.append('email', this.state.email);
+            formData.append('password', this.state.password);
+            console.log(formData);
+            postSignup(this.props.dispatch, formData, this.props.history.push)
         }
 
         let updateState = (keyvalue, string) =>
