@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS diy_users, diy_projects, 
+DROP TABLE IF EXISTS diy_users, diy_projects, diy_votes, 
     diy_categories, diy_materials, diy_steps, 
     diy_materials_bridge, diy_badges, diy_my_projects, diy_comments CASCADE;
 
@@ -20,12 +20,19 @@ CREATE TABLE diy_projects (
     id SERIAL PRIMARY KEY,
     creation_date TIMESTAMP,
     user_id INTEGER REFERENCES diy_users(id),
+    votes INTEGER NOT NULL,
     project_title varchar(200) NOT NULL,
     feature_image_url varchar(500) NOT NULL,
     time_range INTEGER NOT NULL,
     cost_range INTEGER NOT NULL,
     category_id INTEGER REFERENCES diy_categories(id),
     project_description TEXT NOT NULL
+);
+
+CREATE TABLE diy_votes (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES diy_users(id),
+    project_id INTEGER REFERENCES diy_projects(id)
 );
 
 CREATE TABLE diy_comments (
