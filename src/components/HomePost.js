@@ -1,17 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-let HomePost = (props) => {
-    return props.featured.project ?
-    <Link to={"/project/" + props.featured.project.id} style={{backgroundImage: 'url(' + props.featured.project.feature_image_url + ')'}} className="banner">
-        <div className="bannerFeatureHead">FEATURED PROJECT</div>
-        <div className="bannerTitle">{props.featured.project.project_title}</div>
-    </Link>
+
+let HomePost = (props) => 
+    props.featured ?
+        <Carousel autoPlay={true} showThumbs={false} infiniteLoop={true} showStatus={false} stopOnHover={false}>
+            {props.featured.map(feature => 
+                <Link to={`/project/${feature.id}`} key={feature.id}>
+                    <div>
+                        <img className="banner" src={feature.pic} alt={`Feature Project ${feature.id}`}/>
+                        <p className="bannerFeatureHead">FEATURED PROJECTS</p>
+                        <div className="bannerTitle">{feature.project_title}</div>
+                    </div>
+                </Link>
+            )}
+        </Carousel>
     :
-    <p>Loading... plz to waiting...</p>
-}
+        <div>LOADING PROJECTS...</div>
 
-let ConnectedHomePost = connect((state) => ({featured: state.featured}) )(HomePost);
-
-export default ConnectedHomePost;
+let HomePostSmart = connect((state) => ({featured: state.featured}))(HomePost)
+export default HomePostSmart;

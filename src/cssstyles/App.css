@@ -46,10 +46,7 @@
 }
 
 .banner {
-    background-position-y: 90%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
+    width: 100vw;
     height: 20em;
     display: flex;
     flex-direction: column;
@@ -60,19 +57,32 @@
     margin: 0;
 }
 
-.bannerFeatureHead {
+.bannerMain, .bannerTitle, .bannerFeatureHead {
     color: white;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -70%);
     border-radius: 5em;
     padding: .1em;
     padding-right: 1em;
     padding-left: 1em;
-    background-color: var(--border-black);
+    background-color: rgba(0, 0, 0, 0.507);
     text-align: center;
 }
 
-.bannerTitle {
-    color: white;
-    font-size: 3em;
+.bannerMain, .bannerTitle {
+    width: 100%;
+    border-radius: 0;
+    font-size: 1.5em;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bannerMain {
+    top: 30%;
+    padding: 0;
+    transform: translate(-50%, -70%);
 }
 
 .headLogoDiv {
@@ -113,7 +123,7 @@
 }
 
 .subLogo {
-    font-size: 1.65em;
+    font-size: 1.3em;
     transform: translateY(-45%);
     color: var(--main-blue);
 }
@@ -380,11 +390,20 @@
     .navLink {
         font-size: 1em;
     }
+    .bannerTitle {
+        font-size: 2em;
+    }
+    .bannerMain {
+        font-size: 2em;
+    }
     .stepContent {
         flex-basis: 50%;
     }
     .logoFont {
         font-size: 4em;
+    }
+    .subLogo {
+        font-size: 1.65em;
     }
     .browseForm {
         flex-direction: row;
@@ -400,6 +419,12 @@
 @media only screen and (min-width: 768px) {
    .stepContent {
     flex-basis: 60%;
+    }
+    .bannerTitle {
+        font-size: 2.5em;
+    }
+    .bannerMain {
+        font-size: 2.5em;
     }
    .headSteps {
        flex-wrap: nowrap;
