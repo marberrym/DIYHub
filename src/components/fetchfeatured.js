@@ -6,10 +6,10 @@ let fetchFeatured = (Component) =>
         componentDidMount() {
             fetch(url + '/project/featured')
                 .then(res => res.json())
-                .then (project => {
+                .then (featureprojects => {
                     this.props.dispatch({
                         type: 'LOAD_FEATURED',
-                        featured: project
+                        featured: featureprojects
                     });
                 });
         }

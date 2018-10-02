@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import HomePost from '../components/HomePost';
 import fetchFeatured from '../components/fetchfeatured';
 
-let HomeScreen = (props) => 
+let HomeScreen = () => 
     <HomePost />;
 
-let HomeScreenSmart = connect(state => ({featured: state.featured}))(fetchFeatured(HomeScreen))
+let HomeScreenSmart = connect()(fetchFeatured(HomeScreen))
 export default HomeScreenSmart;

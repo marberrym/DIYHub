@@ -63,9 +63,9 @@
 .bannerFeatureHead {
     color: white;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%);
     border-radius: 5em;
     padding: .1em;
     padding-right: 1em;
@@ -76,7 +76,11 @@
 
 .bannerTitle {
     color: white;
-    font-size: 3em;
+    font-size: 2.5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .headLogoDiv {

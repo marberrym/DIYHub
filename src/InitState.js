@@ -1,5 +1,4 @@
 let initialState = {
-    featured: {},
     user: {name: "",
             id: "",
             token: "",},
