@@ -17,7 +17,10 @@ let reducer = (oldState, action) => {
         return { ...oldState, featured: action.featured }
     } else if (action.type === "LOAD_PROJECT") {
         return {...oldState, project: action.project}
-    } else {
+    } else if (action.type === "SET_TOAST") {
+        return {...oldState, toast: action.toast}
+    }
+    else {
         return oldState;
     }
 }

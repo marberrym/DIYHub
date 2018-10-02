@@ -18,26 +18,37 @@ let postAuth = (data, callback, dispatch) => {
             myStorage.setItem('token', response.token);
             callback('/');
             return response;
+        } else {
+            dispatch({
+                type: 'SET_TOAST',
+                toast: {
+                    text: 'Invalid Login.  Please try again',
+                    type: 'error'
+                }
+            });
         }
     })
     .then(response => {
         console.log(response)
-        let token = {token: response.token}
-        return fetch(url + "/validate", {
-            method: "POST",
-            headers: {"Content-Type": "application/json; charset=utf-8",},
-            body: JSON.stringify(token)
-        })
-    }).then(response => response.json())
+        if (response) {
+            let token = {token: response.token}
+            return fetch(url + "/validate", {
+                method: "POST",
+                headers: {"Content-Type": "application/json; charset=utf-8",},
+                body: JSON.stringify(token)
+            })
+        }
+    }).then(response => response && response.json())
     .then(response => {
-        console.log(response)
-        dispatch({type: "ASSIGN_USER", package: {
-                name: response.name,
-                id: response.id,
-                token: myStorage.token,
-            }})
-        myStorage.setItem('name', response.name);
-        myStorage.setItem('id', response.id);
+        if (response) {
+            dispatch({type: "ASSIGN_USER", package: {
+                    name: response.name,
+                    id: response.id,
+                    token: myStorage.token,
+                }})
+            myStorage.setItem('name', response.name);
+            myStorage.setItem('id', response.id);
+        }
     })
 }
 

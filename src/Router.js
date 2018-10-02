@@ -11,23 +11,44 @@ import BrowseScreen from './pagescreens/BrowseScreen';
 import PostContainer from './pagescreens/PostContainer';
 import MyProjectsScreen from './pagescreens/MyProjectsScreen';
 import injectUser from './components/inject-user';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
-
-let Router = () =>
-     <HashRouter>
-        <Switch>
-            <Route exact path='/' component={App} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/login' component={LoginContainer} />
-            <Route exact path='/signup' component={SignupContainer} />
-            <Route exact path='/browse' component={BrowseScreen} />
-            <Route exact path='/project/:projectid' component={SingleScreen} />
-            <Route exact path='/post' component={PostContainer}/>
-            <Route exact path='/my-projects' component={MyProjectsScreen} />
-            <Route path="/*" component={NotFound} />
-        </Switch>
-    </HashRouter>
+class Router extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.toast !== prevProps.toast && this.props.toast !== null) {
+            toast[this.props.toast.type](this.props.toast.text);
+            this.props.dispatch({
+                type: 'SET_TOAST',
+                toast: null
+            });
+        }
+    }
+    render() {
+        return (
+            <div>
+                <HashRouter>
+                    <Switch>
+                        <Route exact path='/' component={App} />
+                        <Route exact path='/about' component={About} />
+                        <Route exact path='/login' component={LoginContainer} />
+                        <Route exact path='/signup' component={SignupContainer} />
+                        <Route exact path='/browse' component={BrowseScreen} />
+                        <Route exact path='/project/:projectid' component={SingleScreen} />
+                        <Route exact path='/post' component={PostContainer}/>
+                        <Route exact path='/my-projects' component={MyProjectsScreen} />
+                        <Route path="/*" component={NotFound} />
+                    </Switch>
+                </HashRouter>
+                <ToastContainer />
+            </div>
+        )
+    }
+}  
     
-    
 
-export default connect()(injectUser(Router));
+export default connect(state => 
+    ({toast: state.toast}))(injectUser(Router));
