@@ -25,10 +25,10 @@ insert into diy_materials (title, amazon_asin) VALUES
 ('AN AXE FOR PEOPLES', 'B004WJGXAQ' ),
 ('Edgar Allen Poe Booze', 'B01J2K0AXK');
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-('2010-01-02 03:04:56',1,0,'Counselor Cabin','https://cdn.instructables.com/FEX/ES8L/F9T3NR1D/FEXES8LF9T3NR1D.LARGE.jpg',
+('2010-01-02 03:04:56',1,'Counselor Cabin','https://cdn.instructables.com/FEX/ES8L/F9T3NR1D/FEXES8LF9T3NR1D.LARGE.jpg',
 4,2,3,'Today we will make a charming little log cabin style bungalow out of popsicle sticks. It will require a few ordinary things and can be completed relatively quickly. Then you can relax as the glue dries, by sharpening your machete, or going for a swim in the lake unsupervised.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -44,10 +44,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 -- Insert a second project.
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-('2010-01-04 01:01:04',2,0,'Dream Scanner','https://myfengshuistore.com/wp-content/uploads/2016/09/Antique-Imitation-Dreamcatcher-Gift-checking-Dream-Catcher-Net-With-natural-stone-Feathers-Wall-Hanging-Decoration-Ornament-5.jpg',
+('2010-01-04 01:01:04',2,'Dream Scanner','https://myfengshuistore.com/wp-content/uploads/2016/09/Antique-Imitation-Dreamcatcher-Gift-checking-Dream-Catcher-Net-With-natural-stone-Feathers-Wall-Hanging-Decoration-Ornament-5.jpg',
 6,1,4,'Make a dream catcher, so that your nightmares get all tangled up in this string spider web thing. Then once a week you just take it out to the yard and hose it off.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -65,10 +65,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 -- Insert a third project
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-(current_timestamp,3,0,'Delicious Red Rum','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91oyqvplOQ-UZ4OqDpgTUZm0BCRrEGTGO9RO_MbnAAXz0aSjj5Q',
+(current_timestamp,3,'Delicious Red Rum','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT91oyqvplOQ-UZ4OqDpgTUZm0BCRrEGTGO9RO_MbnAAXz0aSjj5Q',
 2,2,2,'Right before you go crazy in the snow all by yourself and chase your family through a hotel with a fire-axe you might find yourself simply parched. That dry winter air does cause a powerful thirst. Here is a delightful beverage to slake that internal fire, and quench your desire for something red and bloody.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -86,10 +86,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 --Insert Fourth Project:
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-(current_timestamp,5,0,'Pretty Plank Wall','https://thediydreamer.com/wp-content/uploads/2015/08/Awesome-Plank-Wall-Project-Live-Laugh-Rowe.jpg',
+(current_timestamp,5,'Pretty Plank Wall','https://thediydreamer.com/wp-content/uploads/2015/08/Awesome-Plank-Wall-Project-Live-Laugh-Rowe.jpg',
 3,2, 3, 'Is the inside of your 1 bedroom apartment a little barren and boring?  Do you want to leave something pretty for the next sad sap who lives there?  Why not install your own plank wall!?');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -107,10 +107,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 -- Project number 5:
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-(current_timestamp,6,0,'Create your own massacre!','https://frightfind.com/wp-content/uploads/2015/09/stanley-hotel-shining.jpg',
+(current_timestamp,6,'Create your own massacre!','https://frightfind.com/wp-content/uploads/2015/09/stanley-hotel-shining.jpg',
 3,2, 3, 'Is your life a little boring?  Why not spice it up with some delusions and murder!?  COME ONE, COME ALL, kiddies, it is time to get down with the sickness!');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)
@@ -128,10 +128,10 @@ insert into diy_materials_bridge (project_id, material_id, quantity) VALUES
 
 -- Project Number 6
 
-insert into diy_projects (creation_date, user_id, votes, project_title, 
+insert into diy_projects (creation_date, user_id, project_title, 
 feature_image_url, time_range, cost_range, category_id,
 project_description) VALUES
-(current_timestamp,6,0,'Form the Legion of Doom','https://i.ytimg.com/vi/oDtMS6dWllg/hqdefault.jpg',
+(current_timestamp,6,'Form the Legion of Doom','https://i.ytimg.com/vi/oDtMS6dWllg/hqdefault.jpg',
 3,2, 3, 'Do you hate Superman?  Do you loathe Batman?  Do you think the Flash is dumb?  Do you just want a life without the superfriends?  Here is a step by step guide to create the LEGION OF DOOOOOOOOOOM.');
 
 insert into diy_steps (project_id, step_order, step_image_URL, step_title, step_text)

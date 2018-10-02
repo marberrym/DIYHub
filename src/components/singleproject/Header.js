@@ -2,17 +2,17 @@ import React from 'react';
 import priceRange from '../priceRange';
 import timeRange from '../timeRange';
 import url from '../../globalVars';
+import { connect } from 'react-redux';
+import { getPost } from '../inject-project';
 
 let Header = (props) =>
     <div className="headerMainPost">
         <div className="mainHead">
             {props.project_title}
             <div className="upVotes">
-                <i class="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
-                    let newVoteTally = props.votes + 1;
+                <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
                     let vote = {
                         project_id: props.id,
-                        votes: newVoteTally,
                         userid: localStorage.id,
                         token: localStorage.token
                     }
@@ -24,9 +24,11 @@ let Header = (props) =>
                         body: JSON.stringify(vote)
                     })
                     .then(response => response.json())
-                    .then(response => console.log(response))
+                    .then(response => {console.log(response)
+                        getPost(props.dispatch, props.id)
+                    })
                 }}></i>
-                {`${props.votes} upvotes`}
+                {`${props.votecount} upvotes`}
             </div>
         </div>
         <div>By {props.first_name} {props.last_name}</div>
@@ -35,4 +37,5 @@ let Header = (props) =>
         <div>Cost: {priceRange[props.cost_range]}</div>
     </div>
 
-export default Header;
+let HeaderSmart = connect(state => ({votecount: state.project.votes}))(Header)
+export default HeaderSmart;

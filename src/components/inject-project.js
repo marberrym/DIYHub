@@ -11,9 +11,11 @@ export let getPost = (dispatch, postId) => {
       project: {project: data.project,
         steps: data.steps,
         materials: data.materials,
-        comments: data.comments
+        comments: data.comments,
+        votes: data.votes
       }
     });
+    console.log(data);
   })
 }
 

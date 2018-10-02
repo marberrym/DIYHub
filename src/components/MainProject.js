@@ -39,7 +39,7 @@ let MainProject = (props) => (
                     </div>
                     <Steps steps={props.project.steps}/>
                     <div className="commentSection">
-                        <CommentFormContainer projectID={props.project.project.id}/>
+                        <CommentFormContainer projectID={props.project.project.id}/> */}
                         {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
                     </div>
                 </div>
@@ -60,7 +60,7 @@ let MainProject = (props) => (
         :
             <NotFound/>
         
-    )
+)
 
 let MainProjectSmart = connect(state => ({user: state.user}))(MainProject);
 export default MainProjectSmart;
