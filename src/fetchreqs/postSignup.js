@@ -3,10 +3,7 @@ import url from '../globalVars';
 let postSignup = (dispatch, data, callback) => 
     fetch(url + "/signup", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",     
-        },
-        body: JSON.stringify(data)
+        body: data
     })
     .then(response => {
         console.log(response)
