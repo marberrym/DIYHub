@@ -123,10 +123,22 @@
     text-shadow: var(--black-outline);
 }
 
-.subLogo {
+.upVotes, .subLogo {
     font-size: 1.3em;
     transform: translateY(-45%);
     color: var(--main-blue);
+}
+
+.upVotes {
+    font-size: .45em;
+}
+
+.voteArrow {
+    margin-right: .5em;
+    transition: .2s ease-in-out;
+}
+.voteArrow:hover {
+    transform: scale(1.2);
 }
 
 .logo {
@@ -287,6 +299,7 @@
 .browseBtn {
     font-size: 1em;
     margin-top: 2em;
+    margin-bottom: 3em;
 }
 
 
