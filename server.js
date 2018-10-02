@@ -16,6 +16,7 @@ const updateProject = require('./routes/updateProject');
 const postProject = require('./routes/postProject');
 const saveProject = require('./routes/saveProject');
 const postComment = require('./routes/postComment');
+const updateVote = require('./routes/updateVote');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -54,6 +55,9 @@ app.post('/project/save', protect, saveProject);
 
 //Comment Posting
 app.post('/comment', protect, postComment);
+
+//Update Vote Tally
+app.post('/updatevote', protect, updateVote)
 
 
 // Category route
