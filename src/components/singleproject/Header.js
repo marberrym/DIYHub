@@ -9,50 +9,55 @@ let Header = (props) =>
     <div className="headerMainPost">
         <div className="mainHead">
             {props.project_title}
-            {!props.votestatus ?
-                <div className="upVotes">
-                    <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
-                        let vote = {
-                            project_id: props.id,
-                            userid: localStorage.id,
-                            token: localStorage.token,
-                            method: "add"
-                        }
-                        fetch(`${url}/updatevote`, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json; charset=utf-8",     
-                            },
-                            body: JSON.stringify(vote)
-                        })
-                        .then(response => response.json())
-                        .then(response => {console.log(response)
-                            getPost(props.dispatch, props.id)
-                        })
-                    }}></i>
-                    {`${props.votecount} upvotes`}
-                </div>
+            {props.user.id ?
+                !props.votestatus ?
+                    <div className="upVotes">
+                        <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
+                            let vote = {
+                                project_id: props.id,
+                                userid: localStorage.id,
+                                token: localStorage.token,
+                                method: "add"
+                            }
+                            fetch(`${url}/updatevote`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json; charset=utf-8",     
+                                },
+                                body: JSON.stringify(vote)
+                            })
+                            .then(response => response.json())
+                            .then(response => {console.log(response)
+                                getPost(props.dispatch, props.id)
+                            })
+                        }}></i>
+                        {`${props.votecount} upvotes`}
+                    </div>
+                :
+                    <div className="downVotes">
+                        <i className="fas fa-arrow-alt-circle-down voteArrow" onClick={event => {
+                            let vote = {
+                                project_id: props.id,
+                                userid: localStorage.id,
+                                token: localStorage.token,
+                                method: "remove"
+                            }
+                            fetch(`${url}/updatevote`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json; charset=utf-8",     
+                                },
+                                body: JSON.stringify(vote)
+                            })
+                            .then(response => response.json())
+                            .then(response => {console.log(response)
+                                getPost(props.dispatch, props.id)
+                            })
+                        }}></i>
+                        {`${props.votecount} upvotes`}
+                    </div>
             :
-                <div className="downVotes">
-                    <i className="fas fa-arrow-alt-circle-down voteArrow" onClick={event => {
-                        let vote = {
-                            project_id: props.id,
-                            userid: localStorage.id,
-                            token: localStorage.token,
-                            method: "remove"
-                        }
-                        fetch(`${url}/updatevote`, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json; charset=utf-8",     
-                            },
-                            body: JSON.stringify(vote)
-                        })
-                        .then(response => response.json())
-                        .then(response => {console.log(response)
-                            getPost(props.dispatch, props.id)
-                        })
-                    }}></i>
+                <div className="upVotes">
                     {`${props.votecount} upvotes`}
                 </div>
             }
@@ -63,5 +68,5 @@ let Header = (props) =>
         <div>Cost: {priceRange[props.cost_range]}</div>
     </div>
 
-let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus}))(Header)
+let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus, user: state.user}))(Header)
 export default HeaderSmart;
