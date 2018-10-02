@@ -1,6 +1,6 @@
 import url from '../globalVars';
 
-let postSignup = (data, callback) => 
+let postSignup = (dispatch, data, callback) => 
     fetch(url + "/signup", {
         method: "POST",
         headers: {
@@ -8,8 +8,28 @@ let postSignup = (data, callback) =>
         },
         body: JSON.stringify(data)
     })
-    .then(response => {console.log(response)
+    .then(response => {
+        console.log(response)
         return response.json()})
-    .then(callback('/'))
+    .then(data => {
+        if (data.status === 'success'){
+            dispatch({
+                type: 'SET_TOAST',
+                toast: {
+                    text: 'You are registered!  Please sign in.',
+                    type: 'success'
+                }
+            });
+            callback('/')
+        } else {
+            dispatch({
+                type: 'SET_TOAST',
+                toast: {
+                    text: 'Invalid sign up.  Please try again.',
+                    type: 'error'
+                }
+            });
+        }
+    })
 
 export default postSignup;

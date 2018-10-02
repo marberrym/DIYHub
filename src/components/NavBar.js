@@ -19,6 +19,13 @@ let NavBar = (props) =>
                         localStorage.removeItem('name');
                         localStorage.removeItem('id');
                         props.dispatch({type: "LOGOUT",  empty: ""})
+                        props.dispatch({
+                            type: 'SET_TOAST',
+                            toast: {
+                                text: 'You logged out.',
+                                type: 'info'
+                            }
+                        });
                     }}> Log Out</span>
                 </div>
             : 

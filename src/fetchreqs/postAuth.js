@@ -17,6 +17,13 @@ let postAuth = (data, callback, dispatch) => {
         if (response.token) {
             myStorage.setItem('token', response.token);
             callback('/');
+            dispatch({
+                type: 'SET_TOAST',
+                toast: {
+                    text: 'You successfully logged in!',
+                    type: 'success'
+                }
+            });
             return response;
         } else {
             dispatch({

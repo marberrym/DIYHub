@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUpForm from '../components/SignupForm';
 import postSignup from '../fetchreqs/postSignup';
+import { connect } from 'react-redux';
 
 class SignupContainer extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class SignupContainer extends Component {
                 last_name: this.state.last,
                 email: this.state.email,
                 password: this.state.password}
-            postSignup(data, this.props.history.push)
+            postSignup(this.props.dispatch, data, this.props.history.push)
         }
 
         let updateState = (keyvalue, string) =>
@@ -30,4 +31,4 @@ class SignupContainer extends Component {
     }
 }
 
-export default SignupContainer;
+export default connect()(SignupContainer);
