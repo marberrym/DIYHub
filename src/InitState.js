@@ -2,7 +2,8 @@ let initialState = {
     user: {name: "",
             id: "",
             token: "",},
-    projects: []
+    projects: [],
+    alert: null
 };
 
 export default initialState;
