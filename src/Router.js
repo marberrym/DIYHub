@@ -8,7 +8,7 @@ import SignupContainer from './pagescreens/SignupContainer';
 import SingleScreen from './pagescreens/SingleScreen';
 import NotFound from './pagescreens/NotFound';
 import BrowseScreen from './pagescreens/BrowseScreen';
-import PostContainer from './pagescreens/PostContainer';
+import PostNewContainer from './pagescreens/PostNewContainer';
 import MyProjectsScreen from './pagescreens/MyProjectsScreen';
 import injectUser from './components/inject-user';
 import { ToastContainer, toast } from 'react-toastify';
@@ -38,7 +38,7 @@ class Router extends React.Component {
                         <Route exact path='/signup' component={SignupContainer} />
                         <Route exact path='/browse' component={BrowseScreen} />
                         <Route exact path='/project/:projectid' component={SingleScreen} />
-                        <Route exact path='/post' component={PostContainer}/>
+                        <Route exact path='/post' component={PostNewContainer}/>
                         <Route exact path='/my-projects' component={MyProjectsScreen} />
                         <Route path="/*" component={NotFound} />
                     </Switch>
