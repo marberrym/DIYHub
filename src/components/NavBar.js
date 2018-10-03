@@ -11,7 +11,7 @@ let NavBar = (props) =>
         </div>
         <div className="flex">
             {localStorage.token ?
-                <div>
+                <div className="navRightSide">
                     <Link to="/my-projects" className="navLink"> My Projects</Link>
                     <Link to="/post" className="navLink"> Post Project</Link>
                     <span className="navLink" onClick={event =>{
@@ -30,7 +30,7 @@ let NavBar = (props) =>
                     }}> Log Out</span>
                 </div>
             : 
-                <div>
+                <div className="navRightSide">
                     <Link to="/signup" className="navLink">Sign Up</Link>
                     <Link to="/login" className="navLink"> Log In</Link>
                 </div>

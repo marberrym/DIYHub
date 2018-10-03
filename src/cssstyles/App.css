@@ -45,6 +45,10 @@
     justify-content: space-between;
 }
 
+.navRightSide {
+    margin-right: 1em;
+}
+
 .banner {
     width: 100vw;
     height: 20em;
@@ -70,6 +74,7 @@
     background-color: rgba(0, 0, 0, 0.507);
     text-align: center;
 }
+
 
 .bannerMain, .bannerTitle {
     width: 100%;
@@ -122,10 +127,26 @@
     text-shadow: var(--black-outline);
 }
 
-.subLogo {
+.downVotes, .upVotes, .subLogo {
     font-size: 1.3em;
     transform: translateY(-45%);
     color: var(--main-blue);
+}
+
+.downVotes, .upVotes {
+    font-size: .45em;
+}
+
+.downVotes {
+    color: rgb(156, 10, 10);
+}
+
+.voteArrow {
+    margin-right: .5em;
+    transition: .2s ease-in-out;
+}
+.voteArrow:hover {
+    transform: scale(1.2);
 }
 
 .logo {
@@ -286,6 +307,7 @@
 .browseBtn {
     font-size: 1em;
     margin-top: 2em;
+    margin-bottom: 3em;
 }
 
 
@@ -420,6 +442,9 @@
    .stepContent {
     flex-basis: 60%;
     }
+    .banner {
+        height: 25em;
+    }
     .bannerTitle {
         font-size: 2.5em;
     }
@@ -431,5 +456,10 @@
    }
    .materials {
     flex-basis: 30%;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .banner {
+        height: 30em;
     }
 }
