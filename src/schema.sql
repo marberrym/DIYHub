@@ -20,12 +20,13 @@ CREATE TABLE diy_projects (
     id SERIAL PRIMARY KEY,
     creation_date TIMESTAMP,
     user_id INTEGER REFERENCES diy_users(id),
+    publish_status INTEGER NOT NULL,
     project_title varchar(200) NOT NULL,
-    feature_image_url varchar(500) NOT NULL,
-    time_range INTEGER NOT NULL,
-    cost_range INTEGER NOT NULL,
+    feature_image_url varchar(500),
+    time_range INTEGER,
+    cost_range INTEGER,
     category_id INTEGER REFERENCES diy_categories(id),
-    project_description TEXT NOT NULL
+    project_description TEXT
 );
 
 CREATE TABLE diy_votes (
