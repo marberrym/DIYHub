@@ -55,6 +55,7 @@ let postAuth = (data, callback, dispatch) => {
                 }})
             myStorage.setItem('name', response.name);
             myStorage.setItem('id', response.id);
+            myStorage.setItem('avatar', response.avatar);
         }
     })
 }

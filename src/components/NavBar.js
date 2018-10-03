@@ -18,6 +18,7 @@ let NavBar = (props) =>
                         localStorage.removeItem('token');
                         localStorage.removeItem('name');
                         localStorage.removeItem('id');
+                        localStorage.removeItem('avatar');
                         props.dispatch({type: "LOGOUT",  empty: ""})
                         props.dispatch({
                             type: 'SET_TOAST',
