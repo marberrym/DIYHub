@@ -27,7 +27,7 @@ let Header = (props) =>
                                 body: JSON.stringify(vote)
                             })
                             .then(response => response.json())
-                            .then(response => {console.log(response)
+                            .then(response => {console.log(response);
                                 getPost(props.dispatch, props.id)
                             })
                         }}></i>
