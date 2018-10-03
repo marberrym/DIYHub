@@ -11,11 +11,25 @@ let getUser = (dispatch, token) => {
   })
   .then(response => response.json())
   .then(data => {
-    dispatch({
-      type: "ASSIGN_USER",
-      package: {name: data.name,
-      id: data.id}
-    });
+    if (data.status === 'success') {
+      dispatch({
+        type: "ASSIGN_USER",
+        package: {
+          name: data.name,
+          id: data.id,
+          avatar: data.avatar
+        }
+      });
+    } else {
+      dispatch({
+        type: "ASSIGN_USER",
+        package: {
+          name: '',
+          id: '',
+          avatar: ''
+        }
+      });
+    }
   })
 }
 

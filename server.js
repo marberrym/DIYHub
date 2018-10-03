@@ -30,6 +30,7 @@ const uploadAvatar = multer({
 app.use(bodyParser.json());
 app.use(allowCORS);
 app.use(express.static('build'));
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // Sample protected route using middleware: /protected
 app.get('/protected', protect, (req, res) => {

@@ -404,6 +404,18 @@
 .save:hover .save-option {
     display: block;
 }
+.greeting {
+    display: inline-block;
+    vertical-align: middle;
+}
+.avatar {
+    height: 30px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+.greeting, .avatar {
+    margin-right: .5em;
+}
 
 @media only screen and (min-width: 600px) {
     .logo {

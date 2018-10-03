@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import url from '../globalVars';
 
 let NavBar = (props) =>
     <div className="navBar">
@@ -10,15 +11,16 @@ let NavBar = (props) =>
             <Link to="/about" className="navLink">About</Link>
         </div>
         <div className="flex">
-            {localStorage.token ?
-                <div className="navRightSide">
+            {props.user.name ?
+                <div className="navRightSide flex">
+                    <div>
+                        <div className="greeting">Hello {props.user.name}</div>
+                        <img className="avatar" src={`${url}/uploads/avatar/${props.user.avatar}`} />
+                    </div>
                     <Link to="/my-projects" className="navLink"> My Projects</Link>
                     <Link to="/post" className="navLink"> Post Project</Link>
                     <span className="navLink" onClick={event =>{
                         localStorage.removeItem('token');
-                        localStorage.removeItem('name');
-                        localStorage.removeItem('id');
-                        localStorage.removeItem('avatar');
                         props.dispatch({type: "LOGOUT",  empty: ""})
                         props.dispatch({
                             type: 'SET_TOAST',

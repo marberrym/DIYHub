@@ -1,7 +1,7 @@
 let initialState = {
     user: {name: "",
             id: "",
-            token: "",},
+            avatar: ""},
     projects: [],
     alert: null
 };
