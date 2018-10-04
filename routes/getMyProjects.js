@@ -18,7 +18,6 @@ let getMyProjects = (req, res) => {
     .then(data => {
       responseData.status = 'success'
       responseData.projectList = data;
-      responseData.query = "HEYHEYHEY"
       res.send(responseData)
       }
     ).catch(error => {
