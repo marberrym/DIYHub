@@ -15,7 +15,7 @@ let Header = (props) =>
                         <i className="fas fa-arrow-alt-circle-up voteArrow" onClick={event => {
                             let vote = {
                                 project_id: props.id,
-                                userid: localStorage.id,
+                                userid: props.user.id,
                                 token: localStorage.token,
                                 method: "add"
                             }
@@ -38,7 +38,7 @@ let Header = (props) =>
                         <i className="fas fa-arrow-alt-circle-down voteArrow" onClick={event => {
                             let vote = {
                                 project_id: props.id,
-                                userid: localStorage.id,
+                                userid: props.user.id,
                                 token: localStorage.token,
                                 method: "remove"
                             }

@@ -5,7 +5,7 @@ let validate = (req, res) => {
     if (err) {
       res.send({status: 'error'})
     } else {
-      res.send({name: decoded.first, id: decoded.id, status: 'success'});
+      res.send({name: decoded.first, id: decoded.id, avatar: decoded.avatar, status: 'success'});
     }
   });
 }

@@ -51,10 +51,8 @@ let postAuth = (data, callback, dispatch) => {
             dispatch({type: "ASSIGN_USER", package: {
                     name: response.name,
                     id: response.id,
-                    token: myStorage.token,
+                    avatar: response.avatar,
                 }})
-            myStorage.setItem('name', response.name);
-            myStorage.setItem('id', response.id);
         }
     })
 }
