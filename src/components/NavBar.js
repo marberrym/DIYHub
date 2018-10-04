@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import url from '../globalVars';
 import windowSize from 'react-window-size';
+import ThreeBarNav from './ThreeBarNav';
 
 class NavBar extends Component { 
     constructor(props) {
@@ -50,13 +51,7 @@ class NavBar extends Component {
                             }}> Log Out</span>
                         </div>
                     :
-                        <div className="navRightSide flex">
-                            <div>
-                                <div className="greeting">Hello {this.props.user.name}</div>
-                                <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
-                            </div>
-                            <i className="fas fa-bars fa-2x barsIcon"/>
-                        </div>
+                        <ThreeBarNav user={this.props.user}/>
                 : 
                     <div className="navRightSide">
                         <Link to="/signup" className="navLink">Sign Up</Link>
