@@ -1,11 +1,12 @@
 let initialState = {
     user: {name: "",
             id: "",
-            token: "",},
+            avatar: ""},
     projects: [],
     alert: null,
     project: {},
-    edit: {}
+    edit: {},
+    amazonSearch: [],
 };
 
 export default initialState;

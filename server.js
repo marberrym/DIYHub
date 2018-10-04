@@ -19,7 +19,7 @@ const saveProject = require('./routes/saveProject');
 const postComment = require('./routes/postComment');
 const updateVote = require('./routes/updateVote');
 const editMyProject = require('./routes/editMyProject');
-
+const searchAmazon = require('./routes/searchAmazon');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -32,6 +32,7 @@ const uploadAvatar = multer({
 app.use(bodyParser.json());
 app.use(allowCORS);
 app.use(express.static('build'));
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // Sample protected route using middleware: /protected
 app.get('/protected', protect, (req, res) => {
@@ -67,8 +68,10 @@ app.post('/comment', protect, postComment);
 //Update Vote Tally
 app.post('/updatevote', protect, updateVote)
 
-
 // Category route
 app.get('/category', getCategories);
+
+// Amazon routes
+app.get('/amazon', searchAmazon);
 
 app.listen(5000);

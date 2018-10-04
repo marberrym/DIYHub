@@ -21,6 +21,8 @@ let reducer = (oldState, action) => {
         return {...oldState, toast: action.toast}
     } else if (action.type === "LOAD_EDIT") {
         return {...oldState, edit: action.edit}
+    } else if (action.type === 'LOAD_AMAZON') {
+        return {...oldState, amazonSearch: action.items}
     }
     else {
         return oldState;
