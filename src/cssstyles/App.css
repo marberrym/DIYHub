@@ -306,7 +306,9 @@
     color: whitesmoke;
 }
 
-
+.stepsList {
+    text-align: left;
+}
 
 .browseBtn:hover, .button:hover, .submitBtn:hover {
     box-shadow: 2px 2px 4px var(--border-black);
@@ -365,6 +367,7 @@
     background-color: var(--main-white);
     border: 1px solid var(--main-black);
     box-shadow: 2px 2px 4px var(--border-black);
+    margin-bottom: 3em;
 }
 
 

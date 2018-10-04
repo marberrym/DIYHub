@@ -57,8 +57,8 @@ let EditProject = (props) =>
                     </div>
                     <div className="postProjectForm">
                         <div>Current steps:</div>
-                        {props.steps ?
-                            props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
+                        {props.steps.length > 0 ?
+                            props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)    
                         :
                             null
                         }

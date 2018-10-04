@@ -12,7 +12,7 @@ let updateProject = async (req, res) => {
   
   for (let i = 0; i < req.body.steps.length; i++){
     let step = req.body.steps[i];
-    stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_URL}', '${step.steptitle}', '${step.stepdescription}'),`;
+    stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_URL}', '${step.step_title}', '${step.step_text}'),`;
   }
   let stepQuery = await db.query(`INSERT INTO diy_steps (project_id, step_order, step_image_URL, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
 

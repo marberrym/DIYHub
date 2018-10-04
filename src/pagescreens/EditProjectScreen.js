@@ -34,7 +34,8 @@ class EditProjectScreen extends Component {
                     time: this.props.edit.project.time_range||0,
                     description: this.props.edit.project.project_description,
                     steps: this.props.edit.steps,
-                    materials: this.props.edit.materials,});
+                    materials: this.props.edit.materials,
+                    stepcount: this.props.edit.steps.length + 1});
         }
     }
 
@@ -65,15 +66,22 @@ class EditProjectScreen extends Component {
             .then(response => console.log(response))
             
         }
+        let editStep = (count, title, description, image) => {
+            this.setState({stepcount: count,
+                            steptitle: title,
+                            stepdescription: description,
+                            stepimage: image
+                        })
+        }
 
         let submitStep = () => {
-            let currentStep = {steptitle: this.state.steptitle,
-                                stepdescription: this.state.stepdescription,
+            let currentStep = {step_title: this.state.steptitle,
+                                step_text: this.state.stepdescription,
                                 step_order: this.state.stepcount,
                                 step_image_URL: this.state.stepimage,
                             }
             let newStep = [...this.state.steps].concat(currentStep);
-            let newCount = this.state.stepcount + 1;
+            let newCount = this.state.steps.length + 1;
             
             this.setState({stepcount: newCount,
                             steps: newStep,
@@ -93,7 +101,7 @@ class EditProjectScreen extends Component {
                             materialasin: '',})
         }
         return <EditProject {...this.state} update={updateState} save={saveProject}
-        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit}/>
+        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit} editStep={editStep}/>
     }
 }
 
