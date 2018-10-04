@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditProject from '../components/postcomponents/EditProject';
 import injectProject from '../components/inject-edit';
-import postProject from '../fetchreqs/postProject';
+import url from '../globalVars';
 
 class EditProjectScreen extends Component {
     constructor(props) {
@@ -55,17 +55,14 @@ class EditProjectScreen extends Component {
                 materials: this.state.materials,
             }
 
-            postProject(project, this.props.history.push)
-            
-            this.setState({title: '',
-                            projectimage: '',
-                            time: '',
-                            cost: '',
-                            category: '',
-                            description: '',
-                            steps: [],
-                            materials: [],
-                        })
+            fetch(`${url}/editproject/${this.props.edit.project.id}`, {
+                method: "POST",
+                headers: {token: localStorage.token,
+                    "Content-Type": "application/json; charset=utf-8"},
+                body: JSON.stringify(project)
+            })
+            .then(response => response.json())
+            .then(response => console.log(response))
             
         }
 
