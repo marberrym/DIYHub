@@ -18,6 +18,7 @@ const postProject = require('./routes/postProject');
 const saveProject = require('./routes/saveProject');
 const postComment = require('./routes/postComment');
 const updateVote = require('./routes/updateVote');
+const searchAmazon = require('./routes/searchAmazon');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -64,8 +65,10 @@ app.post('/comment', protect, postComment);
 //Update Vote Tally
 app.post('/updatevote', protect, updateVote)
 
-
 // Category route
 app.get('/category', getCategories);
+
+// Amazon routes
+app.get('/amazon', searchAmazon);
 
 app.listen(5000);
