@@ -26,7 +26,7 @@ let saveProject = (status, projectId) => {
 }
 
 let MainProject = (props) => (
-    props.project ?
+    props.project.project ?
         <div className="pageLayout">
             <NavBar />
             <Banner {...props.project.project}/>

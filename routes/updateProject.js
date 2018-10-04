@@ -1,15 +1,18 @@
 const db = require('../database');
 
 let updateProject = async (req, res) => {
+  
+  
 
-  let projectId = await db.query(`UPDATE diy_projects SET project_title='${req.body.title}', feature_image_url='${req.body.feature_image_url}', time_range=${req.body.time}, cost_range=${req.body.cost}, category_id=${req.body.category}, project_description='${req.body.description}' WHERE id=${req.params.id}`);
-
+  let projectId = await db.query(`UPDATE diy_projects SET project_title='${req.body.title}', feature_image_url='${req.body.feature_image_url}', time_range=${req.body.time}, cost_range=${req.body.cost},project_description='${req.body.description}' WHERE id=${req.params.id}`);
+  console.log("I made it this far")
   let stepDelete = await db.query(`DELETE FROM diy_steps WHERE project_id=${req.params.id}`);
 
   let stepDataInsert = '';
+  
   for (let i = 0; i < req.body.steps.length; i++){
     let step = req.body.steps[i];
-    stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_URL}', '${step.steptitle}', '${step.stepdescription}'),`;
+    stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_URL}', '${step.step_title}', '${step.step_text}'),`;
   }
   let stepQuery = await db.query(`INSERT INTO diy_steps (project_id, step_order, step_image_URL, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
 

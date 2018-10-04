@@ -14,6 +14,7 @@ let getPosts = (dispatch, status) => {
   .then(response => 
     response.json())
   .then(data => {
+    console.log(data);
     dispatch({
       type: "LOAD_PROJECTS",
       projects: data.projectList
@@ -43,33 +44,47 @@ class MyProjectsScreen extends Component {
           <div className="navBar">
               <div className="flex">
                   <div
-                    className="navLink myprojects-filter-all"
+                    className="navLink"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'all'
                       }))
                     }}>All</div>
                   <div
-                    className="navLink myprojects-filter-todo"
+                    className="navLink"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'todo'
                       }))
                     }}>To Do</div>
                   <div
-                    className="navLink myprojects-filter-inprogress selected"
+                    className="navLink"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'inprogress'
                       }))
                     }}>In Progress</div>
                   <div
-                    className="navLink myprojects-filter-completed"
+                    className="navLink"
                     onClick={() => {
                       this.setState(() => ({
                         status: 'completed'
                       }))
                     }}>Completed</div>
+                    <div
+                    className="navLink"
+                    onClick={() => {
+                      this.setState(() => ({
+                        status: 'unpublished'
+                      }))
+                    }}>Unpublished Projects</div>
+                    <div
+                    className="navLink"
+                    onClick={() => {
+                      this.setState(() => ({
+                        status: 'published'
+                      }))
+                    }}>Published Projects</div>
               </div>
           </div>
             {this.props.projects ?
