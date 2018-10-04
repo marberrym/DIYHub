@@ -26,6 +26,18 @@ class EditProjectScreen extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.edit !== prevProps.edit) {
+            this.setState({title: this.props.edit.project.project_title,
+                    projectimage: this.props.edit.project.feature_image_url,
+                    cost: this.props.edit.project.cost_range||0,
+                    time: this.props.edit.project.time_range||0,
+                    description: this.props.edit.project.project_description,
+                    steps: this.props.edit.steps,
+                    materials: this.props.edit.materials,});
+        }
+    }
+
     render() {
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string})
@@ -84,9 +96,9 @@ class EditProjectScreen extends Component {
                             materialasin: '',})
         }
         return <EditProject {...this.state} update={updateState} save={saveProject}
-        submitStep={submitStep} submitMat={submitMaterial}/>
+        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit}/>
     }
 }
 
-let EditProjectScreenSmart = connect(state => ({project: state.project}))(injectProject(EditProjectScreen))
+let EditProjectScreenSmart = connect(state => ({edit: state.edit}))(injectProject(EditProjectScreen))
 export default EditProjectScreenSmart;

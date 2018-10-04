@@ -3,7 +3,9 @@ let initialState = {
             id: "",
             token: "",},
     projects: [],
-    alert: null
+    alert: null,
+    project: {},
+    edit: {}
 };
 
 export default initialState;

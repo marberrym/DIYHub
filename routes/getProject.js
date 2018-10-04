@@ -7,6 +7,7 @@ let getProject = (req, res) => {
   let votestatus;
   let projectId = req.params.id;
   let projectData = {};
+  console.log(req)
 
   //Checks if User is logged in and has provided a JSON Webtoken
   if (req.headers.token !== 'undefined') {
@@ -51,6 +52,7 @@ let getProject = (req, res) => {
     projectData.status = 'success';
 ;
     res.send(projectData);
+    console.log(projectData);
   })
   .catch(error => {
     console.log(error);

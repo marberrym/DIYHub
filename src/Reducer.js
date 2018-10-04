@@ -19,6 +19,8 @@ let reducer = (oldState, action) => {
         return {...oldState, project: action.project}
     } else if (action.type === "SET_TOAST") {
         return {...oldState, toast: action.toast}
+    } else if (action.type === "LOAD_EDIT") {
+        return {...oldState, edit: action.edit}
     }
     else {
         return oldState;

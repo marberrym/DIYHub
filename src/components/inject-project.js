@@ -18,7 +18,6 @@ export let getPost = (dispatch, postId) => {
         votestatus: data.votestatus
       }
     });
-    console.log(data);
   })
 }
 

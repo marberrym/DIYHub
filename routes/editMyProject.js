@@ -24,8 +24,9 @@ let editMyProject = (req, res) => {
     projectData.project = data[0];
     projectData.steps = data[1];
     projectData.materials = data[2];
-    console.log(projectData);
+    res.send(projectData);
     })
+    .catch(err => console.log(err));
 
 }
 
