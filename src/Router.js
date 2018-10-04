@@ -11,6 +11,7 @@ import BrowseScreen from './pagescreens/BrowseScreen';
 import PostNewContainer from './pagescreens/PostNewContainer';
 import MyProjectsScreen from './pagescreens/MyProjectsScreen';
 import injectUser from './components/inject-user';
+import EditProjectScreen from './pagescreens/EditProjectScreen';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -40,6 +41,7 @@ class Router extends React.Component {
                         <Route exact path='/project/:projectid' component={SingleScreen} />
                         <Route exact path='/post' component={PostNewContainer}/>
                         <Route exact path='/my-projects' component={MyProjectsScreen} />
+                        <Route exact path='/editproject/:projectid' component={EditProjectScreen} />
                         <Route path="/*" component={NotFound} />
                     </Switch>
                 </HashRouter>

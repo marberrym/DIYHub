@@ -56,6 +56,7 @@ app.get('/project', getProjectList);
 app.put('/project/:id', protect, updateProject);
 app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
+app.post('/startproject', protect, postProject);
 
 //Comment Posting
 app.post('/comment', protect, postComment);

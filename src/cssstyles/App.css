@@ -187,7 +187,7 @@
     color: var(--main-teal);
 }
 
-.commentSubmit, .commentBox, .postProjectFormH, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.commentSubmit, .commentBox, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -237,15 +237,21 @@
     font-size: 1.3em;
 }
 
-.postProjectFormH, .topPostSection {
+.topPostSection {
     display: flex;
     flex-direction: row;
     margin-bottom: 2em;
 }
 
 .postProjectFormH {
-    width: 80%;
-    height: 20%;
+    flex-direction: row;
+    display: flex;
+    background-color: var(--main-white);
+    border: 1px solid black;
+    border-top: none;
+    padding: 2em;
+    box-shadow: 2px 2px 4px var(--border-black);
+    margin-bottom: 2em;
 }
 
 .stepHeader {
@@ -291,7 +297,7 @@
     height: 15em;
 } 
 
-.browseBtn, .button {
+.browseBtn, .button, .submitBtn {
     background: var(--blue-gradient);
     padding: .5em;
     padding-left: 2em;
@@ -300,7 +306,9 @@
     color: whitesmoke;
 }
 
-.browseBtn:hover, .button:hover {
+
+
+.browseBtn:hover, .button:hover, .submitBtn:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -308,6 +316,13 @@
     font-size: 1em;
     margin-top: 2em;
     margin-bottom: 3em;
+}
+
+.submitBtn {
+    width: 12em;
+    margin: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
@@ -338,6 +353,18 @@
 
 .headSupplies {
     flex-wrap: wrap;
+}
+
+.submissionBtns {
+    width: 100px;
+}
+
+.submitButtonContainer {
+    display: flex;
+    padding: 1em;
+    background-color: var(--main-white);
+    border: 1px solid var(--main-black);
+    box-shadow: 2px 2px 4px var(--border-black);
 }
 
 
@@ -403,6 +430,34 @@
 }
 .save:hover .save-option {
     display: block;
+}
+
+.selectedTab {
+    color: var(--main-blue);
+    background-color: var(--main-white);
+    border: 1px solid black;
+    border-bottom: none;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
+}
+
+.tabs {
+    display: flex;
+    list-style: none;
+    margin-block-end: 0;
+    border-bottom: 1px solid black;
+}
+
+.tab {
+    padding: .5em;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: none;
+    
+}
+
+.tabSection {
+    width: 85%;
 }
 
 @media only screen and (min-width: 600px) {
