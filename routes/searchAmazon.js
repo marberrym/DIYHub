@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const parseString = require('xml2js').parseString;
 const https = require('https');
 const httpsPromise = (url) =>
   new Promise(resolve => {
@@ -7,7 +8,6 @@ const httpsPromise = (url) =>
 
 let searchAmazon = async (req, res) => {
   let timeStamp = new Date();
-  // url encode characters: spaces, commas, semicolons, colons from date!
   let params = {
     AWSAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
     AssociateTag: 'nybblr08-20',
@@ -17,7 +17,6 @@ let searchAmazon = async (req, res) => {
     SearchIndex: 'All',
     Service: 'AWSECommerceService',
     Timestamp: timeStamp.toISOString()
-    // Timestamp: timeStamp.toISOString()
   };
   let paramString = Object.entries(params).sort().reduce((acc, cur) => `${acc}${cur[0]}=${encodeURIComponent(cur[1])}&`, '').slice(0,-1);
   let stringToSign = `GET\nwebservices.amazon.com\n/onca/xml\n${paramString}`;
@@ -31,7 +30,15 @@ let searchAmazon = async (req, res) => {
     data += chunk;
   });
   amazonRes.on('end', () => {
-    res.send(data);
+    parseString(data, function (err, result) {
+      let formattedData = result.ItemSearchResponse.Items[0].Item.map(item => ({
+        ASIN: item.ASIN[0],
+        image: item.MediumImage[0].URL[0],
+        title: item.ItemAttributes[0].Title[0],
+        price: item.OfferSummary[0].LowestNewPrice[0].FormattedPrice[0]
+      }));
+      res.send(formattedData);
+    });
   });
 };
 module.exports = searchAmazon;
