@@ -11,7 +11,7 @@ let searchAmazon = async (req, res) => {
   let params = {
     AWSAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
     AssociateTag: 'nybblr08-20',
-    Keywords: 'popsicle sticks',
+    Keywords: req.query.q,
     Operation: 'ItemSearch',
     ResponseGroup: 'Images,Small,OfferSummary',
     SearchIndex: 'All',
@@ -31,13 +31,25 @@ let searchAmazon = async (req, res) => {
   });
   amazonRes.on('end', () => {
     parseString(data, function (err, result) {
-      let formattedData = result.ItemSearchResponse.Items[0].Item.map(item => ({
-        ASIN: item.ASIN[0],
-        image: item.MediumImage[0].URL[0],
-        title: item.ItemAttributes[0].Title[0],
-        price: item.OfferSummary[0].LowestNewPrice[0].FormattedPrice[0]
-      }));
-      res.send(formattedData);
+      try {
+        let formattedData = [];
+        result.ItemSearchResponse.Items[0].Item.forEach(item => {
+          try { formattedData.push({
+              ASIN: item.ASIN[0],
+              image: item.MediumImage ? item.MediumImage[0].URL[0] : item.ImageSets[0].ImageSet[0].MediumImage[0].URL[0],
+              title: item.ItemAttributes[0].Title[0],
+              price: item.OfferSummary[0].LowestNewPrice[0].FormattedPrice[0]
+            })
+          }
+          catch(error) {
+            console.log(error);
+          }
+        });
+        res.send({status: 'success', items: formattedData});
+      }
+      catch(error) {
+        res.send({status: 'error'});
+      }
     });
   });
 };
