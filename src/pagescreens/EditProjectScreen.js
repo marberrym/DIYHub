@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditProject from '../components/postcomponents/EditProject';
-import injectProject from '../components/inject-project';
+import injectProject from '../components/inject-edit';
 import postProject from '../fetchreqs/postProject';
 
 class EditProjectScreen extends Component {
@@ -84,7 +84,7 @@ class EditProjectScreen extends Component {
                             materialasin: '',})
         }
         return <EditProject {...this.state} update={updateState} save={saveProject}
-        sumitStep={submitStep} submitMat={submitMaterial}/>
+        submitStep={submitStep} submitMat={submitMaterial}/>
     }
 }
 
