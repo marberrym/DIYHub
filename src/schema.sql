@@ -56,8 +56,7 @@ CREATE TABLE diy_steps (
     step_order INTEGER,
     step_image_URL varchar(500),
     step_title varchar(200),
-    step_text TEXT,
-    UNIQUE (project_id, step_order)
+    step_text TEXT
 );
 
 CREATE TABLE diy_materials_bridge (
