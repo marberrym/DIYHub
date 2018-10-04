@@ -19,7 +19,7 @@ const saveProject = require('./routes/saveProject');
 const postComment = require('./routes/postComment');
 const updateVote = require('./routes/updateVote');
 const editMyProject = require('./routes/editMyProject');
-const editProject = require('./routes/editProject');
+
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -56,7 +56,7 @@ app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
 app.get('/editproject/:id', protect, editMyProject);
-app.post('/editproject/:id', protect, editProject);
+app.post('/editproject/:id', protect, updateProject);
 app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
