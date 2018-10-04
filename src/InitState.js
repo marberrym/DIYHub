@@ -3,6 +3,7 @@ let initialState = {
             id: "",
             avatar: ""},
     projects: [],
+    amazonSearch: [],
     alert: null
 };
 

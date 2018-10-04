@@ -12,64 +12,156 @@ import Button from './Button';
 import StepDescription from './postcomponents/StepDescription';
 import MaterialItem from './postcomponents/MaterialItem';
 import MaterialQuantity from './postcomponents/MaterialQuantity';
-import MaterialASIN from './postcomponents/MaterialASIN'
+import MaterialASIN from './postcomponents/MaterialASIN';
+import MaterialSearch from './postcomponents/MaterialSearch';
 import PostMat from './postcomponents/PostMat';
 import ProjectImage from './postcomponents/ProjectImage';
 import StepImage from './postcomponents/StepImage';
+import Modal from 'react-modal';
+import url from '../globalVars';
+import { connect } from 'react-redux';
 
-let PostForm = (props) =>
-    <div className="pageLayout">
-        <NavBar/>
-        <HeadLogo/>
-        
-            <form className="postProjectForm" onSubmit={event => props.submitProject()}>
+class PostForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalIsOpen: false
+        };
+        this.searchAmazon = this.searchAmazon.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
+    searchAmazon(query) {
+        fetch(`${url}/amazon?q=${query}`)
+        .then(response => {
+            if (response) {
+                return response.json()
+            } else {
+                this.props.dispatch({
+                    type: 'SET_TOAST',
+                    toast: {
+                        text: 'Problem reaching amazon!',
+                        type: 'error'
+                    }
+                });
+            }
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                this.openModal();
+                this.props.dispatch({
+                    type: 'LOAD_AMAZON',
+                    items: data.items
+                })
+            } else {
+                this.props.dispatch({
+                    type: 'SET_TOAST',
+                    toast: {
+                        text: 'Problem reaching amazon!',
+                        type: 'error'
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            this.props.dispatch({
+                type: 'SET_TOAST',
+                toast: {
+                    text: 'Problem reaching amazon!',
+                    type: 'error'
+                }
+            });
+        })
+    }
+    openModal() {
+        this.setState({modalIsOpen: true});
+    }
+    
+    afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        // this.subtitle.style.color = '#f00';
+    }
+
+    closeModal() {
+        this.setState({modalIsOpen: false});
+    }
+    render() {
+        return (
+        <div className="pageLayout">
+            <NavBar/>
+            <HeadLogo/>
+            <form className="postProjectForm" onSubmit={event => this.props.submitProject()}>
                 <div className="topPostSection">
                     <div className="formVert">
-                        <Title title={props.title} update={props.update}/>
-                        <ProjectImage title={props.projectimage} update={props.update} text="Image URL: "/>
-                        <Cost cost={props.cost} update={props.update}/>
-                        <Time time={props.time} update={props.update}/>
-                        <Category category={props.category} update={props.update}/>
+                        <Title title={this.props.title} update={this.props.update}/>
+                        <ProjectImage title={this.props.projectimage} update={this.props.update} text="Image URL: "/>
+                        <Cost cost={this.props.cost} update={this.props.update}/>
+                        <Time time={this.props.time} update={this.props.update}/>
+                        <Category category={this.props.category} update={this.props.update}/>
                     </div>
-                    <Description description={props.description} update={props.update}/>
+                    <Description description={this.props.description} update={this.props.update}/>
                 </div>
                 <Button text="Submit Project"/>
             </form>
-            <form className="postProjectFormH" onSubmit={props.submitStep}>
+            <form className="postProjectFormH" onSubmit={this.props.submitStep}>
                 <div className="formVert">
-                    <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
-                    <StepImage title={props.stepimage} update={props.update} text="Image URL: "/>
-                    <StepDescription description={props.stepdescription} 
-                        update={props.update} text="Step Description: " type="step"/>
+                    <StepTitle title={this.props.steptitle} update={this.props.update} text="Step Title: "/>
+                    <StepImage title={this.props.stepimage} update={this.props.update} text="Image URL: "/>
+                    <StepDescription description={this.props.stepdescription} 
+                        update={this.props.update} text="Step Description: " type="step"/>
                     <Button text="Add Step"/>
                 </div>
                 <div className="postProjectForm">
                     <div>Current steps:</div>
-                    {props.steps ?
-                        props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
+                    {this.props.steps ?
+                        this.props.steps.map(step => <PostStep step={step} key={step.stepcount}/>)    
                     :
                         null
                     }
                 </div>
             </form>
-            <form className="postProjectFormH" onSubmit={props.submitMaterial}>
+            <form className="postProjectFormH" onSubmit={this.props.submitMaterial}>
                 <div className="formVert">
-                    <MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
-                    <MaterialQuantity title={props.materialquantity} update={props.update} text="Material Quantity: "/>
-                    <MaterialASIN title={props.materialasin} update={props.update} text="Material Amazon ASIN: "/>
+                    <MaterialSearch {...this.props} searchAmazon={this.searchAmazon} />
+                    <MaterialItem title={this.props.materialtitle} text="Material Title: "/>
+                    <MaterialQuantity title={this.props.materialquantity} update={this.props.update} text="Material Quantity: "/>
                     <Button text="Add Material"/>
                 </div>
                 <div className="postProjectForm">
                     <div>Current Materials:</div>
-                    {props.materials ?
-                        props.materials.map(mat => <PostMat mat={mat}/>)    
+                    {this.props.materials ?
+                        this.props.materials.map(mat => <PostMat mat={mat}/>)    
                     :
                         null
                     }
                 </div>
             </form>
-            
-        
-    </div>
-
-export default PostForm;
+            <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                className="modal"
+                // overlayClassName="modal-overlay"
+                contentLabel="Add Material"
+            >
+                {this.props.amazonSearch.map(item => (
+                    <div className="amazon browsePost" onClick={() => {
+                        this.props.update('materialtitle', item.title);
+                        this.props.update('materialasin', item.ASIN);
+                        this.closeModal();
+                    }}>
+                        <div className="amazon-img">
+                        <img src={item.image} alt={item.title} /></div>
+                        <div className="amazon-text-container">
+                            <div className="amazon-title">{item.title.slice(0,100) + (item.title.length > 100 ? '...' : '')}</div>
+                            <div className="amazon-price">{item.price}</div>
+                        </div>
+                    </div>
+                ))}
+            </Modal>
+        </div>
+        );
+    }
+}
+export default connect(state => ({amazonSearch: state.amazonSearch}))(PostForm);

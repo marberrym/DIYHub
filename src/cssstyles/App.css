@@ -416,6 +416,38 @@
 .greeting, .avatar {
     margin-right: .5em;
 }
+.modal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    right: 2em;
+    bottom: 2em;
+    background: #F0F0F0;
+    overflow-y: scroll;
+    outline: 1px #111 solid;
+}
+.modal div {
+    width: 15em;
+    text-align: center;
+}
+.amazon {
+    cursor: pointer;
+}
+.amazon-img {
+    height: 160px;
+}
+.amazon-title {
+    font-weight: bold;
+}
+.amazon-price {
+    text-decoration: italic;
+}
+.material-title {
+    margin: 1em;
+}
 
 @media only screen and (min-width: 600px) {
     .logo {

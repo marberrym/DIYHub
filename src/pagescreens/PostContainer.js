@@ -19,6 +19,7 @@ class PostContainer extends Component {
             materialtitle: '',
             materialquantity: '',
             materialasin: '',
+            materialSearch: '',
             projectimage: '',
             stepimage: '',
             stepcount: 1,
@@ -55,7 +56,8 @@ class PostContainer extends Component {
             
         }
 
-        let submitStep = () => {
+        let submitStep = (event) => {
+            event.preventDefault();
             let currentStep = {steptitle: this.state.steptitle,
                                 stepdescription: this.state.stepdescription,
                                 step_order: this.state.stepcount,
@@ -71,7 +73,8 @@ class PostContainer extends Component {
                             stepimage: '',});
         }
         
-        let submitMaterial = () => {
+        let submitMaterial = (event) => {
+            event.preventDefault();
             let currentMaterial = {title: this.state.materialtitle,
                                     quantity: this.state.materialquantity,
                                     amazon_asin: this.state.materialasin}

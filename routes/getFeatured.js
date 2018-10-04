@@ -5,7 +5,6 @@ let getFeatured = (req, res) => {
     `select id, project_title, feature_image_url as pic from diy_projects limit 5;`
   )
   .then(data => {
-    console.log(data);
     res.send(data);
   })
   .catch(error => {
