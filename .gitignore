@@ -10,6 +10,7 @@
 /build
 
 # misc
+/src/globalVars.js
 /env
 env.sh
 /uploads
