@@ -21,6 +21,7 @@ const updateVote = require('./routes/updateVote');
 const editMyProject = require('./routes/editMyProject');
 const searchAmazon = require('./routes/searchAmazon');
 const publishProject = require('./routes/publishProject');
+const userStats = require('./routes/userStats');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -62,6 +63,7 @@ app.post('/editproject/:id', protect, updateProject);
 app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
+app.get('/userstats', protect, userStats);
 app.get('/publishproject/:id', protect, publishProject);
 
 //Comment Posting
