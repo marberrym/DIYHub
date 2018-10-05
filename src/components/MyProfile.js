@@ -18,13 +18,13 @@ let MyProfile = (props) =>
         {console.log(props.user.stats)}
         {props.user.stats ?
         <div className="myprofile">
-            <h3>Your Creations</h3>
-            <div>{props.user.name}, you have {props.user.stats.published} published projects!</div>
-            <div>{props.user.name}, you have {props.user.stats.unpublished} unpublished projects!</div>
-            <h3>Your Inspirations</h3>
-            <div>{props.user.name}, you have {props.user.stats.inprogress} projects you are currently working on!</div>
-            <div>{props.user.name}, you have {props.user.stats.todo} projects you plan to work on soon!</div>
-            <div>{props.user.name}, you have {props.user.stats.completed} projects you have completed on DIYHub!</div>
+            <h3>{props.user.name}'s Creations</h3>
+            <div>You have {props.user.stats.published} published projects.</div>
+            <div>You have {props.user.stats.unpublished} unpublished projects.</div>
+            <h3>{props.user.name}'s Inspirations</h3>
+            <div>You have {props.user.stats.inprogress} projects you are currently working on.</div>
+            <div>You have {props.user.stats.todo} projects you plan to work on soon.</div>
+            <div>You have {props.user.stats.completed} projects you have completed on DIYHub.</div>
         </div>
         :
         <div>Not loaded</div>
