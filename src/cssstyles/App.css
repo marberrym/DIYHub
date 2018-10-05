@@ -138,6 +138,10 @@
     font-size: .45em;
 }
 
+.formVert {
+    width: 100%;
+}
+
 .downVotes {
     color: rgb(156, 10, 10);
 }
@@ -221,6 +225,7 @@
 }
 
 .postProjectForm {
+    width: 80%;
     margin: 2em;
 }
 
@@ -245,7 +250,9 @@
 }
 
 .topPostSection {
+    width: 80%;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     margin-bottom: 2em;
 }
@@ -349,10 +356,29 @@
 }
 
 
-.submitTextArea {
-    width: 100%;
+.titleInput, .submitTextArea {
+    min-width: 20em;
     height: 10em;
+    padding: 1em;
+    font-family: var(--sub-font);
+    font-size: .7em;
 }
+
+.titleInput {
+    height: 1em;
+    padding: .5em;
+    min-width: 10em;
+}
+
+.titleInput, .submitTextArea:active {
+    box-shadow: none;
+    outline: none;
+}
+.titleInput, .submitTextArea:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 
 
 .flex {
@@ -613,6 +639,12 @@
     .bannerTitle {
         font-size: 2em;
     }
+    .submitTextArea {
+        width: 25em;
+    }
+    .titleInput {
+        width: 15em;
+    }
     .bannerMain {
         font-size: 2em;
     }
@@ -634,6 +666,9 @@
     .mainPostHead{
         flex-wrap: nowrap;
     }
+    .postProjectForm{
+        width: 70%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -643,11 +678,17 @@
     .banner {
         height: 25em;
     }
+    .submitTextArea {
+        width: 30em;
+    }
     .bannerTitle {
         font-size: 2.5em;
     }
     .bannerMain {
         font-size: 2.5em;
+    }
+    .titleInput {
+        width: 20em;
     }
    .headSteps {
        flex-wrap: nowrap;
@@ -655,6 +696,15 @@
    .materials {
     flex-basis: 30%;
     }
+    .postProjectForm{
+        width: 60%;
+    }
 }
 @media only screen and (min-width: 1000px) {
+    .postProjectForm{
+        width: 50%;
+    }
+    .submitTextArea {
+        width: 35em;
+    }
 }
