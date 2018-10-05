@@ -10,7 +10,7 @@ let getProject = (req, res) => {
   console.log(req)
 
   //Checks if User is logged in and has provided a JSON Webtoken
-  if (req.headers.token !== 'undefined') {
+  if (req.headers && req.headers.token) {
     decoded = jwt.decode(req.headers.token)
     votestatus = db.one(
       `SELECT * FROM diy_votes WHERE project_id=${projectId} AND user_id=${decoded.id}`
@@ -23,7 +23,7 @@ let getProject = (req, res) => {
 
   //Queries Project Details
   let project = db.one(
-    `SELECT diy_projects.id AS id, first_name, last_name, creation_date, project_title, feature_image_url, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id INNER JOIN diy_categories ON diy_projects.category_id = diy_categories.id WHERE diy_projects.id=${projectId}`
+    `SELECT diy_projects.id AS id, first_name, last_name, creation_date, project_title, feature_image_url, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id=${projectId}`
   )
   let steps = db.query(
     `SELECT step_order, step_image_url, step_title, step_text FROM diy_steps WHERE project_id=${projectId} ORDER BY step_order`

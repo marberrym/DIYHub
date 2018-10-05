@@ -483,6 +483,8 @@
 
 .profileImg {
     height: 15em;
+    border-radius: 100%;
+    border: 5px solid var(--main-blue);
 }
 
 .navLink3:hover {
