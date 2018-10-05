@@ -39,10 +39,12 @@ class NavBar extends Component {
                 {this.props.user.name ?
                     this.state.screen === 'computer' ?
                         <div className="navRightSide flex">
-                            <div>
-                                <div className="greeting">Hello {this.props.user.name}</div>
-                                <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
-                            </div>
+                            <Link to="/my-profile" className="navLink">
+                                <div>
+                                    <div className="greeting">Hello {this.props.user.name}</div>
+                                    <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
+                                </div>
+                            </Link>
                             <Link to="/my-projects" className="navLink"> My Projects</Link>
                             <Link to="/post" className="navLink"> Post Project</Link>
                             <span className="navLink" onClick={event =>{

@@ -14,6 +14,7 @@ import injectUser from './components/inject-user';
 import EditProjectScreen from './pagescreens/EditProjectScreen';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import MyProfileScreen from './pagescreens/MyProfileScreen';
 
 class Router extends React.Component {
     constructor(props) {
@@ -42,6 +43,7 @@ class Router extends React.Component {
                         <Route exact path='/post' component={PostNewContainer}/>
                         <Route exact path='/my-projects' component={MyProjectsScreen} />
                         <Route exact path='/editproject/:projectid' component={EditProjectScreen} />
+                        <Route exact path='/my-profile' component={MyProfileScreen} />
                         <Route path="/*" component={NotFound} />
                     </Switch>
                 </HashRouter>

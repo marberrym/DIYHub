@@ -23,6 +23,8 @@ let reducer = (oldState, action) => {
         return {...oldState, edit: action.edit}
     } else if (action.type === 'LOAD_AMAZON') {
         return {...oldState, amazonSearch: action.items}
+    } else if (action.type === 'LOAD_USER_STATS') {
+        return {...oldState, user: {...oldState.user, stats: action.stats}}
     }
     else {
         return oldState;

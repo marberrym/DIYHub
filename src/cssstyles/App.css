@@ -187,7 +187,7 @@
     color: var(--main-teal);
 }
 
-.commentSubmit, .commentBox, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
+.myprofile, .commentSubmit, .commentBox, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
     background-color: whitesmoke;
     border: 1px solid var(--border-black);
     padding: 1em;
@@ -259,6 +259,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 2em;
+}
+
+.myprofile {
+    margin-bottom: 3em;
 }
 
 .stepContent {
@@ -385,7 +389,7 @@
     height: 10em;
 }
 
-.shop-link-container {
+.centerFileInput, .shop-link-container {
     margin: 1em;
     text-align: center;
 }
@@ -471,6 +475,14 @@
     text-align: center;
     padding-top: .5em;
     padding-bottom: .5em;
+}
+
+.profileHeadText {
+    font-size: 2em;
+}
+
+.profileImg {
+    height: 15em;
 }
 
 .navLink3:hover {
