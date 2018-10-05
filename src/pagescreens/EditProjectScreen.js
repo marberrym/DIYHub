@@ -89,6 +89,16 @@ class EditProjectScreen extends Component {
                             stepdescription: '',
                             stepimage: '',});
         }
+
+        let publishProject = () => {
+            fetch(`${url}/publishproject/${this.props.edit.project.id}`, {
+                method: "GET",
+                headers: {token: localStorage.token,
+                    "Content-Type": "application/json; charset=utf-8"}
+            })
+            .then(response => response.json())
+            .then(response => console.log(response))
+        }
         
         let submitMaterial = () => {
             let currentMaterial = {title: this.state.materialtitle,
@@ -101,7 +111,7 @@ class EditProjectScreen extends Component {
                             materialasin: '',})
         }
         return <EditProject {...this.state} update={updateState} save={saveProject}
-        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit} editStep={editStep}/>
+        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit} editStep={editStep} publish={publishProject}/>
     }
 }
 

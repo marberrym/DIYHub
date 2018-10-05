@@ -86,7 +86,7 @@ let EditProject = (props) =>
         </Tabs>
         <div className="submitButtonContainer">
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
-            <button className="submitBtn">Publish Project</button>
+            <button className="submitBtn" onClick={event => props.publish()}>Publish Project</button>
         </div>
     </div>
 
