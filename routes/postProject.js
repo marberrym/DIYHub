@@ -7,8 +7,14 @@ let postProject = async (req, res) => {
   let decoded = jwt.decode(req.body.token);
   console.log(decoded);
 
-  db.none(`INSERT INTO diy_projects (creation_date, user_id, project_title, feature_image_url, project_description, publish_status) VALUES (CURRENT_TIMESTAMP, ${decoded.id}, '${req.body.title}', './images/bulb.png', '${req.body.description}', 4)`)
-  .then(response => res.send({status: 'success'}))
+  db.one(`INSERT INTO diy_projects (creation_date, user_id, project_title, feature_image_url, project_description, publish_status) VALUES (CURRENT_TIMESTAMP, ${decoded.id}, '${req.body.title}', './images/bulb.png', '${req.body.description}', 4) RETURNING id`)
+  .then(response => {
+    console.log(response);
+    res.send({
+      projectId: response.id,
+      status: 'success'
+    })
+  })
   .catch(err => console.log(err));
   
 }

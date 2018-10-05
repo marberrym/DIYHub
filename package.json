@@ -9,6 +9,7 @@
     "multer": "^1.4.0",
     "pg-promise": "^8.4.6",
     "react": "^16.5.2",
+    "react-click-outside": "^3.0.1",
     "react-dom": "^16.5.2",
     "react-modal": "^3.6.1",
     "react-redux": "^5.0.7",
@@ -17,6 +18,7 @@
     "react-scripts": "1.1.5",
     "react-tabs": "^2.3.0",
     "react-toastify": "^4.4.0",
+    "react-window-size": "^1.2.2",
     "redux": "^4.0.0",
     "xml2js": "^0.4.19"
   },

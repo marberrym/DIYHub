@@ -27,7 +27,14 @@ class PostNewContainer extends Component {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => console.log(response))
+            .then(response => response.json())
+            .then(response => {
+                this.props.dispatch({type: "SET_TOAST", toast: {
+                    type: 'info',
+                    text: 'You started a new project.'
+                }})
+                this.props.history.push(`/editproject/${response.projectId}`)
+            })
         }
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string})
