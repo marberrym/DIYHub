@@ -202,16 +202,21 @@
 }
 
 .commentBox, .commentSubmit {
-    width: 70%;
+    width: 60%;
     margin-top: .5em;
     margin-bottom: .5em;
     position: relative;
-    transform: translateX(-50%);
-    left: 50%;
+}
+
+.commentBox {
+    flex-direction: row;
 }
 
 .commentSection {
     margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .postProjectForm {
@@ -244,6 +249,7 @@
     margin-bottom: 2em;
 }
 
+
 .postProjectFormH {
     flex-direction: row;
     display: flex;
@@ -258,8 +264,16 @@
 .stepHeader {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 2em;
+    justify-content: center;
+    margin: 1em;
+}
+
+.stepHeadContainer {
+    display: flex;
+    min-width: 16em;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .myprofile {
@@ -280,6 +294,7 @@
 .pathLink {
     margin: 5em;
 }
+
 
 .formInputField {
     margin-bottom: 1em;
@@ -351,11 +366,10 @@
 }
 
 .mainPostHead {
-    margin: 2em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .headSupplies {
@@ -378,6 +392,7 @@
 
 .headerMainPost {
     flex-basis: 65%;
+    min-width: 20em;
     margin-left: 2em;
 }
 
@@ -444,13 +459,19 @@
     display: inline-block;
     vertical-align: middle;
 }
-.avatar {
+.commentAvatar, .avatar {
     height: 30px;
     vertical-align: middle;
     border-radius: 50%;
 }
 .greeting, .avatar {
     margin-right: .5em;
+}
+
+.commentAvatar {
+    height: 4em;
+    margin: .5em;
+    border: 5px solid var(--main-blue);
 }
 
 .navMenu {
