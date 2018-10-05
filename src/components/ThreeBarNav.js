@@ -15,7 +15,7 @@ class ThreeBarNav extends Component {
     }
      
     toggle() {
-        this.setState({isOpened: !this.state.isOpened});
+        this.setState(prevstate => ({isOpened: !prevstate.isOpened}));
     }
 
     render() {
@@ -48,6 +48,5 @@ class ThreeBarNav extends Component {
     }
 
 } 
-    
 
 export default enhanceWithClickOutside(ThreeBarNav);

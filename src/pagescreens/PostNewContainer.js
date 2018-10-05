@@ -29,7 +29,10 @@ class PostNewContainer extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response)
+                this.props.dispatch({type: "SET_TOAST", toast: {
+                    type: 'info',
+                    text: 'You started a new project.'
+                }})
                 this.props.history.push(`/editproject/${response.projectId}`)
             })
         }

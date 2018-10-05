@@ -20,7 +20,7 @@ class NavBar extends Component {
         }
     } 
     componentDidUpdate(prevProps) {
-        if(prevProps !== this.props) {
+        if(prevProps.windowWidth !== this.props.windowWidth) {
             if(this.props.windowWidth < 500) {
                 this.setState({screen: 'mobile'})
             } else {

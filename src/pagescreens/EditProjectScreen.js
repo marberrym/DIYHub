@@ -63,7 +63,18 @@ class EditProjectScreen extends Component {
                 body: JSON.stringify(project)
             })
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => {
+                response.status === 'success' ?
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'info',
+                        text: 'Your project has been saved!'
+                    }})
+                :
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'error',
+                        text: 'Your project has not been saved.'
+                    }})
+            })
             
         }
         let editStep = (count, title, description, image) => {
@@ -88,6 +99,10 @@ class EditProjectScreen extends Component {
                             steptitle: '',
                             stepdescription: '',
                             stepimage: '',});
+            this.props.dispatch({type: "SET_TOAST", toast: {
+                type: 'info',
+                text: 'You added a new step!'
+            }})
         }
 
         let publishProject = () => {
@@ -97,7 +112,23 @@ class EditProjectScreen extends Component {
                     "Content-Type": "application/json; charset=utf-8"}
             })
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                if (response.status === "success") {
+                    this.props.history.push(`/project/${this.props.edit.project.id}`)
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'info',
+                        text: 'You published your project!'
+                        }
+                    })
+                } else {
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'error',
+                        text: 'Your project has not been published.'
+                        }
+                    })
+                }
+            })
         }
         
         let submitMaterial = () => {
