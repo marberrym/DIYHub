@@ -9,7 +9,14 @@ class NavBar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'computer'
+            screen: 'mobile'
+        }
+    }
+    componentDidMount() {
+        if(this.props.windowWidth < 500) {
+            this.setState({screen: 'mobile'})
+        } else {
+            this.setState({screen: 'computer'})
         }
     } 
     componentDidUpdate(prevProps) {
@@ -51,7 +58,7 @@ class NavBar extends Component {
                             }}> Log Out</span>
                         </div>
                     :
-                        <ThreeBarNav user={this.props.user}/>
+                        <ThreeBarNav user={this.props.user} dispatch={this.props.dispatch}/>
                 : 
                     <div className="navRightSide">
                         <Link to="/signup" className="navLink">Sign Up</Link>
