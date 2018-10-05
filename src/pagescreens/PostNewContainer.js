@@ -27,7 +27,11 @@ class PostNewContainer extends Component {
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => console.log(response))
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                this.props.history.push(`/editproject/${response.projectId}`)
+            })
         }
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string})

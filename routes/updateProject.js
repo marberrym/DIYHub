@@ -5,7 +5,6 @@ let updateProject = async (req, res) => {
   
 
   let projectId = await db.query(`UPDATE diy_projects SET project_title='${req.body.title}', feature_image_url='${req.body.feature_image_url}', time_range=${req.body.time}, cost_range=${req.body.cost},project_description='${req.body.description}' WHERE id=${req.params.id}`);
-  console.log("I made it this far")
   let stepDelete = await db.query(`DELETE FROM diy_steps WHERE project_id=${req.params.id}`);
 
   let stepDataInsert = '';
