@@ -52,6 +52,7 @@
 .banner {
     width: 100vw;
     height: 20em;
+    object-fit: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
