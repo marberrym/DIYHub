@@ -209,6 +209,7 @@
 }
 
 .commentBox {
+    justify-content: flex-start;
     flex-direction: row;
 }
 
@@ -461,6 +462,9 @@
 }
 .commentAvatar, .avatar {
     height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border: 2px solid var(--main-blue);
     vertical-align: middle;
     border-radius: 50%;
 }
@@ -470,6 +474,8 @@
 
 .commentAvatar {
     height: 4em;
+    width: 4em;
+    object-fit: cover;
     margin: .5em;
     border: 5px solid var(--main-blue);
 }

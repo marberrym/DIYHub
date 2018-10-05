@@ -1,5 +1,6 @@
 import React from 'react';
 import url from '../../globalVars';
+import moment from 'moment';
 
 let capitalize = (string) => {
     let name = string[0].toUpperCase() + string.slice(1);
@@ -12,7 +13,7 @@ let PostedComment = (props) =>
         <div>
             <div>{capitalize(props.comment.name)} commented:</div>
             <div>{props.comment.comment}</div>
-            <div>{props.comment.creation_date}</div>
+            <div>{moment(props.comment.creation_date).format('MMMM Do YY h:mm A')}</div>
         </div>
     </div>
 
