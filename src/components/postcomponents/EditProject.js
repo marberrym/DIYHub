@@ -9,7 +9,8 @@ import Button from '../Button';
 import PostStep from './PostStep';
 import MaterialItem from './MaterialItem';
 import MaterialQuantity from './MaterialQuantity';
-import MaterialASIN from './MaterialASIN';
+import MaterialSearch from './MaterialSearch';
+import MaterialModal from './MaterialModal';
 import PostMat from './PostMat';
 import Title from './Title';
 import ProjectImage from './ProjectImage';
@@ -47,7 +48,10 @@ let EditProject = (props) =>
                 </form>
             </TabPanel>
             <TabPanel>
-                <form className="postProjectFormH" onSubmit={props.submitStep}>
+                <form className="postProjectFormH" onSubmit={event => {
+                    event.preventDefault();
+                    props.submitStep();
+                }}>
                     <div className="formVert">
                         <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
                         <StepImage title={props.stepimage} update={props.update} text="Image URL: "/>
@@ -66,11 +70,15 @@ let EditProject = (props) =>
                 </form>
             </TabPanel>
             <TabPanel>
-                <form className="postProjectFormH" onSubmit={props.submitMat}>
+                <form className="postProjectFormH" onSubmit={event => {
+                    event.preventDefault();
+                    props.submitMat()
+                }}>
                     <div className="formVert">
-                        <MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
-                        <MaterialQuantity title={props.materialquantity} update={props.update} text="Material Quantity: "/>
-                        <MaterialASIN title={props.materialasin} update={props.update} text="Material Amazon ASIN: "/>
+                        <div>Search for Material</div>
+                        <MaterialSearch {...props} searchAmazon={props.searchAmazon} />
+                        {props.materialtitle && <div><MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
+                        <MaterialQuantity title={props.materialquantity} update={props.update} text="How many? "/></div>}
                         <Button text="Add Material"/>
                     </div>
                     <div className="postProjectForm">
@@ -88,6 +96,7 @@ let EditProject = (props) =>
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
             <button className="submitBtn" onClick={event => props.publish()}>Publish Project</button>
         </div>
+        <MaterialModal {...props} />
     </div>
 
 export default EditProject;

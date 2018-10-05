@@ -2,8 +2,7 @@ import React from 'react';
 
 let PostMat = (props) =>
     <li>
-        {props.mat.quantity + " " + props.mat.title}.
-        <div>{props.mat.amazon_asin}</div>
+        {props.mat.quantity + " " + props.mat.title.slice(0,50) + (props.mat.length > 50 ? '...' : '')}.
     </li>
 
 export default PostMat;

@@ -20,9 +20,11 @@ class EditProjectScreen extends Component {
             materialtitle: '',
             materialquantity: '',
             materialasin: '',
+            materialSearch: '',
             projectimage: '',
             stepimage: '',
             stepcount: 1,
+            modalIsOpen: false
         }
     }
 
@@ -40,6 +42,42 @@ class EditProjectScreen extends Component {
     }
 
     render() {
+        let searchAmazon = (query) => {
+            fetch(`${url}/amazon?q=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    openModal();
+                    this.props.dispatch({
+                        type: 'LOAD_AMAZON',
+                        items: data.items
+                    })
+                } else {
+                    this.props.dispatch({
+                        type: 'SET_TOAST',
+                        toast: {
+                            text: 'Problem reaching amazon!',
+                            type: 'error'
+                        }
+                    });
+                }
+            })
+            .catch(error => {
+                this.props.dispatch({
+                    type: 'SET_TOAST',
+                    toast: {
+                        text: 'Problem reaching amazon!',
+                        type: 'error'
+                    }
+                });
+            })
+        }
+        let openModal = () => {
+            this.setState({modalIsOpen: true});
+        }
+        let closeModal = () => {
+            this.setState({modalIsOpen: false});
+        }
         let updateState = (keyvalue, string) =>
             this.setState({[keyvalue]: string})
 
@@ -110,10 +148,28 @@ class EditProjectScreen extends Component {
                             materialquantity: '',
                             materialasin: '',})
         }
-        return <EditProject {...this.state} update={updateState} save={saveProject}
-        submitStep={submitStep} submitMat={submitMaterial} project={this.props.edit} editStep={editStep} publish={publishProject}/>
+        return (
+            <EditProject
+                {...this.state}
+                update={updateState}
+                save={saveProject}
+                submitStep={submitStep}
+                submitMat={submitMaterial}
+                project={this.props.edit}
+                editStep={editStep}
+                publish={publishProject}
+                amazonSearch={this.props.amazonSearch}
+                searchAmazon={searchAmazon}
+                openModal={openModal}
+                closeModal={closeModal}
+            />
+        )
     }
 }
+let mapStateToProps = (state) => ({
+    edit: state.edit,
+    amazonSearch: state.amazonSearch
+})
 
-let EditProjectScreenSmart = connect(state => ({edit: state.edit}))(injectProject(EditProjectScreen))
+let EditProjectScreenSmart = connect(mapStateToProps)(injectProject(EditProjectScreen))
 export default EditProjectScreenSmart;

@@ -477,6 +477,9 @@
     color: white;
     background-color: var(--border-black);
 }
+.material-search {
+    margin-bottom: 0.5em;
+}
 
 @keyframes slidedown {
     0% {
