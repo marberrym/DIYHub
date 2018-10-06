@@ -371,17 +371,17 @@
     font-size: .7em;
 }
 
-.titleInput {
+.keywordInput, .titleInput {
     height: 1em;
     padding: .5em;
     min-width: 10em;
 }
 
-.titleInput, .submitTextArea:active {
+.keywordInput, .titleInput, .submitTextArea:active {
     box-shadow: none;
     outline: none;
 }
-.titleInput, .submitTextArea:focus {
+.keywordInput, .titleInput, .submitTextArea:focus {
     box-shadow: none;
     outline: none;
 }
