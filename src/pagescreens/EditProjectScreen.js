@@ -130,7 +130,9 @@ class EditProjectScreen extends Component {
                                 step_order: this.state.stepcount,
                                 step_image_URL: this.state.stepimage,
                             }
-            let newSteps = [...this.state.steps].filter(step => step.step_order != this.state.stepcount).concat(currentStep);
+            let newSteps = [...this.state.steps].filter(step => step.step_order != this.state.stepcount).concat(currentStep).sort((a, b) => {
+                return a.step_order - b.step_order
+            })
             let newCount = newSteps.length + 1;
 
             this.setState({ stepcount: newCount,
@@ -138,9 +140,6 @@ class EditProjectScreen extends Component {
                             steptitle: '',
                             stepdescription: '',
                             stepimage: '',});
-
-            
-            
 
             this.props.dispatch({type: "SET_TOAST", toast: {
                 type: 'info',
