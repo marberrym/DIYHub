@@ -225,7 +225,7 @@
 }
 
 .postProjectForm {
-    width: 80%;
+    min-width: 15em;
     margin: 2em;
 }
 
@@ -259,7 +259,9 @@
 
 
 .postProjectFormH {
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     display: flex;
     background-color: var(--main-white);
     border: 1px solid black;
@@ -305,8 +307,10 @@
 
 
 .formInputField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 1em;
-    margin-right: 1em;
 }
 
 .postList {
@@ -639,9 +643,6 @@
     .bannerTitle {
         font-size: 2em;
     }
-    .submitTextArea {
-        width: 25em;
-    }
     .titleInput {
         width: 15em;
     }
@@ -666,20 +667,17 @@
     .mainPostHead{
         flex-wrap: nowrap;
     }
-    .postProjectForm{
-        width: 70%;
-    }
 }
 
 @media only screen and (min-width: 768px) {
    .stepContent {
     flex-basis: 60%;
     }
+    .postProjectFormH{
+        flex-direction: row;
+    }
     .banner {
         height: 25em;
-    }
-    .submitTextArea {
-        width: 30em;
     }
     .bannerTitle {
         font-size: 2.5em;
@@ -696,15 +694,12 @@
    .materials {
     flex-basis: 30%;
     }
-    .postProjectForm{
-        width: 60%;
+    .submitTextArea, .postProjectForm{
+        min-width: 20em;
     }
 }
 @media only screen and (min-width: 1000px) {
-    .postProjectForm{
-        width: 50%;
-    }
-    .submitTextArea {
-        width: 35em;
+    .submitTextArea, .postProjectForm{
+        min-width: 25em;
     }
 }
