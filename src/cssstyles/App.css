@@ -244,7 +244,7 @@
     margin: .5em;
 }
 
-.stepHeader, .supplyTitle, .materialHead {
+.materialListHeader, .stepListHeader, .stepHeader, .supplyTitle, .materialHead {
     font-weight: bolder;
     font-size: 1.3em;
 }
@@ -338,8 +338,11 @@
     color: whitesmoke;
 }
 
-.stepsList {
+.materialList, .stepsList {
+    width: 100%;
     text-align: left;
+    padding: .5em;
+    border: 1px solid var(--border-black);
 }
 
 .browseBtn:hover, .button:hover, .submitBtn:hover {
@@ -541,11 +544,13 @@
 
 .profileImg {
     height: 15em;
+    width: 15em;
+    object-fit: cover;
     border-radius: 100%;
     border: 5px solid var(--main-blue);
 }
 
-.navLink3:hover {
+.materialList:hover, .stepsList:hover, .navLink3:hover {
     color: white;
     background-color: var(--border-black);
 }

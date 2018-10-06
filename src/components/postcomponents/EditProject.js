@@ -60,7 +60,7 @@ let EditProject = (props) =>
                         <Button text="Add Step"/>
                     </div>
                     <div className="postProjectForm">
-                        <div>Current steps:</div>
+                        <div className="stepListHeader">Current steps:</div>
                         {props.steps.length > 0 ?
                             props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)    
                         :
@@ -82,7 +82,7 @@ let EditProject = (props) =>
                         <Button text="Add Material"/>
                     </div>
                     <div className="postProjectForm">
-                        <div>Current Materials:</div>
+                        <div className="materialListHeader">Current Materials:</div>
                         {props.materials ?
                             props.materials.map(mat => <PostMat mat={mat}/>)    
                         :
