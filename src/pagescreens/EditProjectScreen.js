@@ -23,6 +23,7 @@ class EditProjectScreen extends Component {
             materialSearch: '',
             projectimage: '',
             stepimage: '',
+            stepimagevalue: null,
             stepcount: 1,
             modalIsOpen: false
         }
@@ -31,7 +32,7 @@ class EditProjectScreen extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.edit !== prevProps.edit) {
             this.setState({title: this.props.edit.project.project_title,
-                    projectimage: this.props.edit.project.feature_image_url,
+                    projectimage: this.props.edit.project.feature_image_file,
                     cost: this.props.edit.project.cost_range||0,
                     time: this.props.edit.project.time_range||0,
                     description: this.props.edit.project.project_description,
@@ -82,23 +83,31 @@ class EditProjectScreen extends Component {
             this.setState({[keyvalue]: string})
 
         let saveProject = () => {
-            let project = {
-                token: localStorage.token,
-                title: this.state.title,
-                feature_image_url: this.state.projectimage,
-                time: this.state.time,
-                cost: this.state.cost,
-                category: this.state.category,
-                description: this.state.description,
-                steps: this.state.steps,
-                materials: this.state.materials,
-            }
+            let formData = new FormData();
+            formData.append('title', this.state.title);
+            formData.append('feature_image', this.state.projectimage);
+            formData.append('time', this.state.time);
+            formData.append('cost', this.state.cost);
+            formData.append('category', this.state.category);
+            formData.append('description', this.state.description);
+
+            this.state.steps.forEach(step => {
+                formData.append('step_title', step.step_title);
+                formData.append('step_text', step.step_text);
+                formData.append('step_order', step.step_order);
+                formData.append('step_images', step.step_image_file);
+            });
+            
+            this.state.materials.forEach(material => {
+                formData.append('material_title', material.title);
+                formData.append('material_quantity', material.quantity);
+                formData.append('amazon_asin', material.amazon_asin);
+            })
 
             fetch(`${url}/editproject/${this.props.edit.project.id}`, {
                 method: "POST",
-                headers: {token: localStorage.token,
-                    "Content-Type": "application/json; charset=utf-8"},
-                body: JSON.stringify(project)
+                headers: {token: localStorage.token},
+                body: formData
             })
             .then(response => response.json())
             .then(response => {
@@ -127,16 +136,19 @@ class EditProjectScreen extends Component {
             let currentStep = {step_title: this.state.steptitle,
                                 step_text: this.state.stepdescription,
                                 step_order: this.state.stepcount,
-                                step_image_URL: this.state.stepimage,
+                                step_image_file: this.state.stepimage,
                             }
             let newStep = [...this.state.steps].concat(currentStep);
             let newCount = this.state.steps.length + 1;
             
             this.setState({stepcount: newCount,
                             steps: newStep,
+                            stepimage: '',
                             steptitle: '',
                             stepdescription: '',
-                            stepimage: '',});
+                            stepimage: '',
+                            stepimagevalue: null,
+                        });
             this.props.dispatch({type: "SET_TOAST", toast: {
                 type: 'info',
                 text: 'You added a new step!'

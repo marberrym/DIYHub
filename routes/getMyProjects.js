@@ -14,7 +14,7 @@ let getMyProjects = (req, res) => {
   let projectStatus = projectStatusTable[req.query.my];
   let responseData = {};
   if (projectStatus === 4 || projectStatus === 5) {
-    db.query(`SELECT id, project_title, feature_image_url, publish_status, time_range, cost_range FROM diy_projects WHERE user_id=${req.user.id} AND publish_status=${projectStatus}`)
+    db.query(`SELECT id, project_title, feature_image_file, publish_status, time_range, cost_range FROM diy_projects WHERE user_id=${req.user.id} AND publish_status=${projectStatus}`)
     .then(data => {
       responseData.status = 'success'
       responseData.projectList = data;
@@ -25,7 +25,7 @@ let getMyProjects = (req, res) => {
     })
   } else {
     db.query(
-      `SELECT id, project_title, feature_image_url, time_range, cost_range FROM diy_projects INNER JOIN diy_my_projects ON diy_projects.id=project_id WHERE diy_my_projects.user_id=${req.user.id}${projectStatus ? ` AND project_status=${ projectStatus}` : ''}`
+      `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects INNER JOIN diy_my_projects ON diy_projects.id=project_id WHERE diy_my_projects.user_id=${req.user.id}${projectStatus ? ` AND project_status=${ projectStatus}` : ''}`
     )
     .then(data => {
       console.log(data);
