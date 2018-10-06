@@ -20,10 +20,12 @@ class ThreeBarNav extends Component {
 
     render() {
         return <div className="navRightSide flex">
-            <div>
-                <div className="greeting">Hello {this.props.user.name}</div>
-                <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
-            </div>
+            <Link to="/my-profile" className="navLink">
+                <div>
+                    <div className="greeting">Hello {this.props.user.name}</div>
+                    <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
+                </div>
+            </Link>
             <i className="fas fa-bars fa-2x barsIcon" onClick={event => this.toggle()}/>
             {this.state.isOpened === false ?
                 null

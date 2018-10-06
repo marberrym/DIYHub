@@ -188,8 +188,9 @@
     transition: .3s ease-in-out;
 }
 
-.navLink:hover {
+.barsIcon:hover, .navLink:hover {
     color: var(--main-teal);
+    opacity: 1;
 }
 
 .myprofile, .commentSubmit, .commentBox, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
@@ -639,20 +640,14 @@
     .logo {
         height: 10em;
     }
-    .navLink {
+    .greeting, .navLink {
         font-size: 1em;
     }
-    .greeting {
-        font-size: 1em;
-    }
-    .bannerTitle {
+    .bannerMain, .bannerTitle {
         font-size: 2em;
     }
     .titleInput {
         width: 15em;
-    }
-    .bannerMain {
-        font-size: 2em;
     }
     .stepContent {
         flex-basis: 50%;
@@ -676,7 +671,7 @@
 
 @media only screen and (min-width: 768px) {
    .stepContent {
-    flex-basis: 60%;
+        flex-basis: 60%;
     }
     .postProjectFormH{
         flex-direction: row;
@@ -684,10 +679,7 @@
     .banner {
         height: 25em;
     }
-    .bannerTitle {
-        font-size: 2.5em;
-    }
-    .bannerMain {
+    .bannerMain, .bannerTitle {
         font-size: 2.5em;
     }
     .titleInput {
@@ -697,7 +689,7 @@
        flex-wrap: nowrap;
    }
    .materials {
-    flex-basis: 30%;
+        flex-basis: 30%;
     }
     .submitTextArea, .postProjectForm{
         min-width: 20em;
