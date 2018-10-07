@@ -17,7 +17,7 @@ let getProjectList = (req, res) => {
   }
 
   db.query(
-    `SELECT id, project_title, feature_image_url, time_range, cost_range FROM diy_projects WHERE (project_title ILIKE '%${req.query.q || ''}%' OR project_description ILIKE '%${req.query.q || ''}%') AND publish_status=5 ${sqlConditional}ORDER BY creation_date`
+    `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE (project_title ILIKE '%${req.query.q || ''}%' OR project_description ILIKE '%${req.query.q || ''}%') AND publish_status=5 ${sqlConditional}ORDER BY creation_date`
   )
   .then(data => {
     responseData.status = 'success'

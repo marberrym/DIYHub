@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import url from '../globalVars';
 
 
 let HomePost = (props) => 
@@ -11,7 +12,7 @@ let HomePost = (props) =>
             {props.featured.map(feature => 
                 <Link to={`/project/${feature.id}`} key={feature.id}>
                     <div>
-                        <img className="banner" src={feature.pic} alt={`Feature Project ${feature.id}`}/>
+                        <img className="banner" src={url + '/uploads/project/' + feature.pic} alt={`Feature Project ${feature.id}`}/>
                         <p className="bannerFeatureHead">FEATURED PROJECTS</p>
                         <div className="bannerTitle">{feature.project_title}</div>
                     </div>
