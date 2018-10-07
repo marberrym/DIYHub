@@ -11,7 +11,7 @@ import PostedComment from './singleproject/PostedComment';
 import CommentFormContainer from './singleproject/CommentFormContainer';
 
 
-let saveProject = (status, projectId) => {
+let saveProject = (status, projectId, redirect) => {
     fetch(`${url}/project/save`, {
         method: 'POST',
         headers: {
@@ -23,6 +23,9 @@ let saveProject = (status, projectId) => {
             projectId
         })
       })
+    .then(() => {
+        redirect(`/my-projects/${status}`);
+    })
 }
 
 let MainProject = (props) => (
@@ -45,13 +48,13 @@ let MainProject = (props) => (
             <div className="save">
                 <div className="save-title">Save to My Projects</div>
                 <div className="save-option" onClick={() => {
-                    saveProject('todo', props.project.project.id);
+                    saveProject('todo', props.project.project.id, props.history.push);
                 }}>To Do</div>
                 <div className="save-option" onClick={() => {
-                    saveProject('inprogress', props.project.project.id);
+                    saveProject('inprogress', props.project.project.id, props.history.push);
                 }}>In Progress</div>
                 <div className="save-option" onClick={() => {
-                    saveProject('completed', props.project.project.id);
+                    saveProject('completed', props.project.project.id, props.history.push);
                 }}>Completed</div>
                 <div className="save-icon"><i className="fas fa-cloud" /></div>
             </div>

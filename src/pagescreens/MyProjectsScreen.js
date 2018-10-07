@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import url from '../globalVars';
 import NavBar from '../components/NavBar';
@@ -25,16 +26,13 @@ let getPosts = (dispatch, status) => {
 class MyProjectsScreen extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            status: 'inprogress'
-        }
     }
     componentDidMount() {
-      getPosts(this.props.dispatch, this.state.status);
+      getPosts(this.props.dispatch, this.props.match.params.status);
     }
-    componentDidUpdate (prevProps, prevState) {
-        if (this.state.status !== prevState.status){
-            getPosts(this.props.dispatch, this.state.status);
+    componentDidUpdate (prevProps) {
+        if (this.props.match.params.status !== prevProps.match.params.status){
+            getPosts(this.props.dispatch, this.props.match.params.status);
         }
     }
     render() {
@@ -43,50 +41,38 @@ class MyProjectsScreen extends Component {
           <NavBar/>
           <div className="navBar">
             <div className="flex">
-              <div
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'all'
-                  }))
-                }}>All</div>
-              <div
+                activeClassName="navLinkActive"
+                to="/my-projects/all"
+              >All</NavLink>
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'todo'
-                  }))
-                }}>To Do</div>
-              <div
+                activeClassName="navLinkActive"
+                to="/my-projects/todo"
+              >To Do</NavLink>
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'inprogress'
-                  }))
-                }}>In Progress</div>
-              <div
+                activeClassName="navLinkActive"
+                to="/my-projects/inprogress"
+              >In Progress</NavLink>
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'completed'
-                  }))
-                }}>Completed</div>
+                activeClassName="navLinkActive"
+                to="/my-projects/completed"
+              >Completed</NavLink>
             </div>
             <div className="flex">
-                <div
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'unpublished'
-                  }))
-                }}>Unpublished</div>
-                <div
+                activeClassName="navLinkActive"
+                to="/my-projects/unpublished"
+              >Unpublished</NavLink>
+              <NavLink
                 className="navLink"
-                onClick={() => {
-                  this.setState(() => ({
-                    status: 'published'
-                  }))
-                }}>Published</div>
+                activeClassName="navLinkActive"
+                to="/my-projects/published"
+              >Published</NavLink>
             </div>
           </div>
             {this.props.projects ?
