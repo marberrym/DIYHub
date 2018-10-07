@@ -33,7 +33,7 @@ class PostContainer extends Component {
             let project = {
                 token: localStorage.token,
                 title: this.state.title,
-                feature_image_url: this.state.projectimage,
+                feature_image_file: this.state.projectimage,
                 time: this.state.time,
                 cost: this.state.cost,
                 category: this.state.category,
@@ -61,7 +61,7 @@ class PostContainer extends Component {
             let currentStep = {steptitle: this.state.steptitle,
                                 stepdescription: this.state.stepdescription,
                                 step_order: this.state.stepcount,
-                                step_image_URL: this.state.stepimage,
+                                step_image_file: this.state.stepimage,
                             }
             let newStep = [...this.state.steps].concat(currentStep);
             let newCount = this.state.stepcount + 1;

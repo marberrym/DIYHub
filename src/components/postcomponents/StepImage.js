@@ -1,10 +1,11 @@
 import React from 'react';
 
-let ProjectImage = (props) =>
-    <label className="formInputField">{props.text}<input type="text" value={props.title} 
-        placeholder="URL" onChange={event => {
-            props.update('stepimage', event.target.value)
-        }} required/>
+let StepImage = (props) =>
+    <label className="formInputField">{props.text}
+        <input type="file" value={props.stepimagevalue} onChange={(event) => {
+            props.update('stepimage', event.target.files[0]);
+            props.update('stepimagevalue', event.target.value);
+        }} />
     </label>
 
-export default ProjectImage;
+export default StepImage;

@@ -29,7 +29,10 @@ const protect = expressJwt({ secret,
 });
 const uploadAvatar = multer({
   dest: 'uploads/avatar/'
-})
+});
+const uploadProject = multer({
+  dest: 'uploads/project/'
+});
 
 app.use(bodyParser.json());
 app.use(allowCORS);
@@ -59,7 +62,7 @@ app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
 app.get('/editproject/:id', protect, editMyProject);
-app.post('/editproject/:id', protect, updateProject);
+app.post('/editproject/:id', protect, uploadProject.fields([{ name: 'feature_image', maxCount: 1 }, { name: 'step_images' }]), updateProject);
 app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
