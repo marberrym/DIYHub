@@ -57,6 +57,7 @@ class NavBar extends Component {
                                         type: 'info'
                                     }
                                 });
+                                this.props.history.push('/')
                             }}> Log Out</span>
                         </div>
                     :

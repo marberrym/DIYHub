@@ -39,56 +39,58 @@ class MyProjectsScreen extends Component {
     }
     render() {
       return (
-        <div className="flexC fwrap justC">
+        <div className="pageLayout">
           <NavBar/>
           <div className="navBar">
-              <div className="flex">
-                  <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'all'
-                      }))
-                    }}>All</div>
-                  <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'todo'
-                      }))
-                    }}>To Do</div>
-                  <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'inprogress'
-                      }))
-                    }}>In Progress</div>
-                  <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'completed'
-                      }))
-                    }}>Completed</div>
-                    <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'unpublished'
-                      }))
-                    }}>Unpublished Projects</div>
-                    <div
-                    className="navLink"
-                    onClick={() => {
-                      this.setState(() => ({
-                        status: 'published'
-                      }))
-                    }}>Published Projects</div>
-              </div>
+            <div className="flex">
+              <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'all'
+                  }))
+                }}>All</div>
+              <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'todo'
+                  }))
+                }}>To Do</div>
+              <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'inprogress'
+                  }))
+                }}>In Progress</div>
+              <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'completed'
+                  }))
+                }}>Completed</div>
+            </div>
+            <div className="flex">
+                <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'unpublished'
+                  }))
+                }}>Unpublished</div>
+                <div
+                className="navLink"
+                onClick={() => {
+                  this.setState(() => ({
+                    status: 'published'
+                  }))
+                }}>Published</div>
+            </div>
           </div>
             {this.props.projects ?
-              <div className="flex fwrap justC alignC">
+              <div className="postList">
                 {this.props.projects.map(project => <BrowsePost project={project} key={project.id}/>)}
               </div>
             :

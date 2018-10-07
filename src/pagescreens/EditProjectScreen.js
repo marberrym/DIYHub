@@ -38,7 +38,8 @@ class EditProjectScreen extends Component {
                     description: this.props.edit.project.project_description,
                     steps: this.props.edit.steps,
                     materials: this.props.edit.materials,
-                    stepcount: this.props.edit.steps.length + 1});
+                    stepcount: this.props.edit.steps.length + 1
+                });
         }
     }
 
@@ -138,17 +139,18 @@ class EditProjectScreen extends Component {
                                 step_order: this.state.stepcount,
                                 step_image_file: this.state.stepimage,
                             }
-            let newStep = [...this.state.steps].concat(currentStep);
-            let newCount = this.state.steps.length + 1;
-            
-            this.setState({stepcount: newCount,
-                            steps: newStep,
-                            stepimage: '',
+
+            let newSteps = [...this.state.steps].filter(step => step.step_order != this.state.stepcount).concat(currentStep).sort((a, b) => {
+                return a.step_order - b.step_order
+            })
+            let newCount = newSteps.length + 1;
+
+            this.setState({ stepcount: newCount,
+                            steps: newSteps,
                             steptitle: '',
                             stepdescription: '',
-                            stepimage: '',
-                            stepimagevalue: null,
-                        });
+                            stepimage: '',});
+
             this.props.dispatch({type: "SET_TOAST", toast: {
                 type: 'info',
                 text: 'You added a new step!'

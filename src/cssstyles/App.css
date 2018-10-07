@@ -52,6 +52,7 @@
 .banner {
     width: 100vw;
     height: 20em;
+    object-fit: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -137,6 +138,10 @@
     font-size: .45em;
 }
 
+.formVert {
+    width: 100%;
+}
+
 .downVotes {
     color: rgb(156, 10, 10);
 }
@@ -183,8 +188,9 @@
     transition: .3s ease-in-out;
 }
 
-.navLink:hover {
+.barsIcon:hover, .navLink:hover {
     color: var(--main-teal);
+    opacity: 1;
 }
 
 .myprofile, .commentSubmit, .commentBox, .postProjectForm, .stepHeader, .materials, .filterForm, .aboutSection, .loginForm, .signUpForm {
@@ -201,19 +207,26 @@
 }
 
 .commentBox, .commentSubmit {
-    width: 70%;
+    width: 60%;
     margin-top: .5em;
     margin-bottom: .5em;
     position: relative;
-    transform: translateX(-50%);
-    left: 50%;
+}
+
+.commentBox {
+    justify-content: flex-start;
+    flex-direction: row;
 }
 
 .commentSection {
     margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .postProjectForm {
+    min-width: 15em;
     margin: 2em;
 }
 
@@ -232,19 +245,24 @@
     margin: .5em;
 }
 
-.stepHeader, .supplyTitle, .materialHead {
+.materialListHeader, .stepListHeader, .stepHeader, .supplyTitle, .materialHead {
     font-weight: bolder;
     font-size: 1.3em;
 }
 
 .topPostSection {
+    width: 80%;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     margin-bottom: 2em;
 }
 
+
 .postProjectFormH {
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     display: flex;
     background-color: var(--main-white);
     border: 1px solid black;
@@ -257,8 +275,16 @@
 .stepHeader {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 2em;
+    justify-content: center;
+    margin: 1em;
+}
+
+.stepHeadContainer {
+    display: flex;
+    min-width: 16em;
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .myprofile {
@@ -280,9 +306,12 @@
     margin: 5em;
 }
 
+
 .formInputField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 1em;
-    margin-right: 1em;
 }
 
 .postList {
@@ -310,8 +339,11 @@
     color: whitesmoke;
 }
 
-.stepsList {
+.materialList, .stepsList {
+    width: 100%;
     text-align: left;
+    padding: .5em;
+    border: 1px solid var(--border-black);
 }
 
 .browseBtn:hover, .button:hover, .submitBtn:hover {
@@ -332,10 +364,29 @@
 }
 
 
-.submitTextArea {
-    width: 100%;
+.titleInput, .submitTextArea {
+    min-width: 20em;
     height: 10em;
+    padding: 1em;
+    font-family: var(--sub-font);
+    font-size: .7em;
 }
+
+.keywordInput, .titleInput {
+    height: 1em;
+    padding: .5em;
+    min-width: 10em;
+}
+
+.keywordInput, .titleInput, .submitTextArea:active {
+    box-shadow: none;
+    outline: none;
+}
+.keywordInput, .titleInput, .submitTextArea:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 
 
 .flex {
@@ -350,11 +401,10 @@
 }
 
 .mainPostHead {
-    margin: 2em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .headSupplies {
@@ -377,6 +427,7 @@
 
 .headerMainPost {
     flex-basis: 65%;
+    min-width: 20em;
     margin-left: 2em;
 }
 
@@ -443,13 +494,24 @@
     display: inline-block;
     vertical-align: middle;
 }
-.avatar {
+.commentAvatar, .avatar {
     height: 30px;
+    width: 30px;
+    object-fit: cover;
+    border: 2px solid var(--main-blue);
     vertical-align: middle;
     border-radius: 50%;
 }
 .greeting, .avatar {
     margin-right: .5em;
+}
+
+.commentAvatar {
+    height: 4em;
+    width: 4em;
+    object-fit: cover;
+    margin: .5em;
+    border: 5px solid var(--main-blue);
 }
 
 .navMenu {
@@ -483,9 +545,13 @@
 
 .profileImg {
     height: 15em;
+    width: 15em;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 5px solid var(--main-blue);
 }
 
-.navLink3:hover {
+.materialList:hover, .stepsList:hover, .navLink3:hover {
     color: white;
     background-color: var(--border-black);
 }
@@ -574,17 +640,14 @@
     .logo {
         height: 10em;
     }
-    .navLink {
+    .greeting, .navLink {
         font-size: 1em;
     }
-    .greeting {
-        font-size: 1em;
-    }
-    .bannerTitle {
+    .bannerMain, .bannerTitle {
         font-size: 2em;
     }
-    .bannerMain {
-        font-size: 2em;
+    .titleInput {
+        width: 15em;
     }
     .stepContent {
         flex-basis: 50%;
@@ -608,23 +671,32 @@
 
 @media only screen and (min-width: 768px) {
    .stepContent {
-    flex-basis: 60%;
+        flex-basis: 60%;
+    }
+    .postProjectFormH{
+        flex-direction: row;
     }
     .banner {
         height: 25em;
     }
-    .bannerTitle {
+    .bannerMain, .bannerTitle {
         font-size: 2.5em;
     }
-    .bannerMain {
-        font-size: 2.5em;
+    .titleInput {
+        width: 20em;
     }
    .headSteps {
        flex-wrap: nowrap;
    }
    .materials {
-    flex-basis: 30%;
+        flex-basis: 30%;
+    }
+    .submitTextArea, .postProjectForm{
+        min-width: 20em;
     }
 }
 @media only screen and (min-width: 1000px) {
+    .submitTextArea, .postProjectForm{
+        min-width: 25em;
+    }
 }

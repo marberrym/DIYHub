@@ -5,7 +5,7 @@ let Steps = (props) =>
     <div>
         {props.steps.map(task => 
             <div key={task.step_order} className="stepHeader">
-                <div>
+                <div className="stepHeadContainer">
                     <h3>Step {task.step_order}: {task.step_title}</h3>
                     <img className="task-image" src={url + '/uploads/project/' + task.step_image_file} alt={task.title} />
                 </div>

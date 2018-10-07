@@ -17,13 +17,12 @@ import ProjectImage from './ProjectImage';
 import Cost from '../filtercomponents/Cost';
 import Time from '../filtercomponents/Time';
 import Description from './Description';
+import ImageUploader from './FileInput';
 
 let EditProject = (props) =>
     <div className="pageLayout">
         <NavBarSmart />
         <HeadLogo />
-        Hey Buddy
-        {console.log(props)}
         <Tabs selectedTabClassName="selectedTab" className="tabSection">
             <TabList className="tabs">
                 <Tab className="tab">
@@ -37,9 +36,13 @@ let EditProject = (props) =>
                 </Tab>
             </TabList>
             <TabPanel>
-                <form className="postProjectFormH" onSubmit={event => props.submitProject()}>
+                <form className="postProjectFormH" onSubmit={event => {
+                    event.preventDefault()
+                    props.submitProject()
+                }}>
                     <div className="formVert">
                         <Title title={props.title} update={props.update}/>
+                        <ImageUploader update={props.update}/>
                         <ProjectImage title={props.projectimage} update={props.update} text="Image URL: "/>
                         <Cost cost={props.cost} update={props.update}/>
                         <Time time={props.time} update={props.update}/>
@@ -60,7 +63,7 @@ let EditProject = (props) =>
                         <Button text="Add Step"/>
                     </div>
                     <div className="postProjectForm">
-                        <div>Current steps:</div>
+                        <div className="stepListHeader">Current steps:</div>
                         {props.steps.length > 0 ?
                             props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)    
                         :
@@ -82,7 +85,7 @@ let EditProject = (props) =>
                         <Button text="Add Material"/>
                     </div>
                     <div className="postProjectForm">
-                        <div>Current Materials:</div>
+                        <div className="materialListHeader">Current Materials:</div>
                         {props.materials ?
                             props.materials.map(mat => <PostMat mat={mat}/>)    
                         :

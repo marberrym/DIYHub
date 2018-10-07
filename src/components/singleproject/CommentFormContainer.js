@@ -18,7 +18,8 @@ class CommentFormContainer extends Component {
                 token: localStorage.token,
                 project_id: this.props.projectID,
                 user_id: this.props.user.id,
-                comment: this.state.comment
+                comment: this.state.comment,
+                avatar: this.props.user.avatar,
             }
             fetch(`${url}/comment`, {
                 method: "POST",

@@ -1,8 +1,9 @@
 import React from 'react';
 
 let PostMat = (props) =>
-    <li>
+    <div className="materialList">
         {props.mat.quantity + " " + props.mat.title.slice(0,50) + (props.mat.length > 50 ? '...' : '')}.
-    </li>
+    </div>
+    
 
 export default PostMat;
