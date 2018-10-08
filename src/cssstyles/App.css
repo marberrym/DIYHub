@@ -479,6 +479,9 @@
 .save-option {
     cursor: pointer;
 }
+.save-option:hover {
+    text-decoration: underline;
+}
 .save:hover {
     background: rgba(9, 13, 1, 0.8);
     color: white;
@@ -557,6 +560,9 @@
 }
 .material-search {
     margin-bottom: 0.5em;
+}
+.navLinkActive {
+    text-decoration: underline;
 }
 
 @keyframes slidedown {

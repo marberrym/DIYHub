@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import url from '../globalVars';
 import windowSize from 'react-window-size';
@@ -32,21 +32,22 @@ class NavBar extends Component {
         return <div className="navBar">
             <div className="flex">
                 <Link to="/"><img src="./images/DIYHubLogo.png" className="navGear navLogoRepo" alt="DIY Cog"/></Link>
-                <Link to="/" className="navLink">Home</Link>
-                <Link to="/about" className="navLink">About</Link>
+                <NavLink exact to="/" className="navLink" activeClassName="navLinkActive">Home</NavLink>
+                <NavLink to="/browse" className="navLink" activeClassName="navLinkActive">Browse</NavLink>
+                <NavLink to="/about" className="navLink" activeClassName="navLinkActive">About</NavLink>
             </div>
             <div className="flex">
                 {this.props.user.name ?
                     this.state.screen === 'computer' ?
                         <div className="navRightSide flex">
-                            <Link to="/my-profile" className="navLink">
+                            <NavLink to="/my-profile" className="navLink"  activeClassName="navLinkActive">
                                 <div>
                                     <div className="greeting">Hello {this.props.user.name}</div>
                                     <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
                                 </div>
-                            </Link>
-                            <Link to="/my-projects" className="navLink"> My Projects</Link>
-                            <Link to="/post" className="navLink"> Post Project</Link>
+                            </NavLink>
+                            <NavLink to="/my-projects/inprogress" className="navLink"  activeClassName="navLinkActive"> My Projects</NavLink>
+                            <NavLink to="/post" className="navLink" activeClassName="navLinkActive"> Post Project</NavLink>
                             <span className="navLink" onClick={event =>{
                                 localStorage.removeItem('token');
                                 this.props.dispatch({type: "LOGOUT",  empty: ""})

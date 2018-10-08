@@ -41,7 +41,7 @@ class Router extends React.Component {
                         <Route exact path='/browse' component={BrowseScreen} />
                         <Route exact path='/project/:projectid' component={SingleScreen} />
                         <Route exact path='/post' component={PostNewContainer}/>
-                        <Route exact path='/my-projects' component={MyProjectsScreen} />
+                        <Route exact path='/my-projects/:status' component={MyProjectsScreen} />
                         <Route exact path='/editproject/:projectid' component={EditProjectScreen} />
                         <Route exact path='/my-profile' component={MyProfileScreen} />
                         <Route path="/*" component={NotFound} />
