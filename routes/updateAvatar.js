@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 let updateAvatar = (req, res) => {
     if(req.body) {
         console.log(req.body);
+        console.log(req.files);
         console.log("its here")
     } else {
         console.log("its not")
