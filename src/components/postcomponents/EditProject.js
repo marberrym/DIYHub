@@ -42,8 +42,7 @@ let EditProject = (props) =>
                 }}>
                     <div className="formVert">
                         <Title title={props.title} update={props.update}/>
-                        <ImageUploader update={props.update}/>
-                        <ProjectImage title={props.projectimage} update={props.update} text="Image URL: "/>
+                        <ProjectImage update={props.update} image={props.projectimage}/>
                         <Cost cost={props.cost} update={props.update}/>
                         <Time time={props.time} update={props.update}/>
                     </div>
@@ -57,7 +56,7 @@ let EditProject = (props) =>
                 }}>
                     <div className="formVert">
                         <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
-                        <StepImage title={props.stepimage} update={props.update} text="Image URL: "/>
+                        <StepImage image={props.stepimage} update={props.update} />
                         <StepDescription description={props.stepdescription} 
                             update={props.update} text="Step Description: " type="step"/>
                         <Button text="Add Step"/>

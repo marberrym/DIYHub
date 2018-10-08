@@ -23,7 +23,6 @@ class EditProjectScreen extends Component {
             materialSearch: '',
             projectimage: '',
             stepimage: '',
-            stepimagevalue: null,
             stepcount: 1,
             modalIsOpen: false
         }
@@ -80,8 +79,11 @@ class EditProjectScreen extends Component {
         let closeModal = () => {
             this.setState({modalIsOpen: false});
         }
-        let updateState = (keyvalue, string) =>
-            this.setState({[keyvalue]: string})
+        let updateState = (keyvalue, string) => {
+            console.log({[keyvalue]: string});
+            return this.setState({[keyvalue]: string});
+        }
+            
 
         let saveProject = () => {
             let formData = new FormData();
