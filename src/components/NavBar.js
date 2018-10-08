@@ -46,7 +46,7 @@ class NavBar extends Component {
                                     <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
                                 </div>
                             </NavLink>
-                            <NavLink to="/my-projects" className="navLink"  activeClassName="navLinkActive"> My Projects</NavLink>
+                            <NavLink to="/my-projects/inprogress" className="navLink"  activeClassName="navLinkActive"> My Projects</NavLink>
                             <NavLink to="/post" className="navLink" activeClassName="navLinkActive"> Post Project</NavLink>
                             <span className="navLink" onClick={event =>{
                                 localStorage.removeItem('token');

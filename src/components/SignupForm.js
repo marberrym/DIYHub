@@ -19,7 +19,7 @@ let SignupForm = (props) =>
             })
         }}>
             <label className="formInputField">
-                Avatar: <input type="file" name="avatar" onChange={(event) =>
+                Avatar: <input type="file" accept="image/*" name="avatar" onChange={(event) =>
                 props.update('avatar', event.target.files[0])} /></label>
             <label className="formInputField">
                 First Name: <input type="text" value={props.first} onChange={(event) => 

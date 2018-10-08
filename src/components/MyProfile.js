@@ -12,7 +12,7 @@ let MyProfile = (props) =>
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
         <form className="myprofile">
             <div>Upload a new profile image:</div>
-            <div><input className="centerFileInput" type="file"/></div>
+            <div><input className="centerFileInput" type="file" accept="image/*"/></div>
             <Button text="Submit" />
         </form>
         {console.log(props.user.stats)}
