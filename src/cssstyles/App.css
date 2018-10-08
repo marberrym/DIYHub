@@ -380,12 +380,19 @@
 }
 
 .keywordInput, .titleInput {
-    height: 1.5em;
+    height: 1.75em;
     margin: .25em;
     padding: .25em;
     min-width: 10em;
     font-size: 1em;
     font-family: var(--sub-font);
+    border-color: hsl(0,0%,80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+.keywordInput:hover, .titleInput:hover {
+    border-color: hsl(0,0%,70%);
 }
 
 .keywordInput, .titleInput, .submitTextArea:active {
@@ -397,7 +404,19 @@
     outline: none;
 }
 
+.select-container {
+    margin: .15em;
+    width: 10em;
+    outline: none;
+}
+.select-container:active {
+    outline: none;
+}
 
+.select__control--is-focused {
+    border-color: hsl(0,0%,70%) !important;
+    box-shadow: none !important;
+}
 
 .flex {
     display: flex;

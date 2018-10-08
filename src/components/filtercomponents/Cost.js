@@ -1,19 +1,23 @@
 import React from 'react';
+import Select from 'react-select';
 
 let Cost = (props) =>
-    <label className="formInputField" onChange={(event) => {
-        props.update('cost', event.target.value);
-    }} value={props.cost}>Cost: 
+    <label className="formInputField">Cost: 
         <div class="select-container">
-            <select>
-                <option value=""></option>
-                <option value="1">$0-$25</option>
-                <option value="2">$25-$50</option>
-                <option value="3">$50-$100</option>
-                <option value="4">$100-$250</option>
-                <option value="5">$250-$500</option>
-                <option value="6">$500+</option>
-            </select>
+            <Select onChange={event => {
+                    props.update('cost', event.value);
+                }}
+                className="select-container"
+                classNamePrefix="select"
+                options={[
+                { value: '', label: 'All' },                
+                { value: '1', label: '$0-$25' },
+                { value: '2', label: '$25-$50' },
+                { value: '3', label: '$50-$100' },
+                { value: '4', label: '$100-$250' },
+                { value: '5', label: '$250-$500' },
+                { value: '6', label: '$500+' },
+            ]} />
         </div>
     </label>
 
