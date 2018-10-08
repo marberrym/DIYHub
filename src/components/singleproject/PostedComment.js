@@ -11,9 +11,9 @@ let PostedComment = (props) =>
     <div className="commentBox">
         <img className="commentAvatar" src={`${url}/uploads/avatar/${props.comment.avatar}`}/>
         <div>
-            <div>{capitalize(props.comment.name)} commented:</div>
-            <div>{props.comment.comment}</div>
-            <div>{moment(props.comment.creation_date).format('MMMM Do YY h:mm A')}</div>
+            <div className="commentHead">{capitalize(props.comment.name)} commented:</div>
+            <div className="commentContent">{props.comment.comment}</div>
+            <div className="commentTime">{moment(props.comment.creation_date).format('MMMM Do YY h:mm A')}</div>
         </div>
     </div>
 

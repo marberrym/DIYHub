@@ -1,7 +1,7 @@
 import React from 'react';
 
 let Title = (props) =>
-    <label className="formInputField">Title: <input className="keywordInput" type="text" value={props.title} 
+    <label className="formLabel formInputField">Title: <input className="fieldInput" type="text" value={props.title} 
     onChange={(event) =>
         props.update('title', event.target.value)
     } required/></label>

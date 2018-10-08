@@ -77,8 +77,7 @@ let EditProject = (props) =>
                     props.submitMat()
                 }}>
                     <div className="formVert">
-                        <div>Search for Material</div>
-                        <MaterialSearch {...props} searchAmazon={props.searchAmazon} />
+                        <MaterialSearch {...props} text="Search for Materials" searchAmazon={props.searchAmazon} />
                         {props.materialtitle && <div><MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
                         <MaterialQuantity title={props.materialquantity} update={props.update} text="How many? "/></div>}
                         <Button text="Add Material"/>
