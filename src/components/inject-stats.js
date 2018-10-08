@@ -8,7 +8,6 @@ export let getStats = (dispatch) => {
     .then(response => 
       response.json())
     .then(data => {
-        console.log(data)
         dispatch({
             type: "LOAD_USER_STATS",
             stats: data.stats  

@@ -5,9 +5,7 @@ let postSignup = (dispatch, data, callback) =>
         method: "POST",
         body: data
     })
-    .then(response => {
-        console.log(response)
-        return response.json()})
+    .then(response => response.json())
     .then(data => {
         if (data.status === 'success'){
             dispatch({

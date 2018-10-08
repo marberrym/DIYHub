@@ -15,7 +15,6 @@ let MyProfile = (props) =>
             <div><input className="centerFileInput" type="file" accept="image/*"/></div>
             <Button text="Submit" />
         </form>
-        {console.log(props.user.stats)}
         {props.user.stats ?
         <div className="myprofile">
             <h3>{props.user.name}'s Creations</h3>

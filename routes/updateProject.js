@@ -14,7 +14,6 @@ let updateProject = async (req, res) => {
     };
     stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_file}', '${step.step_title}', '${step.step_text}'),`;
   }
-  console.log(`INSERT INTO diy_steps (project_id, step_order, step_image_file, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
   let stepQuery = await db.query(`INSERT INTO diy_steps (project_id, step_order, step_image_file, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
 
   let materialDelete = await db.query(`DELETE FROM diy_materials_bridge WHERE project_id=${req.params.id}`);

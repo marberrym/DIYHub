@@ -3,7 +3,7 @@ import Select from 'react-select';
 
 let Cost = (props) =>
     <label className="formInputField">Cost: 
-        <div class="select-container">
+        <div className="select-container">
             <Select onChange={event => {
                     props.update('cost', event.value);
                 }}

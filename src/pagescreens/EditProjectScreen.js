@@ -79,10 +79,8 @@ class EditProjectScreen extends Component {
         let closeModal = () => {
             this.setState({modalIsOpen: false});
         }
-        let updateState = (keyvalue, string) => {
-            console.log({[keyvalue]: string});
-            return this.setState({[keyvalue]: string});
-        }
+        let updateState = (keyvalue, string) => this.setState({[keyvalue]: string});
+        
             
 
         let saveProject = () => {
@@ -167,7 +165,6 @@ class EditProjectScreen extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response)
                 if (response.status === "success") {
                     this.props.history.push(`/project/${this.props.edit.project.id}`)
                     this.props.dispatch({type: "SET_TOAST", toast: {

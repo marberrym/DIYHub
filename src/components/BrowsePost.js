@@ -8,7 +8,7 @@ import url from '../globalVars';
 let BrowsePost = (props) =>
     props.project.publish_status ?
         <Link to={`/editproject/${props.project.id}`} className="browsePost">
-            <div class="browseImg-container">
+            <div className="browseImg-container">
                 <img src={url + '/uploads/project/' + props.project.feature_image_file} className="browseImg" alt={props.project.name}/>
             </div>
             <div> 
@@ -19,8 +19,7 @@ let BrowsePost = (props) =>
         </Link>
     :
         <Link to={"/project/" + props.project.id} className="browsePost">
-            {console.log(props)}
-            <div class="browseImg-container">
+            <div className="browseImg-container">
                 <img src={url + '/uploads/project/' + props.project.feature_image_file} className="browseImg" alt={props.project.name}/>
             </div>
             <div> 

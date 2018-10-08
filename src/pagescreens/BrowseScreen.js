@@ -20,7 +20,6 @@ class BrowseContainer extends Component {
         .then(response => 
             response.json())
         .then(data => {
-            console.log(data)
             this.props.dispatch({
             type: "LOAD_PROJECTS",
             projects: data.projectList

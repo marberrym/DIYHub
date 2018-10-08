@@ -16,7 +16,6 @@ export default class App extends React.Component {
     }
     componentDidUpdate(prevProps, prevState) {
         if (this.state.pictures[0] !== prevState.pictures[0]) {
-            console.log(this.state.pictures[0]);
             this.props.update('projectimage', this.state.pictures[0]);
         }
     }

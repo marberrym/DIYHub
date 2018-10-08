@@ -2,34 +2,34 @@
     --header-font: 'Russo One', sans-serif;
     --sub-font: 'Saira Semi Condensed', sans-serif;
     --main-white: #FFFFFF;
-    --black-outline: 1px 1px 0 #1F3196,
-    -1px 1px 0 #1F3196,
-    1px -1px 0 #1F3196,
-    -1px -1px 0 #1F3196,
-    0px 1px 0 #1F3196,
-    0px -1px 0 #1F3196,
-    -1px 0px 0 #1F3196,
-    1px 0px 0 #1F3196,
-    2px 2px 0 #1F3196,
-    -2px 2px 0 #1F3196,
-    2px -2px 0 #1F3196,
-    -2px -2px 0 #1F3196,
-    0px 2px 0 #1F3196,
-    0px -2px 0 #1F3196,
-    -2px 0px 0 #1F3196,
-    2px 0px 0 #1F3196,
-    1px 2px 0 #1F3196,
-    -1px 2px 0 #1F3196,
-    1px -2px 0 #1F3196,
-    -1px -2px 0 #1F3196,
-    2px 1px 0 #1F3196,
-    -2px 1px 0 #1F3196,
-    2px -1px 0 #1F3196,
-    -2px -1px 0 #1F3196;
+    --black-outline: 1px 1px 0 #2f5072,
+    -1px 1px 0 #2f5072,
+    1px -1px 0 #2f5072,
+    -1px -1px 0 #2f5072,
+    0px 1px 0 #2f5072,
+    0px -1px 0 #2f5072,
+    -1px 0px 0 #2f5072,
+    1px 0px 0 #2f5072,
+    2px 2px 0 #2f5072,
+    -2px 2px 0 #2f5072,
+    2px -2px 0 #2f5072,
+    -2px -2px 0 #2f5072,
+    0px 2px 0 #2f5072,
+    0px -2px 0 #2f5072,
+    -2px 0px 0 #2f5072,
+    2px 0px 0 #2f5072,
+    1px 2px 0 #2f5072,
+    -1px 2px 0 #2f5072,
+    1px -2px 0 #2f5072,
+    -1px -2px 0 #2f5072,
+    2px 1px 0 #2f5072,
+    -2px 1px 0 #2f5072,
+    2px -1px 0 #2f5072,
+    -2px -1px 0 #2f5072;
     --main-black: #090E17;
     --border-black: rgba(9, 13, 1, 0.21);
     --main-darkgrey: #A1A19F;
-    --main-blue: #1F3196;
+    --main-blue: rgb(47, 80, 114);
     --main-teal: #89D6DC;
     --blue-gradient: linear-gradient(180deg, rgba(31,49,150,1) 0%, rgba(60,60,212,1) 49%, rgba(31,49,150,1) 100%);
     --teal-gradient: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(137,214,220,1) 100%);
@@ -315,7 +315,8 @@
 .filterForm {
     margin-top: 1em;
     padding: 0.5em;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
 }
 .pathLink {
     margin: 5em;
@@ -710,6 +711,9 @@
 @media only screen and (min-width: 600px) {
     .logo {
         height: 10em;
+    }
+    .filterForm {
+        flex-direction: row;
     }
     .greeting, .navLink {
         font-size: 1em;

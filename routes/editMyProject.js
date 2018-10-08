@@ -6,8 +6,6 @@ let editMyProject = (req, res) => {
     let projectId = req.params.id
     let projectData = {};
 
-    console.log(decoded);
-    console.log(req.params);
     let project = db.one(
         `SELECT diy_projects.id AS id, creation_date, project_title, feature_image_file, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id = ${projectId}`
       )
