@@ -9,7 +9,7 @@ let capitalize = (string) => {
 
 let PostedComment = (props) =>
     <div className="commentBox">
-        <img className="commentAvatar" src={`${url}/uploads/avatar/${props.comment.avatar}`}/>
+        <img className="commentAvatar" src={`${url}/uploads/avatar/${props.comment.avatar}`} alt="avatar"/>
         <div>
             <div className="commentHead">{capitalize(props.comment.name)} commented:</div>
             <div className="commentContent">{props.comment.comment}</div>

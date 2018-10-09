@@ -150,7 +150,7 @@ class EditProjectScreen extends Component {
                                 step_image_file: this.state.stepimage,
                             }
 
-            let newSteps = [...this.state.steps].filter(step => step.step_order != this.state.stepcount).concat(currentStep).sort((a, b) => {
+            let newSteps = [...this.state.steps].filter(step => step.step_order !== this.state.stepcount).concat(currentStep).sort((a, b) => {
                 return a.step_order - b.step_order
             })
             let newCount = newSteps.length + 1;

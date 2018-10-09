@@ -12,7 +12,7 @@ let Supplies = (props) => {
         <div className="materialHead">What You Will Need:</div>
                 <div className="shop-link-container">
                 <a className="shop-link" href={`https://www.amazon.com/gp/aws/cart/add.html?${queryString}`}>
-                    <img className="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg" />
+                    <img className="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg" alt="amazonlogo"/>
                     <br /><div>Add to Cart!</div>
                 </a>
             </div>
