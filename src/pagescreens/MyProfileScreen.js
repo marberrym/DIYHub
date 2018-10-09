@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import MyProfile from '../components/MyProfile';
 import injectStats from '../components/inject-stats';
 import url from '../globalVars';
+import postAuth from '../fetchreqs/postAuth';
 
 class MyProfileScreen extends Component {
     constructor(props) {
@@ -13,21 +14,54 @@ class MyProfileScreen extends Component {
     }
     
     render() {
-        let updateAvatar = (key, avatar) => {
-            this.setState({[key]: avatar})
-        }
-        let submitAvatar = () => {
-            let formData = new FormData;
-            formData.append('avatar', this.state.avatar);
-            fetch(`${url}/updateavatar`, {
-                method: "POST",
+        let updateState = (keyvalue, string) =>
+            this.setState({[keyvalue]: string});
+        let editProfile = (avatar) => {
+            let formData = new FormData();
+            formData.append('avatar', avatar);
+            fetch(url + "/user", {
+                method: "PUT",
                 headers: {token: localStorage.token},
                 body: formData
             })
-            .then(response => console.log(response))
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    this.props.dispatch({
+                        type: 'SET_TOAST',
+                        toast: {
+                            text: 'You changed your avatar!',
+                            type: 'success'
+                        }
+                    });
+                    fetch(url + "/validate", {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json; charset=utf-8",},
+                        body: JSON.stringify({token: localStorage.token})
+                    })
+                    .then(response => response && response.json())
+                    .then(response => {
+                        console.log(response);
+                        if (response) {
+                            this.props.dispatch({type: "ASSIGN_USER", package: {
+                                    name: response.name,
+                                    id: response.id,
+                                    avatar: response.avatar,
+                            }})
+                        }
+                    })
+                } else {
+                    this.props.dispatch({
+                        type: 'SET_TOAST',
+                        toast: {
+                            text: 'Your avatar failed to upload.',
+                            type: 'error'
+                        }
+                    });
+                }
+            })
         }
-
-        return <MyProfile {...this.props} {...this.state} update={updateAvatar} submit={submitAvatar}/>
+        return <MyProfile update={updateState} editProfile={editProfile} {...this.props} {...this.state}/>
     }
 }
 

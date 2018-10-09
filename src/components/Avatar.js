@@ -5,15 +5,17 @@ export default class Avatar extends React.Component {
 
     constructor(props) {
         super(props);
-         this.state = { picture: null, 
-            url: '' };
+         this.state = { 
+             picture: null, 
+             url: '' 
+        };
          this.onDrop = this.onDrop.bind(this);
     }
 
     onDrop(picture) {
-        this.setState({
-            picture: picture[picture.length - 1],
-        });
+        this.setState(() => ({
+            picture: picture[picture.length - 1]
+        }));
     }
     componentDidUpdate(prevProps, prevState) {
         let reader;

@@ -19,10 +19,12 @@ let SignupForm = (props) =>
                 }
             })
         }}>
-            <label className="formLabel formInputField">
-                Avatar: <Avatar image={props.avatar} update={props.update}/></label>
-            <label className="formLabel formInputField">
-                First Name: <input className="fieldInput" type="text" value={props.first} onChange={(event) => 
+            <label className="formInputField">
+                <Avatar update={props.update} image={props.avatar} />
+            </label>
+            <label className="formInputField">
+                First Name: <input type="text" value={props.first} onChange={(event) => 
+
                     props.update('first', event.target.value)} required/>
             </label>
             <label className="formLabel formInputField">
