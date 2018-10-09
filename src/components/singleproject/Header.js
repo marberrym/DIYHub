@@ -62,10 +62,10 @@ let Header = (props) =>
                 </div>
             }
         </div>
-        <div>By {props.first_name} {props.last_name}</div>
-        <div>{props.project_description}</div>
-        <div>Time: {timeRange[props.time_range]}</div>
-        <div>Cost: {priceRange[props.cost_range]}</div>
+        <div className="postTraits">Submitted By {props.first_name} {props.last_name}</div>
+        <div className="postTraits">Required Time: {timeRange[props.time_range]}</div>
+        <div className="postTraits">Material Cost: {priceRange[props.cost_range]}</div>
+        <div className="postDescrip">{props.project_description}</div>
     </div>
 
 let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus, user: state.user}))(Header)

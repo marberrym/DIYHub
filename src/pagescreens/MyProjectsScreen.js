@@ -80,7 +80,7 @@ class MyProjectsScreen extends Component {
               </div>
             :
               <div>
-                Oops, you don't have any projects saved!
+                Unfortunately, you don't have any projects saved.
               </div>
             }
         </div>

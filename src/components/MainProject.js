@@ -2,7 +2,6 @@ import React from 'react';
 import url from '../globalVars';
 import { connect } from 'react-redux';
 import NavBar from './NavBar';
-import Path from './singleproject/Path';
 import Supplies from './singleproject/Supplies';
 import Steps from './singleproject/Steps';
 import Header from './singleproject/Header';
@@ -34,7 +33,6 @@ let MainProject = (props) => (
             <NavBar />
             <Banner {...props.project.project}/>
             <div className="mainPost">
-                <Path />
                 <div className="mainPostHead">
                     <Header {...props.project.project}/>
                     <Supplies supplies={props.project.materials}/>

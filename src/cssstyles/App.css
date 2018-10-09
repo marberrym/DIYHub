@@ -53,6 +53,14 @@
     position: relative;
 }
 
+.postInfoCard {
+    height: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .banner {
     width: 100vw;
     height: 20em;
@@ -207,6 +215,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .about-title {
     font-size: 2rem;
     padding: 0;
@@ -260,16 +269,19 @@
 }
 
 .commentHead {
+    margin: .5em;
     font-weight: bolder;
     font-size: 1em;
 }
 
 .commentContent {
+    margin: .5em;
     font-size: .85em;
     font-style: italic;
 }
 
 .commentTime {
+    margin: .5em;
     font-size: .7em;
 }
 
@@ -338,9 +350,6 @@
     display: flex;
     flex-direction: column;
 }
-.pathLink {
-    margin: 5em;
-}
 
 
 .formInputField {
@@ -355,6 +364,7 @@
 }
 
 .postList {
+    max-width: 1000px;
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -379,6 +389,7 @@
 .browseBtn, .button, .submitBtn {
     background: white;
     font-weight: 500;
+    font-size: 14px;
     font-family: var(--sub-font);
     padding: .5em;
     padding-left: 2em;
@@ -497,6 +508,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mainPost {
+    max-width: 1000px
+}
+
+.postTraits {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: .5em;
+}
+
+.postDescrip {
+    font-size: 1.1em;
+    margin: .5em;
 }
 
 .mainPostHead {
@@ -779,8 +805,8 @@
 	color: #2f5072 !important;
 	font-family: 'Saira Semi Condensed', sans-serif !important;
 	border: 2px solid #2f5072 !important;
-	font-weight: 300 !important;
-	font-size: .5em !important;
+	font-weight: 500 !important;
+	font-size: 14px !important;
 	margin: 10px 0 !important;
 	transition: all 0.2s ease-in !important;
     cursor: pointer;
@@ -815,7 +841,7 @@
         font-size: 1.1em;
     }
     .signUpForm {
-        width: 20em;
+        width: 25em;
     }
     .filterForm {
         flex-direction: row;
@@ -857,7 +883,7 @@
         font-size: 1.2em;
     }
     .signUpForm {
-        width: 25em;
+        width: 30em;
     }
     .postProjectFormH{
         flex-direction: row;

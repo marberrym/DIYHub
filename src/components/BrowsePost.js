@@ -11,7 +11,7 @@ let BrowsePost = (props) =>
             <div className="browseImg-container">
                 <img src={url + '/uploads/project/' + props.project.feature_image_file} className="browseImg" alt={props.project.name}/>
             </div>
-            <div> 
+            <div className="postInfoCard"> 
                 <div>{props.project.project_title}</div>
                 <div>{priceRange[props.project.cost_range]}</div>
                 <div>{timeRange[props.project.time_range]}</div>
@@ -22,7 +22,7 @@ let BrowsePost = (props) =>
             <div className="browseImg-container">
                 <img src={url + '/uploads/project/' + props.project.feature_image_file} className="browseImg" alt={props.project.name}/>
             </div>
-            <div> 
+            <div className="postInfoCard"> 
                 <div>{props.project.project_title}</div>
                 <div>{priceRange[props.project.cost_range]}</div>
                 <div>{timeRange[props.project.time_range]}</div>

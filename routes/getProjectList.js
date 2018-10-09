@@ -6,9 +6,6 @@ let getProjectList = (req, res) => {
 
   let responseData = {};
   let sqlConditional = '';
-  if (req.query.cat) {
-    sqlConditional += `AND category_id=${req.query.cat} `
-  }
   if (req.query.cost) {
     sqlConditional += `AND cost_range=${req.query.cost} `
   }

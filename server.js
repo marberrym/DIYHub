@@ -12,7 +12,6 @@ const getFeatured = require('./routes/getFeatured');
 const getProject = require('./routes/getProject');
 const getProjectList = require('./routes/getProjectList');
 const getMyProjects = require('./routes/getMyProjects');
-const getCategories = require('./routes/getCategories');
 const updateProject = require('./routes/updateProject');
 const postProject = require('./routes/postProject');
 const saveProject = require('./routes/saveProject');
@@ -76,9 +75,6 @@ app.post('/comment', protect, postComment);
 
 //Update Vote Tally
 app.post('/updatevote', protect, updateVote)
-
-// Category route
-app.get('/category', getCategories);
 
 // Amazon routes
 app.get('/amazon', searchAmazon);
