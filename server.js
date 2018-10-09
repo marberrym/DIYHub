@@ -22,6 +22,7 @@ const editMyProject = require('./routes/editMyProject');
 const searchAmazon = require('./routes/searchAmazon');
 const publishProject = require('./routes/publishProject');
 const userStats = require('./routes/userStats');
+const updateUser = require('./routes/updateUser');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -68,6 +69,7 @@ app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
 app.get('/userstats', protect, userStats);
 app.get('/publishproject/:id', protect, publishProject);
+app.put('/user', protect, uploadAvatar.single('avatar'), updateUser);
 
 //Comment Posting
 app.post('/comment', protect, postComment);

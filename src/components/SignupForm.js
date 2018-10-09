@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './NavBar';
 import HeadLogo from './HeadLogo';
 import Button from './Button';
+import Avatar from './Avatar';
 
 let SignupForm = (props) => 
     <div className="pageLayout">
@@ -19,8 +20,8 @@ let SignupForm = (props) =>
             })
         }}>
             <label className="formInputField">
-                Avatar: <input type="file" accept="image/*" name="avatar" onChange={(event) =>
-                props.update('avatar', event.target.files[0])} /></label>
+                <Avatar update={props.update} image={props.avatar} />
+            </label>
             <label className="formInputField">
                 First Name: <input type="text" value={props.first} onChange={(event) => 
                     props.update('first', event.target.value)} required/>

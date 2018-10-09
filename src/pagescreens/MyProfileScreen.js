@@ -7,12 +7,18 @@ class MyProfileScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profileimg: ''
+            avatar: ''
         }
     }
     
     render() {
-        return <MyProfile {...this.props} {...this.state}/>
+        let updateState = (keyvalue, string) =>
+            this.setState({[keyvalue]: string});
+        let editProfile = (avatar) => {
+            let formData = new FormData();
+            
+        }
+        return <MyProfile update={updateState} {...this.props} {...this.state}/>
     }
 }
 
