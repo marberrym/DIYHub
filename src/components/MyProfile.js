@@ -3,6 +3,7 @@ import NavBar from './NavBar';
 import HeadLogo from './HeadLogo';
 import url from '../globalVars';
 import Button from './Button';
+import Avatar from './Avatar';
 
 let MyProfile = (props) =>
     <div className="pageLayout">
@@ -10,9 +11,12 @@ let MyProfile = (props) =>
         <HeadLogo />
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} />
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
-        <form className="myprofile">
+        <form className="formLabel myprofile" onSubmit={event => {
+            event.preventDefault();
+            props.submit();
+        }}>
             <div>Upload a new profile image:</div>
-            <div><input className="centerFileInput" type="file" accept="image/*"/></div>
+            <Avatar avatar={props.avatar} update={props.update} />
             <Button text="Submit" />
         </form>
         {props.user.stats ?

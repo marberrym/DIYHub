@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import url from '../globalVars';
 import windowSize from 'react-window-size';
@@ -21,7 +21,7 @@ class NavBar extends Component {
     } 
     componentDidUpdate(prevProps) {
         if(prevProps.windowWidth !== this.props.windowWidth) {
-            if(this.props.windowWidth < 500) {
+            if(this.props.windowWidth < 700) {
                 this.setState({screen: 'mobile'})
             } else {
                 this.setState({screen: 'computer'})
@@ -74,4 +74,4 @@ class NavBar extends Component {
 
 let NavBarSmart = connect(state => ({user: state.user}))(NavBar)
 
-export default windowSize(NavBarSmart);
+export default withRouter(windowSize(NavBarSmart));
