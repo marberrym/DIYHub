@@ -85,7 +85,7 @@ let EditProject = (props) =>
                     <div className="postProjectForm">
                         <div className="materialListHeader">Current Materials:</div>
                         {props.materials ?
-                            props.materials.map(mat => <PostMat mat={mat}/>)    
+                            props.materials.map(mat => <PostMat deleteMat={props.deleteMat} mat={mat}/>)    
                         :
                             null
                         }

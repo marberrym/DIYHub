@@ -43,6 +43,11 @@ class EditProjectScreen extends Component {
     }
 
     render() {
+        let deleteMat = (ASIN) => {
+            let newMatList = this.state.materials.filter(mat => mat.amazon_asin !== ASIN);
+            this.setState({materials: newMatList})
+        }
+
         let searchAmazon = (query) => {
             fetch(`${url}/amazon?q=${query}`)
             .then(response => response.json())
@@ -206,6 +211,7 @@ class EditProjectScreen extends Component {
                 searchAmazon={searchAmazon}
                 openModal={openModal}
                 closeModal={closeModal}
+                deleteMat={deleteMat}
             />
         )
     }

@@ -322,7 +322,7 @@
 }
 
 .myprofile {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
 .stepContent {
@@ -400,6 +400,12 @@
     border: 1px solid var(--border-black);
 }
 
+.materialList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .browseBtn:hover, .button:hover, .submitBtn:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
@@ -453,11 +459,11 @@
     border-color: hsl(0,0%,70%);
 }
 
-.browseBtn:active, .button:active, .fieldInput:active, .commentInput:active, .keywordInput:active, .titleInput:active, .submitTextArea:active {
+.submitBtn:active, .browseBtn:active, .button:active, .fieldInput:active, .commentInput:active, .keywordInput:active, .titleInput:active, .submitTextArea:active {
     box-shadow: none;
     outline: none;
 }
-.browseBtn:focus, .button:focus, .fieldInput:focus, .commentInput:focus, .keywordInput:focus, .titleInput:focus, .submitTextArea:focus {
+.submitBtn:focus, .browseBtn:focus, .button:focus, .fieldInput:focus, .commentInput:focus, .keywordInput:focus, .titleInput:focus, .submitTextArea:focus {
     box-shadow: none;
     outline: none;
 }
@@ -506,6 +512,15 @@
 
 .submissionBtns {
     width: 100px;
+}
+
+.xicon {
+    opacity: .4;
+}
+
+.xicon:hover {
+    opacity: .7;
+    color: black;
 }
 
 .submitButtonContainer {
