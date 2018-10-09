@@ -1,7 +1,7 @@
 import React from 'react';
 
 let StepDescription = (props) =>
-        <label className="formInputField">{props.text}
+        <label className="formLabel formInputField">{props.text}
             <textarea className="width100 submitTextArea" onChange={(event) => {
                     props.update('stepdescription', event.target.value)
             }   

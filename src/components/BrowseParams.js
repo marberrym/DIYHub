@@ -1,6 +1,5 @@
 import React from 'react';
 import KeyWord from './filtercomponents/KeyWord';
-import Category from './filtercomponents/Category';
 import Cost from './filtercomponents/Cost';
 import Time from './filtercomponents/Time';
 

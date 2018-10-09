@@ -15,12 +15,12 @@ let LoginForm = (props) =>
             props.login(props.dispatch);
             }
         }>
-            <label className="formInputField">
-                Email: <input type="text" value={props.email} onChange={(event) =>
+            <label className="formLabel formInputField">
+                Email: <input className="fieldInput" type="text" value={props.email} onChange={(event) =>
                     props.update('email', event.target.value)} required/>
             </label>
-            <label className="formInputField">
-                Password: <input type="password" value={props.password} onChange={(event) =>
+            <label className="formLabel formInputField">
+                Password: <input className="fieldInput" type="password" value={props.password} onChange={(event) =>
                     props.update('password', event.target.value)} required/>
             </label>
             <Button text="Log in"/>

@@ -19,7 +19,6 @@ let Supplies = (props) => {
             {props.supplies.map(supply => 
             <div key={supply.amazon_asin} className="supplyList">
                 <div className="supplyTitle">{supply.title}</div>
-                <div>{supply.amazon_asin}</div>
                 <div>Quantity: {supply.quantity}</div>
             </div>)}
     </div>

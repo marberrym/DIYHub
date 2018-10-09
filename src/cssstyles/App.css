@@ -2,34 +2,34 @@
     --header-font: 'Russo One', sans-serif;
     --sub-font: 'Saira Semi Condensed', sans-serif;
     --main-white: #FFFFFF;
-    --black-outline: 1px 1px 0 #1F3196,
-    -1px 1px 0 #1F3196,
-    1px -1px 0 #1F3196,
-    -1px -1px 0 #1F3196,
-    0px 1px 0 #1F3196,
-    0px -1px 0 #1F3196,
-    -1px 0px 0 #1F3196,
-    1px 0px 0 #1F3196,
-    2px 2px 0 #1F3196,
-    -2px 2px 0 #1F3196,
-    2px -2px 0 #1F3196,
-    -2px -2px 0 #1F3196,
-    0px 2px 0 #1F3196,
-    0px -2px 0 #1F3196,
-    -2px 0px 0 #1F3196,
-    2px 0px 0 #1F3196,
-    1px 2px 0 #1F3196,
-    -1px 2px 0 #1F3196,
-    1px -2px 0 #1F3196,
-    -1px -2px 0 #1F3196,
-    2px 1px 0 #1F3196,
-    -2px 1px 0 #1F3196,
-    2px -1px 0 #1F3196,
-    -2px -1px 0 #1F3196;
+    --black-outline: 1px 1px 0 #2f5072,
+    -1px 1px 0 #2f5072,
+    1px -1px 0 #2f5072,
+    -1px -1px 0 #2f5072,
+    0px 1px 0 #2f5072,
+    0px -1px 0 #2f5072,
+    -1px 0px 0 #2f5072,
+    1px 0px 0 #2f5072,
+    2px 2px 0 #2f5072,
+    -2px 2px 0 #2f5072,
+    2px -2px 0 #2f5072,
+    -2px -2px 0 #2f5072,
+    0px 2px 0 #2f5072,
+    0px -2px 0 #2f5072,
+    -2px 0px 0 #2f5072,
+    2px 0px 0 #2f5072,
+    1px 2px 0 #2f5072,
+    -1px 2px 0 #2f5072,
+    1px -2px 0 #2f5072,
+    -1px -2px 0 #2f5072,
+    2px 1px 0 #2f5072,
+    -2px 1px 0 #2f5072,
+    2px -1px 0 #2f5072,
+    -2px -1px 0 #2f5072;
     --main-black: #090E17;
     --border-black: rgba(9, 13, 1, 0.21);
     --main-darkgrey: #A1A19F;
-    --main-blue: #1F3196;
+    --main-blue: rgb(47, 80, 114);
     --main-teal: #89D6DC;
     --blue-gradient: linear-gradient(180deg, rgba(31,49,150,1) 0%, rgba(60,60,212,1) 49%, rgba(31,49,150,1) 100%);
     --teal-gradient: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(137,214,220,1) 100%);
@@ -86,6 +86,10 @@
     font-size: 1.5em;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.bannerMain {
+    padding: 0;
 }
 
 .headLogoDiv {
@@ -252,6 +256,21 @@
 .materials {
     border: 1px solid var(--border-black);
     flex-basis: 80%;
+    min-width: 13em;
+}
+
+.commentHead {
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.commentContent {
+    font-size: .85em;
+    font-style: italic;
+}
+
+.commentTime {
+    font-size: .7em;
 }
 
 .supplyList {
@@ -279,7 +298,8 @@
     justify-content: center;
     display: flex;
     background-color: var(--main-white);
-    border: 1px solid black;
+    background-color: whitesmoke;
+    border: 1px solid var(--border-black);
     border-top: none;
     padding: 2em;
     box-shadow: 2px 2px 4px var(--border-black);
@@ -302,7 +322,7 @@
 }
 
 .myprofile {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
 .stepContent {
@@ -315,7 +335,8 @@
 .filterForm {
     margin-top: 1em;
     padding: 0.5em;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
 }
 .pathLink {
     margin: 5em;
@@ -327,6 +348,10 @@
     flex-direction: column;
     align-items: center;
     margin: 0.5em;
+}
+
+.formLabel {
+    font-size: 1.3em;
 }
 
 .postList {
@@ -354,6 +379,7 @@
 .browseBtn, .button, .submitBtn {
     background: white;
     font-weight: 500;
+    font-family: var(--sub-font);
     padding: .5em;
     padding-left: 2em;
     padding-right: 2em;
@@ -363,11 +389,21 @@
     cursor: pointer;
 }
 
+.button {
+    margin: 1em;
+}
+
 .materialList, .stepsList {
     width: 100%;
     text-align: left;
     padding: .5em;
     border: 1px solid var(--border-black);
+}
+
+.materialList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .browseBtn:hover, .button:hover, .submitBtn:hover {
@@ -396,30 +432,38 @@
     font-size: .7em;
 }
 
-.keywordInput, .titleInput, .submitTextArea {
+.fieldInput, .commentInput, .keywordInput, .titleInput, .submitTextArea {
     height: 1.75em;
     margin: .25em;
     padding: .25em;
     min-width: 10em;
-    font-size: 1em;
+    font-size: .7em;
     font-family: var(--sub-font);
     border-color: hsl(0,0%,80%);
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
 }
+
 .submitTextArea {
     height: 15em;
+    width: 15em;
 }
-.keywordInput:hover, .titleInput:hover {
+
+.commentInput {
+    height: 5em;
+    min-width: 10em;
+}
+
+.fieldInput:hover, .commentInput:hover, .keywordInput:hover, .titleInput:hover {
     border-color: hsl(0,0%,70%);
 }
 
-.keywordInput, .titleInput, .submitTextArea:active {
+.submitBtn:active, .browseBtn:active, .button:active, .fieldInput:active, .commentInput:active, .keywordInput:active, .titleInput:active, .submitTextArea:active {
     box-shadow: none;
     outline: none;
 }
-.keywordInput, .titleInput, .submitTextArea:focus {
+.submitBtn:focus, .browseBtn:focus, .button:focus, .fieldInput:focus, .commentInput:focus, .keywordInput:focus, .titleInput:focus, .submitTextArea:focus {
     box-shadow: none;
     outline: none;
 }
@@ -432,6 +476,12 @@
 .select-container:active {
     outline: none;
 }
+
+.keywordInput{
+    height: 2.7em;
+    width: 13.5em;
+}
+
 
 .select__control--is-focused {
     border-color: hsl(0,0%,70%) !important;
@@ -464,11 +514,26 @@
     width: 100px;
 }
 
+.xicon {
+    opacity: .4;
+}
+
+
+.stepContainer {
+    width: 90%;
+    text-align: center;
+}
+
+.xicon:hover {
+    opacity: .7;
+    color: black;
+}
+
 .submitButtonContainer {
     display: flex;
     padding: 1em;
-    background-color: var(--main-white);
-    border: 1px solid var(--main-black);
+    background-color: whitesmoke;
+    border: 1px solid var(--border-black);
     box-shadow: 2px 2px 4px var(--border-black);
     margin-bottom: 3em;
 }
@@ -566,7 +631,7 @@
 
 .commentAvatar {
     height: 4em;
-    width: 4em;
+    min-width: 4em;
     object-fit: cover;
     margin: .5em;
     border: 5px solid var(--main-blue);
@@ -664,8 +729,8 @@
 
 .selectedTab {
     color: var(--main-blue);
-    background-color: var(--main-white);
-    border: 1px solid black;
+    background-color: whitesmoke;
+    border: 1px solid var(--border-black);
     border-bottom: none;
     border-top-left-radius: .2em;
     border-top-right-radius: .2em;
@@ -673,9 +738,10 @@
 
 .tabs {
     display: flex;
+    font-size: 1em;
     list-style: none;
     margin-block-end: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--border-black);
 }
 
 .tab {
@@ -698,7 +764,7 @@
 }
 
 .image-container {
-    width: 20em;
+    width: 10em;
     height: 10em;
 }
 .image-preview {
@@ -707,9 +773,52 @@
     height: 100%;
 }
 
+.fileContainer .chooseFileButton {
+    padding: .5em 2em .5em 2em !important;
+	background: white !important;
+	color: #2f5072 !important;
+	font-family: 'Saira Semi Condensed', sans-serif !important;
+	border: 2px solid #2f5072 !important;
+	font-weight: 300 !important;
+	font-size: .5em !important;
+	margin: 10px 0 !important;
+	transition: all 0.2s ease-in !important;
+    cursor: pointer;
+    border-radius: 0 !important;
+}
+
+.fileContainer .chooseFileButton:hover {
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.249) !important;
+}
+
+.stepX {
+    margin-top: 1em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.stepXLabel {
+    margin-right: .5em;
+}
+
+.fileContainer {
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
 @media only screen and (min-width: 600px) {
     .logo {
         height: 10em;
+    }
+    .tabs {
+        font-size: 1.1em;
+    }
+    .signUpForm {
+        width: 20em;
+    }
+    .filterForm {
+        flex-direction: row;
     }
     .greeting, .navLink {
         font-size: 1em;
@@ -717,7 +826,7 @@
     .bannerMain, .bannerTitle {
         font-size: 2em;
     }
-    .titleInput {
+    .commentInput, .titleInput {
         width: 15em;
     }
     .stepContent {
@@ -744,6 +853,12 @@
    .stepContent {
         flex-basis: 60%;
     }
+    .tabs {
+        font-size: 1.2em;
+    }
+    .signUpForm {
+        width: 25em;
+    }
     .postProjectFormH{
         flex-direction: row;
     }
@@ -753,7 +868,7 @@
     .bannerMain, .bannerTitle {
         font-size: 2.5em;
     }
-    .titleInput {
+    .commentInput, .titleInput {
         width: 20em;
     }
    .headSteps {
@@ -767,7 +882,7 @@
     }
 }
 @media only screen and (min-width: 1000px) {
-    .submitTextArea, .postProjectForm{
+    .commentInput, .submitTextArea, .postProjectForm{
         min-width: 25em;
     }
 }

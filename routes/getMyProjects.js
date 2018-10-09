@@ -28,7 +28,6 @@ let getMyProjects = (req, res) => {
       `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects INNER JOIN diy_my_projects ON diy_projects.id=project_id WHERE diy_my_projects.user_id=${req.user.id}${projectStatus ? ` AND project_status=${ projectStatus}` : ''}`
     )
     .then(data => {
-      console.log(data);
       responseData.status = 'success'
       responseData.projectList = data;
       res.send(responseData)

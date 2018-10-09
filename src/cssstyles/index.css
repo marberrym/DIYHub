@@ -4,5 +4,6 @@ body {
     height: 100%;
     min-height: 100vh;
     font-family: 'Saira Semi Condensed', sans-serif;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(137,214,220,1) 100%);
+    background-color: #FCFCFF
+    /* linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(227, 242, 243) 100%); */
   }

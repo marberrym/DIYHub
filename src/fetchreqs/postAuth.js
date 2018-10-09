@@ -2,8 +2,6 @@ import url from '../globalVars';
 
 let postAuth = (data, callback, dispatch) => {
     let myStorage = window.localStorage;
-    console.log(data);
-    console.log(callback);
     return fetch(url + '/authenticate', {
         method: "POST",
         headers: {
@@ -13,7 +11,6 @@ let postAuth = (data, callback, dispatch) => {
     })
     .then(response => response.json())
     .then(response => {
-        console.log(response)
         if (response.token) {
             myStorage.setItem('token', response.token);
             callback('/');
@@ -36,7 +33,6 @@ let postAuth = (data, callback, dispatch) => {
         }
     })
     .then(response => {
-        console.log(response)
         if (response) {
             let token = {token: response.token}
             return fetch(url + "/validate", {

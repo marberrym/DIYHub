@@ -17,7 +17,6 @@ class LoginContainer extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
-            console.log(userData);
             postAuth(userData, this.props.history.push, dispatch);      
         }
             

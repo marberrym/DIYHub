@@ -19,7 +19,6 @@ let MyProfile = (props) =>
             <Avatar update={props.update} image={props.avatar} />
             <Button text="Submit" />
         </form>
-        {console.log(props.user.stats)}
         {props.user.stats ?
         <div className="myprofile">
             <h3>{props.user.name}'s Creations</h3>

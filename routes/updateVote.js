@@ -2,7 +2,6 @@ const db = require('../database');
 
 let updateVote = (req, res) => {
     let vote = req.body
-    console.log(vote);
     if (vote.method === "add") {
         db.query(`INSERT INTO diy_votes (user_id, project_id) VALUES (${vote.userid}, ${vote.project_id})`)
         .then(res.send({response: "Successful Vote"}))

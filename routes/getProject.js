@@ -7,10 +7,9 @@ let getProject = (req, res) => {
   let votestatus;
   let projectId = req.params.id;
   let projectData = {};
-  console.log(req)
 
   //Checks if User is logged in and has provided a JSON Webtoken
-  if ( req.headers && req.headers.token) {
+  if (req.headers && req.headers.token) {
     decoded = jwt.decode(req.headers.token)
     votestatus = db.one(
       `SELECT * FROM diy_votes WHERE project_id=${projectId} AND user_id=${decoded.id}`
@@ -50,9 +49,8 @@ let getProject = (req, res) => {
     projectData.votes= data[4][0].count;
     projectData.votestatus = data[5];
     projectData.status = 'success';
-;
+
     res.send(projectData);
-    console.log(projectData);
   })
   .catch(error => {
     console.log(error);

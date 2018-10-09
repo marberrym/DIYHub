@@ -8,7 +8,7 @@ let postProject = (data, callback) =>
         },
         body: JSON.stringify(data)
     })
-    .then(response => {console.log(response)
+    .then(response => {
         return response.json()})
     .then(callback('/'))
     .catch(err => console.log(err))

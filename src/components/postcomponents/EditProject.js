@@ -64,7 +64,13 @@ let EditProject = (props) =>
                     <div className="postProjectForm">
                         <div className="stepListHeader">Current steps:</div>
                         {props.steps.length > 0 ?
-                            props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)    
+                            <div className="stepContainer">
+                                {props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)}
+                                <label className="stepX" onClick={event => props.deleteStep()}>
+                                    <div className="stepXLabel">Remove Last Step</div>
+                                    <i class="far fa-times-circle xicon fa-2x"></i>
+                                </label>
+                            </div>  
                         :
                             null
                         }
@@ -77,8 +83,7 @@ let EditProject = (props) =>
                     props.submitMat()
                 }}>
                     <div className="formVert">
-                        <div>Search for Material</div>
-                        <MaterialSearch {...props} searchAmazon={props.searchAmazon} />
+                        <MaterialSearch {...props} text="Search for Materials" searchAmazon={props.searchAmazon} />
                         {props.materialtitle && <div><MaterialItem title={props.materialtitle} update={props.update} text="Material Title: "/>
                         <MaterialQuantity title={props.materialquantity} update={props.update} text="How many? "/></div>}
                         <Button text="Add Material"/>
@@ -86,7 +91,7 @@ let EditProject = (props) =>
                     <div className="postProjectForm">
                         <div className="materialListHeader">Current Materials:</div>
                         {props.materials ?
-                            props.materials.map(mat => <PostMat mat={mat}/>)    
+                            props.materials.map(mat => <PostMat deleteMat={props.deleteMat} mat={mat}/>)    
                         :
                             null
                         }
