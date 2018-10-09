@@ -518,6 +518,12 @@
     opacity: .4;
 }
 
+
+.stepContainer {
+    width: 90%;
+    text-align: center;
+}
+
 .xicon:hover {
     opacity: .7;
     color: black;
@@ -783,6 +789,17 @@
 
 .fileContainer .chooseFileButton:hover {
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.249) !important;
+}
+
+.stepX {
+    margin-top: 1em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.stepXLabel {
+    margin-right: .5em;
 }
 
 .fileContainer {

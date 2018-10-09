@@ -64,7 +64,13 @@ let EditProject = (props) =>
                     <div className="postProjectForm">
                         <div className="stepListHeader">Current steps:</div>
                         {props.steps.length > 0 ?
-                            props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)    
+                            <div className="stepContainer">
+                                {props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)}
+                                <label className="stepX" onClick={event => props.deleteStep()}>
+                                    <div className="stepXLabel">Remove Last Step</div>
+                                    <i class="far fa-times-circle xicon fa-2x"></i>
+                                </label>
+                            </div>  
                         :
                             null
                         }
