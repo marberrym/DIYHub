@@ -17,7 +17,6 @@ import ProjectImage from './ProjectImage';
 import Cost from '../filtercomponents/Cost';
 import Time from '../filtercomponents/Time';
 import Description from './Description';
-import ImageUploader from './FileInput';
 
 let EditProject = (props) =>
     <div className="pageLayout">
