@@ -1,9 +1,9 @@
 const db = require('../database');
 
 let updateUser = (req, res) => {
-  let image = req.file.filename;
-  if (image) {
-    db.none(`UPDATE diy_users SET avatar_file=${req.file.filename} WHERE id=${req.user.id}`)
+  console.log(`UPDATE diy_users SET avatar_file=${req.file.filename} WHERE id=${req.user.id}`);
+  if (req.file) {
+    db.query(`UPDATE diy_users SET avatar_file='${req.file.filename}' WHERE id=${req.user.id}`)
     .then(() => {
       res.send({status: 'success'});
     })

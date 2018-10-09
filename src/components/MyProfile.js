@@ -13,7 +13,7 @@ let MyProfile = (props) =>
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
         <form className="myprofile" onSubmit={event => {
             event.preventDefault();
-            
+            props.editProfile(props.avatar);
         }}>
             <div>Upload a new profile image:</div>
             <Avatar update={props.update} image={props.avatar} />

@@ -22,7 +22,6 @@ class SignupContainer extends Component {
             formData.append('last_name', this.state.last);
             formData.append('email', this.state.email);
             formData.append('password', this.state.password);
-            console.log(formData);
             postSignup(this.props.dispatch, formData, this.props.history.push)
         }
 
