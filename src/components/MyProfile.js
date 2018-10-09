@@ -11,12 +11,12 @@ let MyProfile = (props) =>
         <HeadLogo />
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} />
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
-        <form className="formLabel myprofile" onSubmit={event => {
+        <form className="myprofile" onSubmit={event => {
             event.preventDefault();
-            props.submit();
+            props.editProfile(props.avatar);
         }}>
             <div>Upload a new profile image:</div>
-            <Avatar avatar={props.avatar} update={props.update} />
+            <Avatar update={props.update} image={props.avatar} />
             <Button text="Submit" />
         </form>
         {props.user.stats ?

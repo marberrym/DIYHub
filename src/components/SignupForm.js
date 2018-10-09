@@ -43,8 +43,8 @@ let SignupForm = (props) =>
                         props.update('pwverify', event.target.value)} required/>
                 </label>
             </div>
-            <label className="formLabel formInputField">
-                    Avatar: <Avatar image={props.avatar} update={props.update}/></label>
+            <<label className="formInputField">
+                <Avatar update={props.update} image={props.avatar} /></label>
             <Button text="Sign Up"/>
         </form>
     </div>
