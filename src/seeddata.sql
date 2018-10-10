@@ -4,7 +4,8 @@ insert into diy_users (first_name, last_name, email, password, avatar_file) VALU
 ('Jack', 'Torrance','caretaker@overlook.com','advocat123','bulb.png'),
 ('Randal', 'Flagg','captain@trips.com','boopboop123','bulb.png'),
 ('King Matt', 'Demagogue', 'matty@mattypie.com', 'matt','bulb.png'),
-('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png');
+('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png'),
+('Matt', 'Marberry', 'marberrym@gmail.com', 'wolfwood1', 'bulb.png');
 
 insert into diy_categories (category_title) VALUES
 ('Food'),
@@ -166,3 +167,9 @@ insert into diy_comments (creation_date, user_id, project_id, comment) VALUES
 (current_timestamp, 1, 1, 'Hey nice project.'),
 (current_timestamp, 1, 1, 'Hey nice project.'),
 (current_timestamp, 1, 1, 'Hey nice project.');
+
+--- Insert some collaborators 
+insert into diy_collaborators (user_id, project_id, collab_status) VALUES 
+(5, 5, 1),
+(7, 3, 2),
+(6, 2, 1);
