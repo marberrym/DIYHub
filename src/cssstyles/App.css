@@ -476,6 +476,30 @@
     opacity: .7;
 }
 
+.projectStatus {
+    margin-top: 2em;
+    font-size: 1.1em;
+    color: var(--main-black);
+    font-weight: bolder;
+}
+
+.published, .unpublished {
+    margin-left: .5em;
+}
+
+.published {
+    color: rgb(13, 131, 13);
+}
+
+.unpublished {
+    color: rgb(156, 10, 10)
+}
+
+.remove {
+    color: rgb(156, 10, 10);
+    border-color: rgb(156, 10, 10);
+}
+
 .socialBtn:hover {
     opacity: 1;
 }
@@ -569,7 +593,7 @@
     color: black;
 }
 
-.submitButtonContainer {
+.deleteButtonContainer, .submitButtonContainer {
     display: flex;
     padding: 1em;
     background-color: whitesmoke;
@@ -577,6 +601,7 @@
     box-shadow: 2px 2px 4px var(--border-black);
     margin-bottom: 3em;
 }
+
 
 
 .headerMainPost {

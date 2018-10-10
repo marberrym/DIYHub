@@ -22,6 +22,18 @@ let EditProject = (props) =>
     <div className="pageLayout">
         <NavBarSmart />
         <HeadLogo />
+        <div className="projectStatus">Project Status: 
+            {props.publish_status === 4 ?
+                <span className="unpublished"> Unpublished</span>
+            :
+                <span>
+                    <span className="published"> Published</span>
+                    <button className="remove button" onClick={
+                        event => props.unpublish()
+                    }>Unpublish</button>
+                </span>
+            }
+        </div>
         <Tabs selectedTabClassName="selectedTab" className="tabSection">
             <TabList className="tabs">
                 <Tab className="tab">
@@ -101,6 +113,9 @@ let EditProject = (props) =>
         <div className="submitButtonContainer">
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
             <button className="submitBtn" onClick={event => {props.save(props.publish)}}>Publish Project</button>
+        </div>
+        <div className="deleteButtonContainer">
+            <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
         </div>
         <MaterialModal {...props} />
     </div>

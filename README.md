@@ -1,5 +1,5 @@
-# DIY Hub
-### A hub for creations and inspirations.
+# <strong><div style="text-align: center;">DIYHub</div>
+## <div style="text-align: center;">Creations & Inspirations.</strong></div>
 
 #### Some desired features:
 * User can post DIY guides.
