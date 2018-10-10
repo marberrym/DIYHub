@@ -1,4 +1,4 @@
-let logout = (oldState, action) => ({...oldState, user: {user: "", id: ""}})
+let logout = (oldState, action) => ({...oldState, user: {}})
 let assignuser = (oldState, action) => ({...oldState, user: action.package})
 let loadprojects = (oldState, action) => ({...oldState, projects: action.projects})
 let loadfeatured = (oldState, action) => ({...oldState, featured: action.featured })
