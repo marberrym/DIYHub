@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageUploader from 'react-images-upload';
+import url from '../../globalVars';
 
 export default class StepImage extends React.Component {
 
@@ -57,9 +58,16 @@ export default class StepImage extends React.Component {
                     imgExtension={['.jpg', '.gif', '.png', '.gif']}
                     maxFileSize={5242880}
                 />
-                {this.state.url &&
+                {this.state.url ?
                 <div className="image-container">
                     <img className="image-preview" src={this.state.url} />
+                </div> :
+                this.props.image && typeof this.props.image === 'string' && 
+                <div className="image-container">
+                    <img className="image-preview" src={url + '/uploads/project/' + this.props.image} />
+                </div>}
+                {this.props.url && !this.state.url && <div className="image-container">
+                    <img className="image-preview" src={this.props.url} />
                 </div>}
             </div>
         );

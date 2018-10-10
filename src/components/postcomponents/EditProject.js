@@ -67,7 +67,7 @@ let EditProject = (props) =>
                 }}>
                     <div className="formVert">
                         <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
-                        <StepImage image={props.stepimage} update={props.update} />
+                        <StepImage image={props.stepimage} url={props.stepurl} update={props.update} />
                         <StepDescription description={props.stepdescription} 
                             update={props.update} text="Step Description: " type="step"/>
                         <Button text="Add Step"/>
@@ -79,7 +79,7 @@ let EditProject = (props) =>
                                 {props.steps.map(step => <PostStep editStep={props.editStep} step={step} key={step.stepcount}/>)}
                                 <label className="stepX" onClick={event => props.deleteStep()}>
                                     <div className="stepXLabel">Remove Last Step</div>
-                                    <i class="far fa-times-circle xicon fa-2x"></i>
+                                    <i className="far fa-times-circle xicon fa-2x"></i>
                                 </label>
                             </div>  
                         :
@@ -112,7 +112,7 @@ let EditProject = (props) =>
         </Tabs>
         <div className="submitButtonContainer">
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
-            <button className="submitBtn" onClick={event => props.publish()}>Publish Project</button>
+            <button className="submitBtn" onClick={event => {props.save(props.publish)}}>Publish Project</button>
         </div>
         <div className="deleteButtonContainer">
             <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
