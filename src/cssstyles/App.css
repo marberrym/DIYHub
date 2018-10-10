@@ -473,6 +473,11 @@
 .socialBtn {
     margin-right: .5em;
     cursor: pointer;
+    opacity: .7;
+}
+
+.socialBtn:hover {
+    opacity: 1;
 }
 
 .fieldInput:hover, .commentInput:hover, .keywordInput:hover, .titleInput:hover {
