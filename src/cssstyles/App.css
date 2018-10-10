@@ -351,6 +351,10 @@
     flex-direction: column;
 }
 
+.socialIcons {
+    display: flex;
+}
+
 
 .formInputField {
     display: flex;
@@ -466,15 +470,25 @@
     min-width: 10em;
 }
 
+.socialBtn {
+    margin-right: .5em;
+    cursor: pointer;
+    opacity: .7;
+}
+
+.socialBtn:hover {
+    opacity: 1;
+}
+
 .fieldInput:hover, .commentInput:hover, .keywordInput:hover, .titleInput:hover {
     border-color: hsl(0,0%,70%);
 }
 
-.submitBtn:active, .browseBtn:active, .button:active, .fieldInput:active, .commentInput:active, .keywordInput:active, .titleInput:active, .submitTextArea:active {
+.socialBtn:active, .submitBtn:active, .browseBtn:active, .button:active, .fieldInput:active, .commentInput:active, .keywordInput:active, .titleInput:active, .submitTextArea:active {
     box-shadow: none;
     outline: none;
 }
-.submitBtn:focus, .browseBtn:focus, .button:focus, .fieldInput:focus, .commentInput:focus, .keywordInput:focus, .titleInput:focus, .submitTextArea:focus {
+.socialBtn:focus, .submitBtn:focus, .browseBtn:focus, .button:focus, .fieldInput:focus, .commentInput:focus, .keywordInput:focus, .titleInput:focus, .submitTextArea:focus {
     box-shadow: none;
     outline: none;
 }

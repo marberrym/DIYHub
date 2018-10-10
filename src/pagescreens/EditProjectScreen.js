@@ -50,7 +50,8 @@ class EditProjectScreen extends Component {
 
         let deleteStep = () => {
             let newStepList = [...this.state.steps].filter(step => step.step_order !== this.state.steps.length)
-            this.setState({steps: newStepList});
+            this.setState({steps: newStepList,
+                            stepcount: newStepList.length + 1});
         }
 
         let searchAmazon = (query) => {
