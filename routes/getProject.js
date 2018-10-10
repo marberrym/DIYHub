@@ -37,7 +37,7 @@ let getProject = (req, res) => {
     `SELECT COUNT(project_id) from diy_votes WHERE project_id=${projectId}`
   )
   let collaborators = db.query(
-    `SELECT diy_users.id AS id, first_name, last_name FROM diy_users INNER JOIN diy_collaborators ON diy_users.id = diy_collaborators.user_id WHERE diy_collaborators.project_id=${projectId} AND diy_collaborators.collab_status=2`
+    `SELECT diy_users.id AS id, collab_status, first_name, last_name FROM diy_users INNER JOIN diy_collaborators ON diy_users.id = diy_collaborators.user_id WHERE diy_collaborators.project_id=${projectId}`
   )
 
   
