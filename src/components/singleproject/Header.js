@@ -63,7 +63,7 @@ let Header = (props) =>
                 </div>
             }
         </div>
-        <SocialIcons/>
+        <SocialIcons title={props.project_title}/>
         <div className="postTraits">Submitted By {props.first_name} {props.last_name}</div>
         <div className="postTraits">Required Time: {timeRange[props.time_range]}</div>
         <div className="postTraits">Material Cost: {priceRange[props.cost_range]}</div>
