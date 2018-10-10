@@ -8,7 +8,7 @@ let SignupForm = (props) =>
     <div className="pageLayout">
         <NavBar />
         <HeadLogo />
-        <form className="signUpForm" enctype="multipart/form-data" onSubmit={(event) => {
+        <form className="signUpForm" encType="multipart/form-data" onSubmit={(event) => {
             event.preventDefault();
             let formData = new FormData();
             formData.append('avatar', props.avatar)
@@ -43,7 +43,7 @@ let SignupForm = (props) =>
                         props.update('pwverify', event.target.value)} required/>
                 </label>
             </div>
-            <<label className="formInputField">
+            <label className="formInputField">
                 <Avatar update={props.update} image={props.avatar} /></label>
             <Button text="Sign Up"/>
         </form>

@@ -91,9 +91,7 @@ class EditProjectScreen extends Component {
         }
         let updateState = (keyvalue, string) => this.setState({[keyvalue]: string});
         
-            
-
-        let saveProject = () => {
+        let saveProject = (cb) => {
             let formData = new FormData();
             formData.append('title', this.state.title);
             formData.append('feature_image', this.state.projectimage);
@@ -114,6 +112,7 @@ class EditProjectScreen extends Component {
                 formData.append('material_quantity', material.quantity);
                 formData.append('amazon_asin', material.amazon_asin);
             })
+            console.log(formData);
 
             fetch(`${url}/editproject/${this.props.edit.project.id}`, {
                 method: "POST",
@@ -122,24 +121,28 @@ class EditProjectScreen extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                response.status === 'success' ?
+                if (response.status === 'success') {
                     this.props.dispatch({type: "SET_TOAST", toast: {
                         type: 'info',
                         text: 'Your project has been saved!'
-                    }})
-                :
+                    }});
+                    cb && cb();
+                } else {
                     this.props.dispatch({type: "SET_TOAST", toast: {
                         type: 'error',
                         text: 'Your project has not been saved.'
-                    }})
+                    }});
+                }
             })
             
         }
-        let editStep = (count, title, description, image) => {
+        let editStep = (count, title, description, image, url) => {
+            console.log(url);
             this.setState({stepcount: count,
                             steptitle: title,
                             stepdescription: description,
-                            stepimage: image
+                            stepimage: image,
+                            stepurl: url
                         })
         }
 
@@ -159,7 +162,9 @@ class EditProjectScreen extends Component {
                             steps: newSteps,
                             steptitle: '',
                             stepdescription: '',
-                            stepimage: '',});
+                            stepimage: '',
+                            stepurl: ''
+                        });
 
             this.props.dispatch({type: "SET_TOAST", toast: {
                 type: 'info',
