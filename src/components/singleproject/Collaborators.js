@@ -1,4 +1,7 @@
 import React from 'react';
+import { getPost } from '../inject-project';
+import url from '../../globalVars';
+import { connect } from 'react-redux';
 
 let Collaborators = (props) => {
     let activecollabs;
@@ -28,11 +31,22 @@ let Collaborators = (props) => {
                 :
                     <div>You are a collaborator.</div>
             :
-                <button className="button">Collaborate</button>
+                <button className="button" onClick={event => {
+                    fetch(`${url}/collab/${props.id}`, {
+                        headers: {token: localStorage.token}
+                    })
+                    .then(response => response.json())
+                    .then(response => {
+                        console.log(response);
+                        getPost(props.dispatch, props.id)
+                    })
+                }
+                }>Collaborate</button>
         :
             null
         }
     </div>
 }
 
-export default Collaborators;
+let CollaboratorsSmart = connect()(Collaborators);
+export default CollaboratorsSmart;
