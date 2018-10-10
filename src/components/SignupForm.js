@@ -8,7 +8,7 @@ let SignupForm = (props) =>
     <div className="pageLayout">
         <NavBar />
         <HeadLogo />
-        <form className="signUpForm" enctype="multipart/form-data" onSubmit={(event) => {
+        <form className="signUpForm" encType="multipart/form-data" onSubmit={(event) => {
             event.preventDefault();
             let formData = new FormData();
             formData.append('avatar', props.avatar)
