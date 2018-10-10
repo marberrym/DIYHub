@@ -7,7 +7,7 @@ let editMyProject = (req, res) => {
     let projectData = {};
 
     let project = db.one(
-        `SELECT diy_projects.id AS id, creation_date, project_title, feature_image_file, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id = ${projectId}`
+        `SELECT diy_projects.id AS id, creation_date, project_title, publish_status, feature_image_file, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id = ${projectId}`
       )
       let steps = db.query(
         `SELECT step_order, step_image_file, step_title, step_text FROM diy_steps WHERE project_id=${projectId} ORDER BY step_order`
