@@ -38,37 +38,42 @@ class MyProjectsScreen extends Component {
       return (
         <div className="pageLayout">
           <NavBar/>
-          <div className="navBar">
+          <div className="navBar secondNavBar">
             <div className="flex">
               <NavLink
-                className="navLink"
+                className="navLink secondLeftNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/all"
               >All</NavLink>
               <NavLink
-                className="navLink"
+                className="navLink secondLeftNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/todo"
               >To Do</NavLink>
               <NavLink
-                className="navLink"
+                className="navLink secondLeftNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/inprogress"
               >In Progress</NavLink>
               <NavLink
-                className="navLink"
+                className="navLink secondLeftNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/completed"
               >Completed</NavLink>
             </div>
-            <div className="flex">
+            <div className="navRightSide secondRightNav">
               <NavLink
-                className="navLink"
+                className="navLink secondRightNavLink"
+                activeClassName="navLinkActive"
+                to="/my-projects/collaborations"
+              >Collaborations</NavLink>
+              <NavLink
+                className="navLink secondRightNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/unpublished"
               >Unpublished</NavLink>
               <NavLink
-                className="navLink"
+                className="navLink secondRightNavLink"
                 activeClassName="navLinkActive"
                 to="/my-projects/published"
               >Published</NavLink>
