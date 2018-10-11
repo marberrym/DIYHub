@@ -24,6 +24,7 @@
     "react-toastify": "^4.4.0",
     "react-window-size": "^1.2.2",
     "redux": "^4.0.0",
+    "sharp": "^0.21.0",
     "xml2js": "^0.4.19"
   },
   "scripts": {
