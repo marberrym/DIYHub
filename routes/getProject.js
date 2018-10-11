@@ -36,11 +36,14 @@ let getProject = (req, res) => {
   let votes = db.query(
     `SELECT COUNT(project_id) from diy_votes WHERE project_id=${projectId}`
   )
+  let collaborators = db.query(
+    `SELECT diy_users.id AS id, collab_status, first_name, last_name FROM diy_users INNER JOIN diy_collaborators ON diy_users.id = diy_collaborators.user_id WHERE diy_collaborators.project_id=${projectId}`
+  )
 
   
   
   //Builds the project as a package to send back to front end.
-  Promise.all([project, steps, materials, comments, votes, votestatus])
+  Promise.all([project, steps, materials, comments, votes, votestatus, collaborators])
   .then(data => {
     projectData.project = data[0];
     projectData.steps = data[1];
@@ -48,6 +51,7 @@ let getProject = (req, res) => {
     projectData.comments = data[3];
     projectData.votes= data[4][0].count;
     projectData.votestatus = data[5];
+    projectData.collaborators = data[6];
     projectData.status = 'success';
 
     res.send(projectData);

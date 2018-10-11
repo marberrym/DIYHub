@@ -23,6 +23,8 @@ const publishProject = require('./routes/publishProject');
 const userStats = require('./routes/userStats');
 const updateUser = require('./routes/updateUser');
 const deleteProject = require('./routes/deleteProject');
+const userCollab = require('./routes/userCollab');
+const collabResponse = require('./routes/collabResponse');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -77,7 +79,11 @@ app.put('/user', protect, uploadAvatar.single('avatar'), updateUser);
 app.post('/comment', protect, postComment);
 
 //Update Vote Tally
-app.post('/updatevote', protect, updateVote)
+app.post('/updatevote', protect, updateVote);
+
+//handle Collaborators
+app.get('/collab/:id', protect, userCollab);
+app.post('/collab/:id', protect, collabResponse);
 
 // Amazon routes
 app.get('/amazon', searchAmazon);

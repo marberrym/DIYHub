@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS diy_users, diy_projects, diy_votes, 
     diy_categories, diy_materials, diy_steps, 
-    diy_materials_bridge, diy_badges, diy_my_projects, diy_comments CASCADE;
+    diy_materials_bridge, diy_badges, diy_my_projects, diy_comments, diy_collaborators CASCADE;
 
 CREATE TABLE diy_users (
     id SERIAL PRIMARY KEY,
@@ -27,6 +27,14 @@ CREATE TABLE diy_projects (
     cost_range INTEGER,
     category_id INTEGER REFERENCES diy_categories(id),
     project_description TEXT
+);
+
+CREATE TABLE diy_collaborators (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES diy_users(id),
+    project_id INTEGER REFERENCES diy_projects(id),
+    collab_status INTEGER NOT NULL,
+    UNIQUE (user_id, project_id)
 );
 
 CREATE TABLE diy_votes (

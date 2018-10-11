@@ -17,6 +17,7 @@ import ProjectImage from './ProjectImage';
 import Cost from '../filtercomponents/Cost';
 import Time from '../filtercomponents/Time';
 import Description from './Description';
+import CollabPanel from './CollabPanel';
 
 let EditProject = (props) =>
     <div className="pageLayout">
@@ -37,13 +38,16 @@ let EditProject = (props) =>
         <Tabs selectedTabClassName="selectedTab" className="tabSection">
             <TabList className="tabs">
                 <Tab className="tab">
-                    Project Overview
+                    Project
                 </Tab>
                 <Tab className="tab">
                     Steps
                 </Tab>
                 <Tab className="tab">
                     Materials
+                </Tab>
+                <Tab className="tab">
+                    Collaborators
                 </Tab>
             </TabList>
             <TabPanel>
@@ -108,6 +112,9 @@ let EditProject = (props) =>
                         }
                     </div>
                 </form>
+            </TabPanel>
+            <TabPanel>
+                <CollabPanel collaborators={props.collaborators}/>
             </TabPanel>
         </Tabs>
         <div className="submitButtonContainer">

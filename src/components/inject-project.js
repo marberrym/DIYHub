@@ -16,7 +16,8 @@ export let getPost = (dispatch, postId) => {
           materials: data.materials,
           comments: data.comments,
           votes: data.votes,
-          votestatus: data.votestatus
+          votestatus: data.votestatus,
+          collaborators: data.collaborators
         }
       });
     })
@@ -31,7 +32,8 @@ export let getPost = (dispatch, postId) => {
           materials: data.materials,
           comments: data.comments,
           votes: data.votes,
-          votestatus: data.votestatus
+          votestatus: data.votestatus,
+          collaborators: data.collaborators
         }
       });
     })
