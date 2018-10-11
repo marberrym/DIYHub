@@ -5,6 +5,7 @@ import url from '../../globalVars';
 import { connect } from 'react-redux';
 import { getPost } from '../inject-project';
 import SocialIcons from './SocialIcons';
+import Collaborators from './Collaborators';
 
 let Header = (props) =>
     <div className="headerMainPost">
@@ -65,10 +66,11 @@ let Header = (props) =>
         </div>
         <SocialIcons title={props.project_title}/>
         <div className="postTraits">Submitted By {props.first_name} {props.last_name}</div>
+        <Collaborators collaborators={props.collaborators} user={props.user} id={props.id}/>
         <div className="postTraits">Required Time: {timeRange[props.time_range]}</div>
         <div className="postTraits">Material Cost: {priceRange[props.cost_range]}</div>
         <div className="postDescrip">{props.project_description}</div>
     </div>
 
-let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus, user: state.user}))(Header)
+let HeaderSmart = connect(state => ({votecount: state.project.votes, votestatus: state.project.votestatus, collaborators: state.project.collaborators, user: state.user}))(Header)
 export default HeaderSmart;
