@@ -41,7 +41,7 @@ let EditProject = (props) =>
                 }}>
                     <div className="formVert">
                         <Title title={props.title} update={props.update}/>
-                        <ProjectImage update={props.update} image={props.projectimage}/>
+                        <ProjectImage update={props.update} projecturl={props.projecturl} image={props.projectimage} projectOnDrop={props.projectOnDrop} />
                         <Cost cost={props.cost} update={props.update}/>
                         <Time time={props.time} update={props.update}/>
                     </div>

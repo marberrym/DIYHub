@@ -31,7 +31,7 @@ class ThreeBarNav extends Component {
                 null
             :
                 <div className="navMenu">
-                    <Link to="/my-projects" className="navLink navLink3"> My Projects</Link>
+                    <Link to="/my-projects/inprogress" className="navLink navLink3"> My Projects</Link>
                     <Link to="/post" className="navLink navLink3"> Post Project</Link>
                     <span className="navLink navLink3" onClick={event =>{
                         localStorage.removeItem('token');
