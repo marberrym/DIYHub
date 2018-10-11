@@ -25,6 +25,7 @@ class EditProjectScreen extends Component {
             projectimage: '',
             projecturl: '',
             stepimage: '',
+            stepurl: '',
             stepcount: 1,
             modalIsOpen: false
         }
@@ -47,6 +48,27 @@ class EditProjectScreen extends Component {
     }
 
     render() {
+        let stepOnDrop = (picture) => {
+            picture = picture[picture.length - 1];
+            this.setState({
+                stepimage: picture,
+            });
+            let reader;
+            if (picture) {
+                reader = new FileReader();
+                reader.readAsDataURL(picture);
+                reader.onload = (event) => {
+                    this.setState({
+                        stepurl: event.target.result
+                    });
+                }
+            } else {
+                this.setState({
+                    stepurl: ''
+                });
+                reader = null;
+            }
+        }
         let projectOnDrop = (picture) => {
             picture = picture[picture.length - 1]
             this.setState({
@@ -159,7 +181,12 @@ class EditProjectScreen extends Component {
                 formData.append('step_title', step.step_title);
                 formData.append('step_text', step.step_text);
                 formData.append('step_order', step.step_order);
-                formData.append('step_images', step.step_image_file);
+                if (typeof step.step_image_file === 'string') {
+                    formData.append('step_image_name', step.step_image_file);
+                } else {
+                    formData.append('step_image_name', 'new');
+                    formData.append('step_images', step.step_image_file);
+                }
             });
             
             this.state.materials.forEach(material => {
@@ -303,6 +330,7 @@ class EditProjectScreen extends Component {
                 deleteMat={deleteMat}
                 deleteStep={deleteStep}
                 projectOnDrop={projectOnDrop}
+                stepOnDrop={stepOnDrop}
                 unpublish={unpublishProject}
                 deleteProject={deleteProject}
             />
