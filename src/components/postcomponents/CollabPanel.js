@@ -1,5 +1,6 @@
 import React from 'react';
 import CollabRequest from './CollabRequest';
+import Collaborator from './Collaborator';
 
 
 let CollabPanel = (props) => {
@@ -53,6 +54,16 @@ let CollabPanel = (props) => {
                 }
             </div>
         </div>
+        {props.collaborators.length > 0 ? 
+            <div className="postProjectForm">
+                <div className="stepListHeader">Current Collaborators:</div>
+                    <div className="stepContainer">
+                        {props.collaborators.map(collab => <Collaborator collab={collab}/>)}
+                </div>  
+            </div>
+        :
+            null
+        }
     </div>
 }
 
