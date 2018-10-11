@@ -1,5 +1,6 @@
 import React from 'react';
-import { capitalize } from '../singleproject/PostedComment';
+import CollabRequest from './CollabRequest';
+
 
 let CollabPanel = (props) => {
     let activecollabs;
@@ -37,20 +38,12 @@ let CollabPanel = (props) => {
                             {collabrequests.length === 1 ?
                                 <span>
                                     <span> request for collaboration.</span>
-                                    <div>{`${capitalize(collabrequests[0].first_name)} ${capitalize(collabrequests[0].last_name)}`}
-                                        <button className="collabBtn">Accept</button>
-                                        <button className="collabBtn remove">Deny</button>
-                                    </div>
+                                    <CollabRequest collab={collabrequests[0]}/>
                                 </span>
                             :
                                 <span> 
                                     <span> requests for collaboration.</span>
-                                    {collabrequests.map(collab => {
-                                        <div>{`${capitalize(collab.first_name)} ${capitalize(collab.last_name)}`}
-                                            <button className="collabBtn">Accept</button>
-                                            <button className="collabBtn remove">Deny</button>
-                                        </div>
-                                    })}
+                                    {collabrequests.map(collab => <CollabRequest collab={collab}/>)}
                                 </span>}
                         </div>
                     :
