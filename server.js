@@ -4,6 +4,7 @@ const multer = require("multer");
 const expressJwt = require("express-jwt");
 const secret = process.env.JWTSECRET;
 const allowCORS = require('./middleware/allow-cors');
+const resize = require('./middleware/resize');
 
 const signup = require('./routes/signup');
 const authenticate = require('./routes/authenticate');
@@ -50,7 +51,7 @@ app.get('/unprotected', (req, res) => {
 })
 
 // Route to register user into database.
-app.post('/signup', uploadAvatar.single('avatar'), signup);
+app.post('/signup', uploadAvatar.single('avatar'), resize(250, 250), signup);
 // Route to recieve token.
 app.post('/authenticate', authenticate);
 // Route to validate token.
@@ -62,13 +63,13 @@ app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
 app.get('/editproject/:id', protect, editMyProject);
-app.post('/editproject/:id', protect, uploadProject.fields([{ name: 'feature_image', maxCount: 1 }, { name: 'step_images' }]), updateProject);
+app.post('/editproject/:id', protect, uploadProject.fields([{ name: 'feature_image', maxCount: 1 }, { name: 'step_images' }]), resize(1200, 400), updateProject);
 app.post('/project', protect, postProject);
 app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
 app.get('/userstats', protect, userStats);
 app.get('/publishproject/:id', protect, publishProject);
-app.put('/user', protect, uploadAvatar.single('avatar'), updateUser);
+app.put('/user', protect, uploadAvatar.single('avatar'), resize(250, 250), updateUser);
 
 //Comment Posting
 app.post('/comment', protect, postComment);
