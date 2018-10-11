@@ -71,7 +71,7 @@ let EditProject = (props) =>
                 }}>
                     <div className="formVert">
                         <StepTitle title={props.steptitle} update={props.update} text="Step Title: "/>
-                        <StepImage image={props.stepimage} url={props.stepurl} update={props.update} />
+                        <StepImage image={props.stepimage} url={props.stepurl} stepOnDrop={props.stepOnDrop} update={props.update} />
                         <StepDescription description={props.stepdescription} 
                             update={props.update} text="Step Description: " type="step"/>
                         <Button text="Add Step"/>
