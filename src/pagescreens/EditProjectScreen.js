@@ -23,6 +23,7 @@ class EditProjectScreen extends Component {
             materialSearch: '',
             publish_status: 0,
             projectimage: '',
+            projecturl: '',
             stepimage: '',
             stepcount: 1,
             modalIsOpen: false
@@ -46,6 +47,27 @@ class EditProjectScreen extends Component {
     }
 
     render() {
+        let projectOnDrop = (picture) => {
+            picture = picture[picture.length - 1]
+            this.setState({
+                projectimage: picture,
+            });
+            let reader;
+            if (picture) {
+                reader = new FileReader();
+                reader.readAsDataURL(picture);
+                reader.onload = (event) => {
+                    this.setState({
+                        projecturl: event.target.result
+                    });
+                }
+            } else {
+                this.setState({
+                    projecturl: ''
+                });
+                reader = null;
+            }
+        }
         let deleteMat = (ASIN) => {
             let newMatList = this.state.materials.filter(mat => mat.amazon_asin !== ASIN);
             this.setState({materials: newMatList})
@@ -280,6 +302,7 @@ class EditProjectScreen extends Component {
                 closeModal={closeModal}
                 deleteMat={deleteMat}
                 deleteStep={deleteStep}
+                projectOnDrop={projectOnDrop}
                 unpublish={unpublishProject}
                 deleteProject={deleteProject}
             />
