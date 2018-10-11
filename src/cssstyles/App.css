@@ -177,6 +177,7 @@
 
 
 
+
 .navGear:hover, .logo:hover {
     animation: rotate .5s infinite;
 }
@@ -195,6 +196,33 @@
     color: var(--main-black);
     margin-left: .5em;
     transition: .3s ease-in-out;
+}
+
+.secondNavBar {
+    justify-content: space-evenly;
+}
+
+.secondLeftNavLink {
+    font-size: 1.1em;
+}
+
+.secondRightNav {
+    position: fixed;
+    bottom: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    height: 4em;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    border-top: 2px solid var(--main-black);
+    border-bottom: 1px solid var(--main-black);
+}
+
+.secondRightNavLink {
+    margin: 1em;
+    font-size: 1.1em;
 }
 
 .barsIcon:hover, .navLink:hover {
