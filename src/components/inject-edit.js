@@ -12,7 +12,8 @@ export let getPost = (dispatch, postId) => {
       type: "LOAD_EDIT",
       edit: {project: data.project,
         steps: data.steps,
-        materials: data.materials
+        materials: data.materials,
+        collaborators: data.collaborators
       }
     })
   })

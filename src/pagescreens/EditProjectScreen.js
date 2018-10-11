@@ -21,6 +21,7 @@ class EditProjectScreen extends Component {
             materialquantity: '',
             materialasin: '',
             materialSearch: '',
+            publish_status: 0,
             projectimage: '',
             projecturl: '',
             stepimage: '',
@@ -38,7 +39,9 @@ class EditProjectScreen extends Component {
                     description: this.props.edit.project.project_description,
                     steps: this.props.edit.steps,
                     materials: this.props.edit.materials,
-                    stepcount: this.props.edit.steps.length + 1
+                    stepcount: this.props.edit.steps.length + 1,
+                    publish_status: this.props.edit.project.publish_status || 0,
+                    collaborators: this.props.edit.collaborators
                 });
         }
     }
@@ -114,6 +117,35 @@ class EditProjectScreen extends Component {
         }
         let updateState = (keyvalue, string) => this.setState({[keyvalue]: string});
         
+        let deleteProject = () => {
+            fetch(`${url}/project/${this.props.edit.project.id}`, {
+                method: "DELETE",
+                headers: {token: localStorage.token}
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.status === "success") {
+                    this.props.history.push('/')
+                    this.props.dispatch({
+                        type: 'SET_TOAST',
+                        toast: {
+                            text: 'Project Deleted.',
+                            type: 'error'
+                        }
+                    })
+                } else {
+                    this.props.dispatch({
+                        type: 'SET_TOAST',
+                        toast: {
+                            text: 'Please Try Again.',
+                            type: 'info'
+                        }
+                    })
+                }
+            })
+        }
+
+
         let saveProject = (cb) => {
             let formData = new FormData();
             formData.append('title', this.state.title);
@@ -195,11 +227,35 @@ class EditProjectScreen extends Component {
             }})
         }
 
+        let unpublishProject = () => {
+            fetch(`${url}/unpublishproject/${this.props.edit.project.id}`, {
+                method: "GET",
+                headers: {token: localStorage.token}
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.status === "success") {
+                    this.setState({publish_status: 4});
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'info',
+                        text: 'You unpublished your project!'
+                        }
+                    });
+                } else {
+                    this.props.dispatch({type: "SET_TOAST", toast: {
+                        type: 'error',
+                        text: 'There was an error.'
+                        }
+                    })
+                }
+            })
+        }
+        
+
         let publishProject = () => {
             fetch(`${url}/publishproject/${this.props.edit.project.id}`, {
                 method: "GET",
-                headers: {token: localStorage.token,
-                    "Content-Type": "application/json; charset=utf-8"}
+                headers: {token: localStorage.token}
             })
             .then(response => response.json())
             .then(response => {
@@ -247,6 +303,8 @@ class EditProjectScreen extends Component {
                 deleteMat={deleteMat}
                 deleteStep={deleteStep}
                 projectOnDrop={projectOnDrop}
+                unpublish={unpublishProject}
+                deleteProject={deleteProject}
             />
         )
     }

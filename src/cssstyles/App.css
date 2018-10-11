@@ -390,18 +390,24 @@
     object-fit: cover;
 } 
 
-.browseBtn, .button, .submitBtn {
+.collabBtn, .browseBtn, .button, .submitBtn {
     background: white;
     font-weight: 500;
     font-size: 14px;
     font-family: var(--sub-font);
     padding: .5em;
-    padding-left: 2em;
-    padding-right: 2em;
+    width: 10em;
     border: 2px solid var(--main-blue);
     border-radius: 1px;
     color: var(--main-blue);
     cursor: pointer;
+}
+
+.collabBtn {
+    margin: .5em;
+    padding: .3em;
+    width: 50px;
+    font-size: 10px;
 }
 
 .button {
@@ -421,7 +427,7 @@
     align-items: center;
 }
 
-.browseBtn:hover, .button:hover, .submitBtn:hover {
+.collabBtn:hover, .browseBtn:hover, .button:hover, .submitBtn:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
@@ -474,6 +480,30 @@
     margin-right: .5em;
     cursor: pointer;
     opacity: .7;
+}
+
+.projectStatus {
+    margin-top: 2em;
+    font-size: 1.1em;
+    color: var(--main-black);
+    font-weight: bolder;
+}
+
+.published, .unpublished {
+    margin-left: .5em;
+}
+
+.published {
+    color: rgb(13, 131, 13);
+}
+
+.unpublished {
+    color: rgb(156, 10, 10)
+}
+
+.remove {
+    color: rgb(156, 10, 10);
+    border-color: rgb(156, 10, 10);
 }
 
 .socialBtn:hover {
@@ -569,7 +599,7 @@
     color: black;
 }
 
-.submitButtonContainer {
+.deleteButtonContainer, .submitButtonContainer {
     display: flex;
     padding: 1em;
     background-color: whitesmoke;
@@ -577,6 +607,7 @@
     box-shadow: 2px 2px 4px var(--border-black);
     margin-bottom: 3em;
 }
+
 
 
 .headerMainPost {

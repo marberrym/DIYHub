@@ -2,7 +2,7 @@ import React from 'react';
 
 let PostStep = (props) =>
     <div className="stepsList" onClick={event => {
-        if(props.step.step_image_file) {
+        if(props.step.step_image_file && typeof props.step.step_image_file !== 'string') {
             let reader = new FileReader();
                 reader.readAsDataURL(props.step.step_image_file);
                 reader.onload = (event) => {

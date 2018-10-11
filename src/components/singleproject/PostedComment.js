@@ -7,6 +7,8 @@ let capitalize = (string) => {
     return name;
 }
 
+export { capitalize };
+
 let PostedComment = (props) =>
     <div className="commentBox">
         <img className="commentAvatar" src={`${url}/uploads/avatar/${props.comment.avatar}`} alt="avatar"/>

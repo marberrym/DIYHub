@@ -17,21 +17,37 @@ import ProjectImage from './ProjectImage';
 import Cost from '../filtercomponents/Cost';
 import Time from '../filtercomponents/Time';
 import Description from './Description';
+import CollabPanel from './CollabPanel';
 
 let EditProject = (props) =>
     <div className="pageLayout">
         <NavBarSmart />
         <HeadLogo />
+        <div className="projectStatus">Project Status: 
+            {props.publish_status === 4 ?
+                <span className="unpublished"> Unpublished</span>
+            :
+                <span>
+                    <span className="published"> Published</span>
+                    <button className="remove button" onClick={
+                        event => props.unpublish()
+                    }>Unpublish</button>
+                </span>
+            }
+        </div>
         <Tabs selectedTabClassName="selectedTab" className="tabSection">
             <TabList className="tabs">
                 <Tab className="tab">
-                    Project Overview
+                    Project
                 </Tab>
                 <Tab className="tab">
                     Steps
                 </Tab>
                 <Tab className="tab">
                     Materials
+                </Tab>
+                <Tab className="tab">
+                    Collaborators
                 </Tab>
             </TabList>
             <TabPanel>
@@ -97,10 +113,16 @@ let EditProject = (props) =>
                     </div>
                 </form>
             </TabPanel>
+            <TabPanel>
+                <CollabPanel collaborators={props.collaborators}/>
+            </TabPanel>
         </Tabs>
         <div className="submitButtonContainer">
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
             <button className="submitBtn" onClick={event => {props.save(props.publish)}}>Publish Project</button>
+        </div>
+        <div className="deleteButtonContainer">
+            <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
         </div>
         <MaterialModal {...props} />
     </div>

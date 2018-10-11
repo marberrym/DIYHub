@@ -23,6 +23,9 @@ const searchAmazon = require('./routes/searchAmazon');
 const publishProject = require('./routes/publishProject');
 const userStats = require('./routes/userStats');
 const updateUser = require('./routes/updateUser');
+const deleteProject = require('./routes/deleteProject');
+const userCollab = require('./routes/userCollab');
+const collabResponse = require('./routes/collabResponse');
 
 const app = express();
 const protect = expressJwt({ secret,
@@ -62,6 +65,7 @@ app.get('/project/featured', getFeatured);
 app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
+app.delete('/project/:id', protect, deleteProject);
 app.get('/editproject/:id', protect, editMyProject);
 app.post('/editproject/:id', protect, uploadProject.fields([{ name: 'feature_image', maxCount: 1 }, { name: 'step_images' }]), resize(1200, 400), updateProject);
 app.post('/project', protect, postProject);
@@ -69,13 +73,18 @@ app.post('/project/save', protect, saveProject);
 app.post('/startproject', protect, postProject);
 app.get('/userstats', protect, userStats);
 app.get('/publishproject/:id', protect, publishProject);
+app.get('/unpublishproject/:id', protect, publishProject);
 app.put('/user', protect, uploadAvatar.single('avatar'), resize(250, 250), updateUser);
 
 //Comment Posting
 app.post('/comment', protect, postComment);
 
 //Update Vote Tally
-app.post('/updatevote', protect, updateVote)
+app.post('/updatevote', protect, updateVote);
+
+//handle Collaborators
+app.get('/collab/:id', protect, userCollab);
+app.post('/collab/:id', protect, collabResponse);
 
 // Amazon routes
 app.get('/amazon', searchAmazon);
