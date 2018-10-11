@@ -61,7 +61,12 @@ class MyProjectsScreen extends Component {
                 to="/my-projects/completed"
               >Completed</NavLink>
             </div>
-            <div className="flex">
+            <div className="navRightSide">
+              <NavLink
+                className="navLink"
+                activeClassName="navLinkActive"
+                to="/my-projects/collaborations"
+              >Collaborations</NavLink>
               <NavLink
                 className="navLink"
                 activeClassName="navLinkActive"

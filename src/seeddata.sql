@@ -170,10 +170,10 @@ insert into diy_comments (creation_date, user_id, project_id, comment) VALUES
 
 --- Insert some collaborators 
 insert into diy_collaborators (user_id, project_id, collab_status) VALUES 
-(5, 5, 1),
-(7, 3, 2),
-(1, 3, 1),
-(2, 3, 2),
+(1, 5, 1),
+(1, 4, 2),
+(1, 2, 1),
+(1, 6, 2),
 (3, 3, 1),
 (4, 3, 2),
 (6, 2, 1);

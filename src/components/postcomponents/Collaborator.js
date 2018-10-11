@@ -22,11 +22,14 @@ let deleteCollaborator = (projectId, userid, dispatch) => {
 }
 
 let Collaborator = (props) => 
-    <div className="stepList">
-        {`${props.collab.first_name} ${props.collab.last_name}`}
-        <button className="collabBtn remove" onClick={event =>
-        deleteCollaborator(props.projectId, props.collab.id, props.dispatch)}>Remove</button>
-    </div>
+    props.collab.collab_status === 2 ?
+        <div className="stepList">
+            {`${props.collab.first_name} ${props.collab.last_name}`}
+            <button className="collabBtn remove" onClick={event =>
+            deleteCollaborator(props.projectId, props.collab.id, props.dispatch)}>Remove</button>
+        </div>
+    :
+        null
 
 let CollaboratorSmart = connect(state => ({projectId: state.edit.project.id}))(Collaborator)
 export default CollaboratorSmart;
