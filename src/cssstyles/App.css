@@ -396,8 +396,7 @@
     font-size: 14px;
     font-family: var(--sub-font);
     padding: .5em;
-    padding-left: 2em;
-    padding-right: 2em;
+    width: 10em;
     border: 2px solid var(--main-blue);
     border-radius: 1px;
     color: var(--main-blue);
@@ -407,8 +406,7 @@
 .collabBtn {
     margin: .5em;
     padding: .3em;
-    padding-left: .7em;
-    padding-right: .7em;
+    width: 50px;
     font-size: 10px;
 }
 

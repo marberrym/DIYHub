@@ -41,11 +41,17 @@ let CollabPanel = (props) => {
                                         <button className="collabBtn">Accept</button>
                                         <button className="collabBtn remove">Deny</button>
                                     </div>
-                                    
-                                    
                                 </span>
                             :
-                                <span> requests for collaboration.</span>}
+                                <span> 
+                                    <span> requests for collaboration.</span>
+                                    {collabrequests.map(collab => {
+                                        <div>{`${capitalize(collab.first_name)} ${capitalize(collab.last_name)}`}
+                                            <button className="collabBtn">Accept</button>
+                                            <button className="collabBtn remove">Deny</button>
+                                        </div>
+                                    })}
+                                </span>}
                         </div>
                     :
                         <div>You don't have any requests for collaboration.</div>
