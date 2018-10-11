@@ -39,7 +39,8 @@ class EditProjectScreen extends Component {
                     steps: this.props.edit.steps,
                     materials: this.props.edit.materials,
                     stepcount: this.props.edit.steps.length + 1,
-                    publish_status: this.props.edit.project.publish_status || 0
+                    publish_status: this.props.edit.project.publish_status || 0,
+                    collaborators: this.props.edit.collaborators
                 });
         }
     }

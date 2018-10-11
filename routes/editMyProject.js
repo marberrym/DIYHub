@@ -15,13 +15,17 @@ let editMyProject = (req, res) => {
       let materials = db.query(
         `SELECT title, amazon_asin, quantity from diy_materials INNER JOIN diy_materials_bridge ON diy_materials.id = diy_materials_bridge.material_id WHERE project_id=${projectId}`
       )
+      let collaborators = db.query(
+        `SELECT diy_users.id AS id, collab_status, first_name, last_name FROM diy_users INNER JOIN diy_collaborators ON diy_users.id = diy_collaborators.user_id WHERE diy_collaborators.project_id=${projectId}`
+      )
     
     
-      Promise.all([project, steps, materials])
+      Promise.all([project, steps, materials, collaborators])
     .then(data => {
     projectData.project = data[0];
     projectData.steps = data[1];
     projectData.materials = data[2];
+    projectData.collaborators = data[3];
     res.send(projectData);
     })
     .catch(err => console.log(err));

@@ -390,7 +390,7 @@
     object-fit: cover;
 } 
 
-.browseBtn, .button, .submitBtn {
+.collabBtn, .browseBtn, .button, .submitBtn {
     background: white;
     font-weight: 500;
     font-size: 14px;
@@ -402,6 +402,14 @@
     border-radius: 1px;
     color: var(--main-blue);
     cursor: pointer;
+}
+
+.collabBtn {
+    margin: .5em;
+    padding: .3em;
+    padding-left: .7em;
+    padding-right: .7em;
+    font-size: 10px;
 }
 
 .button {
@@ -421,7 +429,7 @@
     align-items: center;
 }
 
-.browseBtn:hover, .button:hover, .submitBtn:hover {
+.collabBtn:hover, .browseBtn:hover, .button:hover, .submitBtn:hover {
     box-shadow: 2px 2px 4px var(--border-black);
 }
 
