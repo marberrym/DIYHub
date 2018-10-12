@@ -14,7 +14,7 @@ let MyProfile = (props) =>
         <HeadLogo />
         <div className="collaborations">
             {props.user.collaborations && props.user.collaborations.map(collaboration => (
-                <div>Request for collaboration on <Link className="collaborations-link" to={`/project/${collaboration.project_id}`}>{collaboration.project_title}</Link></div>
+                <div>Request for collaboration on <Link className="collaborations-link" to={`/editproject/${collaboration.project_id}`}>{collaboration.project_title}</Link></div>
             ))}
         </div>
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} alt="profilepic" />
