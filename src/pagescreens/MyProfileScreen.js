@@ -9,7 +9,14 @@ class MyProfileScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            avatar: ''
+            avatar: '',
+            stats: '',
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            this.setState({stats: this.props.user.stats})
         }
     }
     
@@ -34,6 +41,7 @@ class MyProfileScreen extends Component {
                             type: 'success'
                         }
                     });
+                    this.setState({avatar: ''})
                     fetch(url + "/validate", {
                         method: "POST",
                         headers: {"Content-Type": "application/json; charset=utf-8",},
@@ -41,11 +49,13 @@ class MyProfileScreen extends Component {
                     })
                     .then(response => response && response.json())
                     .then(response => {
+                        console.log(response);
                         if (response) {
                             this.props.dispatch({type: "ASSIGN_USER", package: {
                                     name: response.name,
                                     id: response.id,
                                     avatar: response.avatar,
+                                    stats: this.state.stats
                             }})
                         }
                     })

@@ -5,6 +5,7 @@ import url from '../globalVars';
 import Button from './Button';
 import Avatar from './Avatar';
 import Loader from './Loader';
+import { getStats } from './inject-stats';
 
 let MyProfile = (props) =>
     <div className="pageLayout">

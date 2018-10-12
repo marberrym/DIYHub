@@ -26,7 +26,12 @@ let EditProject = (props) =>
         <HeadLogo />
         <div className="projectStatus">Project Status: 
             {props.publish_status === 4 ?
-                <span className="unpublished"> Unpublished</span>
+                <span>
+                    <span className="unpublished"> Unpublished</span>
+                        <button className="button" onClick={
+                            event => props.publish()
+                        }>Publish</button>
+                </span>
             :
                 <span>
                     <span className="published"> Published</span>
