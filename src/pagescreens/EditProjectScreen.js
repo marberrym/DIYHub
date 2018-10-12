@@ -33,7 +33,9 @@ class EditProjectScreen extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.edit !== prevProps.edit) {
-            this.setState({title: this.props.edit.project.project_title,
+            if (this.props.edit.project) {
+                this.setState({
+                    title: this.props.edit.project.project_title,
                     projectimage: this.props.edit.project.feature_image_file,
                     cost: this.props.edit.project.cost_range||0,
                     time: this.props.edit.project.time_range||0,
@@ -44,6 +46,20 @@ class EditProjectScreen extends Component {
                     publish_status: this.props.edit.project.publish_status || 0,
                     collaborators: this.props.edit.collaborators
                 });
+            } else {
+                this.setState({
+                    title: '',
+                    projectimage: '',
+                    cost: '',
+                    time: '',
+                    description: '',
+                    steps: [],
+                    materials: [],
+                    stepcount: '',
+                    publish_status: '',
+                    collaborators: ''
+                });
+            }
         }
     }
 
@@ -140,7 +156,7 @@ class EditProjectScreen extends Component {
         let updateState = (keyvalue, string) => this.setState({[keyvalue]: string});
         
         let deleteProject = () => {
-            fetch(`${url}/project/${this.props.edit.project.id}`, {
+            fetch(`${url}/project/${this.props.match.params.projectid}`, {
                 method: "DELETE",
                 headers: {token: localStorage.token}
             })
@@ -196,7 +212,7 @@ class EditProjectScreen extends Component {
             })
             console.log(formData);
 
-            fetch(`${url}/editproject/${this.props.edit.project.id}`, {
+            fetch(`${url}/editproject/${this.props.match.params.projectid}`, {
                 method: "POST",
                 headers: {token: localStorage.token},
                 body: formData
@@ -255,7 +271,7 @@ class EditProjectScreen extends Component {
         }
 
         let unpublishProject = () => {
-            fetch(`${url}/unpublishproject/${this.props.edit.project.id}`, {
+            fetch(`${url}/unpublishproject/${this.props.match.params.projectid}`, {
                 method: "GET",
                 headers: {token: localStorage.token}
             })
@@ -280,7 +296,7 @@ class EditProjectScreen extends Component {
         
 
         let publishProject = () => {
-            fetch(`${url}/publishproject/${this.props.edit.project.id}`, {
+            fetch(`${url}/publishproject/${this.props.match.params.projectid}`, {
                 method: "GET",
                 headers: {token: localStorage.token}
             })
