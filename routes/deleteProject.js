@@ -2,10 +2,7 @@ const jwt = require('jsonwebtoken');
 const db = require('../database');
 
 let deleteProject = (req, res) => {
-    let decoded = jwt.decode(req.headers.token)
-    console.log(req.params)
     projectId = req.params.id
-    console.log(projectId);
 
     db.none(`DELETE FROM diy_projects WHERE id=${projectId}`)
     .then(

@@ -122,8 +122,6 @@ let EditProject = (props) =>
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
             <button className="submitBtn" onClick={event => {props.save(props.publish)}}>Publish Project</button>
         </div>
-        {console.log(props.owner)}
-        {console.log(props.user.id)}
         {props.owner === props.user.id ?
             <div className="deleteButtonContainer">
                 <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>

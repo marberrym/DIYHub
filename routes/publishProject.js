@@ -1,7 +1,6 @@
 const db = require('../database');
 
 let publishProject = (req, res) => {
-    console.log(req.originalUrl);
     if (req.originalUrl.includes('unpublish')) {
         db.none(`UPDATE diy_projects SET publish_status=4 WHERE id=${req.params.id}`)
         .then(res.send({status: 'success'}))

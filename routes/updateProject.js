@@ -1,8 +1,6 @@
 const db = require('../database');
 
 let updateProject = async (req, res) => {
-  console.log(req.files['step_images']);
-  console.log(req.body['step_images']);
   let projectId = await db.query(`UPDATE diy_projects SET project_title='${req.body.title}'${req.files['feature_image'] ? `, feature_image_file='${req.files['feature_image'][0].filename}'` : ''}, time_range=${req.body.time}, cost_range=${req.body.cost}, project_description='${req.body.description}' WHERE id=${req.params.id}`);
 
   if (req.body.step_title) {
@@ -14,7 +12,6 @@ let updateProject = async (req, res) => {
     let stepDelete = await db.query(`DELETE FROM diy_steps WHERE project_id=${req.params.id}`);
     let stepDataInsert = '';
     let imageIndex = 0;
-    console.log(req.body.step_image_name);
     if (typeof req.body.step_image_name === 'string') {
       req.body.step_image_name = [req.body.step_image_name];
     }

@@ -47,7 +47,6 @@ let Collaborators = (props) => {
                     })
                     .then(response => response.json())
                     .then(response => {
-                        console.log(response);
                         getPost(props.dispatch, props.id)
                     })
                 }

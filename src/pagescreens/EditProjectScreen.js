@@ -196,7 +196,6 @@ class EditProjectScreen extends Component {
                 formData.append('material_quantity', material.quantity);
                 formData.append('amazon_asin', material.amazon_asin);
             })
-            console.log(formData);
 
             fetch(`${url}/editproject/${this.props.edit.project.id}`, {
                 method: "POST",
@@ -221,7 +220,6 @@ class EditProjectScreen extends Component {
             
         }
         let editStep = (count, title, description, image, url) => {
-            console.log(url);
             this.setState({stepcount: count,
                             steptitle: title,
                             stepdescription: description,

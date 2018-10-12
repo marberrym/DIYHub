@@ -41,7 +41,6 @@ class MyProfileScreen extends Component {
                     })
                     .then(response => response && response.json())
                     .then(response => {
-                        console.log(response);
                         if (response) {
                             this.props.dispatch({type: "ASSIGN_USER", package: {
                                     name: response.name,
