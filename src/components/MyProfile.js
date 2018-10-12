@@ -17,7 +17,7 @@ let MyProfile = (props) =>
             ))}
         </div>
         <HeadLogo />
-        
+    
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} alt="profilepic" />
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
         <form className="myprofile" onSubmit={event => {
