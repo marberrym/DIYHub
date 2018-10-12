@@ -3,7 +3,7 @@ import ImageUploader from 'react-images-upload';
 import url from '../../globalVars';
 
 let StepImage = (props) => (
-    <div>
+    <div className="formVert">
         <ImageUploader
             withIcon={true}
             singleImage={true}

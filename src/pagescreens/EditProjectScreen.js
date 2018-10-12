@@ -25,6 +25,7 @@ class EditProjectScreen extends Component {
             projectimage: '',
             projecturl: '',
             stepimage: '',
+            owner: 0,
             stepurl: '',
             stepcount: 1,
             modalIsOpen: false
@@ -42,7 +43,8 @@ class EditProjectScreen extends Component {
                     materials: this.props.edit.materials,
                     stepcount: this.props.edit.steps.length + 1,
                     publish_status: this.props.edit.project.publish_status || 0,
-                    collaborators: this.props.edit.collaborators
+                    collaborators: this.props.edit.collaborators,
+                    owner: this.props.edit.project.owner
                 });
         }
     }

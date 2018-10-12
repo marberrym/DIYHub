@@ -24,7 +24,7 @@ let Collaborators = (props) => {
         :
             <div>This project has no collaborators.</div>
         }
-        {props.user.id && props.collaborators ?
+        {props.user.id && props.collaborators && (props.user.id !== props.owner) ?
             props.collaborators.filter(collab => collab.id === props.user.id).length === 1 ?
                 props.collaborators.filter(collab => collab.id === props.user.id && collab.collab_status === 1).length === 1 ?
                     <div>You have requested to collaborate.</div>
@@ -48,5 +48,5 @@ let Collaborators = (props) => {
     </div>
 }
 
-let CollaboratorsSmart = connect()(Collaborators);
+let CollaboratorsSmart = connect(state => ({owner: state.project.project.owner}) )(Collaborators);
 export default CollaboratorsSmart;

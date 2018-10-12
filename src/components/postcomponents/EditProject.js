@@ -18,6 +18,7 @@ import Cost from '../filtercomponents/Cost';
 import Time from '../filtercomponents/Time';
 import Description from './Description';
 import CollabPanel from './CollabPanel';
+import { connect } from 'react-redux';
 
 let EditProject = (props) =>
     <div className="pageLayout">
@@ -121,10 +122,17 @@ let EditProject = (props) =>
             <button className="submitBtn" onClick={event => props.save()}>Save Project</button>
             <button className="submitBtn" onClick={event => {props.save(props.publish)}}>Publish Project</button>
         </div>
-        <div className="deleteButtonContainer">
-            <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
-        </div>
+        {console.log(props.owner)}
+        {console.log(props.user.id)}
+        {props.owner === props.user.id ?
+            <div className="deleteButtonContainer">
+                <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
+            </div>
+        :
+            null
+        }
         <MaterialModal {...props} />
     </div>
 
-export default EditProject;
+let EditProjectSmart = connect(state => ({user: state.user}))(EditProject)
+export default EditProjectSmart;
