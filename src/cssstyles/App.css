@@ -257,7 +257,14 @@
     margin: 0rem 0.5rem 1rem;
 }
 
+.loader {
+    height: 3em;
+    width: 3em;
+    animation: rotate .5s infinite;
+}
+
 .about-text {
+    text-align: center;
     font-size: 1rem;
     padding: 0;
     margin: 0.5rem;
@@ -436,7 +443,8 @@
 .collabBtn {
     margin: .5em;
     padding: .3em;
-    width: 50px;
+    min-width: 50px;
+    width: fit-content;
     font-size: 10px;
 }
 

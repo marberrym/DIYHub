@@ -8,6 +8,7 @@ import Header from './singleproject/Header';
 import Banner from './singleproject/Banner';
 import PostedComment from './singleproject/PostedComment';
 import CommentFormContainer from './singleproject/CommentFormContainer';
+import Loader from './Loader';
 
 
 let saveProject = (status, projectId, redirect) => {
@@ -62,7 +63,7 @@ let MainProject = (props) => (
             }
         </div>
     :
-        <div>Loading...</div>)
+        <Loader/>)
 
 let MainProjectSmart = connect(state => ({user: state.user}))(MainProject);
 export default MainProjectSmart;

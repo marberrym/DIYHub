@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import url from '../globalVars';
+import Loader from './Loader';
 
 
 let HomePost = (props) => 
@@ -20,7 +21,7 @@ let HomePost = (props) =>
             )}
         </Carousel>
     :
-        <div>LOADING PROJECTS...</div>
+        <Loader />
 
 let HomePostSmart = connect((state) => ({featured: state.featured}))(HomePost)
 export default HomePostSmart;

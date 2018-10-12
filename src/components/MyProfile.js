@@ -4,6 +4,7 @@ import HeadLogo from './HeadLogo';
 import url from '../globalVars';
 import Button from './Button';
 import Avatar from './Avatar';
+import Loader from './Loader';
 
 let MyProfile = (props) =>
     <div className="pageLayout">
@@ -30,7 +31,7 @@ let MyProfile = (props) =>
             <div>You have {props.user.stats.completed} projects you have completed on DIYHub.</div>
         </div>
         :
-        <div>Not loaded</div>
+        <Loader/>
         }
     </div>
 
