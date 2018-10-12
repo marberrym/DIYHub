@@ -12,7 +12,15 @@ let BrowsePost = (props) =>
                 <img src={url + '/uploads/project/' + props.project.feature_image_file} className="browseImg" alt={props.project.name}/>
             </div>
             <div className="postInfoCard"> 
-                <div>{props.project.project_title}</div>
+                <div className="collabTab">{props.project.project_title}
+                    {props.project.requests > 0 ?
+                        <div className="cardNotification">
+                            <span className="collabNotification">{props.project.requests}</span>
+                        </div>
+                    :
+                        null
+                    }
+                </div>
                 <div>{priceRange[props.project.cost_range]}</div>
                 <div>{timeRange[props.project.time_range]}</div>
             </div>

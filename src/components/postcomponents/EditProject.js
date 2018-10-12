@@ -20,8 +20,16 @@ import Description from './Description';
 import CollabPanel from './CollabPanel';
 import { connect } from 'react-redux';
 
-let EditProject = (props) =>
-    <div className="pageLayout">
+
+let EditProject = (props) =>{
+    let collabrequests;
+
+    if (props.collaborators) {
+        collabrequests = props.collaborators.filter(collab => collab.collab_status === 1);
+    }
+
+
+    return <div className="pageLayout">
         <NavBarSmart />
         <HeadLogo />
         <div className="projectStatus">Project Status: 
@@ -53,7 +61,17 @@ let EditProject = (props) =>
                     Materials
                 </Tab>
                 <Tab className="tab">
-                    Collaborators
+                    <div className="collabTab">
+                    {console.log(collabrequests)}
+                    Collaborators 
+                        {collabrequests && collabrequests.length > 0 && (props.user.id === props.owner) ?
+                            <div className="collabNotificationContainer">
+                                <span className="collabNotification">{collabrequests.length}</span>
+                            </div>
+                        :
+                            null
+                        }
+                    </div>
                 </Tab>
             </TabList>
             <TabPanel>
@@ -136,6 +154,7 @@ let EditProject = (props) =>
         }
         <MaterialModal {...props} />
     </div>
+    }
 
 let EditProjectSmart = connect(state => ({user: state.user}))(EditProject)
 export default EditProjectSmart;
