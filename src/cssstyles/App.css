@@ -891,6 +891,10 @@
     height: 100%;
 }
 
+.collaborators {
+    font-size: .8em;
+}
+
 .fileContainer .chooseFileButton {
     padding: .5em 2em .5em 2em !important;
 	background: white !important;

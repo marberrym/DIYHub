@@ -13,23 +13,33 @@ let Collaborators = (props) => {
 
     return <div className="postTraits">
         {props.collaborators ?
-            <div>
+            <div className="collaborators">
                 This project has {activecollabs.length}
                 {activecollabs.length === 1 ?
-                    <span> collaborator.</span>
+                    <span>
+                        <span> collaborator.</span>
+                        <ul>
+                            {activecollabs.map(collab => <li>{`${collab.first_name} ${collab.last_name}`}</li>)}
+                        </ul>
+                    </span>
                 :
-                    <span> collaborators.</span>
+                    <span>   
+                        <span> collaborators.</span>
+                        <ul>
+                            {activecollabs.map(collab => <li>{`${collab.first_name} ${collab.last_name}`}</li>)}
+                        </ul>
+                    </span> 
                 } 
             </div>
         :
-            <div>This project has no collaborators.</div>
+            <div className="collaborators">This project has no collaborators.</div>
         }
         {props.user.id && props.collaborators && (props.user.id !== props.owner) ?
             props.collaborators.filter(collab => collab.id === props.user.id).length === 1 ?
                 props.collaborators.filter(collab => collab.id === props.user.id && collab.collab_status === 1).length === 1 ?
-                    <div>You have requested to collaborate.</div>
+                    <div className="collaborators">You have requested to collaborate.</div>
                 :
-                    <div>You are a collaborator.</div>
+                    <div className="collaborators">You are a collaborator.</div>
             :
                 <button className="button" onClick={event => {
                     fetch(`${url}/collab/${props.id}`, {
