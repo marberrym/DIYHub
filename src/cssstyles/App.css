@@ -952,6 +952,42 @@
     background-color: transparent !important;
 }
 
+.collabNotificationContainer {
+    margin-left: .2em;
+    width: .8em;
+    height: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: red;
+    border: 1px solid var(--main-black);
+ }
+ .collabNotification {
+    color: white;
+    font-size: .6em;
+ }
+ .greeting-container {
+     position: relative;
+ }
+ .avatar-notification {
+     position: absolute;
+     top: 0;
+     right: 0;
+ }
+ .collaborations {
+     margin: 1em;
+     color: red;
+ }
+ .collaborations-link {
+     font-weight: bold;
+     text-decoration: none;
+     color: #000;
+ }
+ .collaborations-link:hover {
+     text-decoration: underline;
+ }
+
 @media only screen and (min-width: 600px) {
     .logo {
         height: 10em;

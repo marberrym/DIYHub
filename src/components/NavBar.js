@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import url from '../globalVars';
 import windowSize from 'react-window-size';
 import ThreeBarNav from './ThreeBarNav';
+import { capitalize } from './singleproject/PostedComment';
 
 class NavBar extends Component { 
     constructor(props) {
@@ -41,9 +42,12 @@ class NavBar extends Component {
                     this.state.screen === 'computer' ?
                         <div className="navRightSide flex">
                             <NavLink to="/my-profile" className="navLink"  activeClassName="navLinkActive">
-                                <div>
-                                    <div className="greeting">Hello {this.props.user.name}</div>
+                                <div className="greeting-container">
+                                    <div className="greeting">Hello {capitalize(this.props.user.name)}</div>
                                     <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
+                                    {this.props.user.collaborations && this.props.user.collaborations.length > 0 && <div className="avatar-notification collabNotificationContainer">
+                                        <span className="collabNotification">{this.props.user.collaborations.length}</span>
+                                    </div>}
                                 </div>
                             </NavLink>
                             <NavLink to="/my-projects/inprogress" className="navLink"  activeClassName="navLinkActive"> My Projects</NavLink>
