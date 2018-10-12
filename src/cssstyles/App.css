@@ -742,7 +742,7 @@
     vertical-align: middle;
 }
 
-.cardNotification, .collabNotificationContainer {
+.threeNavBarNotification, .navBarNotification, .cardNotification, .collabNotificationContainer {
     position: absolute;
     margin-left: .2em;
     width: .8em;
@@ -755,6 +755,11 @@
     background-color: red;
     border: 1px solid var(--main-black);
 }
+
+.threeNavBarNotification, .navBarNotification {
+    transform: translate(0, 0);
+}
+
 
 .cardNotification {
     position: relative;
@@ -1001,13 +1006,28 @@
      position: relative;
  }
  .avatar-notification {
-     position: absolute;
-     top: 0;
-     right: 0;
+    position: absolute;
+    top: 0;
+    right: .2em;
  }
- .collaborations {
-     margin: 1em;
-     color: red;
+ .threeNavBarNotification {
+    position: absolute;
+    top: .5em;
+    right: 6.7em;
+}
+.red {
+    color: red;
+}
+.collaborations {
+    width: 100%;
+     position: sticky;
+     top:0;
+     background-color: whitesmoke;
+     padding: 1em;
+     padding-left: 2em;
+     border: 1px solid var(--border-black);
+     color: black;
+     z-index: 2;
  }
  .collaborations-link {
      font-weight: bold;
@@ -1018,9 +1038,16 @@
      text-decoration: underline;
  }
 
+ 
+
 @media only screen and (min-width: 600px) {
     .logo {
         height: 10em;
+    }
+    .collaborations {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: .5em;
     }
     .tabs {
         font-size: 1.1em;
