@@ -25,6 +25,7 @@ class EditProjectScreen extends Component {
             projectimage: '',
             projecturl: '',
             stepimage: '',
+            owner: 0,
             stepurl: '',
             stepcount: 1,
             modalIsOpen: false
@@ -44,7 +45,8 @@ class EditProjectScreen extends Component {
                     materials: this.props.edit.materials,
                     stepcount: this.props.edit.steps.length + 1,
                     publish_status: this.props.edit.project.publish_status || 0,
-                    collaborators: this.props.edit.collaborators
+                    collaborators: this.props.edit.collaborators,
+                    owner: this.props.edit.project.owner
                 });
             } else {
                 this.setState({
@@ -210,7 +212,6 @@ class EditProjectScreen extends Component {
                 formData.append('material_quantity', material.quantity);
                 formData.append('amazon_asin', material.amazon_asin);
             })
-            console.log(formData);
 
             fetch(`${url}/editproject/${this.props.match.params.projectid}`, {
                 method: "POST",
@@ -235,7 +236,6 @@ class EditProjectScreen extends Component {
             
         }
         let editStep = (count, title, description, image, url) => {
-            console.log(url);
             this.setState({stepcount: count,
                             steptitle: title,
                             stepdescription: description,

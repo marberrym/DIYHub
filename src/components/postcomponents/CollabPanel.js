@@ -1,6 +1,7 @@
 import React from 'react';
 import CollabRequest from './CollabRequest';
 import Collaborator from './Collaborator';
+import { connect } from 'react-redux';
 
 
 let CollabPanel = (props) => {
@@ -18,25 +19,25 @@ let CollabPanel = (props) => {
             <div>
                 {props.collaborators ?
                     activecollabs.length > 0 ?
-                        <div>Your project has {activecollabs.length}
+                        <div>This project has {activecollabs.length}
                             {activecollabs.length === 1 ?
                                 <span> collaborator.</span>
                             :
                                 <span> collaborators.</span>}
                         </div>
                     :
-                        <div>Your project doesn't have any collaborators.</div>
+                        <div>This project doesn't have any collaborators.</div>
                 :
                     <div>
-                        Your project doesn't have any collaborators.
+                        This project doesn't have any collaborators.
                     </div>
                 } 
             </div>
             <div>
-                {props.collaborators ?
+                {props.user === props.owner ?
                     collabrequests.length > 0 ?
-                        <div>You have {collabrequests.length}
-                            {collabrequests.length === 1 ?
+                        <div>There is {collabrequests.length}
+                            {collabrequests.length === 0 ?
                                 <span>
                                     <span> request for collaboration.</span>
                                     <CollabRequest collab={collabrequests[0]}/>
@@ -48,23 +49,35 @@ let CollabPanel = (props) => {
                                 </span>}
                         </div>
                     :
-                        <div>You don't have any requests for collaboration.</div>
+                        <div>There are no requests for collaboration.</div>
                 :
-                    <div>You don't have any requests for collaboration.</div>
+                    null
                 }
             </div>
         </div>
-        {props.collaborators.length > 0 ? 
+        <div className="formVert">
             <div className="postProjectForm">
-                <div className="stepListHeader">Current Collaborators:</div>
-                    <div className="stepContainer">
-                        {props.collaborators.map(collab => <Collaborator collab={collab}/>)}
-                </div>  
+                <div className="stepListHeader">Project Creator:</div>
+                <div className="stepContainer">
+                    <div className="stepList">
+                        {`${props.owner_first} ${props.owner_last}`}
+                    </div>
+                </div>
             </div>
-        :
-            null
-        }
+            {props.collaborators.length > 0 ? 
+                <div className="postProjectForm">
+                    <div className="stepListHeader">Current Collaborators:</div>
+                        <div className="stepContainer">
+                            {props.collaborators.map(collab => <Collaborator collab={collab}/>)}
+                    </div>  
+                </div>
+            :
+                null
+            }
+        </div>
     </div>
 }
 
-export default CollabPanel;
+let CollabPanelSmart = connect(state => ({user: state.user.id, owner: state.edit.project.owner,
+    owner_first: state.edit.project.first_name, owner_last: state.edit.project.last_name}))(CollabPanel)
+export default CollabPanelSmart;

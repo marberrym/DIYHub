@@ -217,8 +217,8 @@
     flex-direction: row; 
     justify-content: center;
     align-items: center;
-    border-top: 2px solid var(--main-black);
-    border-bottom: 1px solid var(--main-black);
+    border-top: 1px solid var(--border-black);
+    border-bottom: 1px solid var(--border-black);
 }
 
 .secondRightNavLink {
@@ -257,7 +257,14 @@
     margin: 0rem 0.5rem 1rem;
 }
 
+.loader {
+    height: 3em;
+    width: 3em;
+    animation: rotate .5s infinite;
+}
+
 .about-text {
+    text-align: center;
     font-size: 1rem;
     padding: 0;
     margin: 0.5rem;
@@ -436,7 +443,8 @@
 .collabBtn {
     margin: .5em;
     padding: .3em;
-    width: 50px;
+    min-width: 50px;
+    width: fit-content;
     font-size: 10px;
 }
 
@@ -636,6 +644,19 @@
     border: 1px solid var(--border-black);
     box-shadow: 2px 2px 4px var(--border-black);
     margin-bottom: 3em;
+}
+
+.deleteButtonContainer {
+    margin-bottom: 7em;
+}
+
+.submitButtonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
 }
 
 
@@ -845,7 +866,22 @@
     border-bottom: 1px solid var(--border-black);
 }
 
+.avatar-round {
+    height: 7em;
+    width: 7em;
+    border-radius: 50%;
+    border: 4px solid var(--main-blue)
+}
+
+.image-preview-round {
+    border-radius: 50%;
+    height: 7em;
+    width: 7em;
+    object-fit: cover;
+}
+
 .tab {
+    cursor: pointer;
     padding: .5em;
     padding-top: 0;
     padding-bottom: 0;
@@ -865,13 +901,21 @@
 }
 
 .image-container {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 4px;
     width: 10em;
     height: 10em;
 }
 .image-preview {
-    object-fit: contain;
+    border: 1px solid #2f507259;
+    object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+.collaborators {
+    font-size: .8em;
 }
 
 .fileContainer .chooseFileButton {
@@ -951,7 +995,12 @@
 }
 
 @media only screen and (min-width: 768px) {
-   .stepContent {
+    .submitButtonContainer {
+        position: relative;
+        margin-bottom: 3em;
+        width: fit-content;
+    }
+    .stepContent {
         flex-basis: 60%;
     }
     .tabs {

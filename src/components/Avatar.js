@@ -48,7 +48,7 @@ export default class Avatar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="formVert">
                 <ImageUploader
                     withIcon={true}
                     singleImage={true}
@@ -58,8 +58,8 @@ export default class Avatar extends React.Component {
                     maxFileSize={5242880}
                 />
                 {this.state.url &&
-                <div className="image-container">
-                    <img className="image-preview" src={this.state.url} />
+                <div className="avatar-round">
+                    <img className="image-preview-round" src={this.state.url} />
                 </div>}
             </div>
         );

@@ -28,7 +28,7 @@ class CommentFormContainer extends Component {
                 },
                 body: JSON.stringify(newComment)
             })
-            .then(response => {console.log(response)
+            .then(response => {
                 getPost(this.props.dispatch, this.props.projectID)
             })
         }
