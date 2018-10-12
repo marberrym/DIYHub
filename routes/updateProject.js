@@ -27,7 +27,7 @@ let updateProject = async (req, res) => {
       } else {
         step.step_image_file = req.body.step_image_name[i];
       }
-      stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_file}', '${step.step_title}', '${step.step_text}'),`;
+      stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_file || 'project.png'}', '${step.step_title}', '${step.step_text}'),`;
     }
     let stepQuery = await db.query(`INSERT INTO diy_steps (project_id, step_order, step_image_file, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
   }
