@@ -13,7 +13,7 @@ import url from '../../globalVars';
 
 let SocialIcons = (props) =>
     <div className="socialIcons">
-        <FacebookShareButton url={`${url + props.history.location.pathname}`} className="socialBtn"
+        <FacebookShareButton title={props.title} url={`${url + props.history.location.pathname}`} className="socialBtn"
         quote={`DIYHub presents ${props.title}`}>
                 <FacebookIcon size={32} round={true}/>
         </FacebookShareButton>
