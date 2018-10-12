@@ -17,7 +17,8 @@ let getUser = (dispatch, token) => {
         package: {
           name: data.name,
           id: data.id,
-          avatar: data.avatar
+          avatar: data.avatar,
+          collaborations: data.collaborations
         }
       });
     } else {
@@ -26,7 +27,8 @@ let getUser = (dispatch, token) => {
         package: {
           name: '',
           id: '',
-          avatar: ''
+          avatar: '',
+          collaborations: ''
         }
       });
     }

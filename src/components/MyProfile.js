@@ -6,11 +6,17 @@ import Button from './Button';
 import Avatar from './Avatar';
 import Loader from './Loader';
 import { getStats } from './inject-stats';
+import { Link } from 'react-router-dom';
 
 let MyProfile = (props) =>
     <div className="pageLayout">
         <NavBar />
         <HeadLogo />
+        <div className="collaborations">
+            {props.user.collaborations && props.user.collaborations.map(collaboration => (
+                <div>Request for collaboration on <Link className="collaborations-link" to={`/project/${collaboration.project_id}`}>{collaboration.project_title}</Link></div>
+            ))}
+        </div>
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} alt="profilepic" />
         <div className="profileHeadText">Welcome Back {props.user.name}!</div>
         <form className="myprofile" onSubmit={event => {
