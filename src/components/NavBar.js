@@ -45,7 +45,7 @@ class NavBar extends Component {
                                 <div className="greeting-container">
                                     <div className="greeting">Hello {capitalize(this.props.user.name)}</div>
                                     <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
-                                    {this.props.user.collaborations && this.props.user.collaborations.length > 0 && <div className="avatar-notification collabNotificationContainer">
+                                    {this.props.user.collaborations && this.props.user.collaborations.length > 0 && <div className="avatar-notification navBarNotification">
                                         <span className="collabNotification">{this.props.user.collaborations.length}</span>
                                     </div>}
                                 </div>
