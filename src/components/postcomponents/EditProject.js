@@ -74,7 +74,7 @@ let EditProject = (props) =>
                         <StepImage image={props.stepimage} url={props.stepurl} stepOnDrop={props.stepOnDrop} update={props.update} />
                         <StepDescription description={props.stepdescription} 
                             update={props.update} text="Step Description: " type="step"/>
-                        <Button text="Add Step"/>
+                        <Button text="Save Step"/>
                     </div>
                     <div className="postProjectForm">
                         <div className="stepListHeader">Current steps:</div>
