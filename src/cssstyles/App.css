@@ -387,9 +387,11 @@
     flex-direction: column;
 }
 
-.socialIcons {
+.collabTab, .socialIcons {
     display: flex;
+    align-items: center;
 }
+
 
 
 .formInputField {
@@ -739,6 +741,29 @@
     display: inline-block;
     vertical-align: middle;
 }
+
+.cardNotification, .collabNotificationContainer {
+    position: absolute;
+    margin-left: .2em;
+    width: .8em;
+    height: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    transform: translate(570%, -60%);
+    background-color: red;
+    border: 1px solid var(--main-black);
+}
+
+.cardNotification {
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+.collabNotification {
+    color: white;
+    font-size: .6em;
+}
 .commentAvatar, .avatar {
     height: 30px;
     width: 30px;
@@ -881,12 +906,17 @@
 }
 
 .tab {
+    
     cursor: pointer;
     padding: .5em;
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: none;
     
+}
+
+.collabTab {
+    padding-right: 0;
 }
 
 .tabSection {
