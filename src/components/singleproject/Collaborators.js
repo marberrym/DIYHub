@@ -41,7 +41,7 @@ let Collaborators = (props) => {
                 :
                     <div className="collaborators">You are a collaborator.</div>
             :
-                <button className="button" onClick={event => {
+                <button className="collabBtn" onClick={event => {
                     fetch(`${url}/collab/${props.id}`, {
                         headers: {token: localStorage.token}
                     })

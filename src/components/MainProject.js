@@ -43,19 +43,23 @@ let MainProject = (props) => (
                     {props.project.comments.map(comment => <PostedComment comment={comment} key={comment.comment_id}/>)}
                 </div>
             </div>
-            <div className="save">
-                <div className="save-title">Save to My Projects</div>
-                <div className="save-option" onClick={() => {
-                    saveProject('todo', props.project.project.id, props.history.push);
-                }}>To Do</div>
-                <div className="save-option" onClick={() => {
-                    saveProject('inprogress', props.project.project.id, props.history.push);
-                }}>In Progress</div>
-                <div className="save-option" onClick={() => {
-                    saveProject('completed', props.project.project.id, props.history.push);
-                }}>Completed</div>
-                <div className="save-icon"><i className="fas fa-cloud" /></div>
-            </div>
+            {props.user.id ?
+                <div className="save">
+                    <div className="save-title">Save to My Projects</div>
+                    <div className="save-option" onClick={() => {
+                        saveProject('todo', props.project.project.id, props.history.push);
+                    }}>To Do</div>
+                    <div className="save-option" onClick={() => {
+                        saveProject('inprogress', props.project.project.id, props.history.push);
+                    }}>In Progress</div>
+                    <div className="save-option" onClick={() => {
+                        saveProject('completed', props.project.project.id, props.history.push);
+                    }}>Completed</div>
+                    <div className="save-icon"><i className="fas fa-cloud" /></div>
+                </div>
+            :
+                null
+            }
         </div>
     :
         <div>Loading...</div>)
