@@ -25,11 +25,16 @@ let Collaborator = (props) =>
     props.collab.collab_status === 2 ?
         <div className="stepList">
             {`${props.collab.first_name} ${props.collab.last_name}`}
-            <button className="collabBtn remove" onClick={event =>
-            deleteCollaborator(props.projectId, props.collab.id, props.dispatch)}>Remove</button>
+            {props.owner === props.user ?
+                <button className="collabBtn remove" onClick={event =>
+                deleteCollaborator(props.projectId, props.collab.id, props.dispatch)}>Remove</button>
+            :
+                null
+            }
         </div>
     :
         null
 
-let CollaboratorSmart = connect(state => ({projectId: state.edit.project.id}))(Collaborator)
+let CollaboratorSmart = connect(state => ({projectId: state.edit.project.id,
+    user: state.user.id, owner: state.edit.project.owner}))(Collaborator)
 export default CollaboratorSmart;
