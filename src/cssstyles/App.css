@@ -1017,6 +1017,15 @@
  .collaborations-link:hover {
      text-decoration: underline;
  }
+ .collab-list {
+     margin-top: 0.2em;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ .collab-name {
+     flex: 1;
+ }
 
 @media only screen and (min-width: 600px) {
     .logo {

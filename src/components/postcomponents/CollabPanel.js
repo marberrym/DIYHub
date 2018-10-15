@@ -34,24 +34,17 @@ let CollabPanel = (props) => {
                 } 
             </div>
             <div>
-                {props.user === props.owner ?
+                {props.user === props.owner &&
                     collabrequests.length > 0 ?
-                        <div>There is {collabrequests.length}
-                            {collabrequests.length === 0 ?
-                                <span>
-                                    <span> request for collaboration.</span>
-                                    <CollabRequest collab={collabrequests[0]}/>
-                                </span>
-                            :
-                                <span> 
-                                    <span> requests for collaboration.</span>
-                                    {collabrequests.map(collab => <CollabRequest collab={collab}/>)}
-                                </span>}
-                        </div>
+                        collabrequests.length === 1 ?
+                            <div>There is 1 request for collaboration.
+                                <CollabRequest collab={collabrequests[0]}/>
+                            </div> :
+                            <div>There are {collabrequests.length} requests for collaboration.
+                                <div>{collabrequests.map(collab => <CollabRequest collab={collab}/>)}</div>
+                            </div>
                     :
                         <div>There are no requests for collaboration.</div>
-                :
-                    null
                 }
             </div>
         </div>
@@ -67,7 +60,7 @@ let CollabPanel = (props) => {
             {props.collaborators.length > 0 ? 
                 <div className="postProjectForm">
                     <div className="stepListHeader">Current Collaborators:</div>
-                        <div className="stepContainer">
+                        <div>
                             {props.collaborators.map(collab => <Collaborator collab={collab}/>)}
                     </div>  
                 </div>

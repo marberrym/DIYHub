@@ -23,8 +23,8 @@ let deleteCollaborator = (projectId, userid, dispatch) => {
 
 let Collaborator = (props) => 
     props.collab.collab_status === 2 ?
-        <div className="stepList">
-            {`${props.collab.first_name} ${props.collab.last_name}`}
+        <div className="collab-list">
+            <div>{`${props.collab.first_name} ${props.collab.last_name}`}</div>
             {props.owner === props.user ?
                 <button className="collabBtn remove" onClick={event =>
                 deleteCollaborator(props.projectId, props.collab.id, props.dispatch)}>Remove</button>
