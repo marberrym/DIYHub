@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUpForm from '../components/SignupForm';
 import postSignup from '../fetchreqs/postSignup';
+import postAuth from '../fetchreqs/postAuth';
 import { connect } from 'react-redux';
 
 class SignupContainer extends Component {
@@ -22,7 +23,12 @@ class SignupContainer extends Component {
             formData.append('last_name', this.state.last);
             formData.append('email', this.state.email);
             formData.append('password', this.state.password);
-            postSignup(this.props.dispatch, formData, this.props.history.push)
+            let userData = {
+                email: this.state.email,
+                password: this.state.password
+            }
+            let post = () => {postAuth(userData, this.props.history.push, this.props.dispatch);};
+            postSignup(this.props.dispatch, formData, this.props.history.push, post);
         }
 
         let updateState = (keyvalue, string) =>

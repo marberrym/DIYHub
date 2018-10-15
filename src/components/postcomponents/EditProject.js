@@ -62,8 +62,7 @@ let EditProject = (props) =>{
                 </Tab>
                 <Tab className="tab">
                     <div className="collabTab">
-                    {console.log(collabrequests)}
-                    Collaborators 
+                        Collaborators 
                         {collabrequests && collabrequests.length > 0 && (props.user.id === props.owner) ?
                             <div className="collabNotificationContainer">
                                 <span className="collabNotification">{collabrequests.length}</span>

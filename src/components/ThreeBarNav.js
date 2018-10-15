@@ -24,6 +24,9 @@ class ThreeBarNav extends Component {
                 <div>
                     <div className="greeting">Hello {this.props.user.name}</div>
                     <img className="avatar" src={`${url}/uploads/avatar/${this.props.user.avatar}`} />
+                    {this.props.user.collaborations && this.props.user.collaborations.length > 0 && <div className="avatar-notification threeNavBarNotification">
+                        <span className="collabNotification">{this.props.user.collaborations.length}</span>
+                    </div>}
                 </div>
             </Link>
             <i className="fas fa-bars fa-2x barsIcon" onClick={event => this.toggle()}/>
