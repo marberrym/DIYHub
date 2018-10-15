@@ -6,14 +6,25 @@ let getProjectList = (req, res) => {
 
   let responseData = {};
   let sqlConditional = '';
+  let sqlArray = [];
+  let searchConditional;
+  if (req.query.q) {
+    searchConditional = `project_title ILIKE '%${req.query.q}%' `;
+  } else {
+    searchConditional = `project_title ILIKE '%%' `;
+  }
+  sqlArray.push(req.query.q || '');
   if (+req.query.cost) {
     sqlConditional += `AND cost_range=${req.query.cost} `
+    sqlArray.push(req.query.cost);
   }
   if (+req.query.time) {
     sqlConditional += `AND time_range=${req.query.time} `
+    sqlArray.push(req.query.time);
   }
+  console.log(`SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date`);
   db.query(
-    `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE (project_title ILIKE '%${req.query.q || ''}%' OR project_description ILIKE '%${req.query.q || ''}%') AND publish_status=5 ${sqlConditional}ORDER BY creation_date`
+    `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date`, sqlArray
   )
   .then(data => {
     responseData.status = 'success'

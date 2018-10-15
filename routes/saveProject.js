@@ -8,12 +8,12 @@ let saveProject = (req, res) => {
     'completed': 3
   }
   let projectStatus = projectStatusTable[req.body.status];
-  db.one(`UPDATE diy_my_projects SET project_status=${projectStatus} WHERE user_id=${req.user.id} AND project_id=${req.body.projectId} RETURNING project_status`)
+  db.one(`UPDATE diy_my_projects SET project_status=$1 WHERE user_id=$2 AND project_id=$3 RETURNING project_status`, [projectStatus, req.user.id, req.projectId])
   .then(data => {
     res.send({status: 'success'});
   })
   .catch(error => {
-    db.one(`INSERT INTO diy_my_projects (user_id, project_id, project_status) VALUES (${req.user.id}, ${req.body.projectId}, ${projectStatus}) RETURNING project_status`)
+    db.one(`INSERT INTO diy_my_projects (user_id, project_id, project_status) VALUES ($1, $2, $3) RETURNING project_status`, [req.user.id, req.body.projectId, projectStatus])
     .then(data => {
       res.send({status: 'success'});
     })
