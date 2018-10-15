@@ -11,7 +11,7 @@ let authenticate = (req, res) => {
       diy_users
     WHERE
     email = $1 and password = $2;`,
-    [req.body.email, req.body.password]
+    [req.body.email.toLowerCase(), req.body.password]
   )
   .then(data => {
     let token = jwt.sign({ id: data.id, first: data.first_name, avatar: data.avatar_file }, secret, { expiresIn: "7d" });
