@@ -11,11 +11,11 @@ import { Link } from 'react-router-dom';
 let MyProfile = (props) =>
     <div className="pageLayout">
         <NavBar />
-        <div className="collaborations">
-            {props.user.collaborations && props.user.collaborations.map(collaboration => (
+        {props.user.collaborations && props.user.collaborations.length > 0 && <div className="collaborations">
+            {props.user.collaborations.map(collaboration => (
                 <div><i class="fa fa-exclamation-triangle red" aria-hidden="true"></i> Request for collaboration on <Link className="collaborations-link" to={`/editproject/${collaboration.project_id}`}>{collaboration.project_title}</Link></div>
             ))}
-        </div>
+        </div>}
         <HeadLogo />
     
         <img className="profileImg" src={`${url}/uploads/avatar/${props.user.avatar}`} alt="profilepic" />

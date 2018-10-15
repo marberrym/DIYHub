@@ -48,6 +48,7 @@ let postAuth = (data, callback, dispatch) => {
                     name: response.name,
                     id: response.id,
                     avatar: response.avatar,
+                    collaborations: response.collaborations
                 }})
         }
     })

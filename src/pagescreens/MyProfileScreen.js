@@ -55,7 +55,8 @@ class MyProfileScreen extends Component {
                                     name: response.name,
                                     id: response.id,
                                     avatar: response.avatar,
-                                    stats: this.state.stats
+                                    stats: this.state.stats,
+                                    collaborations: response.collaborations
                             }})
                         }
                     })
