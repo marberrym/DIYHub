@@ -36,7 +36,8 @@ let approveCollab = (projectId, userid, method, dispatch) => {
 }
 
 let CollabRequest = (props) =>
-    <div>{`${capitalize(props.collab.first_name)} ${capitalize(props.collab.last_name)}`}
+    <div className="collab-list">
+        <div className="collab-name">{`${capitalize(props.collab.first_name)} ${capitalize(props.collab.last_name)}`}</div>
         <button className="collabBtn" onClick={event => 
             approveCollab(props.projectId, props.collab.id, 'approve', props.dispatch)}>Accept</button>
         <button className="collabBtn remove" onClick={event =>

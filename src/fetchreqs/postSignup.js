@@ -1,6 +1,6 @@
 import url from '../globalVars';
 
-let postSignup = (dispatch, data, callback) => 
+let postSignup = (dispatch, data, redirect, cb) => 
     fetch(url + "/signup", {
         method: "POST",
         body: data
@@ -11,11 +11,12 @@ let postSignup = (dispatch, data, callback) =>
             dispatch({
                 type: 'SET_TOAST',
                 toast: {
-                    text: 'You are registered!  Please sign in.',
+                    text: 'You are registered!',
                     type: 'success'
                 }
             });
-            callback('/')
+            redirect('/');
+            cb();
         } else {
             dispatch({
                 type: 'SET_TOAST',

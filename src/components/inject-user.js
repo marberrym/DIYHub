@@ -28,7 +28,7 @@ let getUser = (dispatch, token) => {
           name: '',
           id: '',
           avatar: '',
-          collaborations: ''
+          collaborations: []
         }
       });
     }
