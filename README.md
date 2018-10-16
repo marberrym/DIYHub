@@ -40,6 +40,9 @@ DIYHub is a react application developed by Matthew Marberry and Ian Gornall.  DI
 * Amazon Web Services for deployment.
 
 # <div style="text-align: center">Design Inspiration</div>
+When developing DIYHub we wanted to go with a sleek and clean design with a custom built logo for our React App.  DIYHub went through many design iterations, eventually we settled on a muted yellow, grey white and blue design theme.
+
+<div style="text-align: center"><img src="./public/images/DIYHubLogo.png" height="150px"></div>
 
 # <div style="text-align: center">Core Features</div>
 When developing DIYHub a very specific list of core features was kept in mind.  These features include but are not limited to:
@@ -185,6 +188,129 @@ After a user has requested to collaborate it is up to the owner to approve or de
 After a collaborator is added to the project, they have the power to publish, unpublish and edit the project.  Only the owner has the ability to approve or remove collaborators.  Only the owner has the ability to delete the project.
 
 # Challenges
+
+In this project we had two main challenges:
+
+1. Looping through the steps and images on the back end with multer.
+```javascript
+    if (req.body.step_title) {
+        if (typeof req.body.step_title === 'string') {
+            req.body.step_title = [req.body.step_title];
+            req.body.step_text = [req.body.step_text];
+            req.body.step_order = [req.body.step_order];
+        }
+        let stepDelete = await db.query(`DELETE FROM diy_steps WHERE project_id=${req.params.id}`);
+        let stepDataInsert = '';
+        let imageIndex = 0;
+        if (typeof req.body.step_image_name === 'string') {
+            req.body.step_image_name = [req.body.step_image_name];
+        }
+        for (let i = 0; i < req.body.step_title.length; i++){
+            let step = {
+                step_title: req.body.step_title[i],
+                step_text: req.body.step_text[i],
+                step_order: req.body.step_order[i],
+        };
+        if (req.body.step_image_name[i] === 'new') {
+            step.step_image_file = req.files.step_images[imageIndex].filename;
+            imageIndex++;
+        } else {
+            step.step_image_file = req.body.step_image_name[i];
+        }
+        stepDataInsert += ` (${req.params.id}, ${step.step_order}, '${step.step_image_file || 'project.png'}', '${step.step_title}', '${step.step_text}'),`;
+        }
+        let stepQuery = await db.query(`INSERT INTO diy_steps (project_id, step_order, step_image_file, step_title, step_text) VALUES${stepDataInsert.slice(0,-1)}`);
+    }
+```
+
+## 2. Collaboration
+
+Collaboration was a tricky aspect of DIYHub for us to deal with.  One aspect that was particularly difficult was querying our backend server/database for projects where it would include a count of the requests for collaboration so we could use these numbers as notifications.
+```javascript
+    else if (projectStatus === 4 || projectStatus === 5) {
+        db.query(`SELECT diy_projects.id, project_title, feature_image_file, publish_status, 
+        time_range, cost_range, COUNT(diy_collaborators.id) as requests
+        FROM diy_projects LEFT JOIN diy_collaborators ON diy_collaborators.project_id = diy_projects.id
+        WHERE diy_projects.user_id=${req.user.id} AND (diy_collaborators.collab_status=1 OR diy_collaborators.collab_status IS NULL) AND diy_projects.publish_status=${projectStatus}
+        GROUP BY diy_projects.id`) 
+        .then(data => {
+        responseData.status = 'success'
+        responseData.projectList = data;
+        res.send(responseData)
+        }
+        ).catch(error => {
+        res.send({status: 'error'})
+        })
+    }
+```
+On the front end we had to be able to discern the collaborators that got passed down from our back end.  Our backend would pass us back a list of collaborators for any given project.  The collaborators could have a collab_status of either one or two depending on whether or not they were approved by the creator of the project.  The number of collabrequests was used in various components in order to display notifications and it got to be very tricky to get the correct information from the database.
+```js
+let activecollabs;
+let collabrequests;
+    if (props.collaborators) {
+        activecollabs = props.collaborators.filter(collab => collab.collab_status === 2);
+        collabrequests = props.collaborators.filter(collab => collab.collab_status === 1);
+    } else {
+        null;
+    }
+
+return <div className="postProjectFormH">
+    <div className="formVert">
+        <div>
+            {props.collaborators ?
+                activecollabs.length > 0 ?
+                    <div>This project has {activecollabs.length}
+                        {activecollabs.length === 1 ?
+                            <span> collaborator.</span>
+                        :
+                            <span> collaborators.</span>}
+                    </div>
+                :
+                    <div>This project doesn't have any collaborators.</div>
+            :
+                <div>
+                    This project doesn't have any collaborators.
+                </div>
+            } 
+        </div>
+        <div>
+            {props.user === props.owner ?
+                collabrequests.length > 0 ?
+                    <div>There is {collabrequests.length}
+                        {collabrequests.length === 0 ?
+                            <span>
+                                <span> request for collaboration.</span>
+                                <CollabRequest collab={collabrequests[0]}/>
+                            </span>
+                        :
+                            <span> 
+                                <span> requests for collaboration.</span>
+                                {collabrequests.map(collab => <CollabRequest collab={collab}/>)}
+                            </span>}
+                    </div>
+                :
+                    <div>There are no requests for collaboration.</div>
+            :
+                null
+            }
+        </div>
+    </div>
+```
+Collaborators were given access to edit any projects that they were approved to edit, however we did not want a collaborator to be able to approve other collaborators or delete the project.  These were decisions that were reserved for the project creator/original owner.  This required us to test whether or not the person who was editing the project was the original owner of the project or not.  This logic was then used in multiple places throughout the project in order to discern collaborator and owner.
+```javascript
+    {props.owner === props.user.id ?
+        <div className="deleteButtonContainer">
+            <button className="submitBtn remove" onClick={event => props.deleteProject()}>Delete Project</button>
+        </div>
+    :
+        null
+    }
+    <MaterialModal {...props} />
+
+    let EditProjectSmart = connect(state => ({user: state.user}))(EditProject)
+    export default EditProjectSmart;
+```
+In the end tackling the challenge of collaboration was difficult, yet rewarding.  It was an amazing learning experience for the team and we worked very hard to provide an amazing feature that give DIYHub the collaborative capabilities we wanted it to have.  We worked hard for the sake of the UX.
 
 
 # Bootstrapping
