@@ -1,6 +1,6 @@
 # <a href="http://diyhub.fun"><strong><div style="text-align: center;">DIYHub</div></a>
 ## <div style="text-align: center;">Creations & Inspirations.</strong></div>
-<div style="text-align: center;"><img src="./markdownimgs/DIYHUBSS2.png" height="200px"></div>
+<div style="text-align: center;"><img src="./markdownimgs/DIYHUBSS2.png" height="300px"></div>
 
 ### Contributors:
 * Matthew Marberry 
@@ -140,10 +140,31 @@ After inputing a material name and clicking 'find material' a modal will pop up 
 
 The user also has a tab for collaboration which will be covered later in the README.
 
+Once the user chooses to publish their project - it will be available for other users to see.
 
-They can also start projects and save their progress before publishing their project.
+<div style="text-align: center">
+    <img src="./markdownimgs/diy-published.png" height="150px">
+    <img src="./markdownimgs/diy-amazon.png" height="150px">
+</div>
 
-All projects start in an unpublished state - they will remain unpublished until the user chooses to publish their project.  Once start
+The post will also be populated with a 'What You Will Need' section which will link to an automatically generated Amazon cart with the required materials.
+
+Users are able to edit, publish and unpublish projects at will.  They can see their profile statistics under their personal profile page.
+
+## Profile Statistics
+
+Upon clicking on the profile link at the top of the page the user will be sent to their 'My Profile' section where they can view their profile statistics.
+
+<div style="text-align: center">
+    <img src="./markdownimgs/diy-profile.png" height="150px">
+    <img src="./markdownimgs/diy-profilestats.png" height="150px">
+</div>
+
+On the My Profile page users can view their current avatar and change it with a locally uploaded image file.  Under their avatar update section they can see their profile statistics which show a log of their current creations and inspirations.
+
+This is also where users can 
+
+
 
 
 
