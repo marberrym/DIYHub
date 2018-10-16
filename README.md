@@ -52,7 +52,7 @@ When developing DIYHub a very specific list of core features was kept in mind.  
 ## Searching Projects
 Browsing and searching through posts was the most critical core feature of our project.  Without a way for the user to navigate through posts, not much else would have mattered.  From the initial home-page our user could click on one of the feature projects to be directly linked to that project, or they could click the 'Browse Posts' button.
 
-<div style="text-align:center">
+<div align="center">
     <img src="./markdownimgs/DIYHUBSS2.png" height="150px">
     <img src="./markdownimgs/diy-browse.png" height="150px">
 </div>
