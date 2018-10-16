@@ -31,14 +31,14 @@
 
 
 # <div align="center">Overview</div>
-DIYHub is a react application developed by Matthew Marberry and Ian Gornall.  DIYHub was developed as a place to provide the user with creations and inspirations.  DIYHub is an environment where users can go to share new DIY projects they are working on, or draw inspiration from previously posted projects.  DIYHub is a community that focuses on collaboration between its userbase - allowing users to provide feedback to one another, log their favorite projects and even collaborate with other users to build on the progress of posted projects.
+DIYHub is a react application developed by Matthew Marberry and Ian Gornall.  DIYHub was developed as a place to provide the user with creations and inspirations.  DIYHub is an environment where users can go to share new DIY projects they are working on, or draw inspiration from previously posted projects.  DIYHub is a community that focuses on collaboration between its user base - allowing users to provide feedback to one another, log their favorite projects and even collaborate with other users to build on the progress of posted projects.
 
 # <div align="center">Technologies Used</div>
 * React for front end development.
 * Redux for state management.
 * Node.js for back end development.
 * Express for router patterns.
-* PostgreSQL for database managment.
+* PostgreSQL for database management.
 * Amazon Web Services for deployment.
 
 # <div align="center">Design Inspiration</div>
@@ -57,7 +57,7 @@ Browsing and searching through posts was the most critical core feature of our p
     <img src="./markdownimgs/diy-browse.png" height="150px">
 </div>
 
-Once at the browse screen the user has the option to scroll through the submited posts. Each of the cards will display the DIY project's title and expected cost in terms of time and money.  Users can then click on the desired post to learn more about the project.
+Once at the browse screen the user has the option to scroll through the submitted posts. Each of the cards will display the DIY project's title and expected cost in terms of time and money.  Users can then click on the desired post to learn more about the project.
 
 <div align="center">
     <img src="./markdownimgs/diy-project.png" height="150px">
@@ -125,7 +125,7 @@ DIYHub will then ask for some basic information to get started on your project, 
     <img src="./markdownimgs/diy-projectoverview.png" height="150px">
 </div>
 
-Once on the project managment page the user can begin to edit their project.  All projects start with a status of unpublished and will remain private until the user decides to publish their project.  The user may now begin adding steps to their project under the steps tab.
+Once on the project management page the user can begin to edit their project.  All projects start with a status of unpublished and will remain private until the user decides to publish their project.  The user may now begin adding steps to their project under the steps tab.
 
 <div align="center">
     <img src="./markdownimgs/diy-submitsteps.png" height="150px">
@@ -141,7 +141,7 @@ Next let's take a look at finding materials for the project.  On the materials t
     <img src="./markdownimgs/diy-materiallist.png" height="150px">
 </div>
 
-After inputing a material name and clicking 'find material' a modal will pop up with the Amazon results best matching that description.  After choosing an item, the user then can define a quantity of that item needed.  Users can add and remove as many materials as neccessary.  
+After inputting a material name and clicking 'find material' a modal will pop up with the Amazon results best matching that description.  After choosing an item, the user then can define a quantity of that item needed.  Users can add and remove as many materials as necessary.  
 
 The user also has a tab for collaboration which will be covered later in the README.
 
@@ -398,7 +398,7 @@ Inside your cloned repo run
 ```bash
 npm install
 ``` 
-Create a local PostgreSQL Database, if you are on MacOS I reccomend using Homebrew to install postgreSQL:
+Create a local PostgreSQL Database, if you are on MacOS I recommend using Homebrew to install postgreSQL:
 
 * First start by installing postgresql
 ```bash
@@ -435,7 +435,7 @@ In your main repo you can now run this code in order to start your server:
     node server.js
 ```
 
-In a seprate terminal window you can now run to run the development build of the React App.
+In a separate terminal window you can now run to run the development build of the React App.
 ```bash
     npm start
 ```
