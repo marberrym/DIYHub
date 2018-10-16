@@ -7,6 +7,7 @@ import Avatar from './Avatar';
 import Loader from './Loader';
 import { getStats } from './inject-stats';
 import { Link } from 'react-router-dom';
+import { capitalize } from './singleproject/PostedComment'
 
 let MyProfile = (props) =>
     <div className="pageLayout">
@@ -30,10 +31,10 @@ let MyProfile = (props) =>
         </form>
         {props.user.stats ?
         <div className="myprofile">
-            <h3>{props.user.name}'s Creations</h3>
+            <h3>{capitalize(props.user.name)}'s Creations</h3>
             <div>You have {props.user.stats.published} published projects.</div>
             <div>You have {props.user.stats.unpublished} unpublished projects.</div>
-            <h3>{props.user.name}'s Inspirations</h3>
+            <h3>{capitalize(props.user.name)}'s Inspirations</h3>
             <div>You have {props.user.stats.inprogress} projects you are currently working on.</div>
             <div>You have {props.user.stats.todo} projects you plan to work on soon.</div>
             <div>You have {props.user.stats.completed} projects you have completed on DIYHub.</div>
