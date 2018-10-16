@@ -162,7 +162,88 @@ Upon clicking on the profile link at the top of the page the user will be sent t
 
 On the My Profile page users can view their current avatar and change it with a locally uploaded image file.  Under their avatar update section they can see their profile statistics which show a log of their current creations and inspirations.
 
-This is also where users can 
+This is also where users can view new collaboration requests.
+
+## Collaboration
+
+Collaboration was one of the most important aspects behind the formation of DIYHub.  DIYHub wants to be a place where people can come together and work with each other to make some truly unique DIY projects.  Users who are logged in have the option of requesting to collaborate with a different user on a given project.  They can push the button to request collaboration, and upon approval they can edit the projects.
+
+<div style="text-align: center">
+    <img src="./markdownimgs/diy-collabbtn.png" height="150px">
+    <img src="./markdownimgs/diy-collabrequest.png" height="150px">
+</div>
+
+After a user has requested to collaborate it is up to the owner to approve or deny the collaboration request.
+
+<div style="text-align: center">
+    <img src="./markdownimgs/diy-notification.png" height="150px">
+    <img src="./markdownimgs/diy-newcollabs.png" height="150px">
+    <img src="./markdownimgs/diy-approved.png" height="150px">
+    <img src="./markdownimgs/diy-newcollab.png" height="150px">
+</div>
+
+After a collaborator is added to the project, they have the power to publish, unpublish and edit the project.  Only the owner has the ability to approve or remove collaborators.  Only the owner has the ability to delete the project.
+
+# Challenges
+
+
+# Bootstrapping
+
+Would you like to experiment or try this project yourself?  Awesome, we can tell you how.  FYI for this project to run on your machine properly, you will need an Amazon API key.
+
+First run a git clone on this repository.
+```bash
+git clone https://github.com/marberrym/DIYHub.git
+```
+Inside your cloned repo run 
+```bash
+npm install
+``` 
+Create a local PostgreSQL Database, if you are on MacOS I reccomend using Homebrew to install postgreSQL:
+
+* First start by installing postgresql
+```bash
+    brew install postgresql
+```
+
+* Next create a database called diyhub 
+```bash
+    psql createdb diyhub
+```
+
+* Run schema.sql & seeddata.sql from the src folder
+```bash
+    psql -d diyhub -f schema.sql
+    psql -d diyhub -f seeddata.sql
+```
+
+Create a <nr>```env.sh```<nr> file which will live in the main folder.
+```sh 
+    export JWTSECRET="Your personal encryption key"
+    export DB_USER="Your computer username"
+    export url="http://localhost:5000/"
+    export AWS_ACCESS_KEY_ID="Your Amazon Access Key"
+    export AWS_SECRET="Your AWS Secret"
+```
+In your SRC folder create a filed called globalVars.js, inside paste:
+```javascript
+    const url = "http://localhost:5000"
+    export default url;
+```
+
+In your main repo you can now run this code in order to start your server:
+```bash
+    node server.js
+```
+
+In a seprate terminal window you can now run to run the development build of the React App.
+```bash
+    npm start
+```
+    
+
+
+
 
 
 
