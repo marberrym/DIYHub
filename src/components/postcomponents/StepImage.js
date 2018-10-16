@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageUploader from 'react-images-upload';
 import url from '../../globalVars';
+import ExifOrientationImg from 'react-exif-orientation-img';
 
 let StepImage = (props) => (
     <div className="formVert">
@@ -14,11 +15,11 @@ let StepImage = (props) => (
         />
         {props.url ?
         <div className="image-container">
-            <img className="image-preview" src={props.url} />
+            <ExifOrientationImg className="image-preview" src={props.url} />
         </div> :
         props.image && typeof props.image === 'string' && 
         <div className="image-container">
-            <img className="image-preview" src={url + '/uploads/project/' + props.image} />
+            <ExifOrientationImg className="image-preview" src={url + '/uploads/project/' + props.image} />
         </div>}
     </div>
 );

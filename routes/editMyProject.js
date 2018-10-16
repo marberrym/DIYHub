@@ -7,7 +7,7 @@ let editMyProject = (req, res) => {
     let projectData = {};
 
     let project = db.one(
-        `SELECT diy_projects.id AS id, first_name, last_name, user_id AS owner, creation_date, project_title, publish_status, feature_image_file, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id = ${projectId}`
+        `SELECT diy_projects.id AS id, first_name, last_name, user_id AS owner, creation_date, project_title, publish_status, feature_image_file, time_range, cost_range, project_description FROM diy_projects INNER JOIN diy_users ON diy_projects.user_id = diy_users.id WHERE diy_projects.id = $1`, projectId
       )
       let steps = db.query(
         `SELECT step_order, step_image_file, step_title, step_text FROM diy_steps WHERE project_id=$1 ORDER BY step_order`, projectId
@@ -22,11 +22,11 @@ let editMyProject = (req, res) => {
     
       Promise.all([project, steps, materials, collaborators])
     .then(data => {
-    projectData.project = data[0];
-    projectData.steps = data[1];
-    projectData.materials = data[2];
-    projectData.collaborators = data[3];
-    res.send(projectData);
+      projectData.project = data[0];
+      projectData.steps = data[1];
+      projectData.materials = data[2];
+      projectData.collaborators = data[3];
+      res.send(projectData);
     })
     .catch(err => console.log(err));
 
