@@ -3,7 +3,7 @@ const db = require('../database');
 let updateProject = async (req, res) => {
   let projectId = await db.query(`UPDATE diy_projects SET project_title=$1, time_range=$2, cost_range=$3, project_description=$4 WHERE id=$5`, [req.body.title, req.body.time, req.body.cost, req.body.description, req.params.id]);
   if (req.files['feature_image']) {
-    db.none(`UPDATE diy_projects SET feature_image_file=$1 WHERE id=$2`, [req.files['feature_image'][0].filename]);
+    db.none(`UPDATE diy_projects SET feature_image_file=$1 WHERE id=$2`, [req.files['feature_image'][0].filename, req.params.id]);
   }
 
   if (req.body.step_title) {
@@ -49,7 +49,6 @@ let updateProject = async (req, res) => {
         amazon_asin: req.body.amazon_asin[j]
       }
       try {
-        console.log(`SELECT id from diy_materials WHERE amazon_asin='${material.amazon_asin}'`)
         let materialId = await db.one(`SELECT id from diy_materials WHERE amazon_asin=$1`, material.amazon_asin);
         let materialBridgeQuery = await db.query(`INSERT INTO diy_materials_bridge (project_id, material_id, quantity) VALUES ($1, $2, $3)`, [req.params.id, materialId.id, material.quantity]);
       } catch(error) {

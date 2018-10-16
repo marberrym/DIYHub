@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageUploader from 'react-images-upload';
+import ExifOrientationImg from 'react-exif-orientation-img';
 
 export default class Avatar extends React.Component {
 
@@ -59,7 +60,7 @@ export default class Avatar extends React.Component {
                 />
                 {this.state.url &&
                 <div className="avatar-round">
-                    <img className="image-preview-round" src={this.state.url} />
+                    <ExifOrientationImg className="image-preview-round" src={this.state.url} />
                 </div>}
             </div>
         );

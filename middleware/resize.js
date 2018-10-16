@@ -5,6 +5,7 @@ let resize = (x, y, fit) => {
   return (req, res, next) => {
     let resizeFile = (path) => {
       return sharp(path)
+      .rotate()
       .resize(x, y, {fit: fit || 'outside'})
       .toBuffer()
       .then((data) => {
