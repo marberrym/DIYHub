@@ -9,7 +9,7 @@
     * [Github](https://www.github.com/marberrym) 
     * [marberrym@gmail.com](mailto:marberrym@gmail.com)
 * Ian Gornall
-    * [Github](#https://www.github.com/iangornall)
+    * [Github](https://www.github.com/iangornall)
     * [ian.gornall@gmail.com](mailto:ian.gornall@gmail.com)
 * Nathan Reese
 
