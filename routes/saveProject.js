@@ -8,7 +8,7 @@ let saveProject = (req, res) => {
     'completed': 3
   }
   let projectStatus = projectStatusTable[req.body.status];
-  db.one(`UPDATE diy_my_projects SET project_status=$1 WHERE user_id=$2 AND project_id=$3 RETURNING project_status`, [projectStatus, req.user.id, req.projectId])
+  db.one(`UPDATE diy_my_projects SET project_status=$1 WHERE user_id=$2 AND project_id=$3 RETURNING project_status`, [projectStatus, req.user.id, req.body.projectId])
   .then(data => {
     res.send({status: 'success'});
   })
