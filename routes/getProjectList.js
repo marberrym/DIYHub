@@ -22,9 +22,9 @@ let getProjectList = (req, res) => {
     sqlConditional += `AND time_range=${req.query.time} `
     sqlArray.push(req.query.time);
   }
-  console.log(`SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date`);
+  console.log(`SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date DESC`);
   db.query(
-    `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date`, sqlArray
+    `SELECT id, project_title, feature_image_file, time_range, cost_range FROM diy_projects WHERE ${searchConditional}${sqlConditional}ORDER BY creation_date DESC`, sqlArray
   )
   .then(data => {
     responseData.status = 'success'
