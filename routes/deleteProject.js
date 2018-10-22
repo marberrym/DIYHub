@@ -22,7 +22,7 @@ let deleteProject = (req, res) => {
                 }
             }
         })
-    }))
+    })
     .then(
     db.one(`DELETE FROM diy_projects WHERE id=$1 RETURNING feature_image_file`, projectId)
     .then(data => {
@@ -33,7 +33,7 @@ let deleteProject = (req, res) => {
                 console.log(err);
             }
         }
-    }))
+    })))
     .then(
         res.send({status: 'success'})
     )
