@@ -7,10 +7,12 @@ let deleteProject = (req, res) => {
     db.query(`DELETE FROM diy_steps WHERE project_id=$1 RETURNING step_image_file`, projectId)
     .then((data) => {
         data.forEach(file => {
-            try {
-                fs.unlinkSync("uploads/project/" + file.step_image_file);
-            } catch(err) {
-                console.log(err);
+            if (file.step_image_file !== 'project.png') {
+                try {
+                    fs.unlinkSync("uploads/project/" + file.step_image_file);
+                } catch(err) {
+                    console.log(err);
+                }
             }
         })
         db.none(`DELETE FROM diy_materials_bridge WHERE project_id=$1`, projectId);
@@ -18,10 +20,12 @@ let deleteProject = (req, res) => {
     .then(
     db.one(`DELETE FROM diy_projects WHERE id=$1 RETURNING feature_image_file`, projectId)
     .then(data => {
-        try {
-            fs.unlinkSync("uploads/project/" + data.feature_image_file);
-        } catch(err) {
-            console.log(err);
+        if (data.feature_image_file !== 'project.png'){
+            try {
+                fs.unlinkSync("uploads/project/" + data.feature_image_file);
+            } catch(err) {
+                console.log(err);
+            }
         }
     }))
     .then(
