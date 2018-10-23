@@ -4,8 +4,10 @@ insert into diy_users (first_name, last_name, email, password, avatar_file) VALU
 ('Jack', 'Torrance','caretaker@overlook.com','advocat123','bulb.png'),
 ('Randal', 'Flagg','captain@trips.com','boopboop123','bulb.png'),
 ('King Matt', 'Demagogue', 'matty@mattypie.com', 'matt','bulb.png'),
-('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png'),
-('Matt', 'Marberry', 'marberrym@gmail.com', 'wolfwood1', 'bulb.png');
+('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png');
+
+insert into diy_users (first_name, last_name, email, password, avatar_file, admin) VALUES
+('Matt', 'Marberry', 'marberrym@gmail.com', 'diyhubrox', 'bulb.png', 1);
 
 insert into diy_categories (category_title) VALUES
 ('Food'),

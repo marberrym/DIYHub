@@ -1,4 +1,5 @@
 const db = require('../database');
+const jwt = require('jsonwebtoken')
 
 let protectProject = (type) => {
   return (req, res, next) => {
@@ -9,6 +10,16 @@ let protectProject = (type) => {
           next();
         } else {
           res.send({status: 'error'});
+        }
+      })
+    } else if (type === 'admin') {
+      let decoded = jwt.decode(req.headers.token)
+      db.one(`SELECT admin FROM diy_users WHERE id=${decoded.id}`)
+      .then(data => {
+        if (data.admin === 1) {
+          next();
+        } else {
+          res.send({status: 'error'})
         }
       })
     } else if (type === 'collaborator') {
