@@ -39,8 +39,10 @@ let BrowsePost = (props) =>
             </Link>
             {props.user.admin === 1 ?
                 <button className="button remove" onClick={ event => {
-                    fetch(`${url}/project/${props.project.id}`, {
-                        headers: {token: localStorage.token},
+                    fetch(`${url}/adminproject/${props.project.id}`, {
+                        headers: {
+                            token: localStorage.token,  
+                        },
                         method: "DELETE"
                     })
                     .then(response => response.json())

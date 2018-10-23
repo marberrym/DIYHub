@@ -160,7 +160,9 @@ class EditProjectScreen extends Component {
         let deleteProject = () => {
             fetch(`${url}/project/${this.props.match.params.projectid}`, {
                 method: "DELETE",
-                headers: {token: localStorage.token}
+                headers: {
+                    token: localStorage.token,
+                }
             })
             .then(response => response.json())
             .then(response => {
