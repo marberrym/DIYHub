@@ -8,7 +8,8 @@ CREATE TABLE diy_users (
     last_name  varchar(200) NOT NULL,
     email varchar(200) UNIQUE NOT NULL,
     avatar_file varchar(255),
-    password varchar(200) NOT NULL
+    password varchar(200) NOT NULL,
+    admin INTEGER
 );
 
 CREATE TABLE diy_categories (
