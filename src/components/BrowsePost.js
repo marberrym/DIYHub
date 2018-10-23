@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import timeRange from './timeRange';
 import priceRange from './priceRange';
 import url from '../globalVars';
-import { withRouter } from 'react-router-dom';
 
 let BrowsePost = (props) =>
     props.project.publish_status ?
@@ -68,7 +67,7 @@ let BrowsePost = (props) =>
             }
         </div>
 
-let BrowsePostSmart = connect(state =>({user: state.user}))(withRouter(BrowsePost))
+let BrowsePostSmart = connect(state =>({user: state.user}))(BrowsePost)
 
 
 export default BrowsePostSmart;

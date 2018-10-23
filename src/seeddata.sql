@@ -7,7 +7,7 @@ insert into diy_users (first_name, last_name, email, password, avatar_file) VALU
 ('Stanley', 'Kubrick', 'theshining@shining.com', 'shining','bulb.png');
 
 insert into diy_users (first_name, last_name, email, password, avatar_file, admin) VALUES
-('Matt', 'Marberry', 'marberrym@gmail.com', 'wolfwood1', 'bulb.png', 1);
+('Matt', 'Marberry', 'marberrym@gmail.com', 'diyhubrox', 'bulb.png', 1);
 
 insert into diy_categories (category_title) VALUES
 ('Food'),
