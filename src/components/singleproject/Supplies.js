@@ -19,11 +19,11 @@ let Supplies = (props) => {
         </div>
         
         <div className="amazonList">
-        {props.supplies.map(supply => 
-            <div key={supply.amazon_asin} className="supplyList">
-                <div className="supplyTitle">{supply.title.substring(0, 25)}</div>
-                <div>Quantity: {supply.quantity}</div>
-            </div>)}
+            {props.supplies.map(supply => 
+                <div key={supply.amazon_asin} className="supplyList">
+                    <div className="supplyTitle">{supply.title.substring(0, 25)}</div>
+                    <div>Quantity: {supply.quantity}</div>
+                </div>)}
         </div>
     </div>
     );
