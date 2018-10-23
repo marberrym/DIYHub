@@ -300,12 +300,9 @@
 
 .materials {
     border: 1px solid var(--border-black);
-    display: flex;
-    flex-direction: column;
     flex-basis: 80%;
     min-width: 13em;
     max-height: 30em;
-    overflow-y: scroll;
 }
 
 .commentHead {
@@ -325,10 +322,15 @@
     font-size: .7em;
 }
 
+.amazonList {
+    max-height: 30em;
+    overflow-y: scroll;
+    width: 100%;
+}
+
 .supplyList {
     text-align: left;
     width: 100%;
-    margin: .5em;
 }
 
 .materialListHeader, .stepListHeader, .stepHeader, .supplyTitle, .materialHead {

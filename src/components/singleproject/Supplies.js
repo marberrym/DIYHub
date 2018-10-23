@@ -9,6 +9,7 @@ let Supplies = (props) => {
     queryString = queryString.slice(0, -1);
     return (
     <div className="materials">
+        
         <div className="materialHead">What You Will Need:</div>
         <div className="shop-link-container">
             <a className="shop-link" href={`https://www.amazon.com/gp/aws/cart/add.html?${queryString}`}>
@@ -17,11 +18,13 @@ let Supplies = (props) => {
             </a>
         </div>
         
+        <div className="amazonList">
         {props.supplies.map(supply => 
             <div key={supply.amazon_asin} className="supplyList">
                 <div className="supplyTitle">{supply.title.substring(0, 25)}</div>
                 <div>Quantity: {supply.quantity}</div>
             </div>)}
+        </div>
     </div>
     );
 }
