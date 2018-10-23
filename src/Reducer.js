@@ -6,7 +6,8 @@ let loadproject = (oldState, action) => ({...oldState, project: action.project})
 let settoast = (oldState, action) => ({...oldState, toast: action.toast})
 let loadedit = (oldState, action) => ({...oldState, edit: action.edit})
 let loadamazon = (oldState, action) => ({...oldState, amazonSearch: action.items})
-let loaduserstats = (oldState, action) => ({...oldState, user: {...oldState.user, stats: action.stats}}) 
+let loaduserstats = (oldState, action) => ({...oldState, user: {...oldState.user, stats: action.stats}})
+let removeproject = (oldState, action) => ({...oldState, projects: [...oldState.projects.filter(project => project.id !== action.id)]}) 
 
 let actionRouter = {
     "LOGOUT": logout,
@@ -17,7 +18,8 @@ let actionRouter = {
     "SET_TOAST": settoast,
     "LOAD_EDIT": loadedit,
     "LOAD_AMAZON": loadamazon,
-    "LOAD_USER_STATS": loaduserstats
+    "LOAD_USER_STATS": loaduserstats,
+    "REMOVE_PROJECT": removeproject
 }
 
 let reducer = (oldState, action) => {

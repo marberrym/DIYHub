@@ -67,7 +67,7 @@ app.get('/project/featured', getFeatured);
 app.get('/project/my', protect, getMyProjects);
 app.get('/project/:id', getProject);
 app.get('/project', getProjectList);
-app.delete('/project/:id', protect, protectProject('author'), deleteProject);
+app.delete('/project/:id', protect, deleteProject);
 app.get('/editproject/:id', protect, protectProject('collaborator'), editMyProject);
 app.post('/editproject/:id', protect, protectProject('collaborator'), uploadProject.fields([{ name: 'feature_image', maxCount: 1 }, { name: 'step_images' }]), resize(1200, 400), updateProject);
 app.post('/project', protect, postProject);
