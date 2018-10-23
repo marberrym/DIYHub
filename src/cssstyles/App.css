@@ -302,6 +302,7 @@
     border: 1px solid var(--border-black);
     flex-basis: 80%;
     min-width: 13em;
+    max-height: 30em;
 }
 
 .commentHead {
@@ -321,15 +322,24 @@
     font-size: .7em;
 }
 
+.amazonList {
+    max-height: 30em;
+    overflow-y: scroll;
+    width: 100%;
+}
+
 .supplyList {
     text-align: left;
     width: 100%;
-    margin: .5em;
 }
 
 .materialListHeader, .stepListHeader, .stepHeader, .supplyTitle, .materialHead {
     font-weight: bolder;
     font-size: 1.3em;
+}
+
+.supplyTitle {
+    font-size: 1.1em;
 }
 
 .topPostSection {
@@ -612,7 +622,7 @@
 .mainPostHead {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -664,9 +674,13 @@
 
 
 .headerMainPost {
+    margin-top: 2em;
+    padding: 1em;
     flex-basis: 65%;
     min-width: 20em;
     margin-left: 2em;
+    max-height: 30em;
+    overflow-y: scroll;
 }
 
 .mainHead {
