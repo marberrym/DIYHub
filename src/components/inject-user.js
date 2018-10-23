@@ -18,7 +18,8 @@ let getUser = (dispatch, token) => {
           name: data.name,
           id: data.id,
           avatar: data.avatar,
-          collaborations: data.collaborations
+          collaborations: data.collaborations,
+          admin: data.admin
         }
       });
     } else {
@@ -28,7 +29,8 @@ let getUser = (dispatch, token) => {
           name: '',
           id: '',
           avatar: '',
-          collaborations: []
+          collaborations: [],
+          admin: null
         }
       });
     }
