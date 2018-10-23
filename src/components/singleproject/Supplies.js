@@ -10,15 +10,16 @@ let Supplies = (props) => {
     return (
     <div className="materials">
         <div className="materialHead">What You Will Need:</div>
-                <div className="shop-link-container">
-                <a className="shop-link" href={`https://www.amazon.com/gp/aws/cart/add.html?${queryString}`}>
-                    <img className="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg" alt="amazonlogo"/>
-                    <br /><div>Add to Cart!</div>
-                </a>
-            </div>
-            {props.supplies.map(supply => 
+        <div className="shop-link-container">
+            <a className="shop-link" href={`https://www.amazon.com/gp/aws/cart/add.html?${queryString}`}>
+                <img className="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Amazon_logo_plain.svg" alt="amazonlogo"/>
+                <br /><div>Add to Cart!</div>
+            </a>
+        </div>
+        
+        {props.supplies.map(supply => 
             <div key={supply.amazon_asin} className="supplyList">
-                <div className="supplyTitle">{supply.title}</div>
+                <div className="supplyTitle">{supply.title.substring(0, 25)}</div>
                 <div>Quantity: {supply.quantity}</div>
             </div>)}
     </div>
