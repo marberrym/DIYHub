@@ -10,8 +10,8 @@ let AboutPost = () =>
             is how to best allocate their time.  Here at DIYHub we understand your need to create, innovate
             and collaborate.  We're here to encourage you to challenge yourself and grow, even if you have limited
             time or money to invest.
-            
         </p>
+        <p className="amazon-disclaimer">* As an Amazon Associate, we earn from qualifying purchases.</p>
     </div>
 
 export default AboutPost;
